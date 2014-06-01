@@ -14,5 +14,5 @@
  *= require_self
  */
 
-@import "variables.css.scss";
+@import "variables.scss";
 @import "common.css.scss";

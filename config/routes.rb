@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
-  get 'photos/index' => 'photos#index'
-
-  get 'our_story/index' => 'our_story#index'
 
   root 'home#index'
 
   resources :users
   resources :photos
+  resources :our_story
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
