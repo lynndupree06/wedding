@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+
+@import "variables.css.scss";
+@import "common.css.scss";

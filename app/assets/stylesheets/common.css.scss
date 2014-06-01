@@ -1,0 +1,27 @@
+@font-face {
+  font-family: MonsieurLaDoulaise-Regular;
+  src: url('MonsieurLaDoulaise-Regular.ttf');
+}
+
+body {
+  background-color: antiquewhite;
+
+  .container {
+    margin-top: 100px;
+    width: 770px;
+
+    .info-box {
+      background-color: white;
+      padding: 20px;
+      margin: 5px auto;
+      box-shadow: 0px 0px 20px 2px #888888;
+      text-align: center;
+      border-radius: 10px;
+
+      h1 {
+        font-family: MonsieurLaDoulaise-Regular;
+        font-size: 60px;
+      }
+    }
+  }
+}
