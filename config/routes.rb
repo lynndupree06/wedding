@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-
   root 'home#index'
+
+  get '/our_story' => 'our_story#index'
+  get '/wedding' => 'wedding#index'
+  get '/reception' => 'reception#index'
+  get '/rsvp' => 'rsvp#index'
+  get '/registry' => 'registry#index'
 
   resources :users
   resources :photos
-  resources :our_story
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
