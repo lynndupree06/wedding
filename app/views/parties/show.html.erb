@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @party.name %>
+</p>
+
+<p>
+  <strong>Outer envelop:</strong>
+  <%= @party.outer_envelop %>
+</p>
+
+<p>
+  <strong>Inner envelop:</strong>
+  <%= @party.inner_envelop %>
+</p>
+
+<%= link_to 'Edit', edit_party_path(@party) %> |
+<%= link_to 'Back', parties_path %>

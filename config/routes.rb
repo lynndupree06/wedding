@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+  resources :parties
+
+  resources :groups
+
+  resources :guests
+
   root 'home#index'
 
-  get '/our_story' => 'our_story#index'
-  get '/wedding' => 'wedding#index'
-  get '/reception' => 'reception#index'
+  get '/our_story' => 'home#our_story'
+  get '/wedding' => 'home#wedding'
+  get '/reception' => 'home#reception'
   get '/rsvp' => 'rsvp#index'
   get '/registry' => 'registry#index'
 

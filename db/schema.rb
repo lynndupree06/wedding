@@ -11,7 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140531101710) do
+ActiveRecord::Schema.define(version: 20140604120315) do
+
+  create_table "groups", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "guests", force: true do |t|
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "postal_code"
+    t.string   "country"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.string   "suffix"
+    t.integer  "group_id"
+    t.integer  "party_id"
+  end
+
+  create_table "parties", force: true do |t|
+    t.string   "name"
+    t.string   "outer_envelop"
+    t.string   "inner_envelop"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "photos", force: true do |t|
     t.string   "desc"

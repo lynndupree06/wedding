@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  outer_envelop: MyString
+  inner_envelop: MyString
+
+two:
+  name: MyString
+  outer_envelop: MyString
+  inner_envelop: MyString

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @guest.last_name %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @guest.first_name %>
+</p>
+
+<p>
+  <strong>Address1:</strong>
+  <%= @guest.address1 %>
+</p>
+
+<p>
+  <strong>Address2:</strong>
+  <%= @guest.address2 %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @guest.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @guest.state %>
+</p>
+
+<p>
+  <strong>Postal code:</strong>
+  <%= @guest.postal_code %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @guest.country %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @guest.email %>
+</p>
+
+<%= link_to 'Edit', edit_guest_path(@guest) %> |
+<%= link_to 'Back', guests_path %>
