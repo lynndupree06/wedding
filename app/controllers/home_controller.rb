@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     render :layout => 'application'
   end
 
-  def our_story
+  def about_us
     render :layout => 'application'
   end
 

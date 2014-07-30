@@ -1,8 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @party.name %></h1>
+
 <p>
-  <strong>Name:</strong>
-  <%= @party.name %>
+  <strong>Address:</strong><br/>
+  <%= @party.address %><br/>
+  <%= @party.city %>, <%= @party.state %> <%= @party.postal_code %><br/>
+  <%= @party.country %>
 </p>
 
 <p>
@@ -13,6 +17,15 @@
 <p>
   <strong>Inner envelop:</strong>
   <%= @party.inner_envelop %>
+</p>
+
+<p>
+  <strong>Guest in Party:</strong>
+  <ul>
+    <% @party.guests.each do |guest| %>
+        <li><%= guest.first_name %> <%= guest.last_name %></li>
+    <% end %>
+  </ul>
 </p>
 
 <%= link_to 'Edit', edit_party_path(@party) %> |

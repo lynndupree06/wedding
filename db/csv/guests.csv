@@ -1,203 +1,113 @@
-Group,Party_Name,Title,First_Name,Last_Name,Suffix,Street1,Street2,City,State,Zip,Country,Email,Gender,Phone1,Phone2,Notes
-"","Clarence Hambrick","Mr.","Clarence","Hambrick","","8117 Bohannon Station Rd.","","Louisville","KY","40291","","","Male","","",
-"","Clarence Hambrick","Mrs.","Lohelen","Hambrick","","","","","","","","","Female","","",
-"","Keith Ellison","Mrs.","Bengy","Ellison","","","","Huntsville","AL","35806","","","Female","","",
-"","Keith Ellison",,"Faith","Ellison",,,,,,,,,"Female",,,
-"","Keith Ellison",,"Kaitlyn","Ellison",,,,,,,,,"Female",,,
-"","Keith Ellison","Mr.","Keith","Ellison","","","","Huntsville","AL","35806","","","Male","","",
-"","Keith Ellison",,"Yvonne","Ellison",,,,,,,,,"Female",,,
-"Bride's Family","Al Lankford",,"","Lankford",,,,,,,,,"Male",,,""
-"Bride's Family","Al Lankford","Mr.","Al","Lankford","","2743 Jeff Road","","Harvest","AL","35749","","","Male","","",""
-"Bride's Family","Al Lankford",,"Ambria","Lankford",,,,,,,,,"Female",,,""
-"Bride's Family","Al Lankford","Mrs.","Sandra","Lankford","","","","","","","","","Female","","",""
-"Bride's Family","Albines Brazelton","Mr.","Albines","Brazelton","Jr.","233 Latigo Loop","","Huntsville","AL","35806","","","Male","","",""
-"Bride's Family","Albines Brazelton","Mr.","Albines","Brazelton","Sr.","110 Polkberry Road","","Huntsville","AL","35806","","","Male","","",""
-"Bride's Family","Albines Brazelton",,"Kenedee","Brazelton",,,,,,,,,"Female",,,""
-"Bride's Family","Albines Brazelton","Mrs.","Mary","Brazelton","","","","","","","","","Female","","",""
-"Bride's Family","Albines Brazelton","Mrs.","Renita","Brazelton","","233 Latigo Loop","","","","35806","","","Female","","",""
-"Bride's Family","Annie Lankford","Mrs.","Annie","Lankford","","3705 Willimasburg Drive","","Hunsville","AL","35810","","","Female","","",""
-"Bride's Family","Anthony Brazelton","Mr.","Anthony","Brazelton","","10209 Willow Mist Ct. #C","","Oakton","VA","22124","","","Male","","",""
-"Bride's Family","Anthony Brazelton",,"Jamelia","Brazelton",,,,,,,,,"Female",,,""
-"Bride's Family","Anthony Brazelton","Mrs.","Vanessa","Brazelton","","","","","","","","","Female","","",""
-"Bride's Family","Arthur Cowherd","Mr.","Arthur","Cowherd",,"4327 Meadowbend Way",,"Louisville","AL","40218",,,"Unspecified",,,
-"Bride's Family","Bertha Cross","Mrs.","Bertha","Cross",,"3603 Valdosta Ave.",,"Louisville","KY","40218",,,"Unspecified",,,
-"Bride's Family","Betty Brazelton","Mrs.","Betty","Brazelton",,"208 Princeton Ave",,"Buffalo","NY","14226",,,"Unspecified",,,
-"Bride's Family","Beverly Bailey",,"Beverly","Bailey",,,,"Louisville","KY",,,,"Unspecified",,,""
-"Bride's Family","Bobby Brazelton","Mr.","Bobby","Brazelton",,"523 Cherry Tree Rd.",,"Gurley","AL ","35748",,,"Unspecified",,,
-"Bride's Family","Bobby Brazelton","Mrs.","Marie","Brazelton",,,,,,,,,"Unspecified",,,
-"Bride's Family","Brittany Pride","Ms.","Brittany","Pride","","","","","","","","","Female","","",
-"Bride's Family","Carrie Jordan","Mrs.","Carrie","Jordan","","2805 Eva Drive","","Huntsville","AL","35810","","","Female","","",""
-"Bride's Family","Christopher Brazelton","Mr.","Christopher","Brazelton",,,,"Montgomery","AL",,,,"Unspecified",,,
-"Bride's Family","Christopher Brazelton",,"Mariah",,,,,,,,,,"Unspecified",,,
-"Bride's Family","Christopher Brazelton","Mrs.","Nicole","Brazelton",,,,,,,,,"Unspecified",,,
-"Bride's Family","Christopher Brazelton",,"William",,,,,,,,,,"Unspecified",,,
-"Bride's Family","Danny Brazelton","Mrs.",,"Brazelton",,,,,,,,,"Unspecified",,,
-"Bride's Family","Danny Brazelton",,"Breanna","Brazelton",,,,,,,,,"Unspecified",,,
-"Bride's Family","Danny Brazelton","Mr.","Danny","Brazelton",,"6110 Belgrade Dr.",,"Huntsville","AL","35810",,,"Unspecified",,,
-"Bride's Family","David Brazelton",,,"Brazelton",,,,,,,,,"Unspecified",,,
-"Bride's Family","David Brazelton",,,"Brazelton",,,,,,,,,"Unspecified",,,
-"Bride's Family","David Brazelton","Mr.","David","Brazelton",,,,,,,,,"Unspecified",,,
-"Bride's Family","David Brazelton","Mrs.","Jackie","Brazelton",,,,,,,,,"Unspecified",,,
-"Bride's Family","David Rich","Mr.","Alvin","Hall","","","","","","","","","Male","","",""
-"Bride's Family","David Rich","Mr.","David","Rich","","1263 Green Ridge Lane","","Lithonia","GA","30058","","","Male","","",""
-"Bride's Family","Donaldson Jones","Mr.","Donaldson","Jones","","20971 Simpson Road","","Elkmont","AL","35620","","","Male","","",
-"Bride's Family","Earl Humphrey","Mr.","Earl","Humphrey","","2209 Hammonds Ave ","","Huntsville","AL","35816","","","Male","","",""
-"Bride's Family","Georgia Crutcher","Ms.","Georgia","Crutcher",,"1813 Cutters Mill Way",,"Lithonia","GA","30058",,,"Unspecified",,,
-"Bride's Family","Harvey Jackson","Mrs.","Ecleave","Jackson","","","","","","","","","Female","","",""
-"Bride's Family","Harvey Jackson","Mr.","Harvey","Jackson","","134 Manor House Dr.","","Huntsville","AL","35811","","","Male","","",""
-"Bride's Family","Helen Parker","Mrs.","Helen","Parker","","1124 Bessemer Road ","","Huntsville","AL","35816","","","Female","","",
-"Bride's Family","Howard Sales",,"","Sales",,,,,,,,,"Male",,,""
-"Bride's Family","Howard Sales",,"","Sales",,,,,,,,,"Male",,,""
-"Bride's Family","Howard Sales",,"","Sales",,,,,,,,,"Female",,,""
-"Bride's Family","Howard Sales","Mr.","Howard","Sales","","2115 Peterson Dr.","","Chattonooga","TN","37421","","","Male","","",""
-"Bride's Family","Howard Sales","Mrs.","Robin","Sales","","","","","","","","","Female","","",""
-"Bride's Family","Ingrid Jordan","Ms.","Ingrid","Jordan","","138 Canopy Rd","","Hazel Green ","AL","35750","","","Female","","",""
-"Bride's Family","Jim Brazelton","Mrs.","Carolyn","Brazelton",,,,,,,,,"Unspecified",,,
-"Bride's Family","Jim Brazelton","Mr.","Jim","Brazelton",,"180 Streamview Ct.",,"Fayetteville","GA","30215",,,"Unspecified",,,
-"Bride's Family","Jimmy Brazelton","Mrs.","Brenda","Brazelton",,,,"Lake Orion ",,,,,"Unspecified",,,
-"Bride's Family","Jimmy Brazelton","Mr.","Jimmy","Brazelton",,"1155 Indianpipe Rd",,"Lake Orion ","MI","48360",,,"Unspecified",,,
-"Bride's Family","John Jordan","Mrs.","","Jordan","","","","","","","","","Female","","",""
-"Bride's Family","John Jordan","Mr.","John","Jordan","","208 Andrea Kaye CT","","Hazel Green ","AL","35750","","","Unspecified","","",""
-"Bride's Family","Joseph Brazelton",,"Alicia","Brazelton",,,,,,,,,"Unspecified",,,
-"Bride's Family","Joseph Brazelton","Mr.","Joseph","Brazelton",,,,,,,,,"Unspecified",,,
-"Bride's Family","Joseph Brazelton","Mrs.","Yulanda","Brazelton",,,,,,,,,"Unspecified",,,
-"Bride's Family","Julius Cartwright","Mrs.",,"Cartwright",,,,,,,,,"Unspecified",,,
-"Bride's Family","Julius Cartwright",,,"Cartwright",,,,,,,,,"Unspecified",,,
-"Bride's Family","Julius Cartwright",,,"Cartwright",,,,,,,,,"Unspecified",,,
-"Bride's Family","Julius Cartwright","Mr.","Julius","Cartwright",,"1920 S Belvoir Blvd",,"Cleveland","OH","44121",,,"Unspecified",,,
-"Bride's Family","Lakevion Trotter","Ms.","Lakevion","Trotter","","","","","","","","","Female","","",
-"Bride's Family","LeShone Lankford","Mr.","LeShone","Lankford","","3914 Battlefield Dr","","Huntsville","AL","35810","","","Male","","",""
-"Bride's Family","Loretta Brazelton",,"Loretta","Brazelton",,"9019 Mahogany Row, Apt C",,"Huntsville","AL","35802",,,"Unspecified",,,
-"Bride's Family","Loretta Brazelton",,"Lynncoya","Brazelton",,,,,,,,,"Unspecified",,,
-"Bride's Family","Louisiana Jordan","Mrs.","Louisiana","Jordan","","3701 Williamsburg Drive","","Huntsville","AL","35810","","","Female","","",""
-"Bride's Family","Maryan Brazelton",,"Kendell","Brazelton",,,,,,,,,"Unspecified",,,
-"Bride's Family","Maryan Brazelton","Ms.","Maryan","Brazelton",,,,,"GA",,,,"Unspecified",,,
-"Bride's Family","Mas Ngoma","Mr.","Mas","Ngoma","","6 Albion Street","","Roselands","NSW","2196","Australia","","Male","","",
-"Bride's Family","Melissa Porter","Ms.","Melissa","Porter","","","","","","","","","Female","","",
-"Bride's Family","Mora Brazelton","Mrs.","Mora","Brazelton",,"3449 Saint Clair Street",,"Detroit","OH","45011",,,"Unspecified",,,
-"Bride's Family","Mr. & Mrs. Byron Poole",,"Mr. & Mrs. Byron","Poole",,"2603 Gibson Street",,"Huntsville","AL","35810",,,"Unspecified",,,
-"Bride's Family","Mr. & Mrs. James Wade",,"Mr. & Mrs. James","Wade",,"114 Ivywood Dr.",,"Huntsville","AL","35810",,,"Unspecified",,,
-"Bride's Family","Mr. & Mrs. Larry Pippins",,"Mr. & Mrs. Larry","Pippins",,"14016 Coys Drive",,"Huntsville","AL","35810",,,"Unspecified",,,
-"Bride's Family","Mr. & Mrs. Quinlan Parker",,"Mr. & Mrs. Quinlan","Parker",,,,,,,,,"Unspecified",,,
-"Bride's Family","Mr. & Mrs. Vincent Varner",,"Mr. & Mrs. Vincent","Varner",,"107 Brunell Court ",,"Madison","AL ","35758",,,"Unspecified",,,
-"Bride's Family","Mr. James Perkins",,"Mr. James","Perkins",,"P.O. Box 11044",,"Huntsville","AL","35814",,,"Unspecified",,,
-"Bride's Family","Mr. Kendall Jones",,"Mr. Kendall","Jones",,,,,,,,,"Unspecified",,,
-"Bride's Family","Ms. Alice Walker",,"Ms. Alice","Walker",,,,,,,,,"Unspecified",,,
-"Bride's Family","Ms. Jalisa Wade",,"Ms. Jalisa","Wade",,,,,,,,,"Unspecified",,,
-"Bride's Family","Nellie Crutcher",,"Alston","Crutcher",,,,,,,,,"Unspecified",,,
-"Bride's Family","Nellie Crutcher","Ms.","Nellie","Crutcher",,"118 Mossy Branch Drive",,"Harvest","AL","35749",,,"Unspecified",,,
-"Bride's Family","Rueben Brazelton",,,"Brazelton",,,,,,,,,"Unspecified",,,
-"Bride's Family","Rueben Brazelton","Mr.","Rueben","Brazelton",,"118 Flowerwood Dr",,"Meridianville","AL","35759",,,"Unspecified",,,
-"Bride's Family","Shicociya Townsend","Ms.","Shicociya","Townsend","","","","Richmond","VA","","","","Female","","",
-"Bride's Family","Undrea Henderson & Family",,"Austin","Henderson",,,,,,,,,"Male",,,""
-"Bride's Family","Undrea Henderson & Family",,"Jordan","Henderson",,,,,,,,,"Female",,,""
-"Bride's Family","Undrea Henderson & Family","Mrs.","Undrea","Henderson & Family","","655 Carriger Road","","Hazel Green ","AL","35750","","","Female","","",""
-"Bride's Family","Veronica McGill","Ms.","Veronica","McGill","","2608 Summerfiedl Drive","","Louisville","KY","40220","","","Female","","",""
-"Bride's Family","Walter Williams","Mrs.","Olivia","Williams","","","","","","","","","Female","","",""
-"Bride's Family","Walter Williams",,"Parker","Williams",,,,,,,,,"Male",,,""
-"Bride's Family","Walter Williams",,"Randall","Williams",,,,,,,,,"Male",,,""
-"Bride's Family","Walter Williams","Mr.","Walter","Williams","","6001 Forest Lane","","Ft. Worth","TX","76112","","","Male","","",""
-"Bride's Family","XXX and Joann Hereford",,"XXX and Joann","Hereford",,"102 Clear Springs Circle",,"Hazel Green ","AL","35750",,,"Unspecified",,,
-"Bride's Friends","Amanda Evans","Ms.","Amanda","Evans",,,,,"NSW",,"Australia",,"Unspecified",,,
-"Bride's Friends","Amy Clark",,"Amy","Clark",,"508 Eastbrook Drive",,"Huntsville","AL","35811",,,"Unspecified",,,
-"Bride's Friends","Amy Clark",,"David","Clark",,,,,,,,,"Unspecified",,,
-"Bride's Friends","Angela Strickland","Ms.","Angela","Strickland","","2711 Hilltop Terrace","","Huntsville","AL","35810","","","Female","","",""
-"Bride's Friends","Charlie Fowlks",,,"Fowlks",,,,,,,,,"Unspecified",,,
-"Bride's Friends","Charlie Fowlks",,"Charlie","Fowlks",,"2604 Carlsbad Drive",,"Huntsville","AL","35810",,,"Unspecified",,,
-"Bride's Friends","Christina Carter",,"Christina","Carter",,,,,,,,,"Unspecified",,,
-"Bride's Friends","Curtis Collins",,,"Collins",,,,,,,,,"Unspecified",,,
-"Bride's Friends","Curtis Collins",,"Curtis","Collins",,"2914 Broadview Dr.",,"Huntsville","AL","35810",,,"Unspecified",,,
-"Bride's Friends","Edna Ryans","Mrs.","Edna","Ryans","","3307 Bartee Lane","","Huntsville","AL","35810","","","Female","","",""
-"Bride's Friends","Ernie High","Mrs.","Elizabeth","High","","","","","","","","","Female","","",""
-"Bride's Friends","Ernie High","Mr.","Ernie","High","","109 Violet Dr.","","Madison","AL","35758","","","Male","","",""
-"Bride's Friends","Gerald Clayton",,"Christopher","Clayton",,,,,,,,,"Unspecified",,,
-"Bride's Friends","Gerald Clayton",,"Gerald","Clayton",,"805 Seina Vista D",,"Madison","AL","35758",,,"Unspecified",,,
-"Bride's Friends","Gerald Clayton",,"Lisa","Clayton",,,,,,,,,"Unspecified",,,
-"Bride's Friends","Gerald Clayton",,"Tiffany","Clayton",,,,,,,,,"Unspecified",,,
-"Bride's Friends","Grace Robinson","Mrs.","Grace","Robinson","","225 Oakview Road","","Hazel Green ","AL","35750","","","Female","","",""
-"Bride's Friends","Greg Massey","Mrs.","","Massey","","","","","","","","","Female","","",""
-"Bride's Friends","Greg Massey","Mr.","Greg","Massey","","214 Perennial Way ","","Madison","AL","36757","","","Male","","",""
-"Bride's Friends","Horace Garner","Mrs.","","Garner","","","","","","","","","Female","","",""
-"Bride's Friends","Horace Garner","Mr.","Horace","Garner","","4505 Raton Blvd","","Huntsville","AL","35810","","","Male","","",""
-"Bride's Friends","Howard Cross",,,"Cross",,,,,,,,,"Unspecified",,,
-"Bride's Friends","Howard Cross",,"Howard","Cross",,"399 Berkley Road",,"Gurley","AL","35748",,,"Unspecified",,,
-"Bride's Friends","James Garner","Mr.","James","Garner","","3114 Buttrey Drive","","Huntsville","AL ","35810","","","Male","","",""
-"Bride's Friends","James Garner","Mrs.","Yulanda","Garner","","","","","","","","","Female","","",""
-"Bride's Friends","James Lorder","Mrs.","","Lorder","","","","","","","","","Female","","",""
-"Bride's Friends","James Lorder","Mr.","James","Lorder","","3914 Timbercrest Drive","","Huntsville","AL ","35810","","","Male","","",""
-"Bride's Friends","Jeff Cooper",,,"Cooper",,,,,,,,,"Unspecified",,,
-"Bride's Friends","Jeff Cooper",,,"Cooper",,,,,,,,,"Unspecified",,,
-"Bride's Friends","Jeff Cooper",,"Jeff","Cooper",,"159 Brass Oaks Drive",,"Madison","AL","35758",,,"Unspecified",,,
-"Bride's Friends","Jeff Cooper",,"Lisa","Cooper",,,,,,,,,"Unspecified",,,
-"Bride's Friends","Jesse Lang","Mrs.","","Lang","","","","","","","","","Female","","",""
-"Bride's Friends","Jesse Lang","Mr.","Jesse","Lang","","2115 Clubview Ct.","","Huntsville","AL","35810","","","Male","","",""
-"Bride's Friends","Jimmie Sanders","","Jimmie","Sanders","","127 Samantha Drive","","Huntsville","AL","35806","","","Male","","",""
-"Bride's Friends","Jimmie Sanders","Mrs.","Ola","Sanders","","127 Samantha Drive","","","","","","","Female","","",""
-"Bride's Friends","Jimmie Sanders",,"Oliver","Sanders",,,,,,,,,"Male",,,""
-"Bride's Friends","Johnathan Hall","Mr.","Johnathan","Hall","","","","","","","","","Male","","",""
-"Bride's Friends","Jonathan Reeves","Mrs.","","Reeves","","","","","","","","","Female","","",""
-"Bride's Friends","Jonathan Reeves","Mr.","Jonathan","Reeves","","108 Polkberry Rd.","","Huntsville","AL","35806","","","Male","","",""
-"Bride's Friends","Joy Barrett","Ms.","Joy","Barrett","","","","Chicago","IL","","","","Female","","",""
-"Bride's Friends","Kendra Williams","Dr.","","Williams","","","","","","","","","Male","","",""
-"Bride's Friends","Kendra Williams","Mrs.","Kendra","Williams","","100 Eastview Dr.","","Madison","AL ","35758","","","Female","","",""
-"Bride's Friends","Kenneth Smoot","Mrs.","","Smoot","","","","","","","","","Female","","",""
-"Bride's Friends","Kenneth Smoot","Mr.","Kenneth","Smoot","","2502 Garden Park","","Huntsville","AL","35810","","","Male","","",""
-"Bride's Friends","Kenton Brown",,"Kenton","Brown",,,,,"MO",,,,"Unspecified",,,
-"Bride's Friends","LaAndrea McDonald","Ms.","LaAndrea","McDonald","","","","","","","","","Female","","",""
-"Bride's Friends","LaQuana McCall","Ms.","LaQuana","McCall","","","","","VA","","","","Female","","",""
-"Bride's Friends","Malcolm Thomas ","Mr.","Malcolm","Thomas ","","5906 Columbian Lane","","Huntsville","AL","35810","","","Male","","",""
-"Bride's Friends","Malcolm Thomas ","Dr.","Mattie","Thomas","","","","","","","","","Female","","",""
-"Bride's Friends","Malium Rooks","Mr.","Malium","Rooks","","8249 Wall Triana Hwy.","","Harvest","AL","35748","","","Male","","",""
-"Bride's Friends","Malium Rooks","Mrs.","Maxine","Rooks","","","","","","","","","Female","","",""
-"Bride's Friends","Mei-Chanda Stewart","Ms.","Mei-Chanda","Stewart","","","","","MO","","","","Female","","",""
-"Bride's Friends","Mr. & Mrs. Marian Graham",,"Mr. & Mrs. Marian","Graham",,"1818 Whisperwood Way",,"Huntsville","AL","35806",,,"Unspecified",,,
-"Bride's Friends","Ms. Michelle Collins",,"Ms. Michelle","Collins",,,,,,,,,"Unspecified",,,
-"Bride's Friends","Ms. Wanda Carswell",,"Ms. Wanda","Carswell",,"105 Grand hollow CT ",,"Huntsville","AL","35806",,,"Unspecified",,,
-"Bride's Friends","Paulette Hughes","Ms.","Paulette","Hughes","","1505 Sparkman Dr. Apt. 163","","Huntsville","AL","35810","","","Female","","",""
-"Bride's Friends","Portia Lang","Ms.","Portia","Lang","","3933 Shamrock Drive","","Huntsville","AL","35810","","","Female","","",""
-"Bride's Friends","Ray Arnold","Mrs.","Marcia","Arnold",,,,,,,,,"Unspecified",,,""
-"Bride's Friends","Ray Arnold","Mr.","Ray","Arnold",,"1721 Fairway Drive",,"Auburn","AL","36830",,,"Unspecified",,,""
-"Bride's Friends","Reginald Barnes",,,"Barnes",,,,,,,,,"Unspecified",,,""
-"Bride's Friends","Reginald Barnes",,,"Barnes",,,,,,,,,"Unspecified",,,""
-"Bride's Friends","Reginald Barnes",,,"Barnes",,,,,,,,,"Unspecified",,,""
-"Bride's Friends","Reginald Barnes",,"Reginald","Barnes",,,,"Atlanta","GA",,,,"Unspecified",,,""
-"Bride's Friends","Reginald Jones","Mrs.","","Jones","","","","","","","","","Female","","",""
-"Bride's Friends","Reginald Jones","Mr.","Reginald","Jones","","175 Thunderbird Dr.","","Harvest","AL","35749","","","Male","","",""
-"Bride's Friends","Richard McDuffie ","Rev.","Richard","McDuffie ","","","","","OH","","","","Male","","",""
-"Bride's Friends","Richard McDuffie ","Mrs.","Sharon","McDuffie","","","","","OH","","","","Female","","",""
-"Bride's Friends","Robert Smith",,"","Smith",,,,,,,,,"Female",,,""
-"Bride's Friends","Robert Smith","Mrs.","LaToya","Smith","","","","","","","","","Female","","",""
-"Bride's Friends","Robert Smith","Mr.","Robert","Smith","","173 Timber Oak Rd.","","Huntsville","AL","35806","","","Male","","",""
-"Bride's Friends","Robert Smith",,"Robert","Smith, Jr.",,,,,,,,,"Male",,,""
-"Bride's Friends","Roosevelt Strong","Mrs.","Dorothy","Strong","","2319 Jeff Rd","","","","","","","Female","","",""
-"Bride's Friends","Roosevelt Strong","Mr.","Roosevelt","Strong","","2319 Jeff Rd","","Harvest","AL","35749","","","Male","","",""
-"Bride's Friends","Shayla Redmond","Mr.","Allen","Redmond","","","","","","","","","Male","","",""
-"Bride's Friends","Shayla Redmond","Mrs.","Shayla","Redmond","","","","","","","","","Female","","",""
-"Bride's Friends","Skip Caldwell",,"Skip","Caldwell",,"1305 Teenajo Dr.  SE",,"Huntsville","AL","35803",,,"Unspecified",,,
-"Bride's Friends","Skip Caldwell",,"Wanda","Caldwell",,,,,,,,,"Unspecified",,,
-"Bride's Friends","Tonju Butler",,"Tonju","Butler",,"837 Dan Tibbs Rd.",,"Huntsville","AL","35806",,,"Unspecified",,,
-"Bride's Friends","Travis Friend","Mr.","Travis","Friend","","","","","","","","","Male","","",""
-"Bride's Friends","Vanessa Akem","Ms.","Vanessa","Akem",,,,,"NSW",,"Australia",,"Unspecified",,,
-"Bride's Friends","Walter Rooks","Mrs.","","Rooks","","","","","","","","","Female","","",""
-"Bride's Friends","Walter Rooks","Mr.","Walter","Rooks","","130 Hotts Lane","","Huntsville","AL ","35757","","","Male","","",""
-"Bride's Friends","Willie Cheatham",,,"Cheatham",,,,,,,,,"Unspecified",,,
-"Bride's Friends","Willie Cheatham",,"Willie","Cheatham",,"281 Natchez Trail ",,"Huntsville","AL","35806",,,"Unspecified",,,
-"Groom's Family","Brenda",,"Brenda",,,,,,,,,,"Unspecified",,,
-"Groom's Family","Christopher Kazembe","Mr.","Christopher","Kazembe","","","","Solwezi","","","Zambia","","Male","","",""
-"Groom's Family","Christopher Kazembe","Mrs.","Mwaka","Kazembe","","","","Solwezi","","","Zambia","","Female","","",""
-"Groom's Family","Evans Kapinda","Mrs.","Annie","Kapinda","","","","","","","","","Female","","",""
-"Groom's Family","Evans Kapinda","Mr.","Evans","Kapinda","","","","","","","Dubai","","Male","","",""
-"Groom's Family","Frederick Kazembe","Mr.","Frederick","Kazembe","","","","","","","Zambia","","Male","","",""
-"Groom's Family","Frederick Kazembe","Mrs.","Yvette","Kazembe","","","","","","","","","Female","","",""
-"Groom's Family","Mary Kazembe","Ms.","Mary","Kazembe","","","","","","","","","Female","","",""
-"Groom's Family","Momma Kazembe","Ms.","Momma","Kazembe","","","","","","","","","Female","","",""
-"Groom's Family","Tony Kazembe","Mr.","Tony","Kazembe","","","","","","","Zambia","","Male","","",""
-"Groom's Friends","Andrew Chisela","Mr.","Andrew","Chisela",,,,,,,"Poland",,"Unspecified",,,
-"Groom's Friends","Augustine Frempong","Mr.","Augustine","Frempong",,"Ferry Road",,"Glebe","NSW","2037","Australia",,"Unspecified",,,
-"Groom's Friends","Augustine Frempong","Mrs.","Sharon","Frempong",,,,,,,,,"Unspecified",,,
-"Groom's Friends","Charles Matipa","Mr.","Charles","Matipa","","","","","NSW","","Australia","","Male","","",""
-"Groom's Friends","Chimuka Makomo","Mr.","Chimuka","Makomo","","","","Merrylands","NSW","","Australia","c_makomo@yahoo.com","Male","","",""
-"Groom's Friends","Chimuka Makomo","Mrs.","Dina","Makomo","","","","","","","","d_msimuko@yahoo.com","Female","","",""
-"Groom's Friends","Dela Sydney-Ahiabor","Mr.","Dela","Sydney-Ahiabor","","","","","NSW","","Australia","","Male","","",""
-"Groom's Friends","Michael","Mrs.","Faith","","","4 Townsend Circuit","","Beaumont Hills","","2155","","","Female","","",""
-"Groom's Friends","Michael","Mr.","Michael","","","4 Townsend Circuit","","Beaumont Hills","NSW","2155","Australia","","Male","","",""
+Group,Party_Name,Title,First_Name,Last_Name,Suffix,Address,City,State,Zip,Country,Email,Gender,Phone1,Phone2,RSVP,Guest_Type,Meal_Selection,Table,Seat,Spouse_Guest_Title,Spouse_Guest_First_Name,Spouse_Guest_Last_Name,Spouse_Guest_Suffix,Spouse_Guest_Address,Spouse_Guest_City,Spouse_Guest_State,Spouse_Guest_Zip,Spouse_Guest_Country,Spouse_Guest_Email,Spouse_Guest_Gender,Spouse_Guest_Phone1,Spouse_Guest_Phone2,Spouse_Guest_RSVP,Spouse_Guest_Guest_Type,Spouse_Guest_Meal_Selection,Spouse_Guest_Table,Spouse_Guest_Seat,Outer_Envelope,Inner_Envelope,Invitation_Sent_Date,Number_Invited,Number_Accepted,Number_Declined,Number_NoResponse,A/B_List,Gift,Gift_Notes,Gift_Received_Date,Notes,Thank_You_Sent_Date,EscortCard,PlaceCard_1,PlaceCard_2,PlaceCard_3,PlaceCard_4,PlaceCard_5,Child1_First_Name,Child1_Last_Name,Child1_Gender,Child1_RSVP,Child1_Meal_Selection,Child1_Table,Child1_Seat,Child2_First_Name,Child2_Last_Name,Child2_Gender,Child2_RSVP,Child2_Meal_Selection,Child2_Table,Child2_Seat,Child3_First_Name,Child3_Last_Name,Child3_Gender,Child3_RSVP,Child3_Meal_Selection,Child3_Table,Child3_Seat
+"Bride's Family","Al Lankford","Mr.","Al","Lankford","","2743 Jeff Road","Harvest","AL","35749","","","Male","","","No Response","Primary",,,,"Mrs.","Sandra","Lankford","","","","","","","","Female","","","No Response","Spouse",,,,,,"","4","0","0","4","A",,,,"",,,,,,,,"Ambria","Lankford","Female","None",,,,"","Lankford","Male","None",,,,,,,,,,
+"Bride's Family","Albines Brazelton","Mr.","Albines","Brazelton","Jr.","233 Latigo Loop","Huntsville","AL","35806","","","Male","","","No Response","Primary",,"Bride's Family #1","1","Mrs.","Renita","Brazelton","","233 Latigo Loop","","","35806","","","Female","","","No Response","Spouse",,"Bride's Family #1","5",,,"","3","0","0","3","A",,,,"",,,,,,,,"Kenedee","Brazelton","Female","None",,"Bride's Family #1","6",,,,,,,,,,,,,,
+"Bride's Family","Albines Brazelton","Mr.","Albines","Brazelton","Sr.","110 Polkberry Road","Huntsville","AL","35806","","","Male","","","No Response","Primary",,"Bride's Family #1","2","Mrs.","Mary","Brazelton","","","","","","","","Female","","","No Response","Spouse",,"Bride's Family #1","4","","","","2","0","0","2","A","","","","","","","","",,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Alice Walker","Ms.","Alice","Walker","","","","","","","","Female","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","B",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Amanda Evans","Ms.","Amanda","Evans",,,,"NSW",,"Australia",,"Female",,,"No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","B",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Amy Clark",,"Amy","Clark",,"508 Eastbrook Drive","Huntsville","AL","35811",,,"Female",,,"No Response","Primary",,,,,"David","Clark",,,,,,,,"Male",,,"No Response","Spouse",,,,,,"","2","0","0","2","A",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Groom's Friends","Andrew Chisela","Mr.","Andrew","Chisela",,,,,,"Poland",,"Male",,,"No Response","Primary",,"Bridal Party","7",,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Angela Strickland","Ms.","Angela","Strickland","","2711 Hilltop Terrace","Huntsville","AL","35810","","","Female","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Annie Lankford","Mrs.","Annie","Lankford","","3705 Willimasburg Drive","Hunsville","AL","35810","","","Female","","","No Response","Primary",,"Bride's Family #2","1",,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Anthony Brazelton","Mr.","Anthony","Brazelton","","10209 Willow Mist Ct. #C","Oakton","VA","22124","","","Male","","","No Response","Primary",,"Table 2","1","Mrs.","Vanessa","Brazelton","","","","","","","","Female","","","No Response","Spouse",,"Table 2","2",,,"","3","0","0","3","A",,,,"",,,,,,,,"Jamelia","Brazelton","Female","None",,"Table 2","3",,,,,,,,,,,,,,
+"Bride's Family","Arthur Cowherd","Mr.","Arthur","Cowherd","","4327 Meadowbend Way","Louisville","AL","40218","","","Male","","","No Response","Primary",,,,"Mrs.","Lucy","Cowherd","","","","","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Groom's Friends","Augustine Frempong","Mr.","Augustine","Frempong",,"Ferry Road","Glebe","NSW","2037","Australia",,"Male",,,"No Response","Primary",,,,"Mrs.","Sharon","Frempong",,,,,,,,"Female",,,"No Response","Spouse",,,,"Mr. & Mrs. Augustine Frempong","Augustine & Sharon","","2","0","0","2","A",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Bertha Cross","Mrs.","Bertha","Cross",,"3603 Valdosta Ave.","Louisville","KY","40218",,,"Female",,,"No Response","Primary",,"Table 1","1",,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Betty Brazelton","Mrs.","Betty","Brazelton",,"208 Princeton Ave","Buffalo","NY","14226",,,"Female",,,"No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","B",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Beverly Bailey",,"Beverly","Bailey",,,"Louisville","KY",,,,"Female",,,"No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Bobby Brazelton","Mr.","Bobby","Brazelton",,"523 Cherry Tree Rd.","Gurley","AL ","35748",,,"Male",,,"No Response","Primary",,"Table 1","2","Mrs.","Marie","Brazelton",,,,,,,,"Female",,,"No Response","Spouse",,"Table 1","3",,,"","2","0","0","2","A",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Groom's Family","Brenda Kazembe","","Brenda","Kazembe","","","","","","","","Female","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Brittany Pride","Ms.","Brittany","Pride","","","","","","","","Female","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Byron Poole","Mr.","Byron","Poole","","2603 Gibson Street","Huntsville","AL","35810","","","Male","","","No Response","Primary",,,,"Mrs.","Betty","Poole","","","","","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","B",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Carrie Jordan","Mrs.","Carrie","Jordan","","2805 Eva Drive","Huntsville","AL","35810","","","Female","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","B",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Groom's Friends","Charles Matipa","Mr.","Charles","Matipa","","","","NSW","","Australia","","Male","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Charlie Fowlks",,"Charlie","Fowlks",,"2604 Carlsbad Drive","Huntsville","AL","35810",,,"Male",,,"No Response","Primary",,,,,,"Fowlks",,,,,,,,"Female",,,"No Response","Spouse",,,,,,"","2","0","0","2","B",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Groom's Friends","Chimuka Makomo","Mr.","Chimuka","Makomo","","","Merrylands","NSW","","Australia","c_makomo@yahoo.com","Male","","","No Response","Primary",,,,"Mrs.","Dina","Makomo","","","","","","","d_msimuko@yahoo.com","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Christina Carter",,"Christina","Carter",,,,,,,,"Female",,,"No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Christopher Brazelton","Mr.","Christopher","Brazelton",,,"Montgomery","AL",,,,"Male",,,"No Response","Primary",,"Bride's Family #1","7","Mrs.","Nicole","Brazelton",,,,,,,,"Female",,,"No Response","Spouse",,"Bride's Family #1","8",,,"","4","0","0","4","A",,,,,,,,,,,,"Mariah",,"Unspecified","None",,"Bride's Family #2","6","William",,"Unspecified","None",,"Bride's Family #2","7",,,,,,,
+"Groom's Family","Christopher Kazembe","Mr.","Christopher","Kazembe","","","Solwezi","","","Zambia","","Male","","","No Response","Primary",,"Groom's Family #1","1","Mrs.","Mwaka","Kazembe","","","Solwezi","","","Zambia","","Female","","","No Response","Spouse",,"Groom's Family #1","2",,,"","2","0","0","2","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Clarence Hambrick","Mr.","Clarence","Hambrick","","8117 Bohannon Station Rd.","Louisville","KY","40291","","","Male","","","No Response","Primary",,"Table 1","4","Mrs.","Lohelen","Hambrick","","","","","","","","Female","","","No Response","Spouse",,"Table 1","5",,,"","2","0","0","2","A",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Curtis Collins",,"Curtis","Collins",,"2914 Broadview Dr.","Huntsville","AL","35810",,,"Male",,,"No Response","Primary",,,,,,"Collins",,,,,,,,"Female",,,"No Response","Spouse",,,,,,"","2","0","0","2","A",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Danny Brazelton","Mr.","Danny","Brazelton",,"6110 Belgrade Dr.","Huntsville","AL","35810",,,"Male",,,"No Response","Primary",,,,"Mrs.",,"Brazelton",,,,,,,,"Female",,,"No Response","Spouse",,,,,,"","3","0","0","3","B",,,,,,,,,,,,"Breanna","Brazelton","Unspecified","None",,,,,,,,,,,,,,,,,
+"Bride's Family","David Brazelton","Mr.","David","Brazelton",,,,,,,,"Male",,,"No Response","Primary",,,,"Mrs.","Jackie","Brazelton",,,,,,,,"Female",,,"No Response","Spouse",,,,,,"","4","0","0","4","B",,,,,,,,,,,,,"Brazelton","Unspecified","None",,,,,"Brazelton","Unspecified","None",,,,,,,,,,
+"Bride's Family","David Rich","Mr.","David","Rich","","1263 Green Ridge Lane","Lithonia","GA","30058","","","Male","","","No Response","Primary",,,,"Mr.","Alvin","Hall","","","","","","","","Male","","","No Response","Spouse",,,,,,"","2","0","0","2","B",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Groom's Friends","Dela Sydney-Ahiabor","Mr.","Dela","Sydney-Ahiabor","","","","NSW","","Australia","","Male","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Donaldson Jones","Mr.","Donaldson","Jones","","20971 Simpson Road","Elkmont","AL","35620","","","Male","","","No Response","Primary",,,,"Mrs.","Pamela","Jones","","","","","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Earl Humphrey","Mr.","Earl","Humphrey","","2209 Hammonds Ave ","Huntsville","AL","35816","","","Male","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Edna Ryans","Mrs.","Edna","Ryans","","3307 Bartee Lane","Huntsville","AL","35810","","","Female","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","B",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Ernie High","Mr.","Ernie","High","","109 Violet Dr.","Madison","AL","35758","","","Male","","","No Response","Primary",,,,"Mrs.","Elizabeth","High","","","","","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Groom's Family","Evans Kapinda","Mr.","Evans","Kapinda","","","","","","Dubai","","Male","","","No Response","Primary",,"Groom's Family #2","2","Mrs.","Annie","Kapinda","","","","","","","","Female","","","No Response","Spouse",,"Groom's Family #2","3",,,"","5","0","0","5","A",,,,"",,,,,,,,"Grace","Kapinda","Female","None",,,,"","Kapinda","Female","None",,,,"","Kapinda","Female","None",,,
+"Groom's Family","Frederick Kazembe","Mr.","Frederick","Kazembe","","","","","","Zambia","","Male","","","No Response","Primary",,"Groom's Family #1","5","Mrs.","Yvette","Kazembe","","","","","","","","Female","","","No Response","Spouse",,"Groom's Family #1","6",,,"","2","0","0","2","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Georgia Crutcher","Ms.","Georgia","Crutcher",,"1813 Cutters Mill Way","Lithonia","GA","30058",,,"Female",,,"No Response","Primary",,"Bride's Family #2","2",,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Gerald Clayton",,"Gerald","Clayton",,"805 Seina Vista D","Madison","AL","35758",,,"Male",,,"No Response","Primary",,,,,"Lisa","Clayton",,,,,,,,"Female",,,"No Response","Spouse",,,,,,"","4","0","0","4","A",,,,,,,,,,,,"Tiffany","Clayton","Unspecified","None",,,,"Christopher","Clayton","Unspecified","None",,,,,,,,,,
+"Bride's Friends","Grace Robinson","Mrs.","Grace","Robinson","","225 Oakview Road","Hazel Green ","AL","35750","","","Female","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Greg Massey","Mr.","Greg","Massey","","214 Perennial Way ","Madison","AL","36757","","","Male","","","No Response","Primary",,,,"Mrs.","","Massey","","","","","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","B",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Harvey Jackson","Mr.","Harvey","Jackson","","134 Manor House Dr.","Huntsville","AL","35811","","","Male","","","No Response","Primary",,,,"Mrs.","Ecleave","Jackson","","","","","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Helen Parker","Mrs.","Helen","Parker","","1124 Bessemer Road ","Huntsville","AL","35816","","","Female","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Horace Garner","Mr.","Horace","Garner","","4505 Raton Blvd","Huntsville","AL","35810","","","Male","","","No Response","Primary",,,,"Mrs.","","Garner","","","","","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","B",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Howard Cross",,"Howard","Cross",,"399 Berkley Road","Gurley","AL","35748",,,"Male",,,"No Response","Primary",,,,,,"Cross",,,,,,,,"Female",,,"No Response","Spouse",,,,,,"","2","0","0","2","A",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Howard Sales","Mr.","Howard","Sales","","2115 Peterson Dr.","Chattonooga","TN","37421","","","Male","","","No Response","Primary",,,,"Mrs.","Robin","Sales","","","","","","","","Female","","","No Response","Spouse",,,,,,"","5","0","0","5","A",,,,"",,,,,,,,"","Sales","Male","None",,,,"","Sales","Male","None",,,,"","Sales","Female","None",,,
+"Bride's Family","Ingrid Jordan","Ms.","Ingrid","Jordan","","138 Canopy Rd","Hazel Green ","AL","35750","","","Female","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Jalisa Wade","Ms.","Jalisa","Wade","","","","","","","","Female","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","James Garner","Mr.","James","Garner","","3114 Buttrey Drive","Huntsville","AL ","35810","","","Male","","","No Response","Primary",,,,"Mrs.","Yulanda","Garner","","","","","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","B",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","James Lorder","Mr.","James","Lorder","","3914 Timbercrest Drive","Huntsville","AL ","35810","","","Male","","","No Response","Primary",,,,"Mrs.","","Lorder","","","","","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","James Perkins","Mr.","James","Perkins","","P.O. Box 11044","Huntsville","AL","35814","","","Male","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","B",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","James Wade","Mr.","James","Wade","","114 Ivywood Dr.","Huntsville","AL","35810","","","Male","","","No Response","Primary",,,,"Mrs.","Darlene","Wade","","","","","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","B",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Jeff Cooper",,"Jeff","Cooper",,"159 Brass Oaks Drive","Madison","AL","35758",,,"Male",,,"No Response","Primary",,,,,"Lisa","Cooper",,,,,,,,"Female",,,"No Response","Spouse",,,,,,"","4","0","0","4","A",,,,,,,,,,,,,"Cooper","Unspecified","None",,,,,"Cooper","Unspecified","None",,,,,,,,,,
+"Bride's Friends","Jesse Lang","Mr.","Jesse","Lang","","2115 Clubview Ct.","Huntsville","AL","35810","","","Male","","","No Response","Primary",,,,"Mrs.","","Lang","","","","","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Jim Brazelton","Mr.","Jim","Brazelton",,"180 Streamview Ct.","Fayetteville","GA","30215",,,"Male",,,"No Response","Primary",,,,"Mrs.","Carolyn","Brazelton",,,,,,,,"Female",,,"No Response","Spouse",,,,,,"","2","0","0","2","A",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Jimmie Sanders","","Jimmie","Sanders","","127 Samantha Drive","Huntsville","AL","35806","","","Male","","","No Response","Primary",,,,"Mrs.","Ola","Sanders","","127 Samantha Drive","","","","","","Female","","","No Response","Spouse",,,,"","","","3","0","0","3","A",,,,"",,"","",,,,,"Oliver","Sanders","Male","None",,,,,,,,,,,,,,,,,
+"Bride's Family","Jimmy Brazelton","Mr.","Jimmy","Brazelton",,"1155 Indianpipe Rd","Lake Orion ","MI","48360",,,"Male",,,"No Response","Primary",,"Table 5","1","Mrs.","Brenda","Brazelton",,,"Lake Orion ",,,,,"Female",,,"No Response","Spouse",,"Table 5","2",,,"","2","0","0","2","A",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","John Jordan","Mr.","John","Jordan","","208 Andrea Kaye CT","Hazel Green ","AL","35750","","","Male","","","No Response","Primary",,,,"Mrs.","","Jordan","","","","","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","B",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Johnathan Hall","Mr.","Johnathan","Hall","","","","","","","","Male","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","B",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Jonathan Reeves","Mr.","Jonathan","Reeves","","108 Polkberry Rd.","Huntsville","AL","35806","","","Male","","","No Response","Primary",,,,"Mrs.","","Reeves","","","","","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","B",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Joseph Brazelton","Mr.","Joseph","Brazelton",,,,,,,,"Male",,,"No Response","Primary",,,,"Mrs.","Yulanda","Brazelton",,,,,,,,"Female",,,"No Response","Spouse",,,,,,"","3","0","0","3","B",,,,,,,,,,,,"Alicia","Brazelton","Unspecified","None",,,,,,,,,,,,,,,,,
+"Bride's Friends","Joy Barrett","Ms.","Joy","Barrett","","","Chicago","IL","","","","Female","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Julius Cartwright","Mr.","Julius","Cartwright",,"1920 S Belvoir Blvd","Cleveland","OH","44121",,,"Male",,,"No Response","Primary",,,,"Mrs.",,"Cartwright",,,,,,,,"Female",,,"No Response","Spouse",,,,,,"","4","0","0","4","A",,,,,,,,,,,,,"Cartwright","Unspecified","None",,,,,"Cartwright","Unspecified","None",,,,,,,,,,
+"Bride's Friends","Keith Ellison","Mr.","Keith","Ellison","","","Huntsville","AL","35806","","","Male","","","No Response","Primary",,,,"Mrs.","Bengy","Ellison","","","Huntsville","AL","35806","","","Female","","","No Response","Spouse",,,,,,"","5","0","0","5","A",,,,,,,,,,,,"Faith","Ellison","Female","None",,,,"Kaitlyn","Ellison","Female","None",,,,"Yvonne","Ellison","Female","None",,,
+"Bride's Friends","Kendall Jones","Mr.","Kendall","Jones","","","","","","","","Male","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","B",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Kendra Williams","Mrs.","Kendra","Williams","","100 Eastview Dr.","Madison","AL ","35758","","","Female","","","No Response","Primary",,,,"Dr.","","Williams","","","","","","","","Male","","","No Response","Spouse",,,,,,"","2","0","0","2","B",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Kenneth Smoot","Mr.","Kenneth","Smoot","","2502 Garden Park","Huntsville","AL","35810","","","Male","","","No Response","Primary",,,,"Mrs.","","Smoot","","","","","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","B",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Kenton Brown",,"Kenton","Brown",,,,"MO",,,,"Male",,,"No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","B",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","LaAndrea McDonald","Ms.","LaAndrea","McDonald","","","","","","","","Female","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Lakevion Trotter","Ms.","Lakevion","Trotter","","","","","","","","Female","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","LaQuana McCall","Ms.","LaQuana","McCall","","","","VA","","","","Female","","","No Response","Primary",,"Bridal Party","1",,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Larry Pippins","","Larry","Pippins","","14016 Coys Drive","Huntsville","AL","35810","","","Male","","","No Response","Primary",,,,"Mrs.","","Pippins","","","","","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","LeShone Lankford","Mr.","LeShone","Lankford","","3914 Battlefield Dr","Huntsville","AL","35810","","","Male","","","No Response","Primary",,"Bride's Family #2","3",,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Loretta Brazelton",,"Loretta","Brazelton",,"9019 Mahogany Row, Apt C","Huntsville","AL","35802",,,"Female",,,"No Response","Primary",,,,,"Lynncoya","Brazelton",,,,,,,,"Female",,,"No Response","Spouse",,,,,,"","2","0","0","2","A",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Louisiana Jordan","Mrs.","Louisiana","Jordan","","3701 Williamsburg Drive","Huntsville","AL","35810","","","Female","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Malcolm Thomas","Mr.","Malcolm","Thomas","","5906 Columbian Lane","Huntsville","AL","35810","","","Male","","","No Response","Primary",,,,"Dr.","Mattie","Thomas","","","","","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Malium Rooks","Mr.","Malium","Rooks","","8249 Wall Triana Hwy.","Harvest","AL","35748","","","Male","","","No Response","Primary",,,,"Mrs.","Maxine","Rooks","","","","","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Marian Graham","Mr.","Marian","Graham","","1818 Whisperwood Way","Huntsville","AL","35806","","","Male","","","No Response","Primary",,,,"Ms.","Essie","Graham","","","","","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Groom's Family","Mary Kazembe","Ms.","Mary","Kazembe","","","","","","","","Female","","","No Response","Primary",,"Groom's Family #1","3",,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Maryan Brazelton","Ms.","Maryan","Brazelton",,,,"GA",,,,"Female",,,"No Response","Primary",,"Bridal Party","3",,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","2","0","0","2","A",,,,,,,,,,,,"Kendell","Brazelton","Unspecified","None",,"Bride's Family #1","3",,,,,,,,,,,,,,
+"Groom's Friends","Mas Ngoma","Mr.","Mas","Ngoma","","6 Albion Street","Roselands","NSW","2196","Australia","","Male","","","No Response","Primary",,,,"Mrs.","Lindy","Ngoma","","","","","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Mei-Chanda Stewart","Ms.","Mei-Chanda","Stewart","","","","MO","","","","Female","","","No Response","Primary",,"Bridal Party","2",,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Melissa Porter","Ms.","Melissa","Porter","","","","","","","","Female","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Groom's Family","Momma Kazembe","Ms.","Momma","Kazembe","","","","","","","","Female","","","No Response","Primary",,"Groom's Family #2","1",,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Mora Brazelton","Mrs.","Mora","Brazelton",,"3449 Saint Clair Street","Detroit","OH","45011",,,"Female",,,"No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,"Mrs. Mora Brazelton",,"","1","0","0","1","A",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Ms. Wanda Carswell",,"Ms. Wanda","Carswell",,"105 Grand hollow CT ","Huntsville","AL","35806",,,"Female",,,"No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","B",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Nellie Crutcher","Ms.","Nellie","Crutcher",,"118 Mossy Branch Drive","Harvest","AL","35749",,,"Female",,,"No Response","Primary",,"Bride's Family #2","4",,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,"Ms. Nellie Crutcher & Alston Crutcher","Nellie & Alston","","2","0","0","2","A",,,,,,,,,,,,"Alston","Crutcher","Unspecified","None",,"Bride's Family #2","5",,,,,,,,,,,,,,
+"Bride's Friends","Paulette Hughes","Ms.","Paulette","Hughes","","1505 Sparkman Dr. Apt. 163","Huntsville","AL","35810","","","Female","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","B",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Portia Lang","Ms.","Portia","Lang","","3933 Shamrock Drive","Huntsville","AL","35810","","","Female","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Quinlan Parker","Mr.","Quinlan","Parker","","","","","","","","Male","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","B",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Ray Arnold","Mr.","Ray","Arnold",,"1721 Fairway Drive","Auburn","AL","36830",,,"Male",,,"No Response","Primary",,,,"Mrs.","Marcia","Arnold",,,,,,,,"Female",,,"No Response","Spouse",,,,"Mr. & Mrs. Ray Arnold","Ray & Marcia","","2","0","0","2","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Reginald Jones","Mr.","Reginald","Jones","","175 Thunderbird Dr.","Harvest","AL","35749","","","Male","","","No Response","Primary",,,,"Mrs.","","Jones","","","","","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Richard McDuffie","Rev.","Richard","McDuffie","","","","OH","","","","Male","","","No Response","Primary",,,,"Mrs.","Sharon","McDuffie","","","","OH","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Robert Smith","Mr.","Robert","Smith","","173 Timber Oak Rd.","Huntsville","AL","35806","","","Male","","","No Response","Primary",,,,"Mrs.","LaToya","Smith","","","","","","","","Female","","","No Response","Spouse",,,,,,"","4","0","0","4","A",,,,"",,,,,,,,"Robert","Smith, Jr.","Male","None",,,,"","Smith","Female","None",,,,,,,,,,
+"Bride's Friends","Roosevelt Strong","Mr.","Roosevelt","Strong","","2319 Jeff Rd","Harvest","AL","35749","","","Male","","","No Response","Primary",,,,"Mrs.","Dorothy","Strong","","2319 Jeff Rd","","","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Rueben Brazelton","Mr.","Rueben","Brazelton",,"118 Flowerwood Dr","Meridianville","AL","35759",,,"Male",,,"No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","2","0","0","2","A",,,,,,,,,,,,,"Brazelton","Unspecified","None",,,,,,,,,,,,,,,,,
+"Bride's Friends","Shayla Redmond","Mrs.","Shayla","Redmond","","","","","","","","Female","","","No Response","Primary",,,,"Mr.","Allen","Redmond","","","","","","","","Male","","","No Response","Spouse",,,,,,"","2","0","0","2","B",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Shicociya Townsend","Ms.","Shicociya","Townsend","","","Richmond","VA","","","","Female","","","No Response","Primary",,"Bridal Party","4",,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Groom's Friends","Simba","Mr.","Simba","","","","","","","","","Male","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Skip Caldwell",,"Skip","Caldwell",,"1305 Teenajo Dr.  SE","Huntsville","AL","35803",,,"Male",,,"No Response","Primary",,,,,"Wanda","Caldwell",,,,,,,,"Female",,,"No Response","Spouse",,,,,,"","2","0","0","2","B",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Tonju Butler",,"Tonju","Butler",,"837 Dan Tibbs Rd.","Huntsville","AL","35806",,,"Female",,,"No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Groom's Family","Tony Kazembe","Mr.","Tony","Kazembe","","","","","","Zambia","","Male","","","No Response","Primary",,"Bridal Party","8",,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Travis Friend","Mr.","Travis","Friend","","","","","","","","Male","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Undrea Henderson & Family","Mrs.","Undrea","Henderson & Family","","655 Carriger Road","Hazel Green ","AL","35750","","","Female","","","No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","3","0","0","3","B",,,,"",,,,,,,,"Jordan","Henderson","Female","None",,,,"Austin","Henderson","Male","None",,,,,,,,,,
+"Bride's Friends","Vanessa Akem","Ms.","Vanessa","Akem",,,,"NSW",,"Australia",,"Female",,,"No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","B",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Veronica McGill","Ms.","Veronica","McGill","","2608 Summerfiedl Drive","Louisville","KY","40220","","","Female","","","No Response","Primary",,"Table 1","6",,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Vincent Varner","Mr.","Vincent","Varner","","107 Brunell Court ","Madison","AL ","35758","","","Male","","","No Response","Primary",,,,"Mrs.","Stephanie","Varner","","","","","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","B",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","Walter Rooks","Mr.","Walter","Rooks","","130 Hotts Lane","Huntsville","AL ","35757","","","Male","","","No Response","Primary",,,,"Mrs.","","Rooks","","","","","","","","Female","","","No Response","Spouse",,,,,,"","2","0","0","2","A",,,,"",,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Family","Walter Williams","Mr.","Walter","Williams","","6001 Forest Lane","Ft. Worth","TX","76112","","","Male","","","No Response","Primary",,,,"Mrs.","Olivia","Williams","","","","","","","","Female","","","No Response","Spouse",,,,,,"","4","0","0","4","A",,,,"",,,,,,,,"Parker","Williams","Male","None",,,,"Randall","Williams","Male","None",,,,,,,,,,
+"Bride's Friends","Willie Cheatham",,"Willie","Cheatham",,"281 Natchez Trail ","Huntsville","AL","35806",,,"Male",,,"No Response","Primary",,,,,,"Cheatham",,,,,,,,"Female",,,"No Response","Spouse",,,,,,"","2","0","0","2","A",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Bride's Friends","XXX and Joann Hereford",,"XXX and Joann","Hereford",,"102 Clear Springs Circle","Hazel Green ","AL","35750",,,"Unspecified",,,"No Response","Primary",,,,,,,,,,,,,,"Unspecified",,,"No Response","Spouse",,,,,,"","1","0","0","1","B",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

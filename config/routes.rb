@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  get '/our_story' => 'home#our_story'
+  get '/about_us' => 'home#about_us'
   get '/wedding' => 'home#wedding'
   get '/reception' => 'home#reception'
   get '/rsvp' => 'rsvp#index'

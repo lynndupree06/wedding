@@ -1,9 +1,11 @@
+$berry: #99094C;
+
 body {
-  background-color: #fff;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  background-color: white;
+  font-family: PoiretOne;
 }
 
 p, ol, ul, td {
@@ -19,13 +21,14 @@ pre {
 }
 
 a {
-  color: #000;
+  color: $berry;
+  text-decoration: none;
   &:visited {
-    color: #666;
+    color: $berry;
   }
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: $berry;
+    text-decoration: underline;
   }
 }
 

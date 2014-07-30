@@ -1,9 +1,15 @@
 <h1>Listing parties</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Postal Code</th>
+      <th>Country</th>
+      <th>Email</th>
       <th>Outer envelop</th>
       <th>Inner envelop</th>
       <th colspan="3"></th>
@@ -14,6 +20,12 @@
     <% @parties.each do |party| %>
       <tr>
         <td><%= party.name %></td>
+        <th><%= party.address %></th>
+        <th><%= party.city %></th>
+        <th><%= party.state %></th>
+        <th><%= party.postal_code %></th>
+        <th><%= party.postal_code %></th>
+        <th><%= party.email %></th>
         <td><%= party.outer_envelop %></td>
         <td><%= party.inner_envelop %></td>
         <td><%= link_to 'Show', party %></td>

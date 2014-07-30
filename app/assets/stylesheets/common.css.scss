@@ -9,76 +9,108 @@
 }
 
 @font-face {
-  font-family: DancingScript;
-  src: font-url('DancingScript-Regular.ttf');
+  font-family: PoiretOne;
+  src: font-url('PoiretOne-Regular.ttf');
 }
 
-@font-face {
-  font-family: DancingScript;
-  src: font-url('DancingScript-Bold.ttf');
-  font-weight: bold;
-}
+.navbar {
+  .navbar-brand {
+    //      position: absolute;
+    //      top: 40px;
+    //      left: 40%;
+    font-family: GreatVibes-Regular;
+    //      font-size: 30px;
+    //      margin: 0 !important;
+    //      padding: 23px 30px 40px 30px;
+    //      background-color: #f8f8f8;
+    //      border-radius: 60px;
+    //      border-color: #e7e7e7;
+    //      background-image: linear-gradient(to bottom,#fff 0,#f8f8f8 100%);
+    //      box-shadow: 0px 10px 20px 0px #888888;
+  }
 
-body {
-  background-color: white;
-  font-family: DancingScript;
+  .navbar-nav {
+    margin: 0 auto;
+    display: table;
+    table-layout: fixed;
+    float: none;
 
-  .navbar {
-
-    .navbar-brand {
-//      position: absolute;
-//      top: 40px;
-//      left: 40%;
-      font-family: GreatVibes-Regular;
-//      font-size: 30px;
-//      margin: 0 !important;
-//      padding: 23px 30px 40px 30px;
-//      background-color: #f8f8f8;
-//      border-radius: 60px;
-//      border-color: #e7e7e7;
-//      background-image: linear-gradient(to bottom,#fff 0,#f8f8f8 100%);
-//      box-shadow: 0px 10px 20px 0px #888888;
+    li {
+      width: 125px;
+      text-align: center;
     }
+  }
+}
 
-    .navbar-nav {
-      margin: 0 auto;
-      display: table;
-      table-layout: fixed;
-      float:none;
+.container {
+  margin-top: 100px;
+  width: 770px;
+  margin-bottom: 100px;
+
+  .welcome {
+    .signature {
+      font-family: MonsieurLaDoulaise-Regular;
+      font-size: 40px;
+      text-align: right;
     }
   }
 
-  .container {
-    margin-top: 100px;
-    width: 770px;
+  .info-box {
+    background-color: white;
+    padding: 80px 20px 20px 20px;
+    box-shadow: 0px 10px 20px 0px #888888;
+    text-align: center;
 
-    .info-box {
-      background-color: white;
-      padding: 80px 20px 20px 20px;
-      box-shadow: 0px 10px 20px 0px #888888;
-      text-align: center;
+    header {
+      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+      text-transform: uppercase;
+      font-size: 16px;
+      margin: 10px 0;
+      line-height: 50px;
+      background-color: antiquewhite;
+      position: absolute;
+      width: 625px;
+      left: -17px;
+      border-radius: 4px;
+      top: 0;
+      color: #7F7F7F;
+    }
 
-      header {
-        font-family: GreatVibes-Regular;
-        font-size: 30px;
-        margin: 10px 0;
-        line-height: 50px;
-        background-color: antiquewhite;
-        position: absolute;
-        width: 650px;
-        left: -19px;
-        border-radius: 4px;
-        top: 0;
-      }
+    img {
+      width: 100%;
+      max-height: 300px;
+    }
 
-      img {
-        width: 100%;
-        max-height: 300px;
-      }
+    h1 {
+      font-family: MonsieurLaDoulaise-Regular;
+      font-size: 50px;
+    }
 
-      h1 {
-        font-family: MonsieurLaDoulaise-Regular;
-        font-size: 60px;
+    h3 {
+      font-size: 22px;
+    }
+
+    section {
+      font-size: 14px;
+    }
+
+    .link {
+      margin-top: 10px;
+    }
+
+    hr {
+      width: 30%;
+      float: right;
+    }
+
+    .footer {
+      margin-top: 20px;
+      span.heart {
+        float: right;
+        padding: 0 5%;
+        margin-top: 10px;
+        font-size: 20px;
+        color: #99094C;
       }
     }
   }
