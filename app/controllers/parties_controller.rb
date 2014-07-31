@@ -5,6 +5,7 @@ class PartiesController < ApplicationController
   # GET /parties.json
   def index
     @parties = Party.all
+    render :layout => 'admin'
   end
 
   # GET /parties/1
@@ -69,6 +70,6 @@ class PartiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def party_params
-      params.require(:party).permit(:name, :outer_envelop, :inner_envelop)
+      params.require(:party).permit(:name, :address, :city, :state, :postal_code, :country, :outer_envelop, :inner_envelop)
     end
 end

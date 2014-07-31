@@ -1,4 +1,4 @@
-<%= form_for(@party) do |f| %>
+<%= form_for(@party, html: {:class => 'form-horizontal', :role => 'form'}) do |f| %>
   <% if @party.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@party.errors.count, "error") %> prohibited this party from being saved:</h2>
@@ -11,19 +11,74 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :outer_envelop %><br>
-    <%= f.text_field :outer_envelop %>
-  </div>
-  <div class="field">
-    <%= f.label :inner_envelop %><br>
-    <%= f.text_field :inner_envelop %>
-  </div>
+    <div class="form-group">
+      <%= f.label :name, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :name, :class => 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :address, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :address, :class => 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :city, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :city, :class => 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :state, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :state, :class => 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :postal_code, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :postal_code, :class => 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :country, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :country, :class => 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :inner_envelop, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :inner_envelop, :class => 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :outer_envelop, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :outer_envelop, :class => 'form-control' %>
+      </div>
+    </div>
+
+    <strong>Guests:</strong>
+    <% @party.guests.each do |guest| %>
+        <p>
+          <%= guest.first_name %> <%= guest.last_name %>
+          | <%= link_to 'Remove From Party', guest, method: :delete_from_party, data: { confirm: 'Are you sure?' } %>
+        </p>
+    <% end %>
+
+    <p>Add a new Guest | Add an existing Guest</p>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => 'btn btn-primary' %>
+    <%= link_to 'Remove Party', @party, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
   </div>
 <% end %>

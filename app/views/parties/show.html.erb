@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'Edit', edit_party_path(@party) %> |
+<%= link_to 'All Parties', parties_path %>
+
 <h1><%= @party.name %></h1>
 
 <p>
@@ -20,13 +23,11 @@
 </p>
 
 <p>
-  <strong>Guest in Party:</strong>
+  <strong>Guests in Party:</strong>
   <ul>
     <% @party.guests.each do |guest| %>
-        <li><%= guest.first_name %> <%= guest.last_name %></li>
+        <li><%= link_to "#{guest.first_name} #{guest.last_name}", guest_path(guest) %></li>
     <% end %>
   </ul>
 </p>
 
-<%= link_to 'Edit', edit_party_path(@party) %> |
-<%= link_to 'Back', parties_path %>

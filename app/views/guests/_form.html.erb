@@ -1,4 +1,4 @@
-<%= form_for(@guest) do |f| %>
+<%= form_for(@guest, html: {:class => 'form-horizontal', :role => 'form'}) do |f| %>
   <% if @guest.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@guest.errors.count, "error") %> prohibited this guest from being saved:</h2>
@@ -11,43 +11,46 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :address1 %><br>
-    <%= f.text_field :address1 %>
-  </div>
-  <div class="field">
-    <%= f.label :address2 %><br>
-    <%= f.text_field :address2 %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :state %><br>
-    <%= f.text_field :state %>
-  </div>
-  <div class="field">
-    <%= f.label :postal_code %><br>
-    <%= f.text_field :postal_code %>
-  </div>
-  <div class="field">
-    <%= f.label :country %><br>
-    <%= f.text_field :country %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
+    <div class="form-group">
+      <%= f.label :title, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= select :guest, :title, title_options %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :first_name, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :first_name, :class => 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :last_name, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :last_name, :class => 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :suffix, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :suffix, :class => 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :gender, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= radio_button_tag('guest[gender]', 'Male', @guest.gender == 'Male') %>
+        <%= label_tag(:male, 'Male') %>
+        <%= radio_button_tag('guest[gender]', 'Female', @guest.gender == 'Female') %>
+        <%= label_tag(:female, 'Female') %>
+      </div>
+    </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => 'btn btn-primary' %>
+    <%= link_to 'Remove Guest', @guest, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
   </div>
 <% end %>

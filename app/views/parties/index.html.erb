@@ -19,7 +19,7 @@
   <tbody>
     <% @parties.each do |party| %>
       <tr>
-        <td><%= party.name %></td>
+        <td><span class="badge"><%= party.guests.size %></span> <%= party.name %></td>
         <th><%= party.address %></th>
         <th><%= party.city %></th>
         <th><%= party.state %></th>

@@ -5,6 +5,7 @@ class GuestsController < ApplicationController
   # GET /guests.json
   def index
     @guests = Guest.all
+    render :layout => 'admin'
   end
 
   # GET /guests/1
@@ -61,6 +62,11 @@ class GuestsController < ApplicationController
     end
   end
 
+  def delete_from_party
+    @guest.party = nil
+    @guest.save!
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_guest
@@ -69,6 +75,6 @@ class GuestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def guest_params
-      params.require(:guest).permit(:last_name, :first_name, :address1, :address2, :city, :state, :postal_code, :country, :email)
+      params.require(:guest).permit(:last_name, :first_name, :title, :suffix, :gender)
     end
 end

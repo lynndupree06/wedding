@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
   # GET /groups.json
   def index
     @groups = Group.all
+    render :layout => 'admin'
   end
 
   # GET /groups/1

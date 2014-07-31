@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <%= @guest.first_name %> <%= @guest.last_name %><br/>
-</p>
+<%= link_to 'Edit', edit_guest_path(@guest) %> |
+<%= link_to 'All Guests', guests_path %>
+
+<h1><%= @guest.first_name %> <%= @guest.last_name %></h1>
+<p><%= @guest.gender %></p>
 
 <p>
   <strong>Address:</strong><br/>
@@ -11,5 +13,7 @@
   <%= @guest.party.country %>
 </p>
 
-<%= link_to 'Edit', edit_guest_path(@guest) %> |
-<%= link_to 'Back', guests_path %>
+<p>
+  <strong>Party:</strong> <%= link_to "#{@guest.party.name}", party_path(@guest.party) %>
+</p>
+
