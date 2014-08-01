@@ -37,4 +37,14 @@ Rails.application.configure do
 
   config.assets.enabled = true
   config.assets.paths << "#{Rails.root}/app/assets/fonts"
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { address: '127.0.0.1', port: 1025 }
 end
+
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+    :address => "localhost",
+    :port => 1025,
+    :domain => "everydayrails.com"
+}

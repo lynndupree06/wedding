@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+  <link href='http://fonts.googleapis.com/css?family=Great+Vibes|Poiret+One' rel='stylesheet' type='text/css'>
+
+  <style>
+      .wrapper {
+          background-color: antiquewhite;
+          font-family: 'Poiret One', cursive;
+          padding: 50px 0 50px 0;
+      }
+
+      .container {
+          width: 80%;
+          margin: 10px auto 50px auto;
+          background-color: #5e5e5e;
+          color: white;
+          text-align: center;
+          font: Impact, Charcoal, sans-serif;
+          padding-bottom: 50px;
+      }
+
+      a {
+          color: #d58512;
+          text-decoration: none;
+      }
+
+      a:hover {
+          text-decoration: underline;
+      }
+
+      .gold-text {
+          color: #d58512;
+          font-size: 14px;
+      }
+
+      .all-caps {
+          text-transform: uppercase;
+          font-size: 24px;
+          font-weight: bold;
+      }
+
+      .name-text {
+          font-size: 40px;
+          font-family: 'Great Vibes', cursive;
+      }
+
+      header {
+          padding: 30px;
+          text-align: center;
+          font-weight: bold;
+          text-transform: uppercase;
+          background-color: #d58512;
+          color: #5e5e5e;
+          font-size: 60px;
+          margin-bottom: 30px;
+      }
+
+      section {
+          padding: 20px;
+      }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="container">
+    <header>
+      Save the Date
+    </header>
+
+    <section>
+      <div>
+        <span class="gold-text">For the marriage of</span><br>
+        <span class="name-text">Jessica Brazelton & Frederick Kazembe</span><br>
+        <span class="gold-text all-caps">May 16, 2015</span><br>
+        <span class="gold-text all-caps">Huntsville, Alabama USA</span><br>
+        <span class="gold-text">Formal Invitation to Follow</span>
+      </div>
+
+      <p>
+        We would love to send you an invitation to our wedding.
+
+        <% if @party.address.blank? %>
+            However, we do not have your address. Please go to
+            <a href="http://localhost:3000/parties/<%= @party.id %>/edit" target="_blank">this link</a> to send us your
+            address.
+        <% end %>
+      </p>
+
+      <% if @party.address.present? %>
+          <p>
+            This is the address that we have for you:
+          </p>
+
+          <p style="font-weight: bold">
+            <%= @party.address %><br>
+            <%= @party.city %>, <%= @party.state %> <%= @party.postal_code %><br>
+            <%= @party.country %>
+          </p>
+
+          <p>
+            If this is not the correct address please go to
+            <a href="http://localhost:3000/parties/<%= @party.id %>/edit" target="_blank">this link</a> to update your
+            address in our records.
+          </p>
+      <% end %>
+
+      <p>
+        In the meantime, feel free to visit <a href="http://localhost:3000/" target="_blank">our website</a> for more
+        information about how we met and the wedding!
+      </p>
+    </section>
+  </div>
+</div>
+
+</body>
+</html>

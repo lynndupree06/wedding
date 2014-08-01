@@ -69,14 +69,6 @@ class GuestsController < ApplicationController
     @guest.save!
   end
 
-  def save_the_date
-    Guest.all.each do |g|
-      if g.party.present? && g.party.email.present?
-        GuestNotifier.send_save_the_date_email(g).deliver
-      end
-    end
-  end
-
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_guest

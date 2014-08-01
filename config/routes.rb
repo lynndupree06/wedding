@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   get '/rsvp/search' => 'rsvp#search'
 
-  get '/save-the-date' => 'guests#save_the_date'
+  get '/save-the-date' => 'parties#save_the_date'
 
   resources :users
   resources :photos

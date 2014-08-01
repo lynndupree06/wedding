@@ -13,7 +13,7 @@ namespace :import do
       if party.nil?
         party_name = guest['Party_Name']
         party_name << ", #{guest['Suffix']}" unless guest['Suffix'].blank?
-        party = Party.create(
+        party = Party.create!(
             :name => "#{party_name} Party",
             :address => guest['Address'],
             :city => guest['City'],

@@ -62,6 +62,14 @@ class PartiesController < ApplicationController
     end
   end
 
+  def save_the_date
+    Party.all.each do |p|
+      if p.email.present?
+        PartyNotifier.send_save_the_date_email(p).deliver
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_party
