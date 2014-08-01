@@ -69,14 +69,22 @@ class GuestsController < ApplicationController
     @guest.save!
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_guest
-      @guest = Guest.find(params[:id])
+  def save_the_date
+    Guest.all.each do |g|
+      if g.party.present? && g.party.email.present?
+        GuestNotifier.send_save_the_date_email(g).deliver
+      end
     end
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def guest_params
-      params.require(:guest).permit(:last_name, :first_name, :title, :suffix, :gender, :party_id, :group, :a_b_list)
-    end
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_guest
+    @guest = Guest.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def guest_params
+    params.require(:guest).permit(:last_name, :first_name, :title, :suffix, :gender, :party_id, :group, :a_b_list)
+  end
 end
