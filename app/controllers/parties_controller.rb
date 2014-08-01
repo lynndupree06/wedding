@@ -68,6 +68,11 @@ class PartiesController < ApplicationController
         PartyNotifier.send_save_the_date_email(p).deliver
       end
     end
+
+    respond_to do |format|
+      format.html { redirect_to parties_url, notice: 'Save the date emails were successfully sent.' }
+      format.json { head :no_content }
+    end
   end
 
   private
