@@ -2,13 +2,13 @@ def update_guest(guest, new_guest)
   party = guest.party
 
   if party && guest.first_name && (party.name.include? new_guest['First Name'])
-    # party.address = new_guest['Address']
-    # party.city = new_guest['City']
-    # party.state = new_guest['State']
-    # party.postal_code = new_guest['Postal Code']
-    # party.country = new_guest['Country']
-    # party.email = new_guest['Email']
-    # party.save!
+    party.address = new_guest['Address']
+    party.city = new_guest['City']
+    party.state = new_guest['State']
+    party.postal_code = new_guest['Postal Code']
+    party.country = new_guest['Country']
+    party.email = new_guest['Email']
+    party.save!
   end
 end
 
@@ -36,7 +36,7 @@ namespace :update do
           group = Group.find_by_name("Groom's Friends")
         end
 
-        party = Party.create(
+        party = Party.create!(
             :name => "#{new_guest['First Name']} #{new_guest['Last Name']} Party",
             :address => new_guest['Address'],
             :city => new_guest['City'],
@@ -46,11 +46,15 @@ namespace :update do
             :email => new_guest['Email']
         )
 
-        Guest.create!(
+        guest = Guest.create!(
             :last_name => new_guest['Last_Name'],
             :first_name => new_guest['First_Name'],
-            :group => group,
             :party => party
+        )
+
+        GroupsGuests.create(
+            :group_id => group.id,
+            :guest_id => guest.id
         )
       end
     end

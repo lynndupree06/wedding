@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/rsvp' => 'rsvp#index'
   get '/registry' => 'registry#index'
 
+  get '/rsvp/search' => 'rsvp#search'
+
   resources :users
   resources :photos
 

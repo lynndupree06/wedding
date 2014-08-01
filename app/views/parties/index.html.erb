@@ -1,41 +1,46 @@
+<%= render 'common/guest_summary' %>
+
 <h1>Listing parties</h1>
 
-<table class="table table-hover">
+<%= link_to 'New Party', new_party_path %>
+
+<table class="table table-hover tablesorter">
   <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Postal Code</th>
-      <th>Country</th>
-      <th>Email</th>
-      <th>Outer envelop</th>
-      <th>Inner envelop</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Email(s)</th>
+    <th>Outer envelop</th>
+    <th>Inner envelop</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @parties.each do |party| %>
+  <% @parties.each do |party| %>
       <tr>
         <td><span class="badge"><%= party.guests.size %></span> <%= party.name %></td>
-        <th><%= party.address %></th>
-        <th><%= party.city %></th>
-        <th><%= party.state %></th>
-        <th><%= party.postal_code %></th>
-        <th><%= party.postal_code %></th>
-        <th><%= party.email %></th>
+        <td>
+          <%= party.address %>
+          <br>
+          <%= party.city %>, <%= party.state %> <%= party.postal_code %>
+          <br>
+          <%= party.country %>
+        </td>
+        <td><%= party.email %></td>
         <td><%= party.outer_envelop %></td>
         <td><%= party.inner_envelop %></td>
         <td><%= link_to 'Show', party %></td>
         <td><%= link_to 'Edit', edit_party_path(party) %></td>
-        <td><%= link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', party, method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Party', new_party_path %>
+<script>
+    $(document).ready(function () {
+                $("#myTable").tablesorter();
+            }
+    );
+</script>

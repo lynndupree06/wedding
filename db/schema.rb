@@ -11,12 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730083332) do
+ActiveRecord::Schema.define(version: 20140801094545) do
 
   create_table "groups", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "groups_guests", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "group_id"
+    t.integer  "guest_id"
   end
 
   create_table "guests", force: true do |t|
@@ -26,7 +33,6 @@ ActiveRecord::Schema.define(version: 20140730083332) do
     t.datetime "updated_at"
     t.string   "title"
     t.string   "suffix"
-    t.integer  "group_id"
     t.integer  "party_id"
     t.string   "gender"
     t.string   "a_b_list"

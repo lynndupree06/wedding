@@ -16,6 +16,8 @@ class GuestsController < ApplicationController
   # GET /guests/new
   def new
     @guest = Guest.new
+    @guest.party = Party.new
+    @guest.group = Group.new
   end
 
   # GET /guests/1/edit
@@ -75,6 +77,6 @@ class GuestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def guest_params
-      params.require(:guest).permit(:last_name, :first_name, :title, :suffix, :gender)
+      params.require(:guest).permit(:last_name, :first_name, :title, :suffix, :gender, :party_id, :group, :a_b_list)
     end
 end

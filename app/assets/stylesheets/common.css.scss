@@ -13,6 +13,27 @@
   src: font-url('PoiretOne-Regular.ttf');
 }
 
+@font-face {
+  font-family: "FontAwesome";
+  src: font-url('fontawesome-webfont.eot');
+  src: font-url('fontawesome-webfont.woff'), font-url('fontawesome-webfont.ttf'), font-url('fontawesome-webfont.svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.fa-female {
+  color: #ff0a69;
+}
+
+.fa-male {
+  color: #1357ff;
+}
+
+.badge a {
+  text-decoration: none;
+  color: #000000;
+}
+
 .navbar {
   .navbar-brand {
     //      position: absolute;

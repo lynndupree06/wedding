@@ -13,6 +13,11 @@
 </p>
 
 <p>
+  <strong>Email Address(s):</strong>
+  <%= @party.email %>
+</p>
+
+<p>
   <strong>Outer envelop:</strong>
   <%= @party.outer_envelop %>
 </p>
@@ -26,7 +31,10 @@
   <strong>Guests in Party:</strong>
   <ul>
     <% @party.guests.each do |guest| %>
-        <li><%= link_to "#{guest.first_name} #{guest.last_name}", guest_path(guest) %></li>
+        <li>
+          <%= link_to "#{guest.first_name} #{guest.last_name}", guest_path(guest) %>
+          <i class="fa <%= guest.gender == 'Female' ? 'fa-female' : 'fa-male' %>"></i>
+        </li>
     <% end %>
   </ul>
 </p>

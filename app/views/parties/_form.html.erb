@@ -19,6 +19,13 @@
     </div>
 
     <div class="form-group">
+      <%= f.label :email, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :email, :class => 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
       <%= f.label :address, :class => 'col-sm-2 control-label' %>
       <div class="col-sm-10">
         <%= f.text_field :address, :class => 'form-control' %>
@@ -75,7 +82,10 @@
         </p>
     <% end %>
 
-    <p>Add a new Guest | Add an existing Guest</p>
+    <p>
+      <%= link_to 'Add a new Guest', new_guest_path(:party => @party) %>
+      | Add an existing Guest
+    </p>
 
   <div class="actions">
     <%= f.submit :class => 'btn btn-primary' %>

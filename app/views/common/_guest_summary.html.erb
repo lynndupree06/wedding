@@ -1,0 +1,12 @@
+<p>
+  <strong>A Group:</strong> <%= Guest.where(a_b_list: 'A').count %> |
+  <strong>B Group:</strong> <%= Guest.where(a_b_list: 'B').count %>
+</p>
+
+<p>
+  <strong>Bride's Family:</strong> <%= GroupsGuests.where(group_id: 1).count %> |
+  <strong>Bride's Friends:</strong> <%= GroupsGuests.where(group_id: 2).count %> |
+  <strong>Groom's Family:</strong> <%= GroupsGuests.where(group_id: 3).count %> |
+  <strong>Groom's Friends:</strong> <%= GroupsGuests.where(group_id: 4).count %> |
+  <strong>Bridal Party:</strong> <%= GroupsGuests.where(group_id: 5).count %>
+</p>

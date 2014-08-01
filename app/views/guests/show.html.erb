@@ -3,8 +3,17 @@
 <%= link_to 'Edit', edit_guest_path(@guest) %> |
 <%= link_to 'All Guests', guests_path %>
 
-<h1><%= @guest.first_name %> <%= @guest.last_name %></h1>
-<p><%= @guest.gender %></p>
+<h2>
+  <%= @guest.first_name %> <%= @guest.last_name %>
+  <span class="badge"><%= @guest.a_b_list %></span>
+  <i class="fa <%= @guest.gender == 'Female' ? 'fa-female' : 'fa-male' %>"></i>
+</h2>
+
+<p>
+  <% @guest.group.each do |g| %>
+      <span class="badge"><%= link_to "#{g.name}", group_path(g) %></span>
+  <% end %>
+</p>
 
 <p>
   <strong>Address:</strong><br/>
@@ -14,6 +23,5 @@
 </p>
 
 <p>
-  <strong>Party:</strong> <%= link_to "#{@guest.party.name}", party_path(@guest.party) %>
+  <strong>Party:</strong> <%= link_to "#{@guest.party.name}", party_path(@guest.party) %><br>
 </p>
-
