@@ -65,7 +65,6 @@
 
 .container {
   margin-top: 100px;
-  width: 770px;
   margin-bottom: 100px;
 
   .welcome {
@@ -90,8 +89,8 @@
       line-height: 50px;
       background-color: antiquewhite;
       position: absolute;
-      width: 625px;
-      left: -17px;
+      width: 107%;
+      left: -20px;
       border-radius: 4px;
       top: 0;
       color: #7F7F7F;
@@ -113,6 +112,7 @@
 
     section {
       font-size: 14px;
+      margin-bottom: 20px;
     }
 
     .link {
@@ -120,19 +120,37 @@
     }
 
     hr {
-      width: 30%;
-      float: right;
+      width: 40%;
     }
 
     .footer {
       margin-top: 20px;
       span.heart {
-        float: right;
-        padding: 0 5%;
-        margin-top: 10px;
+        bottom: 33px;
+        position: absolute;
         font-size: 20px;
         color: #99094C;
       }
+    }
+  }
+
+  .rsvp {
+
+    h1 {
+      text-align: center;
+      font-family: GreatVibes-Regular;
+      font-size: 50px;
+      text-transform: uppercase;
+    }
+
+    form {
+      width: 90%;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    button {
+      text-align: center;
     }
   }
 }
@@ -142,5 +160,12 @@
 
   .save-the-date {
     color: #ffffff;
+  }
+}
+
+
+@media (min-width: 992px) {
+  .container {
+    width: 770px;
   }
 }
