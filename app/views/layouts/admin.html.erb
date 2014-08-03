@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Kazembe-Brazelton Wedding</title>
+  <title>Jessica &amp; Fred</title>
+  <%= javascript_include_tag 'jquery' %>
+  <%= stylesheet_link_tag 'table-sorter-style' %>
   <%= stylesheet_link_tag 'bootstrap-theme.min' %>
   <%= stylesheet_link_tag 'bootstrap.min' %>
-  <%= stylesheet_link_tag 'table-sorter-style' %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-<%= javascript_include_tag 'jquery' %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -14,15 +14,23 @@
 
 <%= render 'layouts/header' %>
 
+<% controller = self.controller.class.name %>
 <div class="container admin-container">
-  <div>
+  <div style="margin-bottom: 20px;">
     <%= link_to 'Send Save the Date Email to A List', save_the_date_a_path, :class => 'btn btn-success save-the-date' %>
     <%= link_to 'Send Save the Date Email to B List', save_the_date_b_path, :class => 'btn btn-info save-the-date' %>
   </div>
 
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="<%= controller.include?('Guest') ? 'active' : '' %>"><%= link_to 'Guests', guests_path %></li>
+    <li class="<%= controller.include?('Part') ? 'active' : '' %>"><%= link_to 'Parties', parties_path %></li>
+    <li class="<%= controller.include?('Group') ? 'active' : '' %>"><%= link_to 'Groups', groups_path %></li>
+  </ul>
+
   <%= yield %>
 </div>
 
+<%= javascript_include_tag 'jquery.tablesorter' %>
 <%= javascript_include_tag 'bootstrap.min' %>
 <%= javascript_include_tag 'jquery.tablesorter' %>
 
@@ -35,6 +43,11 @@
                 button.style.color = (button.style.color == 'transparent' ? 'white' : 'transparent');
             }, 500);
         });
+
+        $(".table").tablesorter({sortList: [
+            [0, 0],
+            [1, 0]
+        ]});
     });
 </script>
 

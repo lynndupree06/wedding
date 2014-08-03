@@ -10,7 +10,6 @@
     <th>Last name</th>
     <th>First name</th>
     <th>Gender</th>
-    <th>A/B</th>
     <th>Party</th>
     <th>Group(s)</th>
     <th colspan="3"></th>
@@ -27,7 +26,6 @@
         </td>
         <td><%= guest.title %> <%= guest.first_name %></td>
         <td><%= guest.gender %></td>
-        <td><%= guest.a_b_list %></td>
         <td><%= guest.party ? guest.party.name : '' %></td>
         <td>
           <% guest.group.each do |g| %>

@@ -15,10 +15,3 @@
 //= require turbolinks
 //= require_tree .
 
-$(function () {
-    $(".table").tablesorter({sortList: [
-      [0, 0],
-      [1, 0]
-    ]});
-  }
-);

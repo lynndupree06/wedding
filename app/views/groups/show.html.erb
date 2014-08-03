@@ -3,11 +3,14 @@
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'All Groups', groups_path %>
 
-<h1><%= @group.name %></h1>
+<h1>
+  <%= @group.name %>
+  <span class="label label-primary"><%= GroupsGuests.where(group_id: @group.id).count %></span>
+</h1>
 
 <p>
   <ul>
-    <% @group.guests.each do |guest| %>
+    <% Guest.joins(:party).joins(:group).where('groups.id = ?', @group.id).each do |guest| %>
         <li><%= guest.first_name %> <%= guest.last_name %></li>
     <% end %>
   </ul>
