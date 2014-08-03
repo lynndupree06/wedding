@@ -18,7 +18,7 @@
 
   <tbody>
   <% @parties.each do |party| %>
-      <tr>
+      <tr class="<%= party.a_b_list == 'A' ? 'success' : '' %>">
         <td><span class="badge"><%= party.guests.size %></span> <%= party.name %></td>
         <td>
           <%= party.address %>

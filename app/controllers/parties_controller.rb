@@ -62,15 +62,28 @@ class PartiesController < ApplicationController
     end
   end
 
-  def save_the_date
-    Party.all.each do |p|
+  def save_the_date_a
+    Party.where(a_b_list: 'A').each do |p|
       if p.email.present?
         PartyNotifier.send_save_the_date_email(p).deliver
       end
     end
 
     respond_to do |format|
-      format.html { redirect_to parties_url, notice: 'Save the date emails were successfully sent.' }
+      format.html { redirect_to parties_url, notice: 'Save the date emails were successfully sent to the A List.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def save_the_date_b
+    Party.where(a_b_list: 'B').each do |p|
+      if p.email.present?
+        PartyNotifier.send_save_the_date_email(p).deliver
+      end
+    end
+
+    respond_to do |format|
+      format.html { redirect_to parties_url, notice: 'Save the date emails were successfully sent to the B List.' }
       format.json { head :no_content }
     end
   end
@@ -83,6 +96,6 @@ class PartiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def party_params
-      params.require(:party).permit(:name, :email, :address, :city, :state, :postal_code, :country, :outer_envelop, :inner_envelop)
+      params.require(:party).permit(:a_b_list, :name, :email, :address, :city, :state, :postal_code, :country, :outer_envelop, :inner_envelop)
     end
 end

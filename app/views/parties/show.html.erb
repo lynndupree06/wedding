@@ -3,7 +3,10 @@
 <%= link_to 'Edit', edit_party_path(@party) %> |
 <%= link_to 'All Parties', parties_path %>
 
-<h1><%= @party.name %></h1>
+<h1>
+  <%= @party.name %>
+  <span class="badge"><%= @party.a_b_list %></span>
+</h1>
 
 <address>
   <strong>Address:</strong><br/>

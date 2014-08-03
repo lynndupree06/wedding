@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<% a_list = Guest.where(a_b_list: 'A') %>
-<% b_list = Guest.where(a_b_list: 'B') %>
+<% a_list = Guest.joins(:party).where("parties.a_b_list = 'A'") %>
+<% b_list = Guest.joins(:party).where("parties.a_b_list = 'B'") %>
 
 <p>
-  <strong>A Group:</strong> <%= a_list.count %> |
-  <strong>B Group:</strong> <%= b_list.count %>
+  <strong>A Group:</strong> <%= a_list.count %> Guests, <%= Party.where(a_b_list: 'A').count %> Invitations |
+  <strong>B Group:</strong> <%= b_list.count %> Guests, <%= Party.where(a_b_list: 'B').count %> Invitations
 </p>
 
 <p>
@@ -15,8 +15,3 @@
   <strong>Groom's Friends:</strong> <%= GroupsGuests.where(group_id: 4).count %> |
   <strong>Bridal Party:</strong> <%= GroupsGuests.where(group_id: 5).count %>
 </p>
-
-<div>
-  <%= link_to 'Send Save the Date Email to A List', save_the_date_path, :class => 'btn btn-success' %>
-  <%= link_to 'Send Save the Date Email to B List', save_the_date_path, :class => 'btn btn-info' %>
-</div>
