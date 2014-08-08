@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   get '/save-the-date-a' => 'parties#save_the_date_a'
   get '/save-the-date-b' => 'parties#save_the_date_b'
+  get '/save-the-date-special' => 'parties#save_the_date_special'
+  get '/address_update' => 'parties#user_update'
 
   resources :users
   resources :photos

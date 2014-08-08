@@ -11,6 +11,7 @@ class GuestsController < ApplicationController
   # GET /guests/1
   # GET /guests/1.json
   def show
+    render :layout => 'admin'
   end
 
   # GET /guests/new
@@ -18,10 +19,12 @@ class GuestsController < ApplicationController
     @guest = Guest.new
     @guest.party = Party.new
     @guest.group = Group.new
+    render :layout => 'admin'
   end
 
   # GET /guests/1/edit
   def edit
+    render :layout => 'admin'
   end
 
   # POST /guests

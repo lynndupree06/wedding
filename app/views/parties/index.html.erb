@@ -13,6 +13,9 @@
     <th>Outer envelop</th>
     <th>Inner envelop</th>
     <th>A/B List</th>
+    <th>RSVP?</th>
+    <th>Save The Date Sent?</th>
+    <th>Party Size</th>
     <th colspan="3"></th>
   </tr>
   </thead>
@@ -35,6 +38,9 @@
         <td><%= party.outer_envelop %></td>
         <td><%= party.inner_envelop %></td>
         <td><%= party.a_b_list %></td>
+        <td><input id="rsvp" type="checkbox" <%= party.rsvp ? 'checked' : '' %>/></td>
+        <td><input id="rsvp" type="checkbox" <%= party.save_the_date_sent ? 'checked' : '' %>/></td>
+        <td><%= party.size %></td>
         <td><%= link_to 'Show', party %></td>
         <td><%= link_to 'Edit', edit_party_path(party) %></td>
         <td><%= link_to 'Destroy', party, method: :delete, data: {confirm: 'Are you sure?'} %></td>
@@ -42,3 +48,9 @@
   <% end %>
   </tbody>
 </table>
+
+<script>
+  $('#rsvp').click(function() {
+      alert('clicked');
+  });
+</script>

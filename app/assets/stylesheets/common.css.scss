@@ -14,6 +14,17 @@
 }
 
 @font-face {
+  font-family: DancingScript;
+  src: font-url('DancingScript-Regular.ttf');
+}
+
+@font-face {
+  font-family: DancingScript;
+  src: font-url('DancingScript-Bold.ttf');
+  font-weight: bold;
+}
+
+@font-face {
   font-family: "FontAwesome";
   src: font-url('fontawesome-webfont.eot');
   src: font-url('fontawesome-webfont.woff'), font-url('fontawesome-webfont.ttf'), font-url('fontawesome-webfont.svg');
@@ -77,23 +88,23 @@
 
   .info-box {
     background-color: white;
-    padding: 80px 20px 20px 20px;
+    padding: 80px 20px 60px 20px;
     box-shadow: 0px 10px 20px 0px #888888;
     text-align: center;
 
     header {
-      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-      text-transform: uppercase;
-      font-size: 16px;
+      font-family: 'Dancing Script', cursive;
+      font-variant: small-caps;
+      font-size: 30px;
       margin: 10px 0;
       line-height: 50px;
-      background-color: antiquewhite;
+      background-color: #D1A459;
       position: absolute;
-      width: 107%;
-      left: -20px;
+      width: 102%;
+      left: -10px;
       border-radius: 4px;
       top: 0;
-      color: #7F7F7F;
+      color: #ffffff;
     }
 
     img {
@@ -107,12 +118,16 @@
     }
 
     h3 {
-      font-size: 22px;
+      font-size: 25px;
     }
 
     section {
-      font-size: 14px;
+      font-size: 16px;
       margin-bottom: 20px;
+
+      strong {
+        color: #5E2613;
+      }
     }
 
     .link {
@@ -121,6 +136,8 @@
 
     hr {
       width: 40%;
+      border-color: #5E2613;
+      border-style: dotted;
     }
 
     .footer {
@@ -129,7 +146,7 @@
         bottom: 33px;
         position: absolute;
         font-size: 20px;
-        color: #99094C;
+        color: #5E2613;
       }
     }
   }
@@ -156,7 +173,13 @@
 }
 
 .admin-container {
-  width: 90%;
+  width: 90% !important;
+
+  .wrapper {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+  }
 
   .save-the-date {
     color: #ffffff;

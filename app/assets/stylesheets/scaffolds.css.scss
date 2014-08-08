@@ -1,10 +1,11 @@
-$berry: #99094C;
+$carmel: #5E2613;
+$link-color: #724D31;
 
 body {
-  color: #333;
+  color: #777;
   font-size: 13px;
   line-height: 18px;
-  background-color: white;
+  background-color: #E4CEA9;
   font-family: PoiretOne;
 }
 
@@ -21,13 +22,13 @@ pre {
 }
 
 a {
-  color: $berry;
+  color: $link-color;
   text-decoration: none;
   &:visited {
-    color: $berry;
+    color: $link-color;
   }
   &:hover {
-    color: $berry;
+    color: $link-color;
     text-decoration: underline;
   }
 }

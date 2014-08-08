@@ -3,6 +3,7 @@
 <head>
   <title>Jessica &amp; Fred</title>
   <%= javascript_include_tag 'jquery' %>
+  <%= javascript_include_tag 'angular.min' %>
   <%= stylesheet_link_tag 'table-sorter-style' %>
   <%= stylesheet_link_tag 'bootstrap-theme.min' %>
   <%= stylesheet_link_tag 'bootstrap.min' %>
@@ -17,17 +18,20 @@
 <% controller = self.controller.class.name %>
 <div class="container admin-container">
   <div style="margin-bottom: 20px;">
+    <%= link_to 'Send Save the Date Email to International List', save_the_date_special_path, :class => 'btn btn-info save-the-date' %>
     <%= link_to 'Send Save the Date Email to A List', save_the_date_a_path, :class => 'btn btn-success save-the-date' %>
     <%= link_to 'Send Save the Date Email to B List', save_the_date_b_path, :class => 'btn btn-info save-the-date' %>
   </div>
 
-  <ul class="nav nav-tabs" role="tablist">
-    <li class="<%= controller.include?('Guest') ? 'active' : '' %>"><%= link_to 'Guests', guests_path %></li>
-    <li class="<%= controller.include?('Part') ? 'active' : '' %>"><%= link_to 'Parties', parties_path %></li>
-    <li class="<%= controller.include?('Group') ? 'active' : '' %>"><%= link_to 'Groups', groups_path %></li>
-  </ul>
+  <div class="wrapper">
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="<%= controller.include?('Guest') ? 'active' : '' %>"><%= link_to 'Guests', guests_path %></li>
+      <li class="<%= controller.include?('Part') ? 'active' : '' %>"><%= link_to 'Parties', parties_path %></li>
+      <li class="<%= controller.include?('Group') ? 'active' : '' %>"><%= link_to 'Groups', groups_path %></li>
+    </ul>
 
-  <%= yield %>
+    <%= yield %>
+  </div>
 </div>
 
 <%= javascript_include_tag 'jquery.tablesorter' %>
@@ -35,11 +39,11 @@
 <%= javascript_include_tag 'jquery.tablesorter' %>
 
 <script>
-    $(function() {
-        $('.save-the-date').click(function() {
+    $(function () {
+        $('.save-the-date').click(function () {
             var button = this;
             $(this).html('Sending Email Please Wait...');
-            setInterval(function() {
+            setInterval(function () {
                 button.style.color = (button.style.color == 'transparent' ? 'white' : 'transparent');
             }, 500);
         });

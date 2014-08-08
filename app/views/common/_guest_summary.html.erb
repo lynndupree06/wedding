@@ -15,3 +15,7 @@
   <strong>Groom's Friends:</strong> <%= GroupsGuests.where(group_id: 4).count %> |
   <strong>Bridal Party:</strong> <%= GroupsGuests.where(group_id: 5).count %>
 </p>
+
+<p>
+  <strong>RSVP:</strong> <%= Party.where(rsvp: true).sum(:size) %>
+</p>

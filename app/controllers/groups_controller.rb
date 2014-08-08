@@ -11,15 +11,18 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+    render :layout => 'admin'
   end
 
   # GET /groups/new
   def new
     @group = Group.new
+    render :layout => 'admin'
   end
 
   # GET /groups/1/edit
   def edit
+    render :layout => 'admin'
   end
 
   # POST /groups

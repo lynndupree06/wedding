@@ -1,15 +1,15 @@
 <%= form_for(@party, html: {:class => 'form-horizontal', :role => 'form'}) do |f| %>
-  <% if @party.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@party.errors.count, "error") %> prohibited this party from being saved:</h2>
+    <% if @party.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@party.errors.count, "error") %> prohibited this party from being saved:</h2>
 
-      <ul>
-      <% @party.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% @party.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
     <div class="form-group">
       <%= f.label 'A/B List', :class => 'col-sm-2 control-label' %>
@@ -84,11 +84,25 @@
       </div>
     </div>
 
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= check_box_tag 'party[rsvp]', :rsvp, @party.rsvp %>
+        <%= label_tag 'party[rsvp]', 'RSVP?' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= check_box_tag 'party[save_the_date]', :save_the_date_sent, @party.save_the_date_sent %>
+        <%= label_tag 'party[save_the_date]', 'Save the Date Sent?' %>
+      </div>
+    </div>
+
     <strong>Guests:</strong>
     <% @party.guests.each do |guest| %>
         <p>
           <%= guest.first_name %> <%= guest.last_name %>
-          | <%= link_to 'Remove From Party', guest, method: :delete_from_party, data: { confirm: 'Are you sure?' } %>
+          | <%= link_to 'Remove From Party', guest, method: :delete_from_party, data: {confirm: 'Are you sure?'} %>
         </p>
     <% end %>
 
@@ -97,8 +111,15 @@
       | Add an existing Guest
     </p>
 
-  <div class="actions">
-    <%= f.submit :class => 'btn btn-primary' %>
-    <%= link_to 'Remove Party', @party, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
-  </div>
+    <div class="form-group">
+      <%= f.label :notes, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <textarea class="form-control" rows="3"><%= @party.notes %></textarea>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit :class => 'btn btn-primary' %>
+      <%= link_to 'Remove Party', @party, method: :delete, data: {confirm: 'Are you sure?'}, :class => 'btn btn-danger' %>
+    </div>
 <% end %>

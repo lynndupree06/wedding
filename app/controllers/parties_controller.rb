@@ -1,5 +1,5 @@
 class PartiesController < ApplicationController
-  before_action :set_party, only: [:show, :edit, :update, :destroy]
+  before_action :set_party, only: [:show, :edit, :update, :destroy, :user_update]
 
   # GET /parties
   # GET /parties.json
@@ -11,15 +11,18 @@ class PartiesController < ApplicationController
   # GET /parties/1
   # GET /parties/1.json
   def show
+    render :layout => 'admin'
   end
 
   # GET /parties/new
   def new
     @party = Party.new
+    render :layout => 'admin'
   end
 
   # GET /parties/1/edit
   def edit
+    render :layout => 'admin'
   end
 
   # POST /parties
@@ -63,7 +66,19 @@ class PartiesController < ApplicationController
   end
 
   def save_the_date_a
-    Party.where(a_b_list: 'A').each do |p|
+    send_save_the_date_email Party.where(a_b_list: 'A')
+  end
+
+  def save_the_date_b
+    send_save_the_date_email Party.where(a_b_list: 'B')
+  end
+
+  def save_the_date_special
+    send_save_the_date_email Party.where("notes LIKE '%international%'")
+  end
+
+  def send_save_the_date_email(list)
+    list.each do |p|
       if p.email.present?
         PartyNotifier.send_save_the_date_email(p).deliver
       end
@@ -75,27 +90,24 @@ class PartiesController < ApplicationController
     end
   end
 
-  def save_the_date_b
-    Party.where(a_b_list: 'B').each do |p|
-      if p.email.present?
-        PartyNotifier.send_save_the_date_email(p).deliver
-      end
-    end
-
-    respond_to do |format|
-      format.html { redirect_to parties_url, notice: 'Save the date emails were successfully sent to the B List.' }
-      format.json { head :no_content }
-    end
+  def user_update
+    party = PartyEncoder.decode(params[:t])
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_party
+  # Use callbacks to share common setup or constraints between actions.
+  def set_party
+    if params[:t]
+      decoded_string = PartyEncoder.decode(params[:t])
+      @party = Party.find(/[^party_id=].*/.match(decoded_string)[0].to_i)
+    else
       @party = Party.find(params[:id])
     end
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def party_params
-      params.require(:party).permit(:a_b_list, :name, :email, :address, :city, :state, :postal_code, :country, :outer_envelop, :inner_envelop)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def party_params
+    params.require(:party).permit(:a_b_list, :name, :email, :address, :city, :state, :postal_code,
+                                  :country, :outer_envelop, :inner_envelop, :save_the_date, :rsvp, :notes)
+  end
 end

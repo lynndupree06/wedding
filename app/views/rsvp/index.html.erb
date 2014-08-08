@@ -1,25 +1,38 @@
-<div class="col-xs-offset-1 col-xs-10 info-box rsvp">
+<div class="info-box rsvp">
   <header>RSVP</header>
 
   <section>
+    <% if notice %>
+        <div class="alert alert-danger" role="alert"><%= notice %></div>
+    <% end %>
     Use the identification code given in your invitation to RSVP.
   </section>
 
   <%= form_tag('rsvp/search', method: 'get', :class => 'form-horizontal', :role => 'form') do %>
       <div class="form-group">
-        <%= label_tag :id_code, 'Identification Code', :class => 'control-label' %>
-        <div class="col-xs-6" style="float: none; margin: auto;">
-          <%= text_field_tag :id_code, '', :class => 'form-control', :placeholder => 'e.g. A4RTC932VB', :required => :required %>
+        <%= label_tag :id_code, 'Identification Code', :class => 'control-label col-sm-4' %>
+        <div class="col-xs-4">
+          <%= text_field_tag :id_code, '', :class => 'form-control', :placeholder => 'e.g. A4RTC932VB', :required => :required, :autocomplete => 'off' %>
         </div>
       </div>
 
       <div class="form-group">
-        <label class="radio-inline">
-          <input type="radio" name="response" id="yes" required="required" value='1'> Yes
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="response" id="no" value='0'> No
-        </label>
+        <%= label_tag :party, 'Total in your party?', :class => 'control-label col-sm-4' %>
+        <div class="col-xs-2">
+          <%= text_field_tag :party, '', :class => 'form-control', :required => :required, :type => 'number' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :attending, 'Are you attending?', :class => 'control-label col-sm-4' %>
+        <div style="float: left; margin-left: 20px">
+          <label class="radio-inline">
+            <input type="radio" name="response" id="yes" required="required" value='1'> Yes
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="response" id="no" value='0'> No
+          </label>
+        </div>
       </div>
 
       <button type="submit" class="btn btn-primary">RSVP</button>
@@ -31,3 +44,13 @@
     <hr style="float: right;">
   </div>
 </div>
+
+<script>
+    $("input[type='radio']").click(function () {
+        if ($(this).attr('id') == 'no') {
+            $('#party').removeAttr('required');
+        } else {
+            $('#party').attr('required', 'required');
+        }
+    });
+</script>
