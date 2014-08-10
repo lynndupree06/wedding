@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    render :layout => 'application'
+    render :layout => 'home'
   end
 
   def wedding

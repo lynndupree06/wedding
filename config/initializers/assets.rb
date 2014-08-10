@@ -1,4 +1,4 @@
-Rails.application.config.assets.precompile += %w( bootstrap.min.css )
+Rails.application.config.assets.precompile += %w( lavish-bootstrap.css )
 Rails.application.config.assets.precompile += %w( bootstrap-theme.min.css )
 Rails.application.config.assets.precompile += %w( bootstrap-theme.css.map )
 Rails.application.config.assets.precompile += %w( font-awesome.min.css )

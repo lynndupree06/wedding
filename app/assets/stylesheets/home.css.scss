@@ -1,3 +1,38 @@
-// Place all the styles related to the Home controller here.
-// They will automatically be included in application.css.scss.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.home-page {
+  background: url("cover-photo.jpg") no-repeat center center;
+  background-size: cover;
+  color: #ffffff;
+
+  .container {
+    width: 90%;
+
+    .welcome {
+      p {
+        float: left;
+        width: 30%;
+        font-family: PoiretOne;
+      }
+    }
+
+    .title {
+      float: right;
+      background-color: #000000;
+      opacity: 0.4;
+      padding: 30px;
+
+      .names {
+        font-family: GreatVibes-Regular;
+        font-size: 70px;
+        margin-top: 50px;
+      }
+
+      .info {
+        margin-top: 40px;
+        font-size: 24px;
+        text-align: center;
+        line-height: 30px;
+        font-family: PoiretOne;
+      }
+    }
+  }
+}

@@ -77,20 +77,14 @@
 .container {
   margin-top: 100px;
   margin-bottom: 100px;
-
-  .welcome {
-    .signature {
-      font-family: MonsieurLaDoulaise-Regular;
-      font-size: 40px;
-      text-align: right;
-    }
-  }
+  font-family: PoiretOne;
 
   .info-box {
     background-color: white;
     padding: 80px 20px 60px 20px;
     box-shadow: 0px 10px 20px 0px #888888;
     text-align: center;
+    font-family: PoiretOne;
 
     header {
       font-family: 'Dancing Script', cursive;
@@ -98,7 +92,7 @@
       font-size: 30px;
       margin: 10px 0;
       line-height: 50px;
-      background-color: #D1A459;
+      background-color: #E9CFAC;
       position: absolute;
       width: 102%;
       left: -10px;
@@ -119,6 +113,7 @@
 
     h3 {
       font-size: 25px;
+      font-family: PoiretOne;
     }
 
     section {
@@ -185,7 +180,6 @@
     color: #ffffff;
   }
 }
-
 
 @media (min-width: 992px) {
   .container {

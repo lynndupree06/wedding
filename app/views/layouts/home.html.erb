@@ -9,14 +9,12 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
+<body class="home-page">
 
 <%= render 'layouts/header' %>
 
 <div class="container">
-  <div class="col-xs-12">
     <%= yield %>
-  </div>
 </div>
 
 <%= javascript_include_tag 'bootstrap.min' %>
