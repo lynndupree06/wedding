@@ -1,35 +1,35 @@
 @font-face {
   font-family: MonsieurLaDoulaise-Regular;
-  src: asset_url('fonts/MonsieurLaDoulaise-Regular.ttf') format('truetype');
+  src: font-url('MonsieurLaDoulaise-Regular.ttf');
 }
 
 @font-face {
   font-family: GreatVibes-Regular;
-  src: asset_url('fonts/GreatVibes-Regular.ttf') format('truetype') format('truetype');
+  src: font-url('GreatVibes-Regular.ttf');
 }
 
 @font-face {
   font-family: PoiretOne;
-  src: asset_url('fonts/PoiretOne-Regular.ttf') format('truetype');
+  src: font-url('PoiretOne-Regular.ttf');
 }
 
 @font-face {
   font-family: DancingScript;
-  src: asset_url('fonts/DancingScript-Regular.ttf') format('truetype');
+  src: font-url('DancingScript-Regular.ttf');
 }
 
 @font-face {
   font-family: DancingScript;
-  src: asset_url('fonts/DancingScript-Bold.ttf');
+  src: font-url('DancingScript-Bold.ttf');
   font-weight: bold;
 }
 
 @font-face {
   font-family: "FontAwesome";
-  src: asset_url('fonts/fontawesome-webfont.eot');
-  src: asset_url('fonts/fontawesome-webfont.woff') format('woff'),
-        asset_url('fonts/fontawesome-webfont.ttf') format('truetype'),
-        asset_url('fonts/fontawesome-webfont.svg') format('svg');
+  src: font-url('fontawesome-webfont.eot');
+  src: font-url('fontawesome-webfont.woff'),
+        font-url('fontawesome-webfont.ttf'),
+        font-url('fontawesome-webfont.svg');
   font-weight: normal;
   font-style: normal;
 }
