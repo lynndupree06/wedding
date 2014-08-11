@@ -1,26 +1,41 @@
 @font-face {
   font-family: MonsieurLaDoulaise-Regular;
-  src: font-url('MonsieurLaDoulaise-Regular.ttf');
+  src: local('MonsieurLaDoulaise-Regular'),
+       font-url('MonsieurLaDoulaise-Regular.eot?#iefix') format('embedded-opentype'), 
+       font-url('MonsieurLaDoulaise-Regular.woff') format('woff'), 
+       font-url('MonsieurLaDoulaise-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: GreatVibes-Regular;
-  src: font-url('GreatVibes-Regular.ttf');
+  src: local('GreatVibes-Regular'),
+       font-url('GreatVibes-Regular.eot?#iefix') format('embedded-opentype'),
+       font-url('GreatVibes-Regular.woff') format('woff'),
+       font-url('GreatVibes-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: PoiretOne;
-  src: font-url('PoiretOne-Regular.ttf');
+  src: local('PoiretOne'),
+       font-url('PoiretOne.eot?#iefix') format('embedded-opentype'),
+       font-url('PoiretOne.woff') format('woff'),
+       font-url('PoiretOne.ttf') format('truetype');
 }
 
 @font-face {
   font-family: DancingScript;
-  src: font-url('DancingScript-Regular.ttf');
+  src: local('DancingScript'),
+       font-url('DancingScript-Regular.eot?#iefix') format('embedded-opentype'),
+       font-url('DancingScript-Regular.woff') format('woff'),
+       font-url('DancingScript-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: DancingScript;
-  src: font-url('DancingScript-Bold.ttf');
+  src: local('DancingScript'),
+       font-url('DancingScript-Bold.eot?#iefix') format('embedded-opentype'),
+       font-url('DancingScript-Bold.woff') format('woff'),
+       font-url('DancingScript-Bold.ttf') format('truetype');
   font-weight: bold;
 }
 
