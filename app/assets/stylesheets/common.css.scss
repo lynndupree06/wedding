@@ -1,41 +1,41 @@
 @font-face {
   font-family: MonsieurLaDoulaise-Regular;
   src: local('MonsieurLaDoulaise-Regular'),
-       font-url('MonsieurLaDoulaise-Regular.eot?#iefix') format('embedded-opentype'), 
-       font-url('MonsieurLaDoulaise-Regular.woff') format('woff'), 
-       font-url('MonsieurLaDoulaise-Regular.ttf') format('truetype');
+  font-url('MonsieurLaDoulaise-Regular.eot?#iefix') format('embedded-opentype'),
+  font-url('MonsieurLaDoulaise-Regular.woff') format('woff'),
+  font-url('MonsieurLaDoulaise-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: GreatVibes-Regular;
   src: local('GreatVibes-Regular'),
-       font-url('GreatVibes-Regular.eot?#iefix') format('embedded-opentype'),
-       font-url('GreatVibes-Regular.woff') format('woff'),
-       font-url('GreatVibes-Regular.ttf') format('truetype');
+  font-url('GreatVibes-Regular.eot?#iefix') format('embedded-opentype'),
+  font-url('GreatVibes-Regular.woff') format('woff'),
+  font-url('GreatVibes-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: PoiretOne;
   src: local('PoiretOne'),
-       font-url('PoiretOne-Regular.eot?#iefix') format('embedded-opentype'),
-       font-url('PoiretOne-Regular.woff') format('woff'),
-       font-url('PoiretOne-Regular.ttf') format('truetype');
+  font-url('PoiretOne-Regular.eot?#iefix') format('embedded-opentype'),
+  font-url('PoiretOne-Regular.woff') format('woff'),
+  font-url('PoiretOne-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: DancingScript;
   src: local('DancingScript'),
-       font-url('DancingScript-Regular.eot?#iefix') format('embedded-opentype'),
-       font-url('DancingScript-Regular.woff') format('woff'),
-       font-url('DancingScript-Regular.ttf') format('truetype');
+  font-url('DancingScript-Regular.eot?#iefix') format('embedded-opentype'),
+  font-url('DancingScript-Regular.woff') format('woff'),
+  font-url('DancingScript-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: DancingScript;
   src: local('DancingScript'),
-       font-url('DancingScript-Bold.eot?#iefix') format('embedded-opentype'),
-       font-url('DancingScript-Bold.woff') format('woff'),
-       font-url('DancingScript-Bold.ttf') format('truetype');
+  font-url('DancingScript-Bold.eot?#iefix') format('embedded-opentype'),
+  font-url('DancingScript-Bold.woff') format('woff'),
+  font-url('DancingScript-Bold.ttf') format('truetype');
   font-weight: bold;
 }
 
@@ -43,8 +43,8 @@
   font-family: "FontAwesome";
   src: font-url('fontawesome-webfont.eot');
   src: font-url('fontawesome-webfont.woff'),
-        font-url('fontawesome-webfont.ttf'),
-        font-url('fontawesome-webfont.svg');
+  font-url('fontawesome-webfont.ttf'),
+  font-url('fontawesome-webfont.svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -149,7 +149,6 @@
     hr {
       width: 40%;
       border-color: #5E2613;
-      border-style: dotted;
     }
 
     .footer {
@@ -201,5 +200,47 @@
 @media (min-width: 992px) {
   .container {
     width: 770px;
+  }
+}
+
+@media (max-width: 765px) {
+  #main-menu {
+    padding: 0;
+
+    .nav {
+      width: 100%;
+      li {
+        width: 100%;
+      }
+    }
+  }
+
+  .container {
+    .info-box {
+      padding: 0 0 60px 0;
+
+      header {
+        position: inherit;
+        width: 100%;
+        left: 0;
+        border-radius: 0;
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 30px;
+        padding: 0 20px 0 20px;
+      }
+
+      h3 {
+        font-size: 16px;
+        padding: 0 10px 0 10px;
+      }
+
+      section {
+        font-size: 14px;
+        padding: 0 20px 0 20px;
+      }
+    }
   }
 }
