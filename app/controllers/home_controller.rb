@@ -14,4 +14,12 @@ class HomeController < ApplicationController
   def reception
     render :layout => 'application'
   end
+
+  def wedding_party
+    render :layout => 'application'
+  end
+
+  def guest_info
+    render :layout => 'application'
+  end
 end

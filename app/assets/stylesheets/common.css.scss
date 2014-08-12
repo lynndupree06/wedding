@@ -49,6 +49,56 @@
   font-style: normal;
 }
 
+@mixin wedding-party($float, $left, $center, $right) {
+  float: $float;
+  width: 45%;
+
+  li {
+    list-style: none;
+    text-align: left;
+
+    img {
+      width: 100px;
+      height: 100px;
+      margin: 5px;
+      float: left;
+    }
+
+    .name {
+      padding-top: 30px;
+    }
+
+    .clear {
+      clear: both;
+    }
+  }
+
+  .header {
+    margin-bottom: 20px;
+    span {
+      position: absolute;
+
+      &.left {
+        left: $left;
+        opacity: 0.5;
+        top: 87px;
+      }
+
+      &.center {
+        left: $center;
+        opacity: 1;
+        top: 90px;
+      }
+
+      &.right {
+        right: $right;
+        opacity: 0.5;
+        top: 87px;
+      }
+    }
+  }
+}
+
 .fa-female {
   color: #ff0a69;
 }
@@ -85,8 +135,9 @@
     float: none;
 
     li {
-      width: 125px;
+      font-size: 16px;
       text-align: center;
+      font-family: 'Dancing Script', cursive;
     }
   }
 }
@@ -149,6 +200,7 @@
     hr {
       width: 40%;
       border-color: #5E2613;
+      opacity: 0.8;
     }
 
     .footer {
@@ -158,7 +210,25 @@
         position: absolute;
         font-size: 20px;
         color: #5E2613;
+
+        &.left {
+          left: 49.3%;
+          opacity: 0.7;
+        }
+
+        &.right {
+          right: 48.5%;
+          opacity: 0.5;
+        }
       }
+    }
+
+    .bridesmaids {
+      @include wedding-party(left, 23%, 24%, 73%)
+    }
+
+    .groomsmen {
+      @include wedding-party(right, 72.5%, 74%, 22.5%);
     }
   }
 

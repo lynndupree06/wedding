@@ -1,0 +1,41 @@
+<div class="info-box">
+  <header>Guest Information</header>
+
+  <section>
+
+    <div style="height: 300px;" id="map-canvas"></div>
+    <br>
+
+    <h1>Event Locations</h1>
+
+    <strong>Ceremony</strong><br>
+    Mount Zion Baptist Church<br>
+    228 Mt Zion Rd<br>
+    Huntsville, AL 35806<br>
+    (256) 837-2665<br>
+    <a href='http://mzbc.net/' target='_blank'>http://mzbc.net/</a><br><br>
+
+    <button class='btn btn-primary'>view on map</button><br><br>
+
+    <strong>Reception</strong><br>
+    The Ledges<br>
+    32 Castle Down Drive<br>
+    Huntsville, AL 35802<br>
+    (256) 883-0860<br>
+    <a href='http://www.theledges.com/' target='_blank'>http://www.theledges.com/</a><br><br>
+
+    <button class='btn btn-primary'>view on map</button><br><br>
+
+  </section>
+
+  <%= render 'footer' %>
+</div>
+
+<script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY2XQZrv_P3zdKzGX6GD0GnqnYANCI490">
+    </script>
+<%= javascript_include_tag 'map_of_venues' %>
+
+    <script type="text/javascript">
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>

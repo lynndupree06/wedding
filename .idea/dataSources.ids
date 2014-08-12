@@ -77,4 +77,7 @@
   <data-source source="LOCAL" name="Rails kazembe-brazelton-wedding: test" uuid="e642ea90-0431-46f9-b333-4fafc9d1f138">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source source="LOCAL" name="Rails kazembe-brazelton-wedding: production" uuid="d597d99d-179b-4c8a-91d3-6c5bc9a09987">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>
