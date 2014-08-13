@@ -22,4 +22,8 @@ class HomeController < ApplicationController
   def guest_info
     render :layout => 'application'
   end
+
+  def registry
+    render :layout => 'application'
+  end
 end

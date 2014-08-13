@@ -6,6 +6,7 @@
 <h2>
   <%= @guest.first_name %> <%= @guest.last_name %>
   <i class="fa <%= @guest.gender == 'Female' ? 'fa-female' : 'fa-male' %>"></i>
+  <i class="fa <%= @guest.child ? 'fa-child' : '' %>"></i>
 </h2>
 
 <p>

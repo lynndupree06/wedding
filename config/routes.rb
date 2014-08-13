@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/wedding' => 'home#wedding'
   get '/reception' => 'home#reception'
   get '/rsvp' => 'rsvp#index'
-  get '/registry' => 'registry#index'
+  get '/registry' => 'home#registry'
   get '/wedding_party' => 'home#wedding_party'
   get '/guest_info' => 'home#guest_info'
 

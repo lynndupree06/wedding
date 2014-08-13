@@ -9,14 +9,35 @@
   </div>
   <br>
   <br>
+
   <div class="welcome">
-  <p>Hi Friends &amp; Family!</p>
+    <p>Hi Friends &amp; Family!</p>
 
-  <p>
-  Welcome to our website! Thank you for visiting. We are very excited to be getting married this year and we hope
-  you can join us for our wedding. Our destination is Huntsville, Alabama, USA for the weekend of XXXXXXXX. As we work
-  out the details we will keep you posted.
-  </p>
-
+    <p>
+      Welcome to our website! Thank you for visiting. We are very excited to be getting married this year and we hope
+      you can join us for our wedding. Our destination is Huntsville, Alabama, USA for the weekend of XXXXXXXX. As we
+      work
+      out the details we will keep you posted.
+    </p>
   </div>
 </div>
+
+<div class="clock" style="margin:2em;"></div>
+
+<script type="text/javascript">
+    var clock;
+
+    $(document).ready(function () {
+        var currentDate = new Date();
+        var futureDate = new Date(2015, 5, 6, 15, 0, 0);
+
+        // Calculate the difference in seconds between the future and current date
+        var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
+
+        // Instantiate a coutdown FlipClock
+        clock = $('.clock').FlipClock(diff, {
+            clockFace: 'DailyCounter',
+            countdown: true
+        });
+    });
+</script>

@@ -50,6 +50,14 @@
     </div>
 
     <div class="form-group">
+      <%= f.label :child, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= check_box_tag 'guest[child]', @guest.child ? 1 : 0, @guest.child %>
+        <%= label_tag(:child, 'Child?') %>
+      </div>
+    </div>
+
+    <div class="form-group">
       <%= f.label :party, :class => 'col-sm-2 control-label' %>
       <div class="col-sm-10">
         <%= select_tag 'guest[party_id]', options_for_select(party_options, @guest.party_id) %>

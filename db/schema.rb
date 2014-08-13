@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140806090705) do
+ActiveRecord::Schema.define(version: 20140813113943) do
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20140806090705) do
     t.string   "suffix"
     t.integer  "party_id"
     t.string   "gender"
+    t.boolean  "child"
   end
 
   create_table "parties", force: true do |t|

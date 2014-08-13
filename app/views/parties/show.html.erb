@@ -37,6 +37,7 @@
         <li>
           <%= link_to "#{guest.first_name} #{guest.last_name}", guest_path(guest) %>
           <i class="fa <%= guest.gender == 'Female' ? 'fa-female' : 'fa-male' %>"></i>
+          <i class="fa <%= guest.child ? 'fa-child' : '' %>"></i>
         </li>
     <% end %>
   </ul>

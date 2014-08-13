@@ -21,7 +21,8 @@ namespace :import do
             :postal_code => guest['Zip'],
             :country => guest['Country'],
             :a_b_list => guest['A/B_List'],
-            :email => nil
+            :email => nil,
+            :notes => guest['Country'].blank? || ['US', 'USA', 'United States'].include?(guest['Country']) ? '' : 'international'
         )
       end
 
@@ -31,7 +32,8 @@ namespace :import do
           :last_name => guest['Last_Name'],
           :first_name => guest['First_Name'],
           :gender => guest['Gender'],
-          :party => party
+          :party => party,
+          :child => false
       )
 
       GroupsGuests.create!(
@@ -46,7 +48,8 @@ namespace :import do
             :last_name => guest['Spouse_Guest_Last_Name'],
             :first_name => guest['Spouse_Guest_First_Name'],
             :gender => guest['Spouse_Guest_Gender'],
-            :party => party
+            :party => party,
+            :child => false
         )
 
         GroupsGuests.create!(
@@ -62,7 +65,8 @@ namespace :import do
             :last_name => guest['Child1_Last_Name'],
             :first_name => guest['Child1_First_Name'],
             :gender => guest['Child1_Gender'],
-            :party => party
+            :party => party,
+            :child => true
         )
 
         GroupsGuests.create!(
@@ -78,7 +82,8 @@ namespace :import do
             :last_name => guest['Child2_Last_Name'],
             :first_name => guest['Child2_First_Name'],
             :gender => guest['Child2_Gender'],
-            :party => party
+            :party => party,
+            :child => true
         )
 
         GroupsGuests.create!(
@@ -94,7 +99,8 @@ namespace :import do
             :last_name => guest['Child3_Last_Name'],
             :first_name => guest['Child3_First_Name'],
             :gender => guest['Child3_Gender'],
-            :party => party
+            :party => party,
+            :child => true
         )
 
         GroupsGuests.create!(

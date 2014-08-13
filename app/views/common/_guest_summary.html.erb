@@ -9,6 +9,12 @@
 </p>
 
 <p>
+  <strong>Men: </strong> <%= Guest.where(gender: 'Male', child: false).count %> |
+  <strong>Women: </strong> <%= Guest.where(gender: 'Female', child: false).count %> |
+  <strong>Children: </strong> <%= Guest.where(child: true).count %>
+</p>
+
+<p>
   <strong>Bride's Family:</strong> <%= GroupsGuests.where(group_id: 1).count %> |
   <strong>Bride's Friends:</strong> <%= GroupsGuests.where(group_id: 2).count %> |
   <strong>Groom's Family:</strong> <%= GroupsGuests.where(group_id: 3).count %> |
