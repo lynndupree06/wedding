@@ -80,14 +80,17 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.assets.enabled = true
+  config.assets.paths << "#{Rails.root}/app/assets/fonts"
 end
 
 ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
-    :port           => '587',
+    :address        => AppConstants.sendgrid_address,
+    :port           => AppConstants.sendgrid_port,
     :authentication => :plain,
-    :user_name      => 'app25518661@heroku.com',
-    :password       => 'nlipnqxj',
-    :domain         => 'heroku.com',
+    :user_name      => AppConstants.sendgrid_username,
+    :password       => AppConstants.sendgrid_password,
+    :domain         => AppConstants.sendgrid_domain,
     :enable_starttls_auto => true
 }
