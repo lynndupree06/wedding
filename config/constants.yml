@@ -1,0 +1,16 @@
+# Enter your per-environment constants below
+
+development: &default
+  constant1:  "value1"
+  constant2:  "value2"
+
+production:
+  <<: *default
+  sendgrid_address: 'smtp.sendgrid.net'
+  sendgrid_port: '587'
+  sendgrid_username: 'app25518661@heroku.com'
+  sendgrid_password: 'nlipnqxj'
+  sendgrid_domain: 'heroku.com'
+  
+test:
+  <<: *default

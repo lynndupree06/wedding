@@ -7,15 +7,20 @@ class RsvpController < ApplicationController
     party_size = params[:party]
     response = params['response']
 
-    decoded_string = PartyEncoder.decode(code)
-    party = Party.find(/[^party_id=].*/.match(decoded_string)[0].to_i)
-    party.rsvp = response
-    party.size = party_size
-    party.save!
+    party = Party.where(key: code)
+
+    if party.empty?
+      respond_to do |format|
+        format.html { redirect_to rsvp_url, notice: 'Invalid Token' }
+        format.json { head :no_content }
+      end
+    else
+      party.update_all(rsvp: response, size: party_size)
+    end
 
     @attending = response
 
-  rescue ArgumentError => e
+  rescue ActiveRecord::RecordNotFound
     respond_to do |format|
       format.html { redirect_to rsvp_url, notice: 'Invalid Token' }
       format.json { head :no_content }

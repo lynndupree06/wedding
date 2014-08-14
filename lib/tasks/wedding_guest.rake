@@ -22,7 +22,8 @@ namespace :import do
             :country => guest['Country'],
             :a_b_list => guest['A/B_List'],
             :email => nil,
-            :notes => guest['Country'].blank? || ['US', 'USA', 'United States'].include?(guest['Country']) ? '' : 'international'
+            :notes => guest['Country'].blank? || ['US', 'USA', 'United States'].include?(guest['Country']) ? '' : 'international',
+            :key => SecureRandom.hex(3).upcase
         )
       end
 
