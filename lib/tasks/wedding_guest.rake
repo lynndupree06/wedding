@@ -21,7 +21,8 @@ namespace :import do
             :postal_code => guest['Zip'],
             :country => guest['Country'],
             :a_b_list => guest['A/B_List'],
-            :email => nil
+            :email => nil,
+            :key => SecureRandom.hex(3).upcase
         )
       end
 

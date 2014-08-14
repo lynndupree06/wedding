@@ -43,7 +43,8 @@ namespace :update do
             :state => new_guest['State'],
             :postal_code => new_guest['Postal Code'],
             :country => new_guest['Country'],
-            :email => new_guest['Email']
+            :email => new_guest['Email'],
+            :key => SecureRandom.hex(3).upcase
         )
 
         guest = Guest.create!(

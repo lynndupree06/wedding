@@ -17,6 +17,7 @@ gem 'app_constants'
 group :development, :test do
   gem 'sqlite3'
   gem 'spring', '1.1.2'
+  gem 'pry'
 end
 
 group :production do
