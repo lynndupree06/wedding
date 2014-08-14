@@ -1,4 +1,4 @@
-<div class="col-md-5 col-md-offset-7 ">
+<div class="col-md-5">
   <div class="title">
     <p class="names">Jessica &amp; Fred </p>
 
@@ -22,22 +22,6 @@
   </div>
 </div>
 
-<div class="clock" style="margin:2em;"></div>
-
-<script type="text/javascript">
-    var clock;
-
-    $(document).ready(function () {
-        var currentDate = new Date();
-        var futureDate = new Date(2015, 5, 6, 15, 0, 0);
-
-        // Calculate the difference in seconds between the future and current date
-        var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
-
-        // Instantiate a coutdown FlipClock
-        clock = $('.clock').FlipClock(diff, {
-            clockFace: 'DailyCounter',
-            countdown: true
-        });
-    });
-</script>
+<div class="col-md-5 col-md-offset-7 countdown">
+  295 Days until our Wedding!
+</div>

@@ -1,5 +1,5 @@
 .home-page {
-  background: url("cover-photo.jpg") no-repeat center center;
+  background: url("cover-photo.JPG") no-repeat center center;
   background-size: cover;
   color: #ffffff;
 
@@ -34,6 +34,19 @@
         font-family: PoiretOne;
       }
     }
+  }
+
+  .countdown {
+    float: right;
+    background-color: #000000;
+    opacity: 0.5;
+    padding: 30px;
+    bottom: 0;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    width: 30%;
+    line-height: 35px;
   }
 }
 

@@ -3,7 +3,7 @@
 
   <section>
 
-    <div style="height: 300px;" id="venue-map"></div>
+    <div id="venue-map"></div>
     <br>
 
     <h1>Event Locations</h1>
@@ -16,7 +16,8 @@
     <a href='http://mzbc.net/' target='_blank'>http://mzbc.net/</a><br><br>
 
     <button id='ceremony' class='btn btn-primary'>View on Map</button>
-    <button class='btn btn-primary'>Get Directions</button><br><br>
+    <button class='btn btn-primary'>Get Directions</button>
+    <br><br>
 
     <strong>Reception</strong><br>
     The Ledges<br>
@@ -26,11 +27,13 @@
     <a href='http://www.theledges.com/' target='_blank'>http://www.theledges.com/</a><br><br>
 
     <button id="reception" class='btn btn-primary'>View on Map</button>
-    <button class='btn btn-primary'>Get Directions</button><br><br>
+    <button class='btn btn-primary'>Get Directions</button>
+    <br><br>
 
 
     <br><br>
-    <div style="height: 300px;" id="accommodation-map"></div>
+
+    <div id="accommodation-map"></div>
     <br>
 
     <h1>Accommodations</h1>
@@ -43,17 +46,19 @@
     <a href='http://hiltongardeninn.hilton.com' target='_blank'>http://hiltongardeninn.hilton.com</a><br><br>
 
     <button id="hotel" class='btn btn-primary'>View on Map</button>
-    <button class='btn btn-primary'>Get Directions</button><br><br>
+    <button class='btn btn-primary'>Get Directions</button>
+    <br><br>
 
     <strong>Airport</strong><br>
-    Huntsville International Airport<br>
+    Huntsville International Airport (HSV)<br>
     1000 Glenn Hearn Blvd SW<br>
     Huntsville, AL 35824<br>
     (256) 772-9395<br>
     <a href='http://hsvairport.org' target='_blank'>http://hsvairport.org</a><br><br>
 
     <button id="airport" class='btn btn-primary'>View on Map</button>
-    <button class='btn btn-primary'>Get Directions</button><br><br>
+    <button class='btn btn-primary'>Get Directions</button>
+    <br><br>
 
   </section>
 
@@ -61,10 +66,10 @@
 </div>
 
 <script type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY2XQZrv_P3zdKzGX6GD0GnqnYANCI490">
-    </script>
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY2XQZrv_P3zdKzGX6GD0GnqnYANCI490">
+</script>
 <%= javascript_include_tag 'map_of_venues' %>
 
-    <script type="text/javascript">
-        google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
+<script type="text/javascript">
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>

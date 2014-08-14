@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Jessica &hearts; Fred</title>
-  <%= stylesheet_link_tag 'bootstrap-theme.min' %>
   <%= stylesheet_link_tag 'lavish-bootstrap' %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'jquery' %>
@@ -13,7 +12,7 @@
 
 <%= render 'layouts/header' %>
 
-<div class="container">
+<div class="container <%= 'registry' if self.controller.action_name == 'registry' %>">
   <div class="col-xs-12">
     <%= yield %>
   </div>
