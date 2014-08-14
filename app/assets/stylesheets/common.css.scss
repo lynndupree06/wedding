@@ -186,6 +186,10 @@
       strong {
         color: #5E2613;
       }
+
+      #venue-map, #accommodation-map {
+        height: 300px;
+      }
     }
 
     .link {
@@ -248,6 +252,18 @@
   }
 }
 
+.registry {
+
+  .col-xs-12 {
+    width: 800px !important;
+    margin: auto;
+  }
+
+  .mrw_visitorcontainer {
+    background-color: transparent;
+  }
+}
+
 .admin-container {
   width: 90% !important;
 
@@ -306,6 +322,7 @@
   }
 
   .container {
+    margin-top: 80px;
     .info-box {
       padding: 0 0 60px 0;
 
@@ -330,6 +347,10 @@
       section {
         font-size: 14px;
         padding: 0 20px 0 20px;
+      }
+
+      #venue-map, #accommodation-map {
+        height: 200px;
       }
     }
   }
