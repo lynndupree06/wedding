@@ -18,7 +18,6 @@ class GuestsController < ApplicationController
   def new
     @guest = Guest.new
     @guest.party = Party.new
-    @guest.group = Group.new
     render :layout => 'admin'
   end
 

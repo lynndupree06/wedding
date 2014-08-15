@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20140814014717) do
     t.string   "suffix"
     t.integer  "party_id"
     t.string   "gender"
+    t.boolean  "child"
   end
 
   create_table "parties", force: true do |t|
