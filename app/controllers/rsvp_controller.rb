@@ -19,11 +19,5 @@ class RsvpController < ApplicationController
     end
 
     @attending = response
-
-  rescue ActiveRecord::RecordNotFound
-    respond_to do |format|
-      format.html { redirect_to rsvp_url, notice: 'Invalid Token' }
-      format.json { head :no_content }
-    end
   end
 end

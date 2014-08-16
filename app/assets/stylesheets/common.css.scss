@@ -250,18 +250,24 @@
       text-align: center;
     }
   }
+
+  .carousel {
+    background-color: transparent;
+
+    img {
+      width: auto;
+      height: 100%;
+      margin: auto;
+    }
+
+    .carousel-control {
+      background: transparent none;
+    }
+  }
 }
 
 .registry {
-
-  .col-xs-12 {
-    width: 800px !important;
-    margin: auto;
-  }
-
-  .mrw_visitorcontainer {
-    background-color: transparent;
-  }
+  width: 100%;
 }
 
 .admin-container {
