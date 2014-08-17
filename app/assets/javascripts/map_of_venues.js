@@ -76,13 +76,13 @@ function setupAccommodationMap(mapOptions) {
   });
 
   $('#hotel').click(function() {
-    venue_map.setCenter(hotel_marker.getPosition());
-    venue_map.setZoom(15);
+    accommodation_map.setCenter(hotel_marker.getPosition());
+    accommodation_map.setZoom(15);
   });
 
   $('#airport').click(function() {
-    venue_map.setCenter(airport_marker.getPosition());
-    venue_map.setZoom(15);
+    accommodation_map.setCenter(airport_marker.getPosition());
+    accommodation_map.setZoom(15);
   });
 }
 
