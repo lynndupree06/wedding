@@ -1,0 +1,84 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <a data-toggle="collapse" data-parent="#accordion" href="#travel">
+        Travel Information
+      </a>
+    </h3>
+  </div>
+
+  <div id="travel" class="panel-collapse collapse in">
+    <div class="panel-body">
+
+      <div>
+
+        <script type="text/javascript" src="//api.skyscanner.net/api.ashx?key=77c9d87a-07a4-47dd-b8a8-aa8336686af9"></script>
+        <script type="text/javascript">
+            skyscanner.load("snippets", "2");
+            function main() {
+                var snippet = new skyscanner.snippets.SearchPanelControl();
+                snippet.setShape("box400x400");
+                snippet.setCulture("en-GB");
+                snippet.setCurrency("USD");
+                snippet.setDestination("HSV", false);
+                snippet.setColourScheme("classicbluelight");
+                snippet.setProduct("flights", "1");
+                snippet.setProduct("hotels", "2");
+                snippet.setProduct("carhire", "3");
+                snippet.setCarHireStartLocation("HSV", false);
+                snippet.draw(document.getElementById("snippet_searchpanel"));
+            }
+            skyscanner.setOnLoadCallback(main);
+        </script>
+        <div id="snippet_searchpanel" style="margin: auto; width: 400px; height: 400px;"></div>
+
+      </div>
+
+      <div class="visa-info">
+        <h1>Visitor Visa</h1>
+
+        <h3>How to Apply</h3>
+
+        <strong>Online Nonimmigrant Visa Application</strong>
+        <ol>
+          <li>Complete the online visa application (<a href="https://ceac.state.gov/genniv/" target="_blank">Form
+            DS-160</a>). You will upload a photo that is in the format explained in the
+            Photograph Requirements
+          </li>
+          <li>Print the application form confirmation page to bring to your interview</li>
+        </ol>
+
+        <br>
+        <strong>Schedule an Interview</strong><br>
+
+        <p>
+          You must schedule an appointment for your visa interview at the U.S. Embassy or Consulate in the country where
+          you live.
+          <br><br>
+          Documents needed:
+        <ul>
+          <li>Passport</li>
+          <li>Nonimmigrant Visa Application (Form DS-160) confirmation page</li>
+          <li>Application fee payment receipt (if you are required to pay before your interview)</li>
+          <li>Photo (if the photo that you were going to upload to the online Form DS-160 failed)</li>
+        </ul>
+
+        <strong>Appointment Wait Times:</strong>
+        <ul>
+          <li>Sydney - 3 Calendar Days</li>
+          <li>Lusaka - 2 Calendar Days</li>
+          <li>Perth - 3 Calendar Days</li>
+        </ul>
+        </p>
+
+        <p><strong>Application Fee: $160 USD</strong></p>
+
+        <p>For more info visit the
+          <a href="http://travel.state.gov/content/visas/english/visit/visitor.html" target="_blank">Visitor Visa
+            page</a>.</p>
+
+      </div>
+
+    </div>
+  </div>
+</div>
