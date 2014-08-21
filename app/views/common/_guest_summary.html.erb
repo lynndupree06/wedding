@@ -23,5 +23,5 @@
 </p>
 
 <p>
-  <strong>RSVP:</strong> <%= Party.where(rsvp: 1).sum(:size) %>
+  <strong>RSVP:</strong> <%= Party.where(rsvp: true).sum(:size) %>
 </p>
