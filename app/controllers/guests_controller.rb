@@ -1,4 +1,4 @@
-class GuestsController < ApplicationController
+class GuestsController < AdminController
   before_action :set_guest, only: [:show, :edit, :update, :destroy]
 
   # GET /guests

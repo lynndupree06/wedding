@@ -83,6 +83,8 @@ Rails.application.configure do
 
   config.assets.enabled = true
   config.assets.paths << "#{Rails.root}/app/assets/fonts"
+
+  config.action_mailer.default_url_options = { host: 'jessica-and-fred.com' }
 end
 
 ActionMailer::Base.smtp_settings = {
