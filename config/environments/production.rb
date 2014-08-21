@@ -86,10 +86,21 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'jessica-and-fred.com' }
 
-  config.middleware.use ExceptionNotifier,
+  config.action_mailer.delivery_method = :sendmail
+  # Defaults to:
+  # config.action_mailer.sendmail_settings = {
+  #   :location => '/usr/sbin/sendmail',
+  #   :arguments => '-i -t'
+  # }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+
+  config.middleware.use ExceptionNotification::Rack,
+  :email => {
     :email_prefix => "[Wedding Site Error Report] ",
     :sender_address => %{"Jessica & Fred" <info@jessica-and-fred.com>},
     :exception_recipients => %w{lynndupree06@gmail.com}
+  }
 end
 
 ActionMailer::Base.smtp_settings = {
