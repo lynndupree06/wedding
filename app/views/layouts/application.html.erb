@@ -13,7 +13,7 @@
 
 <%= render 'layouts/header' %>
 
-<div class="container <%= 'registry' if self.controller.action_name == 'registry' %>">
+<div class="container<%= ' registry' if self.controller.action_name == 'registry' %><%= ' admin-container' if self.request.fullpath.include? 'users' %>">
   <div class="col-xs-12">
     <%= yield %>
   </div>

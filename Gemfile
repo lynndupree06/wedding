@@ -11,6 +11,7 @@ gem 'turbolinks'  # Turbolinks makes following links in your web application fas
 gem 'jbuilder', '~> 2.0'  # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jquery-tablesorter', '~> 1.12.5'
 gem 'app_constants'
+gem 'devise'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
