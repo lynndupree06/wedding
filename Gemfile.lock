@@ -48,6 +48,9 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     eventmachine (1.0.3)
+    exception_notification (4.0.1)
+      actionmailer (>= 3.0.4)
+      activesupport (>= 3.0.4)
     execjs (2.2.1)
     haml (4.0.5)
       tilt
@@ -168,6 +171,7 @@ DEPENDENCIES
   app_constants
   coffee-rails (~> 4.0.0)
   devise
+  exception_notification
   jbuilder (~> 2.0)
   jquery-rails
   jquery-tablesorter (~> 1.12.5)

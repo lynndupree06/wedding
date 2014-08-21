@@ -85,6 +85,11 @@ Rails.application.configure do
   config.assets.paths << "#{Rails.root}/app/assets/fonts"
 
   config.action_mailer.default_url_options = { host: 'jessica-and-fred.com' }
+
+  config.middleware.use ExceptionNotifier,
+    :email_prefix => "[Wedding Site Error Report] ",
+    :sender_address => %{"Jessica & Fred" <info@jessica-and-fred.com>},
+    :exception_recipients => %w{lynndupree06@gmail.com}
 end
 
 ActionMailer::Base.smtp_settings = {

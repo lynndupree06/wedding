@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.0'  # Build JSON APIs with ease. Read more: https://github
 gem 'jquery-tablesorter', '~> 1.12.5'
 gem 'app_constants'
 gem 'devise'
+gem 'exception_notification'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
