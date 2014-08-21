@@ -19,6 +19,7 @@ class UsersController < AdminController
 
   # GET /users/1/edit
   def edit
+    render :layout => 'admin'
   end
 
   # POST /users
