@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users #, :path_names => { :sign_up => "register" }
+  devise_for :users, :path_names => { :sign_up => "register" }
   resources :parties
 
   resources :groups
