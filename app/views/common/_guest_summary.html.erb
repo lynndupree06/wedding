@@ -1,18 +1,66 @@
 <p id="notice"><%= notice %></p>
 
-<% a_list = Guest.joins(:party).where("parties.a_b_list = 'A'") %>
-<% b_list = Guest.joins(:party).where("parties.a_b_list = 'B'") %>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th></th>
+    <th>Guests</th>
+    <th>Invitations</th>
+    <th>Men</th>
+    <th>Women</th>
+    <th>Children</th>
+    <th>Bride's Family</th>
+    <th>Bride's Friends</th>
+    <th>Groom's Family</th>
+    <th>Groom's Friends</th>
+  </tr>
+  </thead>
 
-<p>
-  <strong>A Group:</strong> <%= a_list.count %> Guests, <%= Party.where(a_b_list: 'A').count %> Invitations |
-  <strong>B Group:</strong> <%= b_list.count %> Guests, <%= Party.where(a_b_list: 'B').count %> Invitations
-</p>
+  <tbody>
+  <tr>
+    <% a_group = Guest.joins(:party).where("parties.a_b_list = 'A'") %>
+    <th>A Group</th>
+    <td><%= a_group.count %></td>
+    <td><%= Party.where(a_b_list: 'A').count %></td>
+    <td><%= Guest.joins(:party).where(gender: 'Male', child: false).where("parties.a_b_list = 'A'").count %></td>
+    <td><%= Guest.joins(:party).where(gender: 'Female', child: false).where("parties.a_b_list = 'A'").count %></td>
+    <td><%= Guest.joins(:party).where(child: true).where("parties.a_b_list = 'A'").count %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
 
-<p>
-  <strong>Men: </strong> <%= Guest.where(gender: 'Male', child: false).count %> |
-  <strong>Women: </strong> <%= Guest.where(gender: 'Female', child: false).count %> |
-  <strong>Children: </strong> <%= Guest.where(child: true).count %>
-</p>
+  <tr>
+    <th>B Group</th>
+    <td><%= Guest.joins(:party).where("parties.a_b_list = 'B'").count %></td>
+    <td><%= Party.where(a_b_list: 'B').count %></td>
+    <td><%= Guest.joins(:party).where(gender: 'Male', child: false).where("parties.a_b_list = 'B'").count %></td>
+    <td><%= Guest.joins(:party).where(gender: 'Female', child: false).where("parties.a_b_list = 'B'").count %></td>
+    <td><%= Guest.joins(:party).where(child: true).where("parties.a_b_list = 'B'").count %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  </tbody>
+
+  <thead>
+  <tr>
+    <th>Total</th>
+    <th><%= Guest.all.count %></th>
+    <th><%= Party.all.count %></th>
+    <th><%= Guest.where(gender: 'Male', child: false).count %></th>
+    <th><%= Guest.where(gender: 'Female', child: false).count %></th>
+    <th><%= Guest.where(child: true).count %></th>
+    <th><%= GroupsGuests.where(group_id: 1).count %></th>
+    <th><%= GroupsGuests.where(group_id: 2).count %></th>
+    <th><%= GroupsGuests.where(group_id: 3).count %></th>
+    <th><%= GroupsGuests.where(group_id: 4).count %></th>
+  </tr>
+  </thead>
+
+</table>
 
 <p>
   <strong>Bride's Family:</strong> <%= GroupsGuests.where(group_id: 1).count %> |
