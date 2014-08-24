@@ -1,4 +1,4 @@
-<%= form_for(@party, html: {:class => 'form-horizontal', :role => 'form'}) do |f| %>
+<%= form_for(@party, html: {:class => 'form-horizontal', :id => 'edit-party', :role => 'form'}) do |f| %>
     <% if @party.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@party.errors.count, "error") %> prohibited this party from being saved:</h2>
@@ -86,15 +86,15 @@
 
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <%= check_box_tag 'party[rsvp]', :rsvp, @party.rsvp %>
+        <%= check_box_tag 'party[rsvp]', @party.rsvp, @party.rsvp %>
         <%= label_tag 'party[rsvp]', 'RSVP?' %>
       </div>
     </div>
 
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <%= check_box_tag 'party[save_the_date]', :save_the_date_sent, @party.save_the_date_sent %>
-        <%= label_tag 'party[save_the_date]', 'Save the Date Sent?' %>
+        <%= check_box_tag 'party[save_the_date_sent]', @party.save_the_date_sent, @party.save_the_date_sent %>
+        <%= label_tag 'party[save_the_date_sent]', 'Save the Date Sent?' %>
       </div>
     </div>
 

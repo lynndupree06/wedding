@@ -5,6 +5,7 @@ class RsvpController < ApplicationController
   def search
     code = params[:id_code]
     party_size = params[:party]
+    meal = params[:meal]
     response = params['response']
 
     party = Party.where(key: code)

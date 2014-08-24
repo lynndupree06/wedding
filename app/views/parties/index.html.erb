@@ -4,29 +4,24 @@
 
 <%= link_to 'New Party', new_party_path %>
 
-<table class="table table-hover tablesorter">
+<table class="table table-hover tablesorter table-responsive">
   <thead>
   <tr>
     <th>Name</th>
     <th>Address</th>
-    <th>Email(s)</th>
-    <th>Outer envelop</th>
-    <th>Inner envelop</th>
     <th>A/B List</th>
-    <th>RSVP?</th>
+    <th>Estimated Size</th>
     <th>Save The Date Sent?</th>
-    <th>Party Size</th>
-    <th colspan="3"></th>
+    <th>RSVP?</th>
+    <th>RSVP Party Size</th>
+    <th colspan="2"></th>
   </tr>
   </thead>
 
   <tbody>
   <% @parties.each do |party| %>
-      <tr>
-        <td>
-          <%= party.name %>
-          <span class="badge"><%= party.guests.size %></span>
-        </td>
+      <tr onclick="editParty(<%= party.id %>)" style="cursor: pointer">
+        <td><%= party.name %></td>
         <td>
           <%= party.address %>
           <br>
@@ -34,23 +29,66 @@
           <br>
           <%= party.country %>
         </td>
-        <td><%= party.email %></td>
-        <td><%= party.outer_envelop %></td>
-        <td><%= party.inner_envelop %></td>
         <td><%= party.a_b_list %></td>
+        <td><%= party.guests.size %></td>
+        <td><input id="save-the-date" type="checkbox" <%= party.save_the_date_sent ? 'checked' : '' %>/></td>
         <td><input id="rsvp" type="checkbox" <%= party.rsvp ? 'checked' : '' %>/></td>
-        <td><input id="rsvp" type="checkbox" <%= party.save_the_date_sent ? 'checked' : '' %>/></td>
         <td><%= party.size %></td>
-        <td><%= link_to 'Show', party %></td>
-        <td><%= link_to 'Edit', edit_party_path(party) %></td>
+        <td><a id="<%= party.id %>" class="show-party">Show</a></td>
         <td><%= link_to 'Destroy', party, method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>
   <% end %>
   </tbody>
 </table>
 
+<!-- Modal -->
+<div class="modal fade" id="selected-party" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel"></h4>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
-  $('#rsvp').click(function() {
-      alert('clicked');
-  });
+    $('#rsvp').click(function () {
+        alert('clicked');
+    });
+
+    $('.edit-party').click(function () {
+        var id = $(this).attr('id');
+        editParty(id);
+    });
+
+    function editParty(id) {
+        var url = '/parties/' + id + '/edit';
+
+        $.get(url, function (data) {
+            $('.modal-body').html('');
+            $('.modal-body').html(data.match(/<form(\r|\n|.)+<\/form>/g));
+            $('#selected-party').modal('show');
+        });
+    }
+
+    $('.show-party').click(function () {
+        var id = $(this).attr('id');
+        var url = '/parties/' + id;
+
+        $.get(url, function (data) {
+            $('.modal-body').html('');
+            $('.modal-body').html(data.match(/<h1>(\r|\n|.)+<\/ul>\n<\/p>/g));
+            $('#selected-party').modal('show');
+        });
+    });
 </script>

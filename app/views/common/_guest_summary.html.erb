@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<table class="table table-bordered">
+<table class="table table-bordered table-responsive">
   <thead>
   <tr>
     <th></th>
@@ -71,5 +71,5 @@
 </p>
 
 <p>
-  <strong>RSVP:</strong> <%= Party.where(rsvp: true).sum(:size) %>
+  <strong>RSVP:</strong> <%= Party.where(rsvp: true, rsvp: 1).sum(:size) %>
 </p>

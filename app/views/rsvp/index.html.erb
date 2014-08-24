@@ -16,10 +16,17 @@
         </div>
       </div>
 
-      <div class="form-group">
+      <div id="party-size" class="form-group">
         <%= label_tag :party, 'Total in your party?', :class => 'control-label col-sm-5' %>
         <div class="col-sm-3">
-          <%= text_field_tag :party, '', :class => 'form-control', :required => :required, :type => 'number' %>
+          <%= text_field_tag :party, '', :class => 'form-control', :required => :required, :type => 'number', :min => 1 %>
+        </div>
+      </div>
+
+      <div class="form-group meal-preference" style="display: none">
+        <%= label_tag :meal, 'Meal Preference', :class => 'control-label col-sm-5' %>
+        <div class="col-sm-6">
+          <%= select_tag :meal, options_for_select(["Chicken", "Beef"], ''), :include_blank => true, :required => :required, :class => 'form-control' %>
         </div>
       </div>
 
@@ -42,11 +49,30 @@
 </div>
 
 <script>
-    $("input[type='radio']").click(function () {
-        if ($(this).attr('id') == 'no') {
-            $('#party').removeAttr('required');
-        } else {
-            $('#party').attr('required', 'required');
-        }
+    $(function () {
+        $('#party').change(function () {
+            var $mealDiv = $('.meal-preference');
+            var div = $mealDiv.first().clone();
+            var parent = $mealDiv.parent();
+            var num = Number($(this).val());
+            var $partyDiv = $('#party-size');
+
+            $mealDiv.remove();
+
+            for(var i = num; i > 0; i--) {
+                var newDiv = div.clone();
+                newDiv.find('label').html('Meal Preference for Guest ' + i);
+                newDiv.insertAfter($partyDiv);
+                newDiv.show();
+            }
+        });
+
+        $("input[type='radio']").click(function () {
+            if ($(this).attr('id') == 'no') {
+                $('#party').removeAttr('required');
+            } else {
+                $('#party').attr('required', 'required');
+            }
+        });
     });
 </script>

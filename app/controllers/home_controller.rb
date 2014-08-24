@@ -26,4 +26,14 @@ class HomeController < ApplicationController
   def registry
     render :layout => 'application'
   end
+
+  def user_update
+    if params[:t]
+      party = PartyEncoder.decode(params[:t])
+      @party = Party.find(/[0-9]+/.match(party).to_s)
+      render :layout => 'application'
+    else
+      redirect_to root_path
+    end
+  end
 end

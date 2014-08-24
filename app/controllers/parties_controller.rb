@@ -45,9 +45,16 @@ class PartiesController < AdminController
   # PATCH/PUT /parties/1.json
   def update
     respond_to do |format|
+      params['party']['rsvp'] = party_params['rsvp'] == 'on'
+      params['party']['save_the_date_sent'] = party_params['save_the_date_sent'] == 'on'
+
       if @party.update(party_params)
-        format.html { redirect_to @party, notice: 'Party was successfully updated.' }
-        format.json { render :show, status: :ok, location: @party }
+        if user_signed_in?
+          format.html { redirect_to @party, notice: 'Party was successfully updated.' }
+          format.json { render :show, status: :ok, location: @party }
+        else
+          redirect_to root_path
+        end
       else
         format.html { render :edit }
         format.json { render json: @party.errors, status: :unprocessable_entity }
@@ -90,10 +97,6 @@ class PartiesController < AdminController
     end
   end
 
-  def user_update
-    party = PartyEncoder.decode(params[:t])
-  end
-
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_party
@@ -108,6 +111,6 @@ class PartiesController < AdminController
   # Never trust parameters from the scary internet, only allow the white list through.
   def party_params
     params.require(:party).permit(:a_b_list, :name, :email, :address, :city, :state, :postal_code,
-                                  :country, :outer_envelop, :inner_envelop, :save_the_date, :rsvp, :notes)
+                                  :country, :outer_envelop, :inner_envelop, :save_the_date_sent, :rsvp, :notes)
   end
 end

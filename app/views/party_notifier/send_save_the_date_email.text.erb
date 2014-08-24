@@ -1,0 +1,29 @@
+Save the Date!
+
+Jessica Brazelton & Frederick Kazembe
+
+June 6, 2015
+Huntsville, Alabama USA
+
+Formal Invitation to Follow
+
+We would love to send you an invitation to our wedding.
+
+<% if @party.address.blank? %>
+However, we do not have your address. Please go to our website to send us your address.
+<% elsif @party.address.present? %>
+This is the address that we have for you:
+
+    <%= @party.address %><br>
+    <%= @party.city %>, <%= @party.state %> <%= @party.postal_code %><br>
+    <%= @party.country %>
+
+If this is not the correct address please go to our website to update your address in our records.
+<% end %>
+
+http://www.jessica-and-fred.com/address_update?t=<%= @token %>
+
+In the meantime, feel free to visit our website for more
+information about accommodations, flights, and how we met and the wedding!
+
+http://www.jessica-and-fred.com
