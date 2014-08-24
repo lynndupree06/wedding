@@ -26,7 +26,7 @@
       <div class="form-group meal-preference" style="display: none">
         <%= label_tag :meal, 'Meal Preference', :class => 'control-label col-sm-5' %>
         <div class="col-sm-6">
-          <%= select_tag :meal, options_for_select(["Chicken", "Beef"], ''), :include_blank => true, :required => :required, :class => 'form-control' %>
+          <%= select_tag :meal, options_for_select(["Chicken", "Beef"], ''), :include_blank => true, :class => 'form-control' %>
         </div>
       </div>
 
@@ -61,6 +61,8 @@
 
             for(var i = num; i > 0; i--) {
                 var newDiv = div.clone();
+                newDiv.find('select').attr('name', 'meal[' + i + ']');
+                newDiv.find('select').attr('required', 'required');
                 newDiv.find('label').html('Meal Preference for Guest ' + i);
                 newDiv.insertAfter($partyDiv);
                 newDiv.show();

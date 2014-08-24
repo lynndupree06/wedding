@@ -5,8 +5,14 @@ class RsvpController < ApplicationController
   def search
     code = params[:id_code]
     party_size = params[:party]
-    meal = params[:meal]
     response = params['response']
+
+    idx = 1
+    meal = {}
+    while params[:meal][idx.to_s].present? do
+      meal[idx] = params[:meal][idx.to_s]
+      idx = idx + 1
+    end
 
     party = Party.where(key: code)
 
@@ -16,7 +22,7 @@ class RsvpController < ApplicationController
         format.json { head :no_content }
       end
     else
-      party.update_all(rsvp: response, size: party_size)
+      party.update_all(rsvp: response, size: party_size, meals: meal)
     end
 
     @attending = response

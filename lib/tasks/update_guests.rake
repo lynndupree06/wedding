@@ -44,6 +44,8 @@ namespace :update do
             :postal_code => new_guest['Postal Code'],
             :country => new_guest['Country'],
             :email => new_guest['Email'],
+            :save_the_date_sent => false,
+            :rsvp => false,
             :key => SecureRandom.hex(3).upcase
         )
 
