@@ -97,6 +97,15 @@ class PartiesController < AdminController
     end
   end
 
+  def create_outer_labels
+    @parties = Party.order(:outer_envelop)
+
+    respond_to do |format|
+      format.html { redirect_to parties_path }
+      format.csv { send_data @parties.to_csv }
+    end
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_party

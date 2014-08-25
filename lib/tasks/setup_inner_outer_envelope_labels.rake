@@ -1,5 +1,4 @@
 namespace :update do
-  require 'csv'
 
   desc 'Generate inner and outer envelope titles based off of guest names'
   task envelopes: :environment do

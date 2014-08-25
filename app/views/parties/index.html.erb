@@ -1,5 +1,7 @@
 <%= render 'common/guest_summary' %>
 
+<%= link_to 'Download Label', outer_path(:format => :csv), :class => 'btn btn-success save-the-date' %>
+
 <h1>Listing parties</h1>
 
 <%= link_to 'New Party', new_party_path %>
