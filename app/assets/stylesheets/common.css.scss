@@ -155,7 +155,7 @@
       font-size: 30px;
       margin: 10px 0;
       line-height: 50px;
-      background-color: #E9CFAC;
+      background-color: #AA413C;
       position: absolute;
       width: 102%;
       left: -10px;
@@ -184,7 +184,7 @@
       margin-bottom: 20px;
 
       strong {
-        color: #5E2613;
+        color: #AA413C;
       }
 
       #venue-map, #accommodation-map {
@@ -202,7 +202,7 @@
 
     hr {
       width: 40%;
-      border-color: #5E2613;
+      border-color: #B57626;
       opacity: 0.8;
     }
 
@@ -212,7 +212,7 @@
         bottom: 33px;
         position: absolute;
         font-size: 20px;
-        color: #5E2613;
+        color: #B57626;
 
         &.left {
           left: 49.3%;
@@ -369,15 +369,15 @@
 
 /* Flight Aware Box Style */
 .ss_searchpanel.ss_col_classicbluelight.ss_box400x400 .ss_form, .ss_searchpanel.ss_col_classicbluelight.ss_box300x250 .ss_form, .ss_searchpanel.ss_col_classicbluelight.ss_leaderboard .ss_form, .ss_searchpanel.ss_col_classicbluelight.ss_skyscraper .ss_form {
-background-color: #E9CFAC !important;
+background-color: #AA413C !important;
 }
 
 .ss_searchpanel.ss_col_classicbluelight.ss_box400x400 .ss_deals, .ss_searchpanel.ss_col_classicbluelight.ss_box300x250 .ss_deals, .ss_searchpanel.ss_col_classicbluelight.ss_leaderboard .ss_deals, .ss_searchpanel.ss_col_classicbluelight.ss_skyscraper .ss_deals {
-background-color: #E9CFAC !important;
+background-color: #AA413C !important;
 }
 
 .ss_searchpanel.ss_col_classicbluelight.ss_box400x400 .ss_search_button .ss_btn_r, .ss_searchpanel.ss_col_classicbluelight.ss_box400x400 .ss_search_button .ss_btn_l, .ss_searchpanel.ss_col_classicbluelight.ss_box300x250 .ss_search_button .ss_btn_l, .ss_searchpanel.ss_col_classicbluelight.ss_leaderboard .ss_search_button .ss_btn_l, .ss_searchpanel.ss_col_classicbluelight.ss_skyscraper .ss_search_button .ss_btn_l {
-background-color: #E9CFAC !important;
+background-color: #AA413C !important;
 }
 
 .ss_searchpanel.ss_col_classicbluelight.ss_box400x400 .ss_tabs a, .ss_searchpanel.ss_col_classicbluelight.ss_box300x250 .ss_tabs a, .ss_searchpanel.ss_col_classicbluelight.ss_leaderboard .ss_tabs a, .ss_searchpanel.ss_col_classicbluelight.ss_skyscraper .ss_tabs a {
@@ -391,7 +391,7 @@ background: none !important;
 
 .ss_searchpanel.ss_col_classicbluelight.ss_box400x400 .ss_search_button:focus span, .ss_searchpanel.ss_col_classicbluelight.ss_box300x250 .ss_search_button:focus span, .ss_searchpanel.ss_col_classicbluelight.ss_leaderboard .ss_search_button:focus span, .ss_searchpanel.ss_col_classicbluelight.ss_skyscraper .ss_search_button:focus span, .ss_searchpanel.ss_col_classicbluelight.ss_box400x400 .ss_search_button:hover span, .ss_searchpanel.ss_col_classicbluelight.ss_box300x250 .ss_search_button:hover span, .ss_searchpanel.ss_col_classicbluelight.ss_leaderboard .ss_search_button:hover span, .ss_searchpanel.ss_col_classicbluelight.ss_skyscraper .ss_search_button:hover span {
 background: none !important;
-background-color: #E9CFAC !important;
+background-color: #AA413C !important;
 }
 
 #snippet_searchpanel {
@@ -399,7 +399,7 @@ background-color: #E9CFAC !important;
     font-family: PoiretOne !important;
 
     .ss_form_wrapper {
-      background-color: #E9CFAC !important;
+      background-color: #AA413C !important;
       border-radius: 10px;
     }
 
@@ -408,7 +408,7 @@ background-color: #E9CFAC !important;
         &.ss_tab_active, 
         &.ss_tab_active a {
           border-radius: 8px 8px 0 0;
-          background-color: #E9CFAC !important;
+          background-color: #AA413C !important;
         }
       }
     }

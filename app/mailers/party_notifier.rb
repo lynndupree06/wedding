@@ -6,7 +6,7 @@ class PartyNotifier < ActionMailer::Base
       @party = party
       @token = PartyEncoder.encode(@party.id)
       mail(:to => party.email,
-           :subject => 'Save the Date! June 6, 2015')
+           :subject => 'Save the Date! July 25, 2015')
     end
   end
 end
