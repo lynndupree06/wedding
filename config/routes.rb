@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get '/save-the-date-b' => 'parties#save_the_date_b'
   get '/save-the-date-special' => 'parties#save_the_date_special'
   get '/address_update' => 'home#user_update'
-  get '/outer' => 'parties#create_outer_labels'
+  get '/outer_labels' => 'parties#create_outer_labels'
 
   resources :users
   resources :photos

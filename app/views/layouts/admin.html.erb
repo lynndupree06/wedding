@@ -27,9 +27,10 @@
 <% controller = self.controller.class.name %>
 <div class="container admin-container">
   <div style="margin-bottom: 20px;">
-    <%= link_to 'Send Save the Date Email to International List', save_the_date_special_path, :class => 'btn btn-info save-the-date' %>
-    <%= link_to 'Send Save the Date Email to A List', save_the_date_a_path, :class => 'btn btn-success save-the-date' %>
-    <%= link_to 'Send Save the Date Email to B List', save_the_date_b_path, :class => 'btn btn-info save-the-date' %>
+    <%= label_tag 'Save The Date Emails: ' %>
+    <%= link_to 'International List', save_the_date_special_path, :class => 'btn btn-info save-the-date' %>
+    <%= link_to 'A List', save_the_date_a_path, :class => 'btn btn-success save-the-date' %>
+    <%= link_to 'B List', save_the_date_b_path, :class => 'btn btn-info save-the-date' %>
   </div>
 
   <div class="wrapper">
