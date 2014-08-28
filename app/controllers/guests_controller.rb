@@ -46,6 +46,10 @@ class GuestsController < AdminController
   # PATCH/PUT /guests/1.json
   def update
     respond_to do |format|
+      params[:guest][:group].first.each do |g|
+        GroupsGuests.where(group_id: g, guest_id: @guest.id).first || GroupsGuests.create!(group_id: g, guest_id: @guest.id)
+      end
+
       if @guest.update(guest_params)
         format.html { redirect_to @guest, notice: 'Guest was successfully updated.' }
         format.json { render :show, status: :ok, location: @guest }

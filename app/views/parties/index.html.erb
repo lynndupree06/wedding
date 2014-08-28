@@ -22,8 +22,22 @@
 
   <tbody>
   <% @parties.each do |party| %>
-      <tr onclick="editParty(<%= party.id %>)" style="cursor: pointer">
-        <td><%= party.name %></td>
+      <% email_missing = party.email.nil? %>
+      <% address_missing = party.address.nil? %>
+      <% row_class = '' %>
+
+      <% if email_missing && address_missing %>
+        <% row_class = 'danger' %>
+      <% elsif email_missing %>
+        <% row_class = 'warning' %>
+      <% end %>
+
+      <tr onclick="editParty(<%= party.id %>)" style="cursor: pointer" class="<%= row_class %>">
+        <td>
+          <i title="<%= email_missing ? 'Missing email. ' : ''%><%= address_missing ? 'Address incomplete.' : '' %>" 
+            class="<%= party.email.nil? ? 'fa fa-warning' : '' %>"></i>
+          <%= party.name %>
+        </td>
         <td>
           <%= party.address %>
           <br>

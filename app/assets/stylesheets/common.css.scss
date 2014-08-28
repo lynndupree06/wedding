@@ -122,11 +122,11 @@
 }
 
 .navbar {
-    
+
   .navbar-brand {
     font-family: GreatVibes-Regular;
   }
-  
+
   .navbar-nav {
     margin: 0 auto;
     display: table;
@@ -137,6 +137,9 @@
       font-size: 16px;
       text-align: center;
       font-family: PoiretOne;
+      a {
+        color: #D35A4A;
+      }
     }
   }
 }
@@ -159,7 +162,7 @@
       font-size: 30px;
       margin: 10px 0;
       line-height: 50px;
-      background-color: #AA413C;
+      background-color: #D35A4A;
       position: absolute;
       width: 102%;
       left: -10px;
@@ -188,7 +191,7 @@
       margin-bottom: 20px;
 
       strong {
-        color: #AA413C;
+        color: #D35A4A;
       }
 
       #venue-map, #accommodation-map {
@@ -206,7 +209,7 @@
 
     hr {
       width: 40%;
-      border-color: #B57626;
+      border-color: #F4A29C;
       opacity: 0.8;
     }
 
@@ -216,7 +219,7 @@
         bottom: 33px;
         position: absolute;
         font-size: 20px;
-        color: #B57626;
+        color: #F4A29C;
 
         &.left {
           left: 49.3%;
@@ -256,6 +259,27 @@
 
     button {
       text-align: center;
+    }
+  }
+
+  .panel-group {
+    .panel-default {
+      border-color: transparent;
+      border-radius: 10px;
+
+      .panel-heading {
+        background-color: #F5C59B;
+        border-color: #F5C59B;
+        border-radius: 10px;
+
+        a {
+          color: #ffffff;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
     }
   }
 
@@ -407,9 +431,9 @@ background-color: #AA413C !important;
       border-radius: 10px;
     }
 
-    .ss_tabs { 
+    .ss_tabs {
       li {
-        &.ss_tab_active, 
+        &.ss_tab_active,
         &.ss_tab_active a {
           border-radius: 8px 8px 0 0;
           background-color: #AA413C !important;
