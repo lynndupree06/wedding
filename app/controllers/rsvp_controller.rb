@@ -14,17 +14,22 @@ class RsvpController < ApplicationController
       idx = idx + 1
     end
 
-    party = Party.where(key: code)
+    party = Party.where(key: code).first
 
-    if party.empty?
+    if party.nil?
       respond_to do |format|
         format.html { redirect_to rsvp_url, notice: 'Invalid Token' }
         format.json { head :no_content }
       end
     else
-      party.update_all(rsvp: response, size: party_size, meals: meal)
+      party.rsvp = response
+      party.size = party_size
+      party.meals = meal
+      # party.save!
     end
 
     @attending = response
+
+    Emailer.send_notification_of_rsvp_email(party).deliver
   end
 end

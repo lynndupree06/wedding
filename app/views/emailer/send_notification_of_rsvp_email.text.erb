@@ -1,0 +1,10 @@
+<%= @party.name %> RSVP'd
+
+Party Size: <%= @party.size %>
+
+Meal Options:
+
+<% @party.meals.each do |m| %>
+    <%= m[1] %>
+<% end %>
+

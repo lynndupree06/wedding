@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+
+<div>
+  <strong><%= @party.name %> RSVP'd</strong><br><br>
+
+  <strong>Party Size:</strong> <%= @party.size %>
+  <br><br>
+
+  <strong>Meal Options:</strong>
+
+  <ul>
+    <% @party.meals.each do |m| %>
+        <li><%= m[1] %></li>
+    <% end %>
+  </ul>
+</div>
+
+</body>
