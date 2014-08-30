@@ -18,30 +18,13 @@
 
   <tbody>
   <tr>
-    <% a_group = Guest.joins(:party).where("parties.a_b_list = 'A'") %>
     <th>A Group</th>
-    <td><%= a_group.count %></td>
-    <td><%= Party.where(a_b_list: 'A').count %></td>
-    <td><%= Guest.joins(:party).where(gender: 'Male', child: false).where("parties.a_b_list = 'A'").count %></td>
-    <td><%= Guest.joins(:party).where(gender: 'Female', child: false).where("parties.a_b_list = 'A'").count %></td>
-    <td><%= Guest.joins(:party).where(child: true).where("parties.a_b_list = 'A'").count %></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <%= group_data 'A' %>
   </tr>
 
   <tr>
     <th>B Group</th>
-    <td><%= Guest.joins(:party).where("parties.a_b_list = 'B'").count %></td>
-    <td><%= Party.where(a_b_list: 'B').count %></td>
-    <td><%= Guest.joins(:party).where(gender: 'Male', child: false).where("parties.a_b_list = 'B'").count %></td>
-    <td><%= Guest.joins(:party).where(gender: 'Female', child: false).where("parties.a_b_list = 'B'").count %></td>
-    <td><%= Guest.joins(:party).where(child: true).where("parties.a_b_list = 'B'").count %></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <%= group_data 'B' %>
   </tr>
   </tbody>
 
@@ -63,13 +46,11 @@
 </table>
 
 <p>
-  <strong>Bride's Family:</strong> <%= GroupsGuests.where(group_id: 1).count %> |
-  <strong>Bride's Friends:</strong> <%= GroupsGuests.where(group_id: 2).count %> |
-  <strong>Groom's Family:</strong> <%= GroupsGuests.where(group_id: 3).count %> |
-  <strong>Groom's Friends:</strong> <%= GroupsGuests.where(group_id: 4).count %> |
-  <strong>Bridal Party:</strong> <%= GroupsGuests.where(group_id: 5).count %>
+  <strong>Attending:</strong> <%= Party.where(rsvp: true).sum(:size) %> |
+  <strong>Not Attending:</strong> <%= Party.where(rsvp: false).sum(:size) %>
 </p>
 
 <p>
-  <strong>RSVP:</strong> <%= Party.where(rsvp: true).sum(:size) %>
+  <strong>Missing Email Addresses:</strong> <%= Party.where('email IS NULL OR email = ""').count %> |
+  <strong>Missing Addresses:</strong> <%= Party.where("address IS NULL OR address = ''").count %>
 </p>
