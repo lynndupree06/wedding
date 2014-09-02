@@ -19,6 +19,9 @@ group :development, :test do
   gem 'sqlite3'
   gem 'spring', '1.1.2'
   gem 'pry'
+  gem 'pry-remote'
+  gem 'pry-stack_explorer'
+  gem 'pry-debugger'
   gem 'mailcatcher'
 end
 

@@ -21,9 +21,16 @@ namespace :update do
 
     CSV.foreach(file, :headers => true) do |row|
       new_guest = row.to_hash
-      guests = Guest.where(last_name: new_guest['Last Name'])
 
-      if guests.size > 0
+      if new_guest['Last Name'] && (new_guest['Last Name'].include?('Jr') || new_guest['Last Name'].include?('Sr'))
+        suffix = new_guest['Last Name'].match(/[J|S]r./).to_s
+        last_name = new_guest['Last Name'].match(/.*,/).to_s.chomp(',')
+        guests = Guest.where(suffix: suffix, last_name: last_name)
+      else
+        guests = Guest.where(last_name: new_guest['Last Name'])
+      end
+
+      if guests.size > 1
         guests.each do |guest|
           update_guest(guest, new_guest)
         end
