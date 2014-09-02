@@ -98,12 +98,21 @@ class PartiesController < AdminController
   end
 
   def create_outer_labels
-    @parties = Party.order(:outer_envelop)
-
     respond_to do |format|
       format.html { redirect_to parties_path }
-      format.csv { send_data @parties.to_csv }
+      format.csv { send_data Party.to_csv }
     end
+  end
+
+  def create_place_card_labels
+    respond_to do |format|
+      format.html { redirect_to parties_path }
+      format.csv { send_data Party.place_cards_to_csv }
+    end
+  end
+
+  def get_guests
+    render json: { :guests => Party.find_by_key(params[:id]).guests }
   end
 
   private

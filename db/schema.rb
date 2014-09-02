@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140824232316) do
+ActiveRecord::Schema.define(version: 20140901230842) do
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20140824232316) do
     t.integer  "party_id"
     t.string   "gender"
     t.boolean  "child"
+    t.string   "meal_option"
+    t.integer  "table"
   end
 
   create_table "parties", force: true do |t|
@@ -56,7 +58,6 @@ ActiveRecord::Schema.define(version: 20140824232316) do
     t.boolean  "save_the_date_sent"
     t.string   "notes"
     t.string   "key"
-    t.string   "meals"
   end
 
   create_table "photos", force: true do |t|

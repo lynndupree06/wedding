@@ -15,8 +15,8 @@
   <strong>Meal Options:</strong>
 
   <ul>
-    <% @party.meals.each do |m| %>
-        <li><%= m[1] %></li>
+    <% @party.guests.each do |g| %>
+        <li><%= g.meal_option %></li>
     <% end %>
   </ul>
 </div>

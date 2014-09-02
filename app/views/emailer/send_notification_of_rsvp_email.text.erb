@@ -4,7 +4,6 @@ Party Size: <%= @party.size %>
 
 Meal Options:
 
-<% @party.meals.each do |m| %>
-    <%= m[1] %>
+<% @party.guests.each do |g| %>
+    <%= g.meal_option %>
 <% end %>
-

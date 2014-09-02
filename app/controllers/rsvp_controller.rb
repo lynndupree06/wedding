@@ -7,14 +7,17 @@ class RsvpController < ApplicationController
     party_size = params[:party]
     response = params['response']
 
-    idx = 1
-    meal = {}
-    while params[:meal][idx.to_s].present? do
-      meal[idx] = params[:meal][idx.to_s]
-      idx = idx + 1
-    end
-
     party = Party.where(key: code).first
+    guests = party.guests
+
+    if response
+      idx = 1
+      guests.each do |g|
+        g.meal_option = params[:meal][idx.to_s]
+        g.save!
+        idx = idx + 1
+      end
+    end
 
     if party.nil?
       respond_to do |format|
@@ -24,7 +27,6 @@ class RsvpController < ApplicationController
     else
       party.rsvp = response
       party.size = party_size
-      party.meals = meal
       # party.save!
     end
 
