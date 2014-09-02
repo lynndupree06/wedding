@@ -117,8 +117,10 @@
   font-size: 50px;
 }
 
-.white-text {
-  color: #ffffff;
+a.btn {
+  &.white-text {
+    color: #ffffff;
+  }
 }
 
 .navbar {
@@ -394,29 +396,28 @@
 
 /* Flight Aware Box Style */
 .ss_searchpanel.ss_col_classicbluelight.ss_box400x400 .ss_form, .ss_searchpanel.ss_col_classicbluelight.ss_box300x250 .ss_form, .ss_searchpanel.ss_col_classicbluelight.ss_leaderboard .ss_form, .ss_searchpanel.ss_col_classicbluelight.ss_skyscraper .ss_form {
-background-color: #AA413C !important;
+  background-color: #AA413C !important;
 }
 
 .ss_searchpanel.ss_col_classicbluelight.ss_box400x400 .ss_deals, .ss_searchpanel.ss_col_classicbluelight.ss_box300x250 .ss_deals, .ss_searchpanel.ss_col_classicbluelight.ss_leaderboard .ss_deals, .ss_searchpanel.ss_col_classicbluelight.ss_skyscraper .ss_deals {
-background-color: #AA413C !important;
+  background-color: #AA413C !important;
 }
 
 .ss_searchpanel.ss_col_classicbluelight.ss_box400x400 .ss_search_button .ss_btn_r, .ss_searchpanel.ss_col_classicbluelight.ss_box400x400 .ss_search_button .ss_btn_l, .ss_searchpanel.ss_col_classicbluelight.ss_box300x250 .ss_search_button .ss_btn_l, .ss_searchpanel.ss_col_classicbluelight.ss_leaderboard .ss_search_button .ss_btn_l, .ss_searchpanel.ss_col_classicbluelight.ss_skyscraper .ss_search_button .ss_btn_l {
-background-color: #AA413C !important;
+  background-color: #AA413C !important;
 }
 
 .ss_searchpanel.ss_col_classicbluelight.ss_box400x400 .ss_tabs a, .ss_searchpanel.ss_col_classicbluelight.ss_box300x250 .ss_tabs a, .ss_searchpanel.ss_col_classicbluelight.ss_leaderboard .ss_tabs a, .ss_searchpanel.ss_col_classicbluelight.ss_skyscraper .ss_tabs a {
-background-color: #623234 !important;
+  background-color: #623234 !important;
 }
 
 .ss_searchpanel.ss_col_classicbluelight.ss_box400x400 .ss_deals .ss_deals_grade_left, .ss_searchpanel.ss_col_classicbluelight.ss_box400x400 .ss_deals .ss_deals_grade_right, .ss_searchpanel.ss_col_classicbluelight.ss_box300x250 .ss_deals .ss_deals_grade_right, .ss_searchpanel.ss_col_classicbluelight.ss_leaderboard .ss_deals .ss_deals_grade_right, .ss_searchpanel.ss_col_classicbluelight.ss_skyscraper .ss_deals .ss_deals_grade_right {
-background: none !important;
+  background: none !important;
 }
 
-
 .ss_searchpanel.ss_col_classicbluelight.ss_box400x400 .ss_search_button:focus span, .ss_searchpanel.ss_col_classicbluelight.ss_box300x250 .ss_search_button:focus span, .ss_searchpanel.ss_col_classicbluelight.ss_leaderboard .ss_search_button:focus span, .ss_searchpanel.ss_col_classicbluelight.ss_skyscraper .ss_search_button:focus span, .ss_searchpanel.ss_col_classicbluelight.ss_box400x400 .ss_search_button:hover span, .ss_searchpanel.ss_col_classicbluelight.ss_box300x250 .ss_search_button:hover span, .ss_searchpanel.ss_col_classicbluelight.ss_leaderboard .ss_search_button:hover span, .ss_searchpanel.ss_col_classicbluelight.ss_skyscraper .ss_search_button:hover span {
-background: none !important;
-background-color: #AA413C !important;
+  background: none !important;
+  background-color: #AA413C !important;
 }
 
 #snippet_searchpanel {

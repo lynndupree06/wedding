@@ -51,6 +51,6 @@
 </p>
 
 <p>
-  <strong>Missing Email Addresses:</strong> <%= Party.where('email IS NULL OR email = ""').count %> |
+  <strong>Missing Email Addresses:</strong> <%= Party.where("email IS NULL OR email = ''").count %> |
   <strong>Missing Addresses:</strong> <%= Party.where("address IS NULL OR address = ''").count %>
 </p>
