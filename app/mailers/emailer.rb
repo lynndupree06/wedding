@@ -1,4 +1,5 @@
 class Emailer < ActionMailer::Base
+  default from: 'jbrazelton@knology.net'
 
   def send_notification_of_rsvp_email(party)
     @party = party

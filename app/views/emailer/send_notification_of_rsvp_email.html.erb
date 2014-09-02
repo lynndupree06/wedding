@@ -7,7 +7,7 @@
 <body>
 
 <div>
-  <strong><%= @party.name %> RSVP'd</strong><br><br>
+  <strong><%= @party.name %> <%= @party.rsvp ? 'is Attending!' : 'is not Attending' %></strong><br><br>
 
   <strong>Party Size:</strong> <%= @party.size %>
   <br><br>
@@ -15,8 +15,10 @@
   <strong>Meal Options:</strong>
 
   <ul>
+    <% idx = 1 %>
     <% @party.guests.each do |g| %>
-        <li><%= g.meal_option %></li>
+        <li><%= g.first_name ? "#{g.first_name} #{g.last_name}" : "Guest #{idx}" %>: <%= g.meal_option %></li>
+        <% idx = idx + 1 %>
     <% end %>
   </ul>
 </div>

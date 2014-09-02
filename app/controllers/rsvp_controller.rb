@@ -11,7 +11,7 @@ class RsvpController < ApplicationController
     guests = party.guests
 
     if response
-      idx = 1
+      idx = 0
       guests.each do |g|
         g.meal_option = params[:meal][idx.to_s]
         g.save!
