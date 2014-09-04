@@ -297,10 +297,6 @@ a.btn {
   }
 }
 
-.registry {
-  width: 850px !important;
-}
-
 .admin-container {
   width: 90% !important;
   font-family: "Helvetica Neue", "Arial", sans-serif;
@@ -338,6 +334,10 @@ a.btn {
         font-size: 20px;
       }
     }
+  }
+
+  .registry {
+    width: 850px !important;
   }
 }
 

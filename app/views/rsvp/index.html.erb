@@ -2,9 +2,6 @@
   <header>RSVP</header>
 
   <section>
-    <% if notice %>
-        <div class="alert alert-danger" role="alert"><%= notice %></div>
-    <% end %>
     Use the identification code given in your invitation to RSVP.
   </section>
 
@@ -26,10 +23,10 @@
       <div id='details' style='display:none'>
         <h3 id='preferences'>Meal Preferences</h3>
 
-        <div class="form-group meal-preference" style="display: none">
+        <div class="form-group meal-preference">
           <%= label_tag :meal, 'Meal Preference', :class => 'meal control-label col-sm-5' %>
           <div class="col-sm-6">
-            <%= select_tag :meal, options_for_select(["Chicken", "Beef"], ''), :include_blank => true, :class => 'form-control' %>
+            <%= select_tag :meal, options_for_select(["Chicken", "Beef", "Child"], ''), :include_blank => true, :class => 'form-control' %>
           </div>
         </div>
       </div>
