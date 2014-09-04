@@ -26,6 +26,8 @@
 
 <% controller = self.controller.class.name %>
 <div class="container admin-container">
+  <%= render 'layouts/alerts' %>
+
   <div style="margin-bottom: 20px;">
     <%= label_tag 'Save The Date Emails: ' %>
     <%= link_to 'International List', save_the_date_special_path, :class => 'btn btn-info save-the-date' %>

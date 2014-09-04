@@ -49,11 +49,12 @@ class PartiesController < AdminController
       params['party']['save_the_date_sent'] = party_params['save_the_date_sent'] == 'on'
 
       if @party.update(party_params)
+        flash[:notice] = 'Party was successfully updated.'
         if user_signed_in?
           format.html { redirect_to @party, notice: 'Party was successfully updated.' }
           format.json { render :show, status: :ok, location: @party }
         else
-          redirect_to root_path
+          redirect_to root_path, notice: 'Party was successfully updated.'
         end
       else
         format.html { render :edit }
@@ -109,10 +110,6 @@ class PartiesController < AdminController
       format.html { redirect_to parties_path }
       format.csv { send_data Party.place_cards_to_csv }
     end
-  end
-
-  def get_guests
-    render json: { :guests => Party.find_by_key(params[:id]).guests }
   end
 
   private

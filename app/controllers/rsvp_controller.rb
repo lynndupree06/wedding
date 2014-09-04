@@ -12,9 +12,18 @@ class RsvpController < ApplicationController
 
     if response
       idx = 0
-      guests.each do |g|
-        g.meal_option = params[:meal][idx.to_s]
-        g.save!
+      params[:meal].each do |m|
+        if guests[idx]
+          guests[idx].meal_option = m[1]
+          guests[idx].save!
+        else
+          Guest.create!(
+              :first_name => 'Guest',
+              :last_name => idx.to_s,
+              :party => party,
+              :meal_option => m[1]
+          )
+        end
         idx = idx + 1
       end
     end
@@ -27,7 +36,7 @@ class RsvpController < ApplicationController
     else
       party.rsvp = response
       party.size = party_size
-      # party.save!
+      party.save!
     end
 
     @attending = response

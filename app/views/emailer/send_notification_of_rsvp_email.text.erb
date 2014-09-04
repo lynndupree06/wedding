@@ -6,6 +6,6 @@ Meal Options:
 
 <% idx = 1 %>
 <% @party.guests.each do |g| %>
-    <li><%= g.first_name ? "#{g.first_name} #{g.last_name}" : "Guest #{idx}" %>: <%= g.meal_option %></li>
+    <%= "#{g.first_name} #{g.last_name}" %>: <%= g.meal_option %>
     <% idx = idx + 1 %>
 <% end %>

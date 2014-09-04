@@ -8,7 +8,7 @@
     Use the identification code given in your invitation to RSVP.
   </section>
 
-  <%= form_tag('rsvp/search', method: 'get', :class => 'form-horizontal', :role => 'form') do %>
+  <%= form_tag(rsvp_search_path, method: 'get', :class => 'form-horizontal', :role => 'form') do %>
       <div class="form-group">
         <%= label_tag :id_code, 'Identification Code', :class => 'control-label col-sm-5' %>
         <div class="col-sm-6">
