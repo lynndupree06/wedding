@@ -19,7 +19,7 @@ class RsvpController < ApplicationController
         else
           Guest.create!(
               :first_name => 'Guest',
-              :last_name => idx.to_s,
+              :last_name => (idx + 1).to_s,
               :party => party,
               :meal_option => m[1]
           )
@@ -35,19 +35,24 @@ class RsvpController < ApplicationController
       end
     end
 
-    if party.nil?
-      respond_to do |format|
-        format.html { redirect_to rsvp_url, notice: 'Invalid Token' }
+    respond_to do |format|
+      if party.nil?
+          format.html { redirect_to rsvp_url, error: 'Invalid Token' }
+          format.json { head :no_content }
+      else
+        party.rsvp = response == '1' ? true : false
+        party.size = party_size
+        party.save!
+
+        party.reload
+        Emailer.send_notification_of_rsvp_email(party).deliver
+
+        messageStart = 'Thank you for your RSVP!'
+        message = response == '1' ? "#{messageStart} We are looking forward to seeing you at the wedding!" : "#{messageStart} Sorry you are unable to attend the wedding."
+
+        format.html { redirect_to root_url, notice: message }
         format.json { head :no_content }
       end
-    else
-      party.rsvp = response
-      party.size = party_size
-      party.save!
     end
-
-    @attending = response
-
-    Emailer.send_notification_of_rsvp_email(party).deliver
   end
 end
