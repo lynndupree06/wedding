@@ -26,6 +26,13 @@ class RsvpController < ApplicationController
         end
         idx = idx + 1
       end
+
+      while guests[idx].present?
+        if guests[idx].first_name.include?('Guest')
+          guests[idx].destroy
+        end
+        idx = idx + 1
+      end
     end
 
     if party.nil?
