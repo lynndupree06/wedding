@@ -1,55 +1,13 @@
 <div class="info-box">
   <header>Photos</header>
 
-  <section>
-
-    <div id="carousel" class="carousel slide" data-ride="carousel">
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner">
-        <div class="item active">
-          <img src="assets/pictures/picture1.jpeg" alt="Picture 1">
-
-          <div class="carousel-caption">
-
-          </div>
-        </div>
-        <div class="item">
-          <img src="assets/pictures/picture2.jpeg" alt="Picture 2">
-
-          <div class="carousel-caption">
-
-          </div>
-        </div>
-
-        <div class="item">
-          <img src="assets/pictures/picture3.jpeg" alt="Picture 3">
-
-          <div class="carousel-caption">
-
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Controls -->
-      <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-      </a>
-      <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-      </a>
-    </div>
+  <section class="images">
+    <% @images.each do |i| %>
+      <%= image_tag i %>
+    <% end %>
   </section>
 
-  <br><br>
+  <!-- <br><br>
   <iframe width="100%" height="500px" frameborder="0"
-          src="http://trycapsule.com/widgets/photos?access_token=d652a8d28d6461t8"></iframe>
+          src="http://trycapsule.com/widgets/photos?access_token=d652a8d28d6461t8"></iframe> -->
 </div>
-
-<script>
-    $('.carousel').carousel({
-        interval: 5000,
-        pause: 'hover',
-        wrap: true
-    });
-</script>

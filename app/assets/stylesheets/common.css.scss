@@ -359,6 +359,14 @@ a.btn {
     }
   }
 
+  #snippet_searchpanel {
+    .ss_searchpanel {
+      &.ss_box400x400 {
+        max-width: 300px !important;
+      }
+    }
+  }
+
   .container {
     margin-top: 80px;
     .info-box {
@@ -423,6 +431,13 @@ a.btn {
 #snippet_searchpanel {
   .ss_searchpanel {
     font-family: PoiretOne !important;
+
+    &.ss_box400x400 {
+      max-width: 400px;
+      max-height: 400px;
+      width: 100% !important;
+      height: 100% !important;
+    }
 
     .ss_form_wrapper {
       background-color: #AA413C !important;

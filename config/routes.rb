@@ -1,40 +1,41 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :parties
 
-  resources :groups
+  namespace :admin do
+    resources :parties
+    resources :groups
+    resources :guests
+    resources :users
 
-  resources :guests
+    get '/save-the-date-a' => 'parties#save_the_date_a'
+    get '/save-the-date-b' => 'parties#save_the_date_b'
+    get '/save-the-date-special' => 'parties#save_the_date_special'
+    get '/outer_labels' => 'parties#create_outer_labels'
+    get '/place_cards' => 'parties#create_place_card_labels'
+  end
 
   root 'home#index'
 
   get '/our_story' => 'home#our_story'
   get '/wedding' => 'home#wedding'
   get '/reception' => 'home#reception'
-  get '/rsvp' => 'rsvp#index'
   get '/registry' => 'home#registry'
   get '/wedding_party' => 'home#wedding_party'
   get '/guest_info' => 'home#guest_info'
+  get '/rsvp' => 'home#rsvp'
 
-  get '/rsvp/search' => 'rsvp#search'
-
-  get '/save-the-date-a' => 'parties#save_the_date_a'
-  get '/save-the-date-b' => 'parties#save_the_date_b'
-  get '/save-the-date-special' => 'parties#save_the_date_special'
+  get '/rsvp/search' => 'home#search'
   get '/address_update' => 'home#user_update'
   get '/update_party' => 'home#update_party'
-  get '/outer_labels' => 'parties#create_outer_labels'
-  get '/place_cards' => 'parties#create_place_card_labels'
   get '/party_guests/:id' => 'home#get_guests'
 
-  resources :users
   resources :photos
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  # root 'welcome#rsvp'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,3 +1,14 @@
-// Place all the styles related to the Photos controller here.
-// They will automatically be included in application.css.scss.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+section {
+  &.images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+
+    img {
+      height: 250px;
+      width: auto !important;
+    }
+  }
+}

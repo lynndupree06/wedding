@@ -1,3 +1,6 @@
+require "net/https"
+require "uri"
+
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
@@ -5,6 +8,7 @@ class PhotosController < ApplicationController
   # GET /photos.json
   def index
     @photos = Photo.all
+    get_images 'http://jessicab12.ourwedding.com/view/9143042007598323/27330803'
   end
 
   # GET /photos/1
@@ -70,5 +74,31 @@ class PhotosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
       params.require(:photo).permit(:desc, :category)
+    end
+
+    def get_images(url, limit = 5)
+      uri = URI(url)
+
+      begin
+        response = Net::HTTP.start(uri.host,
+          use_ssl: uri.scheme == 'https') do |http|
+          http.get uri.request_uri, 'User-Agent' => 'MyLib v1.2'
+        end
+      rescue
+        false
+      end
+
+      case response
+        when Net::HTTPSuccess then
+          body = response.body
+          @images = body.scan(/data-large-url="(http:\/\/trycapsule.*jpg)|data-large-url="(http:\/\/trycapsule.*jpeg)/)
+        when Net::HTTPRedirection then
+          location = response['location']
+          get_images(location, limit - 1)
+        else
+          false
+      end
+
+      @images
     end
 end
