@@ -71,13 +71,23 @@ class HomeController < ApplicationController
     if response
       idx = 0
       params[:meal].each do |m|
+        first_name = nil
+        last_name = nil
+
+        if params['guest'] && params['guest'][idx.to_s]
+          first_name = params['guest'][idx.to_s].scan(/.*\s/)[0].strip
+          last_name = params['guest'][idx.to_s].scan(/\s.*/)[0].strip
+        end
+
         if guests[idx]
           guests[idx].meal_option = m[1]
+          guests[idx].first_name = first_name if first_name.present?
+          guests[idx].last_name = last_name if last_name.present?
           guests[idx].save!
         else
           Guest.create!(
-              :first_name => 'Guest',
-              :last_name => (idx + 1).to_s,
+              :first_name => first_name ? first_name : 'Guest',
+              :last_name => last_name ? last_name : (idx + 1).to_s,
               :party => party,
               :meal_option => m[1]
           )

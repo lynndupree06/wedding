@@ -123,6 +123,16 @@ a.btn {
   }
 }
 
+.alert {
+  width: 30%;
+  position: fixed;
+  right: 2%;
+  top: 10%;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 2000;
+}
+
 .navbar {
 
   .navbar-brand {

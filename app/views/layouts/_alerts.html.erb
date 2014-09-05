@@ -1,4 +1,9 @@
 <% flash.each do |name, msg| %>
   <% alert_class = name == 'notice' ? 'alert-success' : 'alert-error' %>
-  <div class="alert <%= alert_class %>" role="alert"><%= msg %></div>
+  <div class="alert <%= alert_class %> alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert">
+      <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+    </button>
+    <%= msg %>
+  </div>
 <% end %>

@@ -53,8 +53,6 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
           detailsPanel.show();
 
           var num = Number($(this).val());
-          var span1 = "<span>(<a class='not-correct'>not correct?</a>)</span>";
-          var span2 = "<span>(<a class='not-correct'>change name</a>)</span>";
           $('.meal-preference').remove();
           for (var i = num-1; i >= 0; i--) {
               var newDiv = div.clone();
@@ -63,12 +61,14 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
                   var guest = guests[i];
                   newDiv.find('select').attr('name', 'meal[' + i + ']');
                   newDiv.find('select').attr('required', 'required');
-                  newDiv.find('label').html(guest.first_name + ' ' + guest.last_name + ' ' + span1);
+                  var span = "<span>(<a id='" + i + "' onclick='changeLabel(this)' class='not-correct'>not correct?</a>)</span>";
+                  newDiv.find('label').html(guest.first_name + ' ' + guest.last_name + ' ' + span);
                   newDiv.insertAfter($partyDiv);
               } else {
                   newDiv.find('select').attr('name', 'meal[' + i + ']');
                   newDiv.find('select').attr('required', 'required');
-                  newDiv.find('label').html('Guest ' + (i+1) + ' ' + span2);
+                  var span = "<span>(<a id='" + i + "' onclick='changeLabel(this)' class='not-correct'>change name</a>)</span>";
+                  newDiv.find('label').html('Guest ' + (i+1) + ' ' + span);
                   newDiv.insertAfter($partyDiv);
               }
           }
@@ -78,10 +78,10 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
   $('input#id_code').keyup(function() {
     guest_meal_preferences();
   });
+}
 
-  $('.not-correct').click(function(){
-    // $(this).parent().parent().replaceWith( function() {
-    //     return "<input type=\"text\" value=\"" + $(this).html() + "\" />";
-    // });
+function changeLabel(span) {
+  $(span).parent().parent().replaceWith( function() {
+    return "<input name='guest[" + $(span).attr('id') + "]' class='control-label col-sm-offset-2 col-sm-3' type='text' value='" + $(this).html().match(/(.*)\s<span>/)[1] + "' />";
   });
 }

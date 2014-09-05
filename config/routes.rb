@@ -1,18 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  namespace :admin do
-    resources :parties
-    resources :groups
-    resources :guests
-    resources :users
+  resources :parties
+  resources :groups
+  resources :guests
+  resources :users
 
-    get '/save-the-date-a' => 'parties#save_the_date_a'
-    get '/save-the-date-b' => 'parties#save_the_date_b'
-    get '/save-the-date-special' => 'parties#save_the_date_special'
-    get '/outer_labels' => 'parties#create_outer_labels'
-    get '/place_cards' => 'parties#create_place_card_labels'
-  end
+  get '/save-the-date-a' => 'parties#save_the_date_a'
+  get '/save-the-date-b' => 'parties#save_the_date_b'
+  get '/save-the-date-special' => 'parties#save_the_date_special'
+  get '/outer_labels' => 'parties#create_outer_labels'
+  get '/place_cards' => 'parties#create_place_card_labels'
 
   root 'home#index'
 

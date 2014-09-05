@@ -74,18 +74,18 @@ class PartiesController < AdminController
   end
 
   def save_the_date_a
-    send_save_the_date_email Party.where(a_b_list: 'A')
+    send_save_the_date_email Party.where(a_b_list: 'A'), 'A List'
   end
 
   def save_the_date_b
-    send_save_the_date_email Party.where(a_b_list: 'B')
+    send_save_the_date_email Party.where(a_b_list: 'B'), 'B List'
   end
 
   def save_the_date_special
-    send_save_the_date_email Party.where("notes LIKE '%international%'")
+    send_save_the_date_email Party.where("notes LIKE '%international%'"), 'International List'
   end
 
-  def send_save_the_date_email(list)
+  def send_save_the_date_email(list, list_name)
     list.each do |p|
       if p.email.present?
         PartyNotifier.send_save_the_date_email(p).deliver
@@ -93,7 +93,7 @@ class PartiesController < AdminController
     end
 
     respond_to do |format|
-      format.html { redirect_to parties_url, notice: 'Save the date emails were successfully sent to the A List.' }
+      format.html { redirect_to parties_url, notice: "Save the date emails were successfully sent to the #{list_name}." }
       format.json { head :no_content }
     end
   end

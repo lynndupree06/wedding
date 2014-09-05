@@ -1,6 +1,6 @@
 module GuestsHelper
   def title_options
-    [%w(Mr. Mr.), %w(Mrs. Mrs.), %w(Ms. Ms.)]
+    [%w(Mr. Mr.), %w(Mrs. Mrs.), %w(Ms. Ms.), %w(Dr. Dr.), %w(Rev. Rev.)]
   end
 
   def party_options
