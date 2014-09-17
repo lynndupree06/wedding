@@ -2,11 +2,13 @@ $carmel: #AA413C;
 $link-color: #D35A4A;
 
 body {
+  background: url("cover-photo.jpg") no-repeat center center;
+  background-size: cover;
   color: #777;
   font-size: 13px;
   line-height: 18px;
   font-family: PoiretOne;
-  background-color: rgba(245, 218, 214, 0.20);
+//  background-color: rgba(245, 218, 214, 0.20);
 }
 
 p, ol, ul, td {
