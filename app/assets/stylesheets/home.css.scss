@@ -11,8 +11,11 @@
       background-color: #000000;
       opacity: 0.5;
       padding: 30px;
-      font-family: PoiretOne;
-      font-size: 18px;
+      p {
+        font-family: PoiretOne;
+        font-size: 20px;
+        line-height: 20px;
+      }
     }
 
     .title {
@@ -89,9 +92,20 @@
     .container {
       .title {
         .names {
-          font-size: 40px;
+          font-size: 200%;
+          margin-top: 10%;
+        }
+        .info {
+          margin-top: 10%;
+          font-size: 150%;
+          line-height: 100%;
         }
       }
+    }
+
+    .countdown {
+      float: none;
+      margin-top: 10%;
     }
   }
 }

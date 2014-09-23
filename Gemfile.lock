@@ -49,18 +49,12 @@ GEM
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
-    diff-lcs (1.2.5)
     erubis (2.7.0)
     eventmachine (1.0.3)
     exception_notification (4.0.1)
       actionmailer (>= 3.0.4)
       activesupport (>= 3.0.4)
     execjs (2.2.1)
-    factory_girl (4.4.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (4.4.1)
-      factory_girl (~> 4.4.0)
-      railties (>= 3.0.0)
     haml (4.0.5)
       tilt
     hike (1.2.3)
@@ -131,22 +125,6 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
-    rspec-core (3.1.4)
-      rspec-support (~> 3.1.0)
-    rspec-expectations (3.1.1)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.1.0)
-    rspec-mocks (3.1.1)
-      rspec-support (~> 3.1.0)
-    rspec-rails (3.1.0)
-      actionpack (>= 3.0)
-      activesupport (>= 3.0)
-      railties (>= 3.0)
-      rspec-core (~> 3.1.0)
-      rspec-expectations (~> 3.1.0)
-      rspec-mocks (~> 3.1.0)
-      rspec-support (~> 3.1.0)
-    rspec-support (3.1.0)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -203,7 +181,6 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   exception_notification
-  factory_girl_rails
   jbuilder (~> 2.0)
   jquery-rails
   jquery-tablesorter (~> 1.12.5)
@@ -214,7 +191,6 @@ DEPENDENCIES
   pry-stack_explorer
   rails (= 4.1.1)
   rails_12factor
-  rspec-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spring (= 1.1.2)
