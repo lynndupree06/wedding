@@ -1,48 +1,56 @@
+<% date = '2015-05-01'.to_date %>
+
 <div class="panel panel-default">
 
   <div class="panel-heading">
-      <a data-toggle="collapse" data-parent="#accordion" href="#locations">
-        <h3 class="panel-title">Event Locations</h3>
-      </a>
+    <a data-toggle="collapse" data-parent="#accordion" href="#locations">
+      <h3 class="panel-title">Event Locations</h3>
+    </a>
   </div>
 
   <div id="locations" class="panel-collapse collapse in">
     <div class="panel-body">
 
-      <div id="venue-map"></div>
-      <br>
+      <% if Date.today >= date || user_signed_in? %>
+          <div id="venue-map"></div>
+          <br>
 
-      <h1>Event Locations</h1>
+          <h1>Event Locations</h1>
 
-      <strong>Ceremony</strong><br>
-      Mount Zion Baptist Church<br>
-      228 Mt Zion Rd<br>
-      Huntsville, AL 35806<br>
-      (256) 837-2665<br>
-      <a href='http://mzbc.net/' target='_blank'>http://mzbc.net/</a><br><br>
+          <strong>Ceremony</strong><br>
+          Mount Zion Baptist Church<br>
+          228 Mt Zion Rd<br>
+          Huntsville, AL 35806<br>
+          (256) 837-2665<br>
+          <a href='http://mzbc.net/' target='_blank'>http://mzbc.net/</a><br><br>
 
-      <button id='ceremony' class='btn btn-primary'>View on Map</button>
+          <button id='ceremony' class='btn btn-primary'>View on Map</button>
 
-      <form style="display: inline" action="http://www.google.com/maps" method="get" target="_blank">
-        <input type="hidden" name="daddr" value="228 Mt Zion Road, Huntsville, AL 35806"/>
-        <input type="submit" class='btn btn-primary' value="Get Directions"/>
-      </form>
-      <br><br>
+          <form style="display: inline" action="http://www.google.com/maps" method="get" target="_blank">
+            <input type="hidden" name="daddr" value="228 Mt Zion Road, Huntsville, AL 35806"/>
+            <input type="submit" class='btn btn-primary' value="Get Directions"/>
+          </form>
+          <br><br>
 
-      <strong>Reception</strong><br>
-      The Ledges<br>
-      32 Castle Down Drive<br>
-      Huntsville, AL 35802<br>
-      (256) 883-0860<br>
-      <a href='http://www.theledges.com/' target='_blank'>http://www.theledges.com/</a><br><br>
+          <strong>Reception</strong><br>
+          The Ledges<br>
+          32 Castle Down Drive<br>
+          Huntsville, AL 35802<br>
+          (256) 883-0860<br>
+          <a href='http://www.theledges.com/' target='_blank'>http://www.theledges.com/</a><br><br>
 
-      <button id="reception" class='btn btn-primary'>View on Map</button>
+          <button id="reception" class='btn btn-primary'>View on Map</button>
 
-      <form style="display: inline" action="http://www.google.com/maps" method="get" target="_blank">
-        <input type="hidden" name="daddr" value="32 Castle Down Drive, Huntsville, AL 35802"/>
-        <input type="submit" class='btn btn-primary' value="Get Directions"/>
-      </form>
-      <br><br>
+          <form style="display: inline" action="http://www.google.com/maps" method="get" target="_blank">
+            <input type="hidden" name="daddr" value="32 Castle Down Drive, Huntsville, AL 35802"/>
+            <input type="submit" class='btn btn-primary' value="Get Directions"/>
+          </form>
+          <br><br>
+      <% else %>
+          <div>
+            <h1>To Be Announced</h1>
+          </div>
+      <% end %>
 
     </div>
   </div>
