@@ -60,8 +60,15 @@
             vertical-align: middle; cursor: pointer; border: 1px solid transparent;
             white-space: nowrap; padding: 6px 12px; font-size: 14px;
             text-decoration: none; line-height: 1.42857143; border-radius: 4px;"
-            href="http://www.jessica-and-fred.com/address_update?t=<%= @token %>" target="_blank">
+       href="http://www.jessica-and-fred.com/address_update?t=<%= @token %>" target="_blank">
       Update Address</a>
+
+    <% if @party.notes.include? 'sydney' %>
+        <p><strong>
+          If you are considering attending the wedding, please respond to this email. If we can arrange a discount for
+          your flight if we can get at least 10 people from Sydney to attend.
+        </strong></p>
+    <% end %>
 
     <p>
       In the meantime, feel free to visit

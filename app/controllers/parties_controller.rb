@@ -51,7 +51,7 @@ class PartiesController < AdminController
       if @party.update(party_params)
         flash[:notice] = 'Party was successfully updated.'
         if user_signed_in?
-          format.html { redirect_to @party, notice: 'Party was successfully updated.' }
+          format.html { redirect_to parties_url, notice: 'Party was successfully updated.' }
           format.json { render :show, status: :ok, location: @party }
         else
           redirect_to root_path, notice: 'Party was successfully updated.'

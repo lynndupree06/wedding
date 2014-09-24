@@ -10,18 +10,23 @@ Formal Invitation to Follow
 We would love to send you an invitation to our wedding.
 
 <% if @party.address.blank? %>
-However, we do not have your address. Please go to our website to send us your address.
+    However, we do not have your address. Please go to our website to send us your address.
 <% elsif @party.address.present? %>
-This is the address that we have for you:
+    This is the address that we have for you:
 
     <%= @party.address %><br>
     <%= @party.city %>, <%= @party.state %> <%= @party.postal_code %><br>
     <%= @party.country %>
 
-If this is not the correct address please go to our website to update your address in our records.
+    If this is not the correct address please go to our website to update your address in our records.
 <% end %>
 
 http://www.jessica-and-fred.com/address_update?t=<%= @token %>
+
+<% if @party.notes.include? 'sydney' %>
+    If you are considering attending the wedding, please respond to this email. If we can arrange a discount for your
+    flight if we can get at least 10 people from Sydney to attend.
+<% end %>
 
 In the meantime, feel free to visit our website for more
 information about accommodations, flights, and how we met and the wedding!

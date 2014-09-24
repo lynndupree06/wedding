@@ -51,7 +51,7 @@ class GuestsController < AdminController
       end
 
       if @guest.update(guest_params)
-        format.html { redirect_to @guest, notice: 'Guest was successfully updated.' }
+        format.html { redirect_to guests_url, notice: 'Guest was successfully updated.' }
         format.json { render :show, status: :ok, location: @guest }
       else
         format.html { render :edit }
