@@ -50,6 +50,8 @@ class GuestsController < AdminController
         GroupsGuests.where(group_id: g, guest_id: @guest.id).first || GroupsGuests.create!(group_id: g, guest_id: @guest.id)
       end
 
+      params['guest']['child'] = guest_params['child'] == '1' ? true : false;
+
       if @guest.update(guest_params)
         format.html { redirect_to guests_url, notice: 'Guest was successfully updated.' }
         format.json { render :show, status: :ok, location: @guest }
