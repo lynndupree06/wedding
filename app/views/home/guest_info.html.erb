@@ -3,15 +3,15 @@
 
   <section class="row">
 
-    <div class="col-xs-3" id="myScrollspy">
-      <ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="125">
-        <li class="active"><a href="#venue">Venues</a></li>
+    <div class="col-md-3 hidden-xs" id="myScrollspy">
+      <ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+        <li><a href="#venue">Venues</a></li>
         <li><a href="#locations">Travel</a></li>
         <li><a href="#accommodation">Accommodation</a></li>
       </ul>
     </div>
 
-    <div class="col-xs-9">
+    <div class="col-md-9">
       <div class="panel-group" id="accordion">
         <%= render 'venue_info' %>
         <%= render 'travel_info' %>
