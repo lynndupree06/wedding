@@ -28,13 +28,17 @@
         <td><%= guest.gender %></td>
         <td><%= guest.party ? guest.party.name : '' %></td>
         <td>
-          <% guest.group.each do |g| %>
-              <% if g.name.include? 'Bride' %>
+          <% guest.group.to_a.each do |g| %>
+              <% if g.name == "Bride's Family" %>
                   <span class="label label-danger"><%= g.name %></span>
-              <% elsif g.name.include? 'Groom' %>
+              <% elsif g.name == "Bride's Friends" %>
+                  <span class="label label-success"><%= g.name %></span>
+              <% elsif g.name == "Groom's Family" %>
                   <span class="label label-info"><%= g.name %></span>
-              <% elsif g.name.include? 'Bridal' %>
+              <% elsif g.name == "Groom's Friends" %>
                   <span class="label label-warning"><%= g.name %></span>
+              <% elsif g.name == "Bridal Party" %>
+                  <span class="label label-default"><%= g.name %></span>
               <% end %>
           <% end %>
         </td>

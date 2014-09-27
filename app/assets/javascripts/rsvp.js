@@ -93,11 +93,11 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
   $('input#id_code').keyup(function () {
     guest_meal_preferences();
   });
+}
 
-  function changeLabel(span) {
-    $(span).parent().parent().replaceWith(function () {
-      return "<input name='guest[" + $(span).attr('id') + "]' class='control-label col-sm-offset-2 col-sm-3' type='text' value='" + $(this).html().match(/(.*)\s<span>/)[1] + "' />";
-    });
-  }
+function changeLabel(span) {
+  $(span).parent().parent().replaceWith(function () {
+    return "<input name='guest[" + $(span).attr('id') + "]' class='control-label col-sm-offset-2 col-sm-3' type='text' value='" + $(this).html().match(/(.*)\s<span>/)[1] + "' />";
+  });
 }
 

@@ -27,11 +27,19 @@
 <div class="container admin-container">
   <%= render 'layouts/alerts' %>
 
+  <%= label_tag 'Save The Date Emails' %>
   <div style="margin-bottom: 20px;">
-    <%= label_tag 'Save The Date Emails: ' %>
-    <%= link_to 'International List', save_the_date_special_path, :class => 'btn btn-info save-the-date' %>
-    <%= link_to 'A List', save_the_date_a_path, :class => 'btn btn-success save-the-date' %>
-    <%= link_to 'B List', save_the_date_b_path, :class => 'btn btn-info save-the-date' %>
+    <%= link_to save_the_date_special_path, :class => 'btn btn-info save-the-date' do %>
+        <span class="glyphicon glyphicon-envelope"></span> International List
+    <% end %>
+
+    <%= link_to(save_the_date_a_path, :class => 'btn btn-success save-the-date') do %>
+        <span class="glyphicon glyphicon-envelope"></span> A List
+    <% end %>
+
+    <%= link_to save_the_date_b_path, :class => 'btn btn-info save-the-date' do %>
+        <span class="glyphicon glyphicon-envelope"></span> B List
+    <% end %>
   </div>
 
   <div class="wrapper">

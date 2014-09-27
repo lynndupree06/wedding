@@ -46,8 +46,10 @@ class GuestsController < AdminController
   # PATCH/PUT /guests/1.json
   def update
     respond_to do |format|
-      params[:guest][:group].first.each do |g|
-        GroupsGuests.where(group_id: g, guest_id: @guest.id).first || GroupsGuests.create!(group_id: g, guest_id: @guest.id)
+      GroupsGuests.delete_all(guest_id: @guest.id);
+
+      params[:guest][:group].to_a.each do |g|
+        GroupsGuests.where(group_id: g.first, guest_id: @guest.id).first || GroupsGuests.create!(group_id: g.first, guest_id: @guest.id)
       end
 
       params['guest']['child'] = guest_params['child'] == '1' ? true : false;

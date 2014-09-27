@@ -1,46 +1,38 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-      <a data-toggle="collapse" data-parent="#accordion" href="#accommodation">
-        <h3 class="panel-title">Accommodations</h3>
-      </a>
-  </div>
+<div id="accommodation">
+  <h2>Accommodations</h2>
 
-  <div id="accommodation" class="panel-collapse collapse in">
-    <div class="panel-body">
+  <div>
+    <div id="accommodation-map"></div>
+    <br>
 
-      <div id="accommodation-map"></div>
-      <br>
+    <h1>Accommodations</h1>
 
-      <h1>Accommodations</h1>
+    <strong>Hotel</strong><br>
+    Hilton Garden Inn<br>
+    4801 Governors House Dr<br>
+    Huntsville, AL 35805<br>
+    (256) 430-1778<br>
+    <a href='http://hiltongardeninn.hilton.com' target='_blank'>http://hiltongardeninn.hilton.com</a><br><br>
 
-      <strong>Hotel</strong><br>
-      Hilton Garden Inn<br>
-      4801 Governors House Dr<br>
-      Huntsville, AL 35805<br>
-      (256) 430-1778<br>
-      <a href='http://hiltongardeninn.hilton.com' target='_blank'>http://hiltongardeninn.hilton.com</a><br><br>
+    <button id="hotel" class='btn btn-primary'>View on Map</button>
+    <form style="display: inline" action="http://www.google.com/maps" method="get" target="_blank">
+      <input type="hidden" name="daddr" value="4801 Governors House Drive, Huntsville, AL 35805"/>
+      <input type="submit" class='btn btn-primary' value="Get Directions"/>
+    </form>
+    <br><br>
 
-      <button id="hotel" class='btn btn-primary'>View on Map</button>
-      <form style="display: inline" action="http://www.google.com/maps" method="get" target="_blank">
-        <input type="hidden" name="daddr" value="4801 Governors House Drive, Huntsville, AL 35805"/>
-        <input type="submit" class='btn btn-primary' value="Get Directions"/>
-      </form>
-      <br><br>
+    <strong>Airport</strong><br>
+    Huntsville International Airport (HSV)<br>
+    1000 Glenn Hearn Blvd SW<br>
+    Huntsville, AL 35824<br>
+    (256) 772-9395<br>
+    <a href='http://hsvairport.org' target='_blank'>http://hsvairport.org</a><br><br>
 
-      <strong>Airport</strong><br>
-      Huntsville International Airport (HSV)<br>
-      1000 Glenn Hearn Blvd SW<br>
-      Huntsville, AL 35824<br>
-      (256) 772-9395<br>
-      <a href='http://hsvairport.org' target='_blank'>http://hsvairport.org</a><br><br>
-
-      <button id="airport" class='btn btn-primary'>View on Map</button>
-      <form style="display: inline" action="http://www.google.com/maps" method="get" target="_blank">
-        <input type="hidden" name="daddr" value="1000 Glenn Hearn Blvd SW, Huntsville, AL 35824"/>
-        <input type="submit" class='btn btn-primary' value="Get Directions"/>
-      </form>
-      <br><br>
-
-    </div>
+    <button id="airport" class='btn btn-primary'>View on Map</button>
+    <form style="display: inline" action="http://www.google.com/maps" method="get" target="_blank">
+      <input type="hidden" name="daddr" value="1000 Glenn Hearn Blvd SW, Huntsville, AL 35824"/>
+      <input type="submit" class='btn btn-primary' value="Get Directions"/>
+    </form>
+    <br><br>
   </div>
 </div>

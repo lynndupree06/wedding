@@ -52,8 +52,7 @@
     <div class="form-group">
       <%= f.label :child, :class => 'col-sm-2 control-label' %>
       <div class="col-sm-10">
-        <%= check_box_tag 'guest[child]', @guest.child, @guest.child %>
-        <%= label_tag(:child, 'Child?') %>
+        <%= f.check_box :child %> Child?
       </div>
     </div>
 
@@ -70,13 +69,13 @@
         <% groups = [] %>
         <% GroupsGuests.where(guest_id: @guest.id).to_a.each {|g| groups << g.group_id } %>
         <%= check_box_tag 'guest[group][1]', 1, groups.include?(1) %>
-        <%= label_tag 'guest[group][1]', "Bride's Family" %>
+        <%= label_tag 'guest[group][1]', "Bride's Family" %><br>
         <%= check_box_tag 'guest[group][2]', 2, groups.include?(2) %>
-        <%= label_tag 'guest[group][2]', "Bride's Friends" %>
+        <%= label_tag 'guest[group][2]', "Bride's Friends" %><br>
         <%= check_box_tag 'guest[group][3]', 3, groups.include?(3) %>
-        <%= label_tag 'guest[group][3]', "Bride's Family" %>
+        <%= label_tag 'guest[group][3]', "Groom's Family" %><br>
         <%= check_box_tag 'guest[group][4]', 4, groups.include?(4) %>
-        <%= label_tag 'guest[group][4]', "Groom's Friends" %>
+        <%= label_tag 'guest[group][4]', "Groom's Friends" %><br>
         <%= check_box_tag 'guest[group][5]', 5, groups.include?(5) %>
         <%= label_tag 'guest[group][5]', 'Bridal Party' %>
       </div>

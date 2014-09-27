@@ -1,14 +1,25 @@
 <div class="info-box">
   <header>Guest Information</header>
 
-  <section>
+  <section class="row">
 
-    <div class="panel-group" id="accordion">
-      <%= render 'venue_info' %>
-      <%= render 'travel_info' %>
-      <%= render 'accommodation_info' %>
+    <div class="col-xs-3" id="myScrollspy">
+      <ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="125">
+        <li class="active"><a href="#venue">Venues</a></li>
+        <li><a href="#locations">Travel</a></li>
+        <li><a href="#accommodation">Accommodation</a></li>
+      </ul>
+    </div>
+
+    <div class="col-xs-9">
+      <div class="panel-group" id="accordion">
+        <%= render 'venue_info' %>
+        <%= render 'travel_info' %>
+        <%= render 'accommodation_info' %>
+      </div>
     </div>
   </section>
+
 
   <%= render 'footer' %>
 </div>
@@ -20,20 +31,11 @@
 
 <script type="text/javascript">
     google.maps.event.addDomListener(window, 'load', initialize);
-    $('.collapse').collapse({
-        parent: true
-    });
 
     function toggleCollapse(panel) {
-        if($(panel).attr('class').contains('in')) {
+        if ($(panel).attr('class').contains('in')) {
 
         } else {
         }
     }
-
-    $('.collapse').on('show.bs.collapse', function () {
-//        toggleCollapse($('#travel'));
-//        toggleCollapse($('#accommodation'));
-//        toggleCollapse($('#locations'));
-    })
 </script>

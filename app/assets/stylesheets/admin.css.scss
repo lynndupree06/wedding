@@ -1,9 +1,16 @@
 .admin {
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+  font-size: 14px;
   background: rgba(245, 218, 214, 0.20);
 
   .admin-container {
     width: 90% !important;
-    font-family: "Helvetica Neue", "Arial", sans-serif;
+
+    p, ol, ul, td {
+      font-family: "Helvetica Neue", "Arial", sans-serif;
+      font-size: 14px;
+      line-height: 14px;
+    }
 
     .wrapper {
       background-color: #ffffff;

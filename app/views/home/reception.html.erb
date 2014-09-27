@@ -1,6 +1,6 @@
 <% date = '2015-05-01'.to_date %>
 
-<div class="info-box">
+<div class="info-box venue">
   <header>The Reception</header>
 
   <% if Date.today >= date || user_signed_in? %>
@@ -32,8 +32,6 @@
         <%= render 'footer' %>
       </div>
   <% else %>
-      <div>
-        <h1>To Be Announced</h1>
-      </div>
+      <%= render 'common/to_be_announced' %>
   <% end %>
 </div>

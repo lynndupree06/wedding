@@ -1,6 +1,6 @@
 <% date = '2015-05-01'.to_date %>
 
-<div class="info-box">
+<div class="info-box venue">
   <header>The Ceremony</header>
 
   <% if Date.today >= date || user_signed_in? %>
@@ -10,10 +10,8 @@
 
         <h3> 228 Mount Zion Road, Huntsville, AL 35806</h3>
         <section>
-          The service will be held at Mount Zion Baptist Church in Huntsville, Alabama at 2 pm on XXXXX. Please arrive
-          by
-          1:45
-          pm.
+          The service will be held at Mount Zion Baptist Church in Huntsville, Alabama at 2 pm on July 25, 2015.
+          Please arrive by 3:45 pm.
         </section>
 
         <div class="link"><a href="//www.mzbc.net/" target="_blank">view website</a></div>
@@ -21,8 +19,6 @@
         <%= render 'footer' %>
       </div>
   <% else %>
-      <div>
-        <h1>To Be Announced</h1>
-      </div>
+      <%= render 'common/to_be_announced' %>
   <% end %>
 </div>
