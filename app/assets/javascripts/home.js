@@ -1,4 +1,4 @@
-var current="Our Wedding Day!";   //-->enter what you want the script to display when the target date and time are reached, limit to 20 characters
+var current="It's Our Wedding Day!";   //-->enter what you want the script to display when the target date and time are reached, limit to 20 characters
 var year=2015;    //-->Enter the count down target date YEAR
 var month=7;      //-->Enter the count down target date MONTH
 var day=25;       //-->Enter the count down target date DAY
@@ -31,7 +31,7 @@ function countdown(yr,m,d,hr,min){
   if(dday<=0&&dhour<=0&&dmin<=0&&dsec<=0){
     document.getElementById('count2').innerHTML=current;
     document.getElementById('count2').style.display="block";
-    document.getElementById('count2').style.width="390px";
+    document.getElementById('count2').style.width="100%";
     document.getElementById('dday').style.display="none";
     document.getElementById('dhour').style.display="none";
     document.getElementById('dmin').style.display="none";

@@ -42,48 +42,79 @@
 
   .countdown {
     float: right;
-    background-color: #000000;
-    opacity: 0.5;
-    padding: 30px;
     bottom: 0;
     font-size: 30px;
     font-weight: bold;
     text-align: center;
-    width: 30%;
     line-height: 35px;
 
-    .numbers {
-      border-style: ridge;    /* options are none, dotted, dashed, solid, double, groove, ridge, inset, outset */
-      border-width: 2px;
-      border-color: #666666;  /* change the border color using the hexadecimal color codes for HTML */
-      background: #222222;    /* change the background color using the hexadecimal color codes for HTML */
-      padding: 10px 0px;
-      width: 55px;
-      text-align: center;
-      font-family: Arial;
-      font-size: 28px;
-      font-weight: bold;    /* options are normal, bold, bolder, lighter */
-      font-style: normal;   /* options are normal or italic */
-      color: #FFFFFF;       /* change color using the hexadecimal color codes for HTML */
-      margin: 0 5px 0 5px;
+    .box {
+      background-color: rgba(211, 90, 74, 0.71);
+      padding: 15px;
+
+      .heart {
+        font-size: 60px;
+        margin: 10px auto;
+      }
+
+      .keep {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 50px;
+        line-height: 70px;
+        margin-bottom: 0;
+      }
+
+      .calm {
+        font-weight: bold;
+        font-size: 50px;
+        line-height: 50px;
+      }
+
+      .wedding-countdown {
+        font-weight: bold;
+      }
     }
-    .title {    /* the styles below will affect the title under the numbers, i.e., “Days”, “Hours”, etc. */
-      border: none;
-      padding: 0px;
-      width: 55px;
-      text-align: center;
-      font-size: 12px;
-      font-weight: normal;  /* options are normal, bold, bolder, lighter */
-      color: #DDDDDD;       /* change color using the hexadecimal color codes for HTML */
-      background: transparent;    /* change the background color using the hexadecimal color codes for HTML */
-    }
+
     #table {
       width: 100%;
-      border: none;    /* options are none, dotted, dashed, solid, double, groove, ridge, inset, outset */
+      border: none; /* options are none, dotted, dashed, solid, double, groove, ridge, inset, outset */
       margin: 0px auto;
-      position: relative;    /* leave as "relative" to keep timer centered on your page, or change to "absolute" then change the values of the "top" and "left" properties to position the timer */
-      top: 0px;        /* change to position the timer */
-      left: 0px;        /* change to position the timer; delete this property and it's value to keep timer centered on page */
+      position: relative; /* leave as "relative" to keep timer centered on your page, or change to "absolute" then change the values of the "top" and "left" properties to position the timer */
+      top: 0px; /* change to position the timer */
+      left: 0px; /* change to position the timer; delete this property and it's value to keep timer centered on page */
+
+      .numbers {
+        border: 2px ridge #777;
+        border-radius: 15px;
+        background: #ffffff; /* change the background color using the hexadecimal color codes for HTML */
+        padding: 15px 0px;
+        width: 45px;
+        text-align: center;
+        font-family: Arial;
+        font-size: 20px;
+        font-weight: bold; /* options are normal, bold, bolder, lighter */
+        font-style: normal; /* options are normal or italic */
+        color: #D35A4A; /* change color using the hexadecimal color codes for HTML */
+        margin: 0 5px 0 5px;
+      }
+
+      #count2 {
+        background: transparent;
+        color: #ffffff;
+        border: none;
+      }
+
+      .title {
+        border: none;
+        padding: 0px;
+        width: 45px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: bold; /* options are normal, bold, bolder, lighter */
+        color: #ffffff; /* change color using the hexadecimal color codes for HTML */
+        background: transparent; /* change the background color using the hexadecimal color codes for HTML */
+      }
     }
   }
 }
@@ -93,7 +124,7 @@
     .container {
       .title {
         .names {
-          font-size: 200%;
+          font-size: 300%;
           margin-top: 10%;
         }
         .info {
@@ -107,6 +138,7 @@
     .countdown {
       float: none;
       margin-top: 10%;
+      width: 100%;
     }
   }
 }
