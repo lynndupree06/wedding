@@ -1,0 +1,37 @@
+<h1>Listing tags</h1>
+
+<% tags = [] %>
+<% @parties.each do |party| %>
+    <% if party.notes %>
+        <% party_notes_split = party.notes.split(',') %>
+        <% party_notes_split.each do |t| %>
+            <% tags << t %>
+        <% end if party_notes_split.present? %>
+    <% end %>
+<% end %>
+
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Tag</th>
+    <th>Guests</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% tags.uniq.each do |t| %>
+      <tr>
+        <% guests = Guest.joins(:party).where("parties.notes like '%#{t}%'") %>
+        <td>
+          <%= t %>
+          <span class="badge"><%= guests.count %></span>
+        </td>
+        <td>
+          <% guests.each do |g| %>
+            <%= "#{g.first_name} #{g.last_name}" %><br>
+          <% end %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

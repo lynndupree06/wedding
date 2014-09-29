@@ -25,6 +25,11 @@ class PartiesController < AdminController
     render :layout => 'admin'
   end
 
+  def tags
+    @parties = Party.all
+    render :layout => 'admin'
+  end
+
   # POST /parties
   # POST /parties.json
   def create

@@ -47,8 +47,9 @@
   <div class="wrapper">
     <ul class="nav nav-tabs" role="tablist">
       <li class="<%= controller.include?('Guest') ? 'active' : '' %>"><%= link_to 'Guests', guests_path %></li>
-      <li class="<%= controller.include?('Part') ? 'active' : '' %>"><%= link_to 'Parties', parties_path %></li>
+      <li class="<%= controller.include?('Part') && action_name.include?('index') ? 'active' : '' %>"><%= link_to 'Parties', parties_path %></li>
       <li class="<%= controller.include?('Group') ? 'active' : '' %>"><%= link_to 'Groups', groups_path %></li>
+      <li class="<%= action_name.include?('tag') ? 'active' : '' %>"><%= link_to 'Tags', tags_path %></li>
     </ul>
 
     <%= yield %>
