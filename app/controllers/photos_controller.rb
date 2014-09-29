@@ -7,8 +7,6 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
-    @photos = Photo.all
-    get_images 'http://jessicab12.ourwedding.com/view/9143042007598323/27330803'
   end
 
   # GET /photos/1
