@@ -21,7 +21,7 @@
   <tbody>
   <% tags.uniq.each do |t| %>
       <tr>
-        <% guests = Guest.joins(:party).where("parties.notes like '%#{t}%'") %>
+        <% guests = Guest.joins(:party).where("parties.notes like '%#{t}%'").order(:last_name) %>
         <td>
           <%= t %>
           <span class="badge"><%= guests.count %></span>
