@@ -14,33 +14,35 @@
 <%= render 'layouts/header' %>
 
 <p class="navbar-text pull-right">
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
+  <% if user_signed_in? %>
+      Logged in as <strong><%= current_user.email %></strong>.
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+  <% else %>
+      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> |
+      <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
+  <% end %>
 </p>
 
 <% controller = self.controller.class.name %>
 <div class="container admin-container">
   <%= render 'layouts/alerts' %>
 
-  <%= label_tag 'Save The Date Emails' %>
-  <div style="margin-bottom: 20px;">
-    <%= link_to save_the_date_special_path, :class => 'btn btn-info save-the-date' do %>
-        <span class="glyphicon glyphicon-envelope"></span> International List
-    <% end %>
+  <% if current_user.email == 'jbrazelton@knology.net' %>
+      <%= label_tag 'Save The Date Emails' %>
+      <div style="margin-bottom: 20px;">
+        <%= link_to save_the_date_special_path, :class => 'btn btn-info save-the-date' do %>
+            <span class="glyphicon glyphicon-envelope"></span> International List
+        <% end %>
 
-    <%= link_to(save_the_date_a_path, :class => 'btn btn-success save-the-date') do %>
-        <span class="glyphicon glyphicon-envelope"></span> A List
-    <% end %>
+        <%= link_to save_the_date_a_path, :class => 'btn btn-success save-the-date' do %>
+            <span class="glyphicon glyphicon-envelope"></span> A List
+        <% end %>
 
-    <%= link_to save_the_date_b_path, :class => 'btn btn-info save-the-date' do %>
-        <span class="glyphicon glyphicon-envelope"></span> B List
-    <% end %>
-  </div>
+        <%= link_to save_the_date_b_path, :class => 'btn btn-info save-the-date' do %>
+            <span class="glyphicon glyphicon-envelope"></span> B List
+        <% end %>
+      </div>
+  <% end %>
 
   <div class="wrapper">
     <ul class="nav nav-tabs" role="tablist">
