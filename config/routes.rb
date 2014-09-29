@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/save-the-date-special' => 'parties#save_the_date_special'
   get '/outer_labels' => 'parties#create_outer_labels'
   get '/place_cards' => 'parties#create_place_card_labels'
+  get '/seating_chart' => 'parties#get_seating_chart_data'
 
   root 'home#index'
 

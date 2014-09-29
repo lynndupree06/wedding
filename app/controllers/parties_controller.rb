@@ -112,6 +112,13 @@ class PartiesController < AdminController
     end
   end
 
+  def get_seating_chart_data
+    respond_to do |format|
+      format.html { redirect_to parties_path }
+      format.csv { send_data Party.seating_chart_to_csv }
+    end
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_party
