@@ -6,6 +6,10 @@
   .admin-container {
     width: 90% !important;
 
+    h1, h2, h3 {
+      font-family: "Helvetica Neue", "Arial", sans-serif;
+    }
+
     p, ol, ul, td {
       font-family: "Helvetica Neue", "Arial", sans-serif;
       font-size: 14px;
