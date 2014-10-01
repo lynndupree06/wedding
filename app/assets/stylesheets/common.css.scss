@@ -341,10 +341,8 @@ a.btn {
 
 @media (min-width: 766px) {
   .navbar {
-    background-image: url('nav.png');
     height: 150px;
-    background-color: transparent;
-    background-repeat: no-repeat;
+    background: transparent url('nav.png') no-repeat;
     background-size: 100% 100%;
     border-color: transparent;
     box-shadow: none;
@@ -516,8 +514,7 @@ a.btn {
 }
 
 .ss_searchpanel.ss_col_classicbluelight.ss_box400x400 .ss_search_button:focus span, .ss_searchpanel.ss_col_classicbluelight.ss_box300x250 .ss_search_button:focus span, .ss_searchpanel.ss_col_classicbluelight.ss_leaderboard .ss_search_button:focus span, .ss_searchpanel.ss_col_classicbluelight.ss_skyscraper .ss_search_button:focus span, .ss_searchpanel.ss_col_classicbluelight.ss_box400x400 .ss_search_button:hover span, .ss_searchpanel.ss_col_classicbluelight.ss_box300x250 .ss_search_button:hover span, .ss_searchpanel.ss_col_classicbluelight.ss_leaderboard .ss_search_button:hover span, .ss_searchpanel.ss_col_classicbluelight.ss_skyscraper .ss_search_button:hover span {
-  background: none !important;
-  background-color: #AA413C !important;
+  background: #AA413C none !important;
 }
 
 #snippet_searchpanel {
