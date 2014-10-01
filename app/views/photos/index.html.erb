@@ -4,10 +4,7 @@
   <section class="images">
     <h1>Engagement Photos</h1>
     <div class="photos">
-    <% Dir.foreach("#{Rails.root}/app/assets/images/engagement") do |item| %>
-      <% next if item == '.' or item == '..' %>
-      <%= image_tag "engagement/#{item}" %>
-    <% end %>
+
     </div>
   </section>
 
