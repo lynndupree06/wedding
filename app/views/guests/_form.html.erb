@@ -1,3 +1,5 @@
+<p class='visible-xs visible-sm' id="notice"><%= notice %></p>
+
 <%= form_for(@guest, html: {:class => 'form-horizontal', :role => 'form'}) do |f| %>
     <% if @guest.errors.any? %>
         <div id="error_explanation">

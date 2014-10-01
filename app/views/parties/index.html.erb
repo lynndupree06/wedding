@@ -8,7 +8,7 @@
 
 <%= link_to 'New Party', new_party_path %>
 
-<table class="table table-hover tablesorter table-responsive">
+<table class="table table-hover tablesorter table-responsive filterable">
   <thead>
   <tr>
     <th>Name</th>
@@ -18,7 +18,6 @@
     <th>Save The Date Sent?</th>
     <th>RSVP?</th>
     <th>RSVP Party Size</th>
-    <th colspan="2"></th>
   </tr>
   </thead>
 
@@ -52,8 +51,6 @@
         <td><input id="save-the-date" type="checkbox" <%= party.save_the_date_sent ? 'checked' : '' %>/></td>
         <td><input id="rsvp" type="checkbox" <%= party.rsvp ? 'checked' : '' %>/></td>
         <td><%= party.size %></td>
-        <td><a id="<%= party.id %>" class="show-party">Show</a></td>
-        <td><%= link_to 'Destroy', party, method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>
   <% end %>
   </tbody>
@@ -62,6 +59,7 @@
 <%= render 'common/modal' %>
 
 <script>
+    $('.filterable').filterable();
     $('#rsvp').click(function () {
         alert('clicked');
     });
