@@ -1,5 +1,6 @@
+Rails.application.config.assets.precompile += %w( bootstrap.css )
 Rails.application.config.assets.precompile += %w( bootstrap.min.css )
-Rails.application.config.assets.precompile += %w( bootstrap.css.map )
+Rails.application.config.assets.precompile += %w( bootstrap.css.map.css )
 Rails.application.config.assets.precompile += %w( bootstrap-editable.css )
 Rails.application.config.assets.precompile += %w( font-awesome.min.css )
 Rails.application.config.assets.precompile += %w( table-sorter-style.css )
