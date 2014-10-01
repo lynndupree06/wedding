@@ -169,6 +169,7 @@ a.btn {
 
   .info-box {
     background-color: white;
+    opacity: 0.9;
     padding: 80px 20px 60px 20px;
     box-shadow: 0px 10px 20px 0px #888888;
     text-align: center;
@@ -241,6 +242,21 @@ a.btn {
 
       .visa-info {
         text-align: left;
+      }
+
+      .photos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: space-between;
+
+        img {
+          align-self: center;
+          height: 200px !important;
+          width: auto !important;
+          margin: 2px;
+        }
       }
     }
 
