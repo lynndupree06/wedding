@@ -29,9 +29,13 @@ GEM
       tzinfo (~> 1.1)
     app_constants (1.0.5)
     arel (5.0.1.20140414130214)
+    autoprefixer-rails (3.1.0.20140911)
+      execjs
     bcrypt (3.1.7)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.2.0.2)
+      sass (~> 3.2)
     builder (3.2.2)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -178,6 +182,8 @@ PLATFORMS
 
 DEPENDENCIES
   app_constants
+  autoprefixer-rails
+  bootstrap-sass (~> 3.2.0)
   coffee-rails (~> 4.0.0)
   devise
   exception_notification

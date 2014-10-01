@@ -13,6 +13,8 @@ gem 'jquery-tablesorter', '~> 1.12.5'
 gem 'app_constants'
 gem 'devise'
 gem 'exception_notification'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
