@@ -13,11 +13,13 @@
   <tr>
     <th>Name</th>
     <th>Address</th>
+    <th>Inner/Outer Envelop</th>
     <th>A/B List</th>
     <th>Invited Size</th>
     <th>Save The Date Sent?</th>
     <th>RSVP?</th>
     <th>RSVP Party Size</th>
+    <th>Tags</th>
   </tr>
   </thead>
 
@@ -38,6 +40,14 @@
           <i title="<%= email_missing ? 'Missing email. ' : '' %><%= address_missing ? 'Address incomplete.' : '' %>"
              class="<%= email_missing || address_missing ? 'fa fa-warning' : '' %>"></i>
           <%= party.name %>
+          <br>
+
+          <% party.guests.each do |guest| %>
+              <% type = guest.gender == 'Female' ? 'fa-female' : 'fa-male' %>
+              <% type << ' fa-child' if guest.child %>
+              <i class="fa <%= type %>"></i>
+          <% end %>
+
         </td>
         <td>
           <%= party.address %>
@@ -45,12 +55,20 @@
           <%= party.city %>, <%= party.state %> <%= party.postal_code %>
           <br>
           <%= party.country %>
+          <br>
+          <%= party.email %>
+        </td>
+        <td>
+          <%= party.inner_envelop %>
+          <br>
+          <%= party.outer_envelop %>
         </td>
         <td><%= party.a_b_list %></td>
         <td><%= party.guests.size %></td>
         <td><input id="save-the-date" type="checkbox" <%= party.save_the_date_sent ? 'checked' : '' %>/></td>
         <td><input id="rsvp" type="checkbox" <%= party.rsvp ? 'checked' : '' %>/></td>
         <td><%= party.size %></td>
+        <td><%= party.notes %></td>
       </tr>
   <% end %>
   </tbody>
