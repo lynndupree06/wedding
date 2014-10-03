@@ -41,7 +41,6 @@
   }
 
   .countdown {
-//    float: left;
     bottom: 0;
     font-size: 30px;
     font-weight: bold;
@@ -73,6 +72,13 @@
 
       .wedding-countdown {
         font-weight: bold;
+      }
+
+      .addthisevent-drop {
+        margin-top: 20px;
+        color: white !important;
+        background-color: transparent;
+        border-color: transparent;
       }
     }
 
