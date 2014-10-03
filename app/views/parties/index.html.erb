@@ -8,7 +8,7 @@
 
 <%= link_to 'New Party', new_party_path %>
 
-<table class="table table-hover tablesorter table-responsive filterable parties">
+<table class="table tablesorter table-responsive filterable parties">
   <thead>
   <tr>
     <th>Name</th>
@@ -36,9 +36,9 @@
           <% row_class = 'warning' %>
       <% end %>
 
-      <tr>
+      <tr class="<%= row_class %>">
         <td colspan="10">
-          <table>
+          <table class="table table-hover">
             <tbody>
             <tr onclick="showGuests(<%= party.id %>)" style="cursor: pointer" class="party <%= row_class %>">
               <td>
@@ -72,11 +72,11 @@
               <td><input id="rsvp" type="checkbox" <%= party.rsvp ? 'checked' : '' %>/></td>
               <td><%= party.size %></td>
               <td><%= party.notes %></td>
-              <td><a id="<%= party.id %>" class="edit-party">Edit</a></td>
+              <td><a id="<%= party.id %>" class="edit-party"><i class="fa fa-edit"></i></a></td>
             </tr>
             <tr class="guests-<%= party.id %>" style="display: none">
               <td colspan="10">
-                <table>
+                <table class="table table-hover">
                   <thead>
                   <tr>
                     <th>Name</th>
@@ -86,7 +86,7 @@
                   </thead>
                   <tbody>
                   <% party.guests.each do |g| %>
-                      <tr>
+                      <tr style="cursor: pointer" onclick="editGuest(<%= g.id %>)">
                         <td>
                           <%= render 'person_type_icon', :guest => g %>
                           <%= g.first_name %> <%= g.last_name %>
@@ -108,35 +108,3 @@
 </table>
 
 <%= render 'common/modal' %>
-
-<script>
-    function showGuests(id) {
-        $(".guests-" + id).toggle();
-    }
-
-    $('.edit-party').click(function () {
-        var id = $(this).attr('id');
-        editParty(id);
-    });
-
-    function editParty(id) {
-        var url = '/parties/' + id + '/edit';
-
-        $.get(url, function (data) {
-            $('.modal-body').html('');
-            $('.modal-body').html(data.match(/<form(\r|\n|.)+<\/form>/g));
-            $('#selected-record').modal('show');
-        });
-    }
-
-    $('.show-party').click(function () {
-        var id = $(this).attr('id');
-        var url = '/parties/' + id;
-
-        $.get(url, function (data) {
-            $('.modal-body').html('');
-            $('.modal-body').html(data.match(/<h1>(\r|\n|.)+<\/ul>\n<\/p>/g));
-            $('#selected-record').modal('show');
-        });
-    });
-</script>

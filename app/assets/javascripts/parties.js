@@ -1,5 +1,7 @@
+var $modal = $('.modal-body');
+
 function showGuests(id) {
-  $("guests-" + id).toggle();
+  $(".guests-" + id).toggle();
 }
 
 $('.edit-party').click(function () {
@@ -7,23 +9,23 @@ $('.edit-party').click(function () {
   editParty(id);
 });
 
-function editParty(id) {
-  var url = '/parties/' + id + '/edit';
+$('.edit-guest').click(function () {
+  var id = $(this).attr('id');
+  editGuest(id);
+});
 
+function editParty(id) {
+  getRecord('/parties/' + id + '/edit', /<form(\r|\n|.)+<\/form>/g);
+}
+
+function editGuest(id) {
+  getRecord('/guests/' + id + '/edit', /<form(\r|\n|.)+<\/form>/g);
+}
+
+function getRecord(url, regex) {
   $.get(url, function (data) {
-    $('.modal-body').html('');
-    $('.modal-body').html(data.match(/<form(\r|\n|.)+<\/form>/g));
+    $modal.html('');
+    $modal.html(data.match(regex));
     $('#selected-record').modal('show');
   });
 }
-
-$('.show-party').click(function () {
-  var id = $(this).attr('id');
-  var url = '/parties/' + id;
-
-  $.get(url, function (data) {
-    $('.modal-body').html('');
-    $('.modal-body').html(data.match(/<h1>(\r|\n|.)+<\/ul>\n<\/p>/g));
-    $('#selected-record').modal('show');
-  });
-});

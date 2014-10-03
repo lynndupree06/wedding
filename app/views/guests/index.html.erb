@@ -56,17 +56,4 @@
 
 <%= render 'common/modal' %>
 
-<script type="text/javascript">
-
-    function editGuest(id) {
-        var url = '/guests/' + id + '/edit';
-
-        $.get(url, function (data) {
-            $('.modal-body').html('');
-            $('.modal-body').html(data.match(/<form(\r|\n|.)+<\/form>/g));
-            $('#selected-record').modal('show');
-        });
-    }
-</script>
-
 
