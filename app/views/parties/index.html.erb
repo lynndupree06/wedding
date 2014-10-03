@@ -4,11 +4,11 @@
 <%= link_to 'Download Place Card Labels', place_cards_path(:format => :csv), :class => 'btn btn-success white-text' %>
 <%= link_to 'Download Seating Chart Data', seating_chart_path(:format => :csv), :class => 'btn btn-success white-text' %>
 
-<h1>Listing parties</h1>
+<h1>Listing parties <span class="label label-info"><%= @parties.size %></span></h1>
 
 <%= link_to 'New Party', new_party_path %>
 
-<table class="table table-hover tablesorter table-responsive filterable">
+<table class="table table-hover tablesorter table-responsive filterable parties">
   <thead>
   <tr>
     <th>Name</th>
@@ -20,6 +20,7 @@
     <th>RSVP?</th>
     <th>RSVP Party Size</th>
     <th>Tags</th>
+    <th></th>
   </tr>
   </thead>
 
@@ -35,40 +36,72 @@
           <% row_class = 'warning' %>
       <% end %>
 
-      <tr onclick="editParty(<%= party.id %>)" style="cursor: pointer" class="<%= row_class %>">
-        <td>
-          <i title="<%= email_missing ? 'Missing email. ' : '' %><%= address_missing ? 'Address incomplete.' : '' %>"
-             class="<%= email_missing || address_missing ? 'fa fa-warning' : '' %>"></i>
-          <%= party.name %>
-          <br>
+      <tr>
+        <td colspan="10">
+          <table>
+            <tbody>
+            <tr onclick="showGuests(<%= party.id %>)" style="cursor: pointer" class="party <%= row_class %>">
+              <td>
+                <i title="<%= email_missing ? 'Missing email. ' : '' %><%= address_missing ? 'Address incomplete.' : '' %>"
+                   class="<%= email_missing || address_missing ? 'fa fa-warning' : '' %>"></i>
+                <%= party.name %>
+                <br>
 
-          <% party.guests.each do |guest| %>
-              <% type = guest.gender == 'Female' ? 'fa-female' : 'fa-male' %>
-              <% type << ' fa-child' if guest.child %>
-              <i class="fa <%= type %>"></i>
-          <% end %>
+                <% party.guests.each do |guest| %>
+                    <%= render 'person_type_icon', :guest => guest %>
+                <% end %>
 
+              </td>
+              <td>
+                <%= party.address %>
+                <br>
+                <%= party.city %>, <%= party.state %> <%= party.postal_code %>
+                <br>
+                <%= party.country %>
+                <br>
+                <%= party.email %>
+              </td>
+              <td>
+                <%= party.inner_envelop %>
+                <br>
+                <%= party.outer_envelop %>
+              </td>
+              <td><%= party.a_b_list %></td>
+              <td><%= party.guests.size %></td>
+              <td><input id="save-the-date" type="checkbox" <%= party.save_the_date_sent ? 'checked' : '' %>/></td>
+              <td><input id="rsvp" type="checkbox" <%= party.rsvp ? 'checked' : '' %>/></td>
+              <td><%= party.size %></td>
+              <td><%= party.notes %></td>
+              <td><a id="<%= party.id %>" class="edit-party">Edit</a></td>
+            </tr>
+            <tr class="guests-<%= party.id %>" style="display: none">
+              <td colspan="10">
+                <table>
+                  <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Meal Option</th>
+                    <th>Table #</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% party.guests.each do |g| %>
+                      <tr>
+                        <td>
+                          <%= render 'person_type_icon', :guest => g %>
+                          <%= g.first_name %> <%= g.last_name %>
+                        </td>
+                        <td><%= g.meal_option %></td>
+                        <td><%= g.table %></td>
+                      </tr>
+                  <% end %>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            </tbody>
+          </table>
         </td>
-        <td>
-          <%= party.address %>
-          <br>
-          <%= party.city %>, <%= party.state %> <%= party.postal_code %>
-          <br>
-          <%= party.country %>
-          <br>
-          <%= party.email %>
-        </td>
-        <td>
-          <%= party.inner_envelop %>
-          <br>
-          <%= party.outer_envelop %>
-        </td>
-        <td><%= party.a_b_list %></td>
-        <td><%= party.guests.size %></td>
-        <td><input id="save-the-date" type="checkbox" <%= party.save_the_date_sent ? 'checked' : '' %>/></td>
-        <td><input id="rsvp" type="checkbox" <%= party.rsvp ? 'checked' : '' %>/></td>
-        <td><%= party.size %></td>
-        <td><%= party.notes %></td>
       </tr>
   <% end %>
   </tbody>
@@ -77,9 +110,9 @@
 <%= render 'common/modal' %>
 
 <script>
-    $('#rsvp').click(function () {
-        alert('clicked');
-    });
+    function showGuests(id) {
+        $(".guests-" + id).toggle();
+    }
 
     $('.edit-party').click(function () {
         var id = $(this).attr('id');
