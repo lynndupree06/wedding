@@ -50,6 +50,12 @@
                 <% party.guests.each do |guest| %>
                     <%= render 'person_type_icon', :guest => guest %>
                 <% end %>
+                <br>
+                <br>
+
+                <% if party.confirmed %>
+                    <i class="fa fa-check-circle fa-lg green"></i>
+                <% end %>
 
               </td>
               <td>

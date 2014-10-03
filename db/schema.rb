@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901230842) do
+ActiveRecord::Schema.define(version: 20141003095623) do
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20140901230842) do
     t.boolean  "save_the_date_sent"
     t.string   "notes"
     t.string   "key"
+    t.boolean  "confirmed"
   end
 
   create_table "photos", force: true do |t|

@@ -104,6 +104,10 @@
   }
 }
 
+.green {
+  color: green;
+}
+
 table.parties {
   thead {
     @include set-th-width();

@@ -39,6 +39,7 @@ class HomeController < ApplicationController
 
   def update_party
     party_params = params.permit(:name, :email, :address, :city, :state, :postal_code, :country)
+    party_params[:confirmed] = true
     @party = Party.find(params[:id])
 
     if @party.update(party_params)
