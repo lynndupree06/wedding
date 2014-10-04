@@ -84,3 +84,9 @@ div {
     list-style: square;
   }
 }
+
+@media (max-width: 765px) {
+  body {
+    background-size: auto 100%;
+  }
+}
