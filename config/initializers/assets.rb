@@ -1,5 +1,6 @@
 Rails.application.config.assets.precompile += %w( font-awesome.min.css )
 Rails.application.config.assets.precompile += %w( table-sorter-style.css )
+Rails.application.config.assets.precompile += %w( home.css )
 
 Rails.application.config.assets.precompile += %w( jquery.min.js )
 Rails.application.config.assets.precompile += %w( jquery.tablesorter.js )
