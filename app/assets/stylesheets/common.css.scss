@@ -258,6 +258,23 @@ a.btn {
           margin: 2px;
         }
       }
+
+      &.our_story {
+        text-align: left;
+
+        img {
+          height: auto !important;
+          width: 300px !important;
+          margin: 15px;
+
+          &.jess {
+            float: left;
+          }
+          &.fred {
+            float: right;
+          }
+        }
+      }
     }
 
     .link {
@@ -353,6 +370,7 @@ a.btn {
       background: transparent none;
     }
   }
+
 }
 
 @media (min-width: 766px) {
