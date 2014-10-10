@@ -42,6 +42,15 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = { address: '127.0.0.1', port: 1025 }
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.paperclip_defaults = {
+      :storage => :s3,
+      :s3_credentials => {
+          :bucket => 'kazembe-photos',
+          :access_key_id => 'AKIAJGVJUXBLWZ6AG5NA',
+          :secret_access_key => '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'
+      }
+  }
 end
 
 ActionMailer::Base.delivery_method = :smtp

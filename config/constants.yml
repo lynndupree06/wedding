@@ -4,6 +4,9 @@ development: &default
   constant1:  "value1"
   constant2:  "value2"
   skyscanner_widget_key: '77c9d87a-07a4-47dd-b8a8-aa8336686af9'
+  s3_bucket_name: 'kazembe-photos'
+  aws_access_key_id: 'AKIAJGVJUXBLWZ6AG5NA'
+  aws_secret_access_key: '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'
 
 production:
   <<: *default

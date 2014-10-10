@@ -101,6 +101,15 @@ Rails.application.configure do
   #   :sender_address => %{"Jessica & Fred" <info@jessica-and-fred.com>},
   #   :exception_recipients => %w{lynndupree06@gmail.com}
   # }
+
+  config.paperclip_defaults = {
+      :storage => :s3,
+      :s3_credentials => {
+          :bucket => 'kazembe-photos',
+          :access_key_id => 'AKIAJGVJUXBLWZ6AG5NA',
+          :secret_access_key => '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'
+      }
+  }
 end
 
 ActionMailer::Base.smtp_settings = {

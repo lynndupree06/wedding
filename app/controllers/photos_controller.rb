@@ -1,5 +1,4 @@
-require "net/https"
-require "uri"
+require 'aws'
 
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
@@ -7,6 +6,17 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
+    @engagement_photos = []
+    bucket_name = AppConstants.s3_bucket_name
+
+    s3 = AWS::S3.new(
+        :access_key_id => AppConstants.aws_access_key_id,
+        :secret_access_key => AppConstants.aws_secret_access_key
+    )
+
+    s3.buckets[bucket_name].objects.with_prefix('engagement_photos/').each do |photo|
+      @engagement_photos << photo.url_for(:read).to_s unless photo.key == 'engagement_photos/'
+    end
   end
 
   # GET /photos/1
@@ -64,39 +74,13 @@ class PhotosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_photo
-      @photo = Photo.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_photo
+    @photo = Photo.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def photo_params
-      params.require(:photo).permit(:desc, :category)
-    end
-
-    def get_images(url, limit = 5)
-      uri = URI(url)
-
-      begin
-        response = Net::HTTP.start(uri.host,
-          use_ssl: uri.scheme == 'https') do |http|
-          http.get uri.request_uri, 'User-Agent' => 'MyLib v1.2'
-        end
-      rescue
-        false
-      end
-
-      case response
-        when Net::HTTPSuccess then
-          body = response.body
-          @images = body.scan(/data-large-url="(http:\/\/trycapsule.*jpg)|data-large-url="(http:\/\/trycapsule.*jpeg)/)
-        when Net::HTTPRedirection then
-          location = response['location']
-          get_images(location, limit - 1)
-        else
-          false
-      end
-
-      @images
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def photo_params
+    params.require(:photo).permit(:desc, :category)
+  end
 end
