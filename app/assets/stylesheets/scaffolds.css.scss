@@ -44,12 +44,23 @@ a {
     color: $link-color;
     text-decoration: underline;
   }
+  &.view::after {
+    content: "view website";
+  }
 }
 
 div {
   &.field, &.actions {
     margin-bottom: 10px;
   }
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
 }
 
 #notice {

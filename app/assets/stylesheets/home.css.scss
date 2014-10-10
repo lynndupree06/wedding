@@ -79,6 +79,7 @@
         color: white !important;
         background-color: transparent;
         border-color: transparent;
+        padding: 0;
       }
     }
 
@@ -127,7 +128,7 @@
 
 @media (max-width: 765px) {
   .home-page {
-    background-image: none;
+    background-attachment: fixed;
 
     .container {
       .title {
