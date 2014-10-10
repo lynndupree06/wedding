@@ -9,6 +9,10 @@ section {
     img {
       height: 250px;
       width: auto !important;
+
+      &.lazy {
+        display: none;
+      }
     }
   }
 }

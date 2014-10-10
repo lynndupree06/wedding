@@ -1,3 +1,5 @@
-$(function () {
-  var $images_dir = 'engagement-photos';
+$(function() {
+  $("img.lazy").show().lazyload({
+    effect : "fadeIn"
+  });
 });

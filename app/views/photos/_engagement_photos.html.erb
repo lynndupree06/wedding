@@ -2,7 +2,7 @@
   <h1>Engagement Photos</h1>
   <div class="photos">
     <% @engagement_photos.each do |p| %>
-        <%= image_tag p %>
+        <img class='lazy' data-original="<%= p %>"/>
     <% end %>
   </div>
 </div>

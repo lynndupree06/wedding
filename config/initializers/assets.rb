@@ -3,6 +3,7 @@ Rails.application.config.assets.precompile += %w( table-sorter-style.css )
 Rails.application.config.assets.precompile += %w( home.css )
 
 Rails.application.config.assets.precompile += %w( jquery.min.js )
+Rails.application.config.assets.precompile += %w( jquery.lazyload.min.js )
 Rails.application.config.assets.precompile += %w( jquery.tablesorter.js )
 Rails.application.config.assets.precompile += %w( google_analytics.js )
 Rails.application.config.assets.precompile += %w( bootstrap.min.js )
