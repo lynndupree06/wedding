@@ -1,3 +1,42 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel"></h4>
+      </div>
+      <div class="modal-body">
+
+        <div id="all-photos" class="carousel slide" data-ride="carousel">
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <% @photos.each do |items| %>
+                <% idx = 0 %>
+                <% items[1].each do |p| %>
+                    <div class="item" id="<%= "#{items[0]}-#{idx}" %>">
+                      <%= image_tag p %>
+                    </div>
+                    <% idx = idx + 1 %>
+                <% end %>
+            <% end %>
+          </div>
+
+          <!-- Controls -->
+          <a class="left carousel-control" href="#all-photos" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a class="right carousel-control" href="#all-photos" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="info-box">
   <header>Photos</header>
 

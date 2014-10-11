@@ -1,4 +1,4 @@
-var $modal = $('.modal-body');
+var $modalBody = $('.modal-body');
 
 function showGuests(id) {
   $(".guests-" + id).toggle();
@@ -24,8 +24,8 @@ function editGuest(id) {
 
 function getRecord(url, regex) {
   $.get(url, function (data) {
-    $modal.html('');
-    $modal.html(data.match(regex));
+    $modalBody.html('');
+    $modalBody.html(data.match(regex));
     $('#selected-record').modal('show');
   });
 }

@@ -6,6 +6,7 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
+    @photos = {}
     @engagement_photos = []
     bucket_name = AppConstants.s3_bucket_name
 
@@ -17,6 +18,8 @@ class PhotosController < ApplicationController
     s3.buckets[bucket_name].objects.with_prefix('engagement_photos/').each do |photo|
       @engagement_photos << photo.url_for(:read).to_s unless photo.key == 'engagement_photos/'
     end
+
+    @photos[:engagement] = @engagement_photos
   end
 
   # GET /photos/1

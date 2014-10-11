@@ -9,9 +9,21 @@ section {
     img {
       height: 250px;
       width: auto !important;
+      cursor: pointer;
 
       &.lazy {
         display: none;
+      }
+    }
+  }
+}
+
+.container {
+  .modal {
+    .carousel {
+      img {
+        width: auto;
+        height: auto;
       }
     }
   }
