@@ -41,12 +41,25 @@
   <header>Photos</header>
 
   <section class="images">
-    <ul class="nav nav-tabs" role="tablist">
-      <li class="active"><a href="#engagement" role="tab" data-toggle="tab">Engagement Photos</a></li>
-      <li><a href="#engagement-party" role="tab" data-toggle="tab">Engagement Party</a></li>
-      <!--<li><a href="#ceremony" role="tab" data-toggle="tab">Wedding Ceremony</a></li>-->
-      <!--<li><a href="#reception" role="tab" data-toggle="tab">Wedding Reception</a></li>-->
-    </ul>
+    <!--<ul class="nav nav-tabs" role="tablist">-->
+    <!--<li class="active"><a href="#engagement" role="tab" data-toggle="tab">Engagement Photos</a></li>-->
+    <!--<li><a href="#engagement-party" role="tab" data-toggle="tab">Engagement Party</a></li>-->
+    <!--&lt;!&ndash;<li><a href="#ceremony" role="tab" data-toggle="tab">Wedding Ceremony</a></li>&ndash;&gt;-->
+    <!--&lt;!&ndash;<li><a href="#reception" role="tab" data-toggle="tab">Wedding Reception</a></li>&ndash;&gt;-->
+    <!--</ul>-->
+
+    <div class="btn-group btn-group-justified tabs">
+      <div class="btn-group">
+        <a href="#engagement" role="tab" data-toggle="tab" class="btn btn-default active">
+          Engagement Photos
+        </a>
+      </div>
+      <div class="btn-group">
+        <a href="#engagement-party" role="tab" data-toggle="tab" class="btn btn-default">
+          Engagement Party
+        </a>
+      </div>
+    </div>
 
     <div class="tab-content">
       <%= render 'engagement_photos' %>
