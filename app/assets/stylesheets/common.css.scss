@@ -258,48 +258,6 @@ a.btn {
           margin: 2px;
         }
       }
-
-      &.our-story {
-        p {
-          width: 45%;
-        }
-
-        .vertical-line {
-          background-color: #F4A29C;
-          width: 1px;
-          height: 90%;
-          position: absolute;
-          left: 50%;
-        }
-
-        .our-story-section {
-          p {
-            min-height: 250px;
-            vertical-align: middle;
-          }
-        }
-
-        .heart-divider {
-          position: absolute;
-          margin-top: 15%;
-          background-color: white;
-          padding: 8px;
-          font-size: 20px;
-          color: #F4A29C;
-          left: 48%;
-        }
-
-        h1 {
-          font-size: 35px;
-          width: 50%;
-        }
-
-        img {
-          height: auto !important;
-          max-width: 45% !important;
-          margin: 15px;
-        }
-      }
     }
 
     .link {
@@ -497,12 +455,6 @@ a.btn {
       section {
         font-size: 14px;
         padding: 20px 20px 0 20px;
-
-        &.our_story {
-          img {
-            margin: 0 0 10px 0;
-          }
-        }
 
         .yes-no-buttons {
           float: none;

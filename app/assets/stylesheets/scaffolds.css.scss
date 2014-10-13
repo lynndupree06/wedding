@@ -47,6 +47,9 @@ a {
   &.view::after {
     content: "view website";
   }
+  &.link::after {
+    content: attr(href);
+  }
 }
 
 div {

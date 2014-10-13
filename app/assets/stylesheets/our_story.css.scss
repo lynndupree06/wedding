@@ -1,0 +1,109 @@
+.container {
+  .info-box {
+    section {
+      &.our-story {
+        p {
+          width: 45%;
+        }
+
+        .vertical-line {
+          background-color: #F4A29C;
+          width: 1px;
+          height: 89%;
+          position: absolute;
+          left: 50%;
+        }
+
+        .our-story-section {
+          p {
+            min-height: 250px;
+            vertical-align: middle;
+          }
+        }
+
+        .heart-divider {
+          position: absolute;
+          background-color: white;
+          padding: 8px;
+          font-size: 20px;
+          color: #F4A29C;
+
+          .title {
+            font-size: 30px;
+            color: #000;
+            font-family: GreatVibes-Regular;
+          }
+
+          &.left {
+            left: 48%;
+            .title {
+              margin-left: 5px;
+            }
+          }
+
+          &.right {
+            right: 48%;
+            .title {
+              margin-right: 5px;
+            }
+          }
+        }
+
+        h1 {
+          font-size: 35px;
+          width: 50%;
+        }
+
+        img {
+          height: auto !important;
+          max-width: 45% !important;
+          margin: 60px 15px 15px 15px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 765px) {
+  .container {
+    .info-box {
+      section {
+        &.our-story {
+          img {
+            margin: 60px 0;
+          }
+
+          .heart-divider {
+            .title {
+              font-size: 28px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    .info-box {
+      section {
+        &.our-story {
+          .heart-divider {
+            .title {
+              font-size: 13px;
+            }
+
+            &.right {
+              right: 46%;
+            }
+
+            &.left {
+              left: 46%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
