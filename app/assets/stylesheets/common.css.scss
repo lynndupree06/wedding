@@ -146,6 +146,11 @@ a.btn {
 
 .navbar {
 
+  &.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
   .navbar-brand {
     font-family: GreatVibes-Regular;
   }

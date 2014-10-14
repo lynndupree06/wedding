@@ -1,5 +1,6 @@
 Rails.application.config.assets.precompile += %w( font-awesome.min.css )
 Rails.application.config.assets.precompile += %w( table-sorter-style.css )
+Rails.application.config.assets.precompile += %w( lavish-bootstrap.css )
 Rails.application.config.assets.precompile += %w( home.css )
 Rails.application.config.assets.precompile += %w( our_story.css )
 
