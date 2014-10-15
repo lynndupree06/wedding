@@ -1,3 +1,5 @@
+@import 'variables';
+
 .container {
   .info-box {
     section {
@@ -7,7 +9,7 @@
         }
 
         .vertical-line {
-          background-color: #F4A29C;
+          background-color: $pink;
           width: 1px;
           height: 89%;
           position: absolute;
@@ -26,7 +28,7 @@
           background-color: white;
           padding: 8px;
           font-size: 20px;
-          color: #F4A29C;
+          color: $pink;
 
           .title {
             font-size: 30px;

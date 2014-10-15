@@ -20,6 +20,8 @@ class PhotosController < ApplicationController
     end
 
     @photos[:engagement] = @engagement_photos
+  rescue Exception => e
+    @photos[:engagement] = @engagement_photos
   end
 
   # GET /photos/1

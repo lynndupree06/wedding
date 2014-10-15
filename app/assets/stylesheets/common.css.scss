@@ -1,3 +1,5 @@
+@import "variables";
+
 @font-face {
   font-family: MonsieurLaDoulaise-Regular;
   src: local('MonsieurLaDoulaise-Regular'),
@@ -271,7 +273,7 @@ a.btn {
 
     hr {
       width: 40%;
-      border-color: #F4A29C;
+      border-color: $pink;
       opacity: 0.8;
     }
 
@@ -281,7 +283,7 @@ a.btn {
         bottom: 33px;
         position: absolute;
         font-size: 20px;
-        color: #F4A29C;
+        color: $pink;
 
         &.left {
           left: 49.3%;
