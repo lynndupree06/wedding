@@ -148,11 +148,6 @@ a.btn {
 
 .navbar {
 
-  &.navbar-default {
-    background-color: transparent;
-    border-color: transparent;
-  }
-
   .navbar-brand {
     font-family: GreatVibes-Regular;
   }
@@ -247,8 +242,24 @@ a.btn {
         height: 300px;
       }
 
-      .visa-info {
-        text-align: left;
+      #travel {
+        .visa-info {
+          text-align: left;
+
+          .alert {
+            width: inherit;
+            position: inherit;
+            right: 0;
+            top: 0;
+            font-size: inherit;
+            font-weight: normal;
+            z-index: 0;
+
+            strong {
+              color: inherit;
+            }
+          }
+        }
       }
 
       .photos {
@@ -370,6 +381,11 @@ a.btn {
     background-size: 100% 100%;
     border-color: transparent;
     box-shadow: none;
+
+    &.navbar-default {
+      background-color: transparent;
+      border-color: transparent;
+    }
 
     .navbar-brand {
       font-family: GreatVibes-Regular;
