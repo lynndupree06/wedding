@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  http_basic_authenticate_with name: 'jfk', password: '*$t@r8@r'
+  # http_basic_authenticate_with name: 'jfk', password: '*$t@r8@r'
 
 #   unless Rails.application.config.consider_all_requests_local
 # 	  rescue_from Exception,
