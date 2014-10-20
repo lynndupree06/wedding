@@ -95,6 +95,10 @@
           .heart-divider {
             position: inherit;
 
+            .heart {
+              display: none;
+            }
+
             .title {
               font-size: 28px;
             }
