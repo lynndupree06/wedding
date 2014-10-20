@@ -87,7 +87,7 @@ class PartiesController < AdminController
   end
 
   def save_the_date_special
-    send_save_the_date_email Party.where("notes LIKE '%international%'"), 'International List'
+    send_save_the_date_email Party.where("notes LIKE '%international%' AND a_b_list = 'A'"), 'International List'
   end
 
   def send_save_the_date_email(list, list_name)
