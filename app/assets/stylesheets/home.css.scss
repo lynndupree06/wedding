@@ -127,7 +127,8 @@
 
 @media (max-width: 765px) {
   .home-page {
-    background-attachment: fixed;
+    background-image: none;
+    border-color: #fffdf1 !important;
 
     .container {
       .title {
