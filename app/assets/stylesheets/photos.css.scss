@@ -6,6 +6,10 @@ section {
     align-items: stretch;
     align-content: stretch;
 
+    ul {
+      padding: 0;
+    }
+
     img {
       height: 250px;
       width: auto !important;
@@ -20,10 +24,28 @@ section {
 
 .container {
   .modal {
+    .modal-header {
+      h3 {
+        font-family: PoiretOne;
+        text-align: center;
+      }
+    }
     .carousel {
       img {
         width: auto;
         height: auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 765px)  {
+  section {
+    &.images {
+      ul {
+        a {
+          font-size: 10px;
+        }
       }
     }
   }
