@@ -1,0 +1,9 @@
+section {
+  &.images {
+    display: block !important;
+
+    img {
+      display: inline-block;
+    }
+  }
+}
