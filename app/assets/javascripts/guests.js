@@ -1,16 +1,14 @@
 var $modalBody = $('.modal-body');
 
-function showGuests(id) {
-  $(".guests-" + id).toggle();
-}
+$('.guests').filterable();
 
-$('.edit-party').click(function () {
+$('.edit-guest').click(function () {
   var id = $(this).attr('id');
-  editParty(id);
+  editGuest(id);
 });
 
-function editParty(id) {
-  getRecord('/parties/' + id + '/edit', /<form(\r|\n|.)+<\/form>/g);
+function editGuest(id) {
+  getRecord('/guests/' + id + '/edit', /<form(\r|\n|.)+<\/form>/g);
 }
 
 function getRecord(url, regex) {
@@ -20,5 +18,3 @@ function getRecord(url, regex) {
     $('#selected-record').modal('show');
   });
 }
-
-$('.parties').filterable();
