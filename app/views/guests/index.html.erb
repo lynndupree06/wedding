@@ -37,10 +37,12 @@
                   <span class="label label-info"><%= g.name %></span>
               <% elsif g.name == "Groom's Friends" %>
                   <span class="label label-warning"><%= g.name %></span>
-              <% elsif g.name == "Bridal Party" %>
+              <% elsif g.name == 'Bridal Party' %>
                   <span class="label label-default"><%= g.name %></span>
-              <% elsif g.name == "Rehearsal Dinner" %>
+              <% elsif g.name == 'Rehearsal Dinner' %>
                   <span class="label label-default"><%= g.name %></span>
+              <% elsif g.name == 'Sunday Brunch' %>
+                  <span class="label label-primary"><%= g.name %></span>
               <% end %>
           <% end %>
         </td>
