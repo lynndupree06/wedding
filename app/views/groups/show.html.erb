@@ -9,10 +9,26 @@
 </h1>
 
 <p>
-  <ul>
+  <table class="table tablesorter">
+    <thead>
+        <tr>
+          <th>Name</th>
+          <th>A/B List</th>
+          <th>Save the Date?</th>
+          <th>RSVP?</th>
+        </tr>
+    </thead>
+
+    <tbody>
     <% Guest.joins(:party).joins(:group).where('groups.id = ?', @group.id).each do |guest| %>
-        <li><%= guest.first_name %> <%= guest.last_name %></li>
+        <tr>
+          <td><%= guest.first_name %> <%= guest.last_name %><%= guest.suffix.present? ? ", #{guest.suffix}" : '' %></td>
+          <td><%= guest.party.a_b_list %></td>
+          <td><%= guest.party.save_the_date_sent ? 'yes' : 'no' %></td>
+          <td><%= guest.party.rsvp ? 'yes' : 'no' %></td>
+        </tr>
     <% end %>
-  </ul>
+    </tbody>
+  </table>
 </p>
 
