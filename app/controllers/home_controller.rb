@@ -54,7 +54,21 @@ class HomeController < ApplicationController
   end
 
   def get_guests
-    render json: {:guests => Party.find_by_key(params[:id]).guests}
+    guests = Party.find_by_key(params[:id]).guests
+    rehearsal = false
+    brunch = false
+
+    guests.each do |g|
+      if GroupsGuests.where(group_id: 6, guest_id: g.id).present?
+        rehearsal = true
+      end
+
+      if GroupsGuests.where(group_id: 7, guest_id: g.id).present?
+        brunch = true
+      end
+    end
+
+    render json: {:guests => guests, :rehearsal => rehearsal, :brunch => brunch}
   end
 
   def rsvp

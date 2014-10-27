@@ -9,14 +9,14 @@
 
   <%= form_tag(rsvp_search_path, method: 'get', :class => 'form-horizontal', :role => 'form') do %>
       <div class="form-group">
-        <%= label_tag :id_code, 'Identification Code', :class => 'control-label col-sm-5' %>
+        <%= label_tag :id_code, 'Identification Code', :class => 'control-label col-sm-4' %>
         <div class="col-sm-6">
           <%= text_field_tag :id_code, '', :class => 'form-control all-caps', :placeholder => 'e.g. A4RTC9', :required => :required, :autocomplete => 'off' %>
         </div>
       </div>
 
       <div id="party-size" class="form-group">
-        <%= label_tag :party, 'Total in your party?', :class => 'control-label col-sm-5' %>
+        <%= label_tag :party, 'Total in your party?', :class => 'control-label col-sm-4' %>
         <div class="col-sm-3">
           <%= text_field_tag :party, '', :class => 'form-control', :required => :required, :type => 'number', :min => 1 %>
         </div>
@@ -26,7 +26,7 @@
         <h3 id='preferences'>Meal Preferences</h3>
 
         <div class="form-group meal-preference">
-          <%= label_tag :meal, 'Meal Preference', :class => 'meal control-label col-sm-5' %>
+          <%= label_tag :meal, 'Meal Preference', :class => 'meal control-label col-sm-4' %>
           <div class="col-sm-6">
             <%= select_tag :meal, options_for_select(["Chicken", "Beef", "Child"], ''), :include_blank => true, :class => 'form-control' %>
           </div>
@@ -34,13 +34,37 @@
       </div>
 
       <div class="form-group">
-        <%= label_tag :attending, 'Are you attending?', :class => 'control-label col-sm-5' %>
+        <%= label_tag :attending, 'Are you attending?', :class => 'control-label col-sm-4' %>
         <div class="col-sm-3">
           <label class="radio-inline">
             <input type="radio" name="response" id="yes" required="required" value='1'> Yes
           </label>
           <label class="radio-inline">
             <input type="radio" name="response" id="no" value='0'> No
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group rehearsal">
+        <%= label_tag :rehearsal, 'Will everyone in your party be attending the Rehearsal dinner on Friday, July 24?', :class => 'control-label col-sm-4' %>
+        <div class="col-sm-3">
+          <label class="radio-inline">
+            <input type="radio" name="response" id="yes-rehearsal" value='1'> Yes
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="response" id="no-rehearsal" value='0'> No
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group brunch">
+        <%= label_tag :brunch, 'Will everyone in your party be attending the Sunday brunch on Sunday, July 26?', :class => 'control-label col-sm-4' %>
+        <div class="col-sm-3">
+          <label class="radio-inline">
+            <input type="radio" name="response" id="yes-brunch" value='1'> Yes
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="response" id="no-brunch" value='0'> No
           </label>
         </div>
       </div>

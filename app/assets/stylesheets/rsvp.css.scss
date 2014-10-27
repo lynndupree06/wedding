@@ -10,6 +10,10 @@
   h3 {
     text-align: left;
   }
+
+  .rehearsal, .brunch {
+    display: none;
+  }
 }
 
 @media (max-width: 765px) {

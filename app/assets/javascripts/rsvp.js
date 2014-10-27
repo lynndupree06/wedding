@@ -3,6 +3,19 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
   var idCodeFormGroup = $('input#id_code').parent().parent();
   var guests;
 
+  function askAdditionalQuestions(rehearsal, brunch) {
+    if(rehearsal) {
+      $('.rehearsal').show();
+      $('.rehearsal').find('input#yes-rehearsal').attr('required', 'required');
+    }
+
+    if(brunch) {
+      $('.brunch').show();
+      $('.brunch').find('input#yes-brunch').attr('required', 'required');
+    }
+
+  }
+
   function guest_meal_preferences() {
     var idCode = $('#id_code').val();
 
@@ -16,6 +29,7 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
           idCodeFormGroup.find('span').remove();
         }
         idCodeFormGroup.find('input').after('<span class="glyphicon glyphicon-ok form-control-feedback"></span>');
+        askAdditionalQuestions(data.rehearsal, data.brunch);
 
         if (checkValidility()) {
           createGuestMeals();
@@ -71,13 +85,13 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
         var guest = guests[i];
         newDiv.find('select').attr('name', 'meal[' + i + ']');
         newDiv.find('select').attr('required', 'required');
-        var span = "<span>(<a id='" + i + "' onclick='changeLabel(this)' class='not-correct'>not correct?</a>)</span>";
+        var span = "<br><span>(<a id='" + i + "' onclick='changeLabel(this)' class='not-correct'>not correct?</a>)</span>";
         newDiv.find('label').html(guest.first_name + ' ' + guest.last_name + ' ' + span);
         newDiv.insertAfter($partyDiv);
       } else {
         newDiv.find('select').attr('name', 'meal[' + i + ']');
         newDiv.find('select').attr('required', 'required');
-        var span = "<span>(<a id='" + i + "' onclick='changeLabel(this)' class='not-correct'>change name</a>)</span>";
+        var span = "<br><span>(<a id='" + i + "' onclick='changeLabel(this)' class='not-correct'>change name</a>)</span>";
         newDiv.find('label').html('Guest ' + (i + 1) + ' ' + span);
         newDiv.insertAfter($partyDiv);
       }
