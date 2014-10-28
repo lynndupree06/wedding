@@ -37,35 +37,47 @@
         <%= label_tag :attending, 'Are you attending?', :class => 'control-label col-sm-4' %>
         <div class="col-sm-3">
           <label class="radio-inline">
-            <input type="radio" name="response" id="yes" required="required" value='1'> Yes
+            <input type="radio" name="rsvp" id="yes" required="required" value='1'> Yes
           </label>
           <label class="radio-inline">
-            <input type="radio" name="response" id="no" value='0'> No
+            <input type="radio" name="rsvp" id="no" value='0'> No
           </label>
         </div>
       </div>
 
       <div class="form-group rehearsal">
-        <%= label_tag :rehearsal, 'Will everyone in your party be attending the Rehearsal dinner on Friday, July 24?', :class => 'control-label col-sm-4' %>
+        <%= label_tag :rehearsal, 'Will <i>everyone</i> in your party be attending the <strong>Rehearsal dinner</strong> on <strong>Friday, July 24</strong>?'.html_safe, :class => 'control-label col-sm-4' %>
         <div class="col-sm-3">
           <label class="radio-inline">
-            <input type="radio" name="response" id="yes-rehearsal" value='1'> Yes
+            <input type="radio" name="rsvp_rehearsal" id="yes-rehearsal" value='1'> Yes
           </label>
           <label class="radio-inline">
-            <input type="radio" name="response" id="no-rehearsal" value='0'> No
+            <input type="radio" name="rsvp_rehearsal" id="no-rehearsal" value='0'> No
           </label>
+        </div>
+      </div>
+      <div id="party-size-rehearsal" class="form-group">
+        <%= label_tag :party_rehearsal, 'How many people will be attending the Rehearsal dinner?', :class => 'control-label col-sm-4' %>
+        <div class="col-sm-3">
+          <%= text_field_tag :party_rehearsal, '', :class => 'form-control', :type => 'number', :min => 1 %>
         </div>
       </div>
 
       <div class="form-group brunch">
-        <%= label_tag :brunch, 'Will everyone in your party be attending the Sunday brunch on Sunday, July 26?', :class => 'control-label col-sm-4' %>
+        <%= label_tag :brunch, 'Will <i>everyone</i> in your party be attending the <strong>Sunday brunch</strong> on <strong>Sunday, July 26</strong>?'.html_safe, :class => 'control-label col-sm-4' %>
         <div class="col-sm-3">
           <label class="radio-inline">
-            <input type="radio" name="response" id="yes-brunch" value='1'> Yes
+            <input type="radio" name="rsvp_brunch" id="yes-brunch" value='1'> Yes
           </label>
           <label class="radio-inline">
-            <input type="radio" name="response" id="no-brunch" value='0'> No
+            <input type="radio" name="rsvp_brunch" id="no-brunch" value='0'> No
           </label>
+        </div>
+      </div>
+      <div id="party-size-brunch" class="form-group">
+        <%= label_tag :party_brunch, 'How many people will be attending the Sunday brunch?', :class => 'control-label col-sm-4' %>
+        <div class="col-sm-3">
+          <%= text_field_tag :party_brunch, '', :class => 'form-control', :type => 'number', :min => 1 %>
         </div>
       </div>
 
@@ -77,6 +89,6 @@
 
 <script>
     $(function () {
-      setup_rsvp($('#party'), $('#details'), $('.meal-preference'), $('#preferences'));
+        setup_rsvp($('#party'), $('#details'), $('.meal-preference'), $('#preferences'));
     });
 </script>

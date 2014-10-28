@@ -78,7 +78,11 @@ class HomeController < ApplicationController
   def search
     code = params[:id_code]
     party_size = params[:party]
-    response = params['response']
+    party_size_rehearsal = params[:party_rehearsal]
+    party_size_brunch = params[:party_brunch]
+    rsvp = params[:rsvp]
+    rsvp_rehearsal = params[:rsvp_rehearsal]
+    rsvp_brunch = params[:rsvp_brunch]
 
     party = Party.where(key: code).first
 
@@ -88,8 +92,29 @@ class HomeController < ApplicationController
         format.html { redirect_to rsvp_url, error: 'Invalid Token' }
         format.json { head :no_content }
       else
-        update_guests(party) if response
-        party.rsvp = response == '1' ? true : false
+        update_guests(party) if rsvp == '1'
+        party.rsvp = rsvp == '1' ? true : false
+
+        if rsvp_rehearsal == '1'
+          party.rsvp_dinner = true
+          party.size_rehearsal = party_size_rehearsal.present? ? party_size_rehearsal : party_size
+        elsif party_size_rehearsal.present? && party_size_rehearsal != '0'
+          party.rsvp_dinner = true
+          party.size_rehearsal = party_size_rehearsal
+        else
+          party.rsvp_dinner = false
+        end
+
+        if rsvp_brunch == '1'
+          party.rsvp_brunch = true
+          party.size_brunch = party_size_brunch.present? ? party_size_brunch : party_size
+        elsif party_size_brunch && party_size_brunch != '0'
+          party.rsvp_brunch = true
+          party.size_brunch = party_size_brunch
+        else
+          party.rsvp_brunch = false
+        end
+
         party.size = party_size
         party.save!
 
@@ -97,7 +122,7 @@ class HomeController < ApplicationController
         Emailer.send_notification_of_rsvp_email(party).deliver
 
         message_start = 'Thank you for your RSVP!'
-        message = response == '1' ? "#{message_start} We are looking forward to seeing you at the wedding!" : "#{message_start} Sorry you are unable to attend the wedding."
+        message = rsvp == '1' ? "#{message_start} We are looking forward to seeing you at the wedding!" : "#{message_start} Sorry you are unable to attend the wedding."
 
         format.html { redirect_to root_url, notice: message }
         format.json { head :no_content }

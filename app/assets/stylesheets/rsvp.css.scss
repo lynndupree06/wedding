@@ -11,8 +11,15 @@
     text-align: left;
   }
 
-  .rehearsal, .brunch {
+  .rehearsal, .brunch,
+  #party-size-brunch, #party-size-rehearsal {
     display: none;
+
+    label {
+      strong {
+        color: #D35A4A;
+      }
+    }
   }
 }
 

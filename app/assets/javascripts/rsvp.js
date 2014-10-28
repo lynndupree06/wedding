@@ -4,12 +4,12 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
   var guests;
 
   function askAdditionalQuestions(rehearsal, brunch) {
-    if(rehearsal) {
+    if (rehearsal) {
       $('.rehearsal').show();
       $('.rehearsal').find('input#yes-rehearsal').attr('required', 'required');
     }
 
-    if(brunch) {
+    if (brunch) {
       $('.brunch').show();
       $('.brunch').find('input#yes-brunch').attr('required', 'required');
     }
@@ -56,7 +56,7 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
     return partySizeInput.val() > 0 && idCodeFormGroup.attr('data-valid') == 'valid' && $("input[type='radio']:checked").attr('id') == 'yes';
   }
 
-  $("input[type='radio']").click(function () {
+  $("input[name='rsvp'][type='radio']").click(function () {
     if ($(this).attr('id') == 'no') {
       partySizeInput.removeAttr('required');
       $('.meal').removeAttr('required');
@@ -70,6 +70,35 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
       if (checkValidility()) {
         createGuestMeals();
       }
+    }
+  });
+
+  function showHideSizeInput(id, $sizeInputDiv, sizeInputId, conditions) {
+    var no = conditions[0];
+    var yes = conditions[1];
+
+    if (id == no) {
+      $sizeInputDiv.show();
+      $sizeInputDiv.find(sizeInputId).attr('required', 'required');
+    } else if (id == yes) {
+      $sizeInputDiv.hide();
+      $sizeInputDiv.find(sizeInputId).removeAttr('required');
+    }
+  }
+
+  $("input[type='radio']").click(function () {
+    var $sizeInput;
+    var id;
+    var name = $(this).attr('name');
+
+    if (name == 'rsvp_rehearsal') {
+      $sizeInput = $('#party-size-rehearsal');
+      id = $(this).attr('id');
+      showHideSizeInput(id, $sizeInput, '#party_rehearsal', ['no-rehearsal', 'yes-rehearsal']);
+    } else if (name == 'rsvp_brunch') {
+      $sizeInput = $('#party-size-brunch');
+      id = $(this).attr('id');
+      showHideSizeInput(id, $sizeInput, '#party_brunch', ['no-brunch', 'yes-brunch']);
     }
   });
 

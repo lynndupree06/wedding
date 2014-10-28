@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028055350) do
+ActiveRecord::Schema.define(version: 20141028073100) do
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(version: 20141028055350) do
     t.boolean  "confirmed"
     t.boolean  "rsvp_dinner"
     t.boolean  "rsvp_brunch"
+    t.integer  "size_rehearsal"
+    t.integer  "size_brunch"
   end
 
   create_table "photos", force: true do |t|

@@ -10,3 +10,13 @@ Meal Options:
     <%= "#{g.first_name} #{g.last_name}" %>: <%= g.meal_option %>
     <% idx = idx + 1 %>
 <% end %>
+
+<% if @party.rsvp_dinner.present? %>
+Attending Rehearsal Dinner: <%= @party.rsvp_dinner ? 'Yes' : 'No' %>
+Party Size: <%= @party.size_rehearsal %>
+<% end %>
+
+<% if @party.rsvp_brunch.present? %>
+Attending Sunday Brunch: <%= @party.rsvp_brunch ? 'Yes' : 'No' %>
+Party Size: <%= @party.size_brunch %>
+<% end %>
