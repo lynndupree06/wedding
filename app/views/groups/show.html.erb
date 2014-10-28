@@ -9,26 +9,37 @@
 </h1>
 
 <p>
-  <table class="table tablesorter">
-    <thead>
-        <tr>
-          <th>Name</th>
-          <th>A/B List</th>
-          <th>Save the Date?</th>
-          <th>RSVP?</th>
-        </tr>
-    </thead>
+<table class="table tablesorter">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>A/B List</th>
 
-    <tbody>
-    <% Guest.joins(:party).joins(:group).where('groups.id = ?', @group.id).each do |guest| %>
-        <tr>
-          <td><%= guest.first_name %> <%= guest.last_name %><%= guest.suffix.present? ? ", #{guest.suffix}" : '' %></td>
-          <td><%= guest.party.a_b_list %></td>
-          <td><%= guest.party.save_the_date_sent ? 'yes' : 'no' %></td>
-          <td><%= guest.party.rsvp ? 'yes' : 'no' %></td>
-        </tr>
+    <% if @group.name == 'Rehearsal Dinner' || @group.name == 'Sunday Brunch' %>
+        <th>Attending?</th>
+    <% else %>
+        <th>RSVP?</th>
     <% end %>
-    </tbody>
-  </table>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% Guest.joins(:party).joins(:group).where('groups.id = ?', @group.id).each do |guest| %>
+      <tr>
+        <td><%= guest.first_name %> <%= guest.last_name %><%= guest.suffix.present? ? ", #{guest.suffix}" : '' %></td>
+        <td><%= guest.party.a_b_list %></td>
+
+        <% if @group.name == 'Rehearsal Dinner' %>
+            <td><%= guest.party.rsvp_dinner ? 'yes' : 'no' %></td>
+        <% elsif @group.name == 'Sunday Brunch' %>
+            <td><%= guest.party.rsvp_brunch ? 'yes' : 'no' %></td>
+        <% else %>
+            <td><%= guest.party.rsvp ? 'yes' : 'no' %></td>
+        <% end %>
+
+      </tr>
+  <% end %>
+  </tbody>
+</table>
 </p>
 
