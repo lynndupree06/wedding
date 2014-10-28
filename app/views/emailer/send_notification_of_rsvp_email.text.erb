@@ -11,12 +11,12 @@ Meal Options:
     <% idx = idx + 1 %>
 <% end %>
 
-<% if @party.rsvp_dinner.present? %>
+<% unless @party.rsvp_dinner.nil? %>
 Attending Rehearsal Dinner: <%= @party.rsvp_dinner ? 'Yes' : 'No' %>
 Party Size: <%= @party.size_rehearsal %>
 <% end %>
 
-<% if @party.rsvp_brunch.present? %>
+<% unless @party.rsvp_brunch.nil? %>
 Attending Sunday Brunch: <%= @party.rsvp_brunch ? 'Yes' : 'No' %>
 Party Size: <%= @party.size_brunch %>
 <% end %>

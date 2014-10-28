@@ -101,17 +101,17 @@ class HomeController < ApplicationController
         elsif party_size_rehearsal.present? && party_size_rehearsal != '0'
           party.rsvp_dinner = true
           party.size_rehearsal = party_size_rehearsal
-        else
+        elsif rsvp_rehearsal == '0' && party_size_rehearsal == '0'
           party.rsvp_dinner = false
         end
 
         if rsvp_brunch == '1'
           party.rsvp_brunch = true
           party.size_brunch = party_size_brunch.present? ? party_size_brunch : party_size
-        elsif party_size_brunch && party_size_brunch != '0'
+        elsif party_size_brunch.present? && party_size_brunch != '0'
           party.rsvp_brunch = true
           party.size_brunch = party_size_brunch
-        else
+        elsif rsvp_brunch == '0' && party_size_brunch == '0'
           party.rsvp_brunch = false
         end
 

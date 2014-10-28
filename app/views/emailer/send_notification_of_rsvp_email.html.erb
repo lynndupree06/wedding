@@ -25,7 +25,7 @@
   </ul>
 
   <div>
-    <% if @party.rsvp_dinner.present? %>
+    <% unless @party.rsvp_dinner.nil? %>
         <strong>Attending Rehearsal Dinner:</strong> <%= @party.rsvp_dinner ? 'Yes' : 'No' %>
         <br>
         <strong>Party Size:</strong> <%= @party.size_rehearsal %>
@@ -34,7 +34,7 @@
   <br>
 
   <div>
-    <% if @party.rsvp_brunch.present? %>
+    <% unless @party.rsvp_brunch.nil? %>
         <strong>Attending Sunday Brunch:</strong> <%= @party.rsvp_brunch ? 'Yes' : 'No' %>
         <br>
         <strong>Party Size:</strong> <%= @party.size_brunch %>
