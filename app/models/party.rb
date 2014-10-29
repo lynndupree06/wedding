@@ -5,10 +5,10 @@ class Party < ActiveRecord::Base
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
-      csv << %w(Name Address City State PostalCode Country)
+      csv << %w(PartyName Name Address City State PostalCode Country)
 
-      Party.order(:outer_envelop).each do |p|
-        csv << [p.outer_envelop, p.address, p.city, p.state, p.postal_code, p.country]
+      Party.order(:name).each do |p|
+        csv << [p.name, p.outer_envelop, p.address, p.city, p.state, p.postal_code, p.country]
       end
     end
   end
