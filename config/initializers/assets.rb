@@ -22,6 +22,7 @@ Rails.application.config.assets.precompile += %w( home.js )
 Rails.application.config.assets.precompile += %w( photos.js )
 Rails.application.config.assets.precompile += %w( guests.js )
 Rails.application.config.assets.precompile += %w( parties.js )
+Rails.application.config.assets.precompile += %w( groups.js )
 
 Rails.application.config.assets.precompile += %w( MonsieurLaDoulaise-Regular.ttf )
 Rails.application.config.assets.precompile += %w( GreatVibes-Regular.ttf )

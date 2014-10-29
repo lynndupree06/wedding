@@ -8,6 +8,22 @@
   <span class="label label-primary"><%= GroupsGuests.where(group_id: @group.id).count %></span>
 </h1>
 
+<br>
+<div>
+  <p>
+    <strong>Number Attending: </strong>
+
+    <% if @group.id == 6 %>
+        <%= Party.where(rsvp_brunch: true).joins(guests: :group).where("'groups'.id = #{@group.id}").count %>
+    <% elsif @group.id == 5 %>
+        <%= Party.where(rsvp_dinner: true).joins(guests: :group).where("'groups'.id = #{@group.id}").count %>
+    <% else %>
+        <%= Party.where(rsvp: true).joins(guests: :group).where("'groups'.id = #{@group.id}").count %>
+    <% end %>
+  </p>
+</div>
+<br>
+
 <p>
 <table class="table tablesorter">
   <thead>
