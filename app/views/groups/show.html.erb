@@ -10,16 +10,31 @@
 
 <br>
 <div>
-  <p>
-    <strong>Number Attending: </strong>
+  <!-- TODO fix number attending query -->
+  <!--<p>-->
+    <!--<strong>Number Attending: </strong>-->
 
-    <% if @group.id == 6 %>
-        <%= Party.where(rsvp_brunch: true).joins(guests: :group).where("'groups'.id = #{@group.id}").count %>
-    <% elsif @group.id == 5 %>
-        <%= Party.where(rsvp_dinner: true).joins(guests: :group).where("'groups'.id = #{@group.id}").count %>
-    <% else %>
-        <%= Party.where(rsvp: true).joins(guests: :group).where("'groups'.id = #{@group.id}").count %>
-    <% end %>
+    <!--<% if @group.id == 6 %>-->
+        <!--<%= Party.joins(guests: :group).where("'groups'.id = 6").sum(:size_brunch) %>-->
+    <!--<% elsif @group.id == 5 %>-->
+        <!--<%= Party.joins(guests: :group).where("'groups'.id = 5").sum(:size_rehearsal) %>-->
+    <!--<% else %>-->
+        <!--<%= Party.joins(guests: :group).where('groups.id = ?', @group.id).uniq.sum(:size) %>-->
+    <!--<% end %>-->
+  <!--</p>-->
+
+  <p>
+    <i class="fa fa-male"></i>
+    <strong>Men: </strong>
+    <%= Party.joins(guests: :group).where('groups.id = ? AND guests.gender = ? AND guests.child = ?', @group.id, 'Male', false).count %>
+    |
+    <i class="fa fa-female"></i>
+    <strong>Women: </strong>
+    <%= Party.joins(guests: :group).where('groups.id = ? AND guests.gender = ? AND guests.child = ?', @group.id, 'Female', false).count %>
+    |
+    <i class="fa fa-male fa-child"></i>
+    <strong>Children: </strong>
+    <%= Party.joins(guests: :group).where('groups.id = ? AND guests.child = ?', @group.id, true).count %>
   </p>
 </div>
 <br>
@@ -36,23 +51,34 @@
     <% else %>
         <th>RSVP?</th>
     <% end %>
+
+    <th>RSVP Size</th>
   </tr>
   </thead>
 
   <tbody>
-  <% Guest.joins(:party).joins(:group).where('groups.id = ?', @group.id).each do |guest| %>
+  <% Party.joins(guests: :group).where('groups.id = ?', @group.id).uniq.each do |party| %>
       <tr>
-        <td><%= guest.first_name %> <%= guest.last_name %><%= guest.suffix.present? ? ", #{guest.suffix}" : '' %></td>
-        <td><%= guest.party.a_b_list %></td>
+        <td><%= party.name %></td>
+        <td><%= party.a_b_list %></td>
 
         <% if @group.name == 'Rehearsal Dinner' %>
-            <td><%= guest.party.rsvp_dinner ? 'yes' : 'no' %></td>
+            <td><%= party.rsvp_dinner ? 'yes' : 'no' %></td>
         <% elsif @group.name == 'Sunday Brunch' %>
-            <td><%= guest.party.rsvp_brunch ? 'yes' : 'no' %></td>
+            <td><%= party.rsvp_brunch ? 'yes' : 'no' %></td>
         <% else %>
-            <td><%= guest.party.rsvp ? 'yes' : 'no' %></td>
+            <td><%= party.rsvp ? 'yes' : 'no' %></td>
         <% end %>
 
+        <td>
+        <% if @group.name == 'Rehearsal Dinner' %>
+            <%= party.size_rehearsal %>
+        <% elsif @group.name == 'Sunday Brunch' %>
+            <%= party.size_brunch %>
+        <% else %>
+            <%= party.size %>
+        <% end %>
+        </td>
       </tr>
   <% end %>
   </tbody>
