@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tables
+
   devise_for :users, :skip => :registrations
 
   resources :parties

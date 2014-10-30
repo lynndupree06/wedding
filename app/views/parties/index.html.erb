@@ -1,9 +1,5 @@
 <%= render 'common/guest_summary' %>
 
-<%= link_to 'Download Labels', outer_labels_path(:format => :csv), :class => 'btn btn-success white-text' %>
-<%= link_to 'Download Place Card Labels', place_cards_path(:format => :csv), :class => 'btn btn-success white-text' %>
-<%= link_to 'Download Seating Chart Data', seating_chart_path(:format => :csv), :class => 'btn btn-success white-text' %>
-
 <h1>Listing parties <span class="label label-info"><%= @parties.size %></span></h1>
 
 <%= link_to 'New Party', new_party_path %>

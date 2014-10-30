@@ -3,7 +3,7 @@ namespace :update do
   desc 'Generate inner and outer envelope titles based off of guest names'
   task envelopes: :environment do
     Party.all.each do |p|
-      if p.inner_envelop.nil? && p.outer_envelop.nil?
+      if (p.inner_envelop.nil? && p.outer_envelop.nil?) || (p.inner_envelop.empty? && p.outer_envelop.empty?)
         outer_envelope = ''
         inner_envelope = ''
 

@@ -55,3 +55,7 @@
   <strong>Missing Email Addresses:</strong> <%= Party.where("email IS NULL OR email = ''").count %> |
   <strong>Missing Addresses:</strong> <%= Party.where("address IS NULL OR address = ''").count %>
 </p>
+
+<%= link_to 'Download Labels', outer_labels_path(:format => :csv), :class => 'btn btn-success white-text' %>
+<%= link_to 'Download Place Card Labels', place_cards_path(:format => :csv), :class => 'btn btn-success white-text' %>
+<%= link_to 'Download Seating Chart Data', seating_chart_path(:format => :csv), :class => 'btn btn-success white-text' %>
