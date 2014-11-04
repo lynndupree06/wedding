@@ -262,6 +262,22 @@ a.btn {
         }
       }
 
+      #accommodation {
+        .alert {
+          width: inherit;
+          position: inherit;
+          right: 0;
+          top: 0;
+          font-size: inherit;
+          font-weight: normal;
+          z-index: 0;
+
+          strong {
+            color: inherit;
+          }
+        }
+      }
+
       .photos {
         display: flex;
         flex-wrap: wrap;

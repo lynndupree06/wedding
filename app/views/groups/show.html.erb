@@ -23,19 +23,42 @@
     <!--<% end %>-->
   <!--</p>-->
 
-  <p>
-    <i class="fa fa-male"></i>
-    <strong>Men: </strong>
-    <%= Party.joins(guests: :group).where('groups.id = ? AND guests.gender = ? AND guests.child = ?', @group.id, 'Male', false).count %>
-    |
-    <i class="fa fa-female"></i>
-    <strong>Women: </strong>
-    <%= Party.joins(guests: :group).where('groups.id = ? AND guests.gender = ? AND guests.child = ?', @group.id, 'Female', false).count %>
-    |
-    <i class="fa fa-male fa-child"></i>
-    <strong>Children: </strong>
-    <%= Party.joins(guests: :group).where('groups.id = ? AND guests.child = ?', @group.id, true).count %>
-  </p>
+  <table class="table table-bordered table-responsive">
+    <thead>
+    <tr>
+      <th></th>
+      <th>Guests</th>
+      <th><i class="fa fa-envelope"></i> Invitations</th>
+      <th><i class="fa fa-male"></i> Men</th>
+      <th><i class="fa fa-female"></i> Women</th>
+      <th><i class="fa fa-male fa-child"></i> Children</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+      <th>A Group</th>
+      <%= group_data 'A', @group.id %>
+    </tr>
+
+    <tr>
+      <th>B Group</th>
+      <%= group_data 'B', @group.id %>
+    </tr>
+    </tbody>
+
+    <thead>
+    <tr>
+      <th>Total</th>
+      <th><%= Guest.joins(:group).where('group_id = ?', @group.id).all.count %></th>
+      <th><%= Party.joins(guests: :group).where('group_id = ?', @group.id).uniq(:party).count %></th>
+      <th><%= Guest.joins(:group).where(gender: 'Male', child: false).where('group_id = ?', @group.id).count %></th>
+      <th><%= Guest.joins(:group).where(gender: 'Female', child: false).where('group_id = ?', @group.id).count %></th>
+      <th><%= Guest.joins(:group).where(child: true).where('group_id = ?', @group.id).count %></th>
+    </tr>
+    </thead>
+
+  </table>
 </div>
 <br>
 
