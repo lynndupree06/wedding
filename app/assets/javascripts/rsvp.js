@@ -28,7 +28,6 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
         if (idCodeFormGroup.find('span')) {
           idCodeFormGroup.find('span').remove();
         }
-        idCodeFormGroup.find('input').after('<span class="glyphicon glyphicon-ok form-control-feedback"></span>');
         askAdditionalQuestions(data.rehearsal, data.brunch);
 
         if (checkValidility()) {
@@ -48,7 +47,6 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
     if (idCodeFormGroup.find('span')) {
       idCodeFormGroup.find('span').remove();
     }
-    idCodeFormGroup.find('input').after('<span class="glyphicon glyphicon-remove form-control-feedback"></span>');
     detailsPanel.hide();
   }
 
