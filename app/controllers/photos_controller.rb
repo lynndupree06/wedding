@@ -8,6 +8,7 @@ class PhotosController < ApplicationController
   def index
     @photos = {}
     @engagement_photos = []
+    @engagement_party = []
     bucket_name = AppConstants.s3_bucket_name
 
     s3 = AWS::S3.new(
@@ -19,9 +20,15 @@ class PhotosController < ApplicationController
       @engagement_photos << photo.url_for(:read).to_s unless photo.key == 'engagement_photos/'
     end
 
+    s3.buckets[bucket_name].objects.with_prefix('engagement_party/').each do |photo|
+      @engagement_party << photo.url_for(:read).to_s unless photo.key == 'engagement_party/'
+    end
+
     @photos[:engagement] = @engagement_photos
+    @photos[:engagement_party] = @engagement_party
   rescue Exception => e
     @photos[:engagement] = @engagement_photos
+    @photos[:engagement_party] = @engagement_party
   end
 
   # GET /photos/1
