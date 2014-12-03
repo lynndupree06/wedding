@@ -25,10 +25,10 @@ class PhotosController < ApplicationController
     end
 
     @photos[:engagement] = @engagement_photos
-    @photos[:engagement_party] = @engagement_party
+    @photos[:party] = @engagement_party
   rescue Exception => e
     @photos[:engagement] = @engagement_photos
-    @photos[:engagement_party] = @engagement_party
+    @photos[:party] = @engagement_party
   end
 
   # GET /photos/1

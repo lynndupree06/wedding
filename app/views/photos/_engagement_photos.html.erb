@@ -3,7 +3,7 @@
   <div class="photos">
     <% idx = 0 %>
     <% @engagement_photos.each do |p| %>
-        <img id="<%= idx %>" class='lazy' data-original="<%= p %>"/>
+        <img id="engagement-<%= idx %>" class='lazy' data-original="<%= p %>"/>
         <% idx = idx + 1 %>
     <% end %>
   </div>
