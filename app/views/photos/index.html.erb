@@ -15,7 +15,7 @@
             <% @photos.each do |items| %>
                 <% idx = 0 %>
                 <% items[1].each do |p| %>
-                    <div class="item" id="<%= "#{itemsUpdate}-#{idx}" %>">
+                    <div class="item" id="<%= "#{items}-#{idx}" %>">
                       <%= image_tag p %>
                     </div>
                     <% idx = idx + 1 %>
