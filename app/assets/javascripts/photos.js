@@ -7,10 +7,9 @@ function setupPhotoDisplay(engagement_size, party_size) {
   $('img.lazy').click(function () {
     var id = $(this).attr('id');
     $('.item').removeClass('active');
-    $('#' + id).addClass('active');
+    $('#engagement-' + id).addClass('active');
     $('#myModal').modal('show');
-    var imageDetails = id.split('-');
-    setModalTitle(Number(imageDetails[1]) + 1, imageDetails[0]);
+    setModalTitle(Number(id) + 1);
   });
 
   $('.carousel').carousel({
@@ -56,7 +55,7 @@ function setupPhotoDisplay(engagement_size, party_size) {
         break;
     }
 
-    setModalTitle(idNumber, type);
+    setModalTitle(idNumber);
   });
 
   $('.tabs a').click(function () {
