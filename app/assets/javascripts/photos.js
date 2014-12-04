@@ -1,15 +1,23 @@
-$(function () {
+function setupPhotoDisplay(engagement_size, party_size) {
   $("img.lazy").show().lazyload({
     effect: "fadeIn"
   });
 
-  $('img.lazy').click(function () {
+  function onclickAction() {
     var id = $(this).attr('id');
     $('.item').removeClass('active');
     $('#' + id).addClass('active');
     $('#myModal').modal('show');
     var imageDetails = id.split('-');
     setModalTitle(Number(imageDetails[1]) + 1, imageDetails[0]);
+  }
+
+  $('img.lazy').click(function () {
+    onclickAction.call(this);
+  });
+
+  $('img.image').click(function () {
+    onclickAction.call(this);
   });
 
   $('.carousel').carousel({
@@ -17,10 +25,10 @@ $(function () {
   });
 
   function setModalTitle(id, category) {
-    if(category === 'engagement') {
-      $('.modal-title').html('Engagement Photos: ' + id + ' of 17');
+    if (category === 'engagement') {
+      $('.modal-title').html('Engagement Photos: ' + id + ' of ' + engagement_size);
     } else if (category === 'party') {
-      $('.modal-title').html('Engagement Party Photos: ' + id + ' of 37');
+      $('.modal-title').html('Engagement Party Photos: ' + id + ' of ' + party_size);
     }
   }
 
@@ -35,23 +43,25 @@ $(function () {
 
     switch (idNumber) {
       case 0:
-        if(type === 'engagement') {
-          idNumber = 37;
+        if (type === 'engagement') {
+          idNumber = party_size;
           type = 'party';
-        } else if(type === 'party') {
-          idNumber = 17;
+        } else if (type === 'party') {
+          idNumber = engagement_size;
           type = 'engagement';
         }
         break;
-      case 18:
-        if(type === 'engagement') {
+      case (engagement_size + 1):
+        if (type === 'engagement') {
           idNumber = 1;
           type = 'party';
         }
         break;
-      case 38:
-        idNumber = 1;
-        type = 'engagement';
+      case (party_size + 1):
+        if(type === 'party') {
+          idNumber = 1;
+          type = 'engagement';
+        }
         break;
     }
 
@@ -62,4 +72,4 @@ $(function () {
     $('.tabs a').removeClass('active');
     $(this).addClass('active');
   });
-});
+}

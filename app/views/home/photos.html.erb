@@ -61,15 +61,15 @@
     </div>
   </section>
 
-  <%= javascript_include_tag 'jquery.lazyload.min' %>
-  <%= javascript_include_tag 'bootstrap.min' %>
-  <%= javascript_include_tag 'photos.js' %>
-
-  <script>
-    setupPhotoDisplay(<%= @photos[:engagement].size %>, <%= @photos[:party].size %>);
-  </script>
-
   <!-- <br><br>
   <iframe width="100%" height="500px" frameborder="0"
           src="http://trycapsule.com/widgets/photos?access_token=d652a8d28d6461t8"></iframe> -->
 </div>
+
+<%= javascript_include_tag 'jquery.lazyload.min' %>
+<%= javascript_include_tag 'bootstrap.min' %>
+<%= javascript_include_tag 'photos.js' %>
+
+<script>
+    setupPhotoDisplay(<%= @photos[:engagement].size %>, <%= @photos[:party].size %>);
+</script>

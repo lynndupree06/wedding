@@ -2,8 +2,8 @@
   <h1>Engagement Photos</h1>
   <div class="photos">
     <% idx = 0 %>
-    <% @engagement_photos.each do |p| %>
-        <img id="engagement-<%= idx %>" class='lazy' data-original="<%= p %>"/>
+    <% @photos[:engagement].each do |p| %>
+        <%= image_tag p.avatar.url(:medium), :class => 'image', :id => "engagement-#{idx}" %>
         <% idx = idx + 1 %>
     <% end %>
   </div>
