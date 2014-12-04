@@ -51,6 +51,8 @@ Rails.application.configure do
           :secret_access_key => '40IKJLMNPXtusM/XVmYUFgHrrS6hZMMLWySHeqBw'
       }
   }
+
+  # Paperclip.options[:command_path] = '/usr/local/bin/'
 end
 
 ActionMailer::Base.delivery_method = :smtp

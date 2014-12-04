@@ -6,6 +6,7 @@ Rails.application.config.assets.precompile += %w( bootstrap-editable.css )
 Rails.application.config.assets.precompile += %w( home.css )
 Rails.application.config.assets.precompile += %w( our_story.css )
 Rails.application.config.assets.precompile += %w( ie.css )
+Rails.application.config.assets.precompile += %w( photos.css )
 
 Rails.application.config.assets.precompile += %w( jquery.min.js )
 Rails.application.config.assets.precompile += %w( jquery.lazyload.min.js )

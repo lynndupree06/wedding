@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get '/wedding_party' => 'home#wedding_party'
   get '/guest_info' => 'home#guest_info'
   get '/rsvp' => 'home#rsvp'
+  get '/pics' => 'home#photos'
 
   get '/rsvp/search' => 'home#search'
   get '/address_update' => 'home#user_update'

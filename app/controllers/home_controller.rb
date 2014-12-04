@@ -27,6 +27,13 @@ class HomeController < ApplicationController
     render :layout => 'application'
   end
 
+  def photos
+    @photos = {}
+    @photos[:engagement] = Photo.all.where(:category => 'Engagement Photos')
+    @photos[:party] = Photo.all.where(:category => 'Engagement Party')
+    render :layout => 'application'
+  end
+
   def user_update
     if params[:t]
       party = PartyEncoder.decode(params[:t])

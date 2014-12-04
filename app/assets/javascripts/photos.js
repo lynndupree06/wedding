@@ -1,4 +1,5 @@
-$(function () {
+function setupPhotoDisplay(engagement_size, party_size) {
+
   $("img.lazy").show().lazyload({
     effect: "fadeIn"
   });
@@ -18,9 +19,9 @@ $(function () {
 
   function setModalTitle(id, category) {
     if(category === 'engagement') {
-      $('.modal-title').html('Engagement Photos: ' + id + ' of 17');
+      $('.modal-title').html('Engagement Photos: ' + id + ' of ' + engagement_size);
     } else if (category === 'party') {
-      $('.modal-title').html('Engagement Party Photos: ' + id + ' of 37');
+      $('.modal-title').html('Engagement Party Photos: ' + id + ' of ' + party_size);
     }
   }
 
@@ -36,20 +37,20 @@ $(function () {
     switch (idNumber) {
       case 0:
         if(type === 'engagement') {
-          idNumber = 37;
+          idNumber = party_size;
           type = 'party';
         } else if(type === 'party') {
-          idNumber = 17;
+          idNumber = engagement_size;
           type = 'engagement';
         }
         break;
-      case 18:
+      case (engagement_size + 1):
         if(type === 'engagement') {
           idNumber = 1;
           type = 'party';
         }
         break;
-      case 38:
+      case (party_size + 1):
         idNumber = 1;
         type = 'engagement';
         break;
@@ -62,4 +63,4 @@ $(function () {
     $('.tabs a').removeClass('active');
     $(this).addClass('active');
   });
-});
+}
