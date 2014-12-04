@@ -1,0 +1,10 @@
+<div class="tab-pane active" id="engagement">
+  <h1>Engagement Photos</h1>
+  <div class="photos">
+    <% idx = 0 %>
+    <% @engagement_photos.each do |p| %>
+        <img id="engagement-<%= idx %>" class='lazy' data-original="<%= p %>"/>
+        <% idx = idx + 1 %>
+    <% end %>
+  </div>
+</div>
