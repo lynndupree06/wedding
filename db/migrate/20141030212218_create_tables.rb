@@ -6,7 +6,5 @@ class CreateTables < ActiveRecord::Migration
 
       t.timestamps
     end
-
-    change_column :guests, :table, :tables
   end
 end
