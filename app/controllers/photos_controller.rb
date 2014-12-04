@@ -1,34 +1,12 @@
 require 'aws'
 
-class PhotosController < ApplicationController
+class PhotosController < AdminController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
   # GET /photos
   # GET /photos.json
   def index
-    @photos = {}
-    @engagement_photos = []
-    @engagement_party = []
-    bucket_name = AppConstants.s3_bucket_name
-
-    s3 = AWS::S3.new(
-        :access_key_id => AppConstants.aws_access_key_id,
-        :secret_access_key => AppConstants.aws_secret_access_key
-    )
-
-    s3.buckets[bucket_name].objects.with_prefix('engagement_photos/').each do |photo|
-      @engagement_photos << photo.url_for(:read).to_s unless photo.key == 'engagement_photos/'
-    end
-
-    s3.buckets[bucket_name].objects.with_prefix('engagement_party/').each do |photo|
-      @engagement_party << photo.url_for(:read).to_s unless photo.key == 'engagement_party/'
-    end
-
-    @photos[:engagement] = @engagement_photos
-    @photos[:party] = @engagement_party
-  rescue Exception => e
-    @photos[:engagement] = @engagement_photos
-    @photos[:party] = @engagement_party
+    @photos = Photo.all
   end
 
   # GET /photos/1

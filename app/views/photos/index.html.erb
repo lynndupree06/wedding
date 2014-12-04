@@ -1,71 +1,11 @@
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">
-          <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h3 class="modal-title" id="myModalLabel"></h3>
-      </div>
-      <div class="modal-body">
+<%= link_to 'New Photo', new_photo_path %>
 
-        <div id="all-photos" class="carousel slide" data-ride="carousel">
+<br>
 
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner">
-            <% @photos.each do |items| %>
-                <% idx = 0 %>
-                <% items[1].each do |p| %>
-                    <div class="item" id="<%= "#{items[0].to_s}-#{idx}" %>">
-                      <%= image_tag p %>
-                    </div>
-                    <% idx = idx + 1 %>
-                <% end %>
-            <% end %>
-          </div>
+<div>
 
-          <!-- Controls -->
-          <a class="left carousel-control" href="#all-photos" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-          </a>
-          <a class="right carousel-control" href="#all-photos" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </a>
-        </div>
+  <% @photos.each do |p| %>
+      <%= image_tag p.avatar.url(:thumb) %>
+  <% end %>
 
-      </div>
-    </div>
-  </div>
 </div>
-
-<div class="info-box">
-  <header>Photos</header>
-
-  <section class="images">
-
-    <ul class="btn-group btn-group-justified">
-      <a href="#engagement" role="tab" data-toggle="tab" class="btn btn-default">
-        Engagement Photos
-      </a>
-      <a href="#engagement-party" role="tab" data-toggle="tab" class="btn btn-default">
-        Engagement Party
-      </a>
-    </ul>
-
-    <div class="clearfix"></div>
-
-    <div class="tab-content">
-      <%= render 'engagement_photos' %>
-      <%= render 'engagement_party_photos' %>
-      <%= render 'wedding_ceremony_photos' %>
-      <%= render 'wedding_reception_photos' %>
-    </div>
-  </section>
-
-  <!-- <br><br>
-  <iframe width="100%" height="500px" frameborder="0"
-          src="http://trycapsule.com/widgets/photos?access_token=d652a8d28d6461t8"></iframe> -->
-</div>
-
-<script>
-    setupPhotoDisplay(17, 37);
-</script>
