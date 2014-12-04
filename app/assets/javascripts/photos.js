@@ -1,5 +1,4 @@
-function setupPhotoDisplay(engagement_size, party_size) {
-
+$(function () {
   $("img.lazy").show().lazyload({
     effect: "fadeIn"
   });
@@ -7,9 +6,10 @@ function setupPhotoDisplay(engagement_size, party_size) {
   $('img.lazy').click(function () {
     var id = $(this).attr('id');
     $('.item').removeClass('active');
-    $('#engagement-' + id).addClass('active');
+    $('#' + id).addClass('active');
     $('#myModal').modal('show');
-    setModalTitle(Number(id) + 1);
+    var imageDetails = id.split('-');
+    setModalTitle(Number(imageDetails[1]) + 1, imageDetails[0]);
   });
 
   $('.carousel').carousel({
@@ -18,9 +18,9 @@ function setupPhotoDisplay(engagement_size, party_size) {
 
   function setModalTitle(id, category) {
     if(category === 'engagement') {
-      $('.modal-title').html('Engagement Photos: ' + id + ' of ' + engagement_size);
+      $('.modal-title').html('Engagement Photos: ' + id + ' of 17');
     } else if (category === 'party') {
-      $('.modal-title').html('Engagement Party Photos: ' + id + ' of ' + party_size);
+      $('.modal-title').html('Engagement Party Photos: ' + id + ' of 37');
     }
   }
 
@@ -36,30 +36,30 @@ function setupPhotoDisplay(engagement_size, party_size) {
     switch (idNumber) {
       case 0:
         if(type === 'engagement') {
-          idNumber = party_size;
+          idNumber = 37;
           type = 'party';
         } else if(type === 'party') {
-          idNumber = engagement_size;
+          idNumber = 17;
           type = 'engagement';
         }
         break;
-      case (engagement_size + 1):
+      case 18:
         if(type === 'engagement') {
           idNumber = 1;
           type = 'party';
         }
         break;
-      case (party_size + 1):
+      case 38:
         idNumber = 1;
         type = 'engagement';
         break;
     }
 
-    setModalTitle(idNumber);
+    setModalTitle(idNumber, type);
   });
 
   $('.tabs a').click(function () {
     $('.tabs a').removeClass('active');
     $(this).addClass('active');
   });
-}
+});
