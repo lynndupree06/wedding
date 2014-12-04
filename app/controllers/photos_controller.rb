@@ -1,6 +1,6 @@
 require 'aws'
 
-class PhotosController < ApplicationController
+class PhotosController < AdminController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
   # GET /photos
