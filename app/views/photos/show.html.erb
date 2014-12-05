@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'All Photos', photos_path %>
+
+<br><br>
+
 <p>
   <strong>Desc:</strong>
   <%= @photo.desc %>
@@ -10,9 +15,6 @@
   <%= @photo.category %>
 </p>
 
-<%= image_tag @photo.avatar.url %>
+<!--<%= image_tag @photo.avatar.url %>-->
 <%= image_tag @photo.avatar.url(:medium) %>
-<%= image_tag @photo.avatar.url(:thumb) %>
-
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
-<%= link_to 'Back', photos_path %>
+<!--<%= image_tag @photo.avatar.url(:thumb) %>-->

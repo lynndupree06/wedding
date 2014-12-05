@@ -4,6 +4,8 @@
 
 <div>
   <% @photos.each do |p| %>
-      <%= image_tag p.avatar.url(:thumb) %>
+      <a href="<%= photo_path(p) %>">
+        <%= image_tag p.avatar.url(:thumb) %>
+      </a>
   <% end %>
 </div>
