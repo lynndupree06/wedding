@@ -3,21 +3,13 @@ function setupPhotoDisplay(engagement_size, party_size) {
     effect: "fadeIn"
   });
 
-  function onclickAction() {
+  $('img.lazy').click(function () {
     var id = $(this).attr('id');
     $('.item').removeClass('active');
     $('#' + id).addClass('active');
     $('#myModal').modal('show');
     var imageDetails = id.split('-');
     setModalTitle(Number(imageDetails[1]) + 1, imageDetails[0]);
-  }
-
-  $('img.lazy').click(function () {
-    onclickAction.call(this);
-  });
-
-  $('img.image').click(function () {
-    onclickAction.call(this);
   });
 
   $('.carousel').carousel({
