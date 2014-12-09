@@ -21,7 +21,7 @@ function getRecord(url, regex) {
 
   var app = angular.module('admin', []);
 
-  app.controller('GuestController', function ($scope, $http) {
+  app.controller('GuestController', ["$scope", "$http", function ($scope, $http) {
     $http.get('guests_info')
       .success(function(data, status, headers, config) {
         $scope.guests = data;
@@ -37,6 +37,6 @@ function getRecord(url, regex) {
     this.isMale = function(guest) {
       return guest.gender === 'Male';
     };
-  });
+  }]);
 
 })();

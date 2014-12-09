@@ -52,7 +52,7 @@ function getRecord(url, regex) {
     };
   });
 
-  app.controller('PartyController', function ($scope, $http) {
+  app.controller('PartyController', ["$scope", "$http", function ($scope, $http) {
     $http.get('parties_info')
       .success(function(data, status, headers, config) {
         $scope.parties = data;
@@ -68,6 +68,6 @@ function getRecord(url, regex) {
     this.isMale = function(guest) {
       return guest.gender === 'Male';
     };
-  });
+  }]);
 
 })();
