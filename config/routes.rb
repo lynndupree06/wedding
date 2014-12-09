@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/seating_chart' => 'parties#get_seating_chart_data'
   get '/tags' => 'parties#tags'
   get '/parties_info' => 'parties#parties_info'
+  get '/guests_info' => 'guests#guests_info'
 
   root 'home#index'
 

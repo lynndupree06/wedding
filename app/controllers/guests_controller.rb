@@ -4,26 +4,25 @@ class GuestsController < AdminController
   # GET /guests
   # GET /guests.json
   def index
-    @guests = Guest.all
-    render :layout => 'admin'
   end
 
   # GET /guests/1
   # GET /guests/1.json
   def show
-    render :layout => 'admin'
+  end
+
+  def guests_info
+    render :json => Guest.all.to_json(:include => [:party, :group])
   end
 
   # GET /guests/new
   def new
     @guest = Guest.new
     @guest.party = Party.new
-    render :layout => 'admin'
   end
 
   # GET /guests/1/edit
   def edit
-    render :layout => 'admin'
   end
 
   # POST /guests

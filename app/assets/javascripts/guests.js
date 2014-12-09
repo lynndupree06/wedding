@@ -1,7 +1,5 @@
 var $modalBody = $('.modal-body');
 
-$('.guests').filterable();
-
 $('.edit-guest').click(function () {
   var id = $(this).attr('id');
   editGuest(id);
@@ -18,3 +16,27 @@ function getRecord(url, regex) {
     $('#selected-record').modal('show');
   });
 }
+
+(function () {
+
+  var app = angular.module('admin', []);
+
+  app.controller('GuestController', function ($scope, $http) {
+    $http.get('guests_info')
+      .success(function(data, status, headers, config) {
+        $scope.guests = data;
+      })
+      .error(function(data, status, headers, config) {
+        console.log("error", status);
+      });
+
+    this.isFemale = function(guest) {
+      return guest.gender === 'Female';
+    };
+
+    this.isMale = function(guest) {
+      return guest.gender === 'Male';
+    };
+  });
+
+})();
