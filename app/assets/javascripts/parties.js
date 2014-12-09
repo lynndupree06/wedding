@@ -38,4 +38,36 @@ function getRecord(url, regex) {
   });
 }
 
-$('.parties').filterable();
+(function () {
+
+  var app = angular.module('admin', []);
+
+  app.controller('StatusController', function () {
+    this.isMissingEmail = function(party) {
+      return party.email === null || party.email.length === 0;
+    };
+
+    this.isMissingAddress = function(party) {
+      return party.address === null || party.address.length === 0;
+    };
+  });
+
+  app.controller('PartyController', function ($scope, $http) {
+    $http.get('parties_info')
+      .success(function(data, status, headers, config) {
+        $scope.parties = data;
+      })
+      .error(function(data, status, headers, config) {
+        console.log("error", status);
+      });
+
+    this.isFemale = function(guest) {
+      return guest.gender === 'Female';
+    };
+
+    this.isMale = function(guest) {
+      return guest.gender === 'Male';
+    };
+  });
+
+})();

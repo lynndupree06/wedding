@@ -1,33 +1,32 @@
 class PartiesController < AdminController
   before_action :set_party, only: [:show, :edit, :update, :destroy, :user_update]
+  respond_to :json
 
   # GET /parties
   # GET /parties.json
   def index
-    @parties = Party.all
-    render :layout => 'admin'
   end
 
   # GET /parties/1
   # GET /parties/1.json
   def show
-    render :layout => 'admin'
+  end
+
+  def parties_info
+    render :json => Party.all.to_json(:include => :guests)
   end
 
   # GET /parties/new
   def new
     @party = Party.new
-    render :layout => 'admin'
   end
 
   # GET /parties/1/edit
   def edit
-    render :layout => 'admin'
   end
 
   def tags
     @parties = Party.all
-    render :layout => 'admin'
   end
 
   # POST /parties
