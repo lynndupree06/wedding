@@ -1,43 +1,3 @@
-var $modalBody = $('.modal-body');
-
-function showGuests(id) {
-  $(".guests-" + id).toggle();
-}
-
-$('.edit-party').click(function () {
-  var id = $(this).attr('id');
-  editParty(id);
-});
-
-function editParty(id) {
-  getRecord('/parties/' + id + '/edit', /<form(\r|\n|.)+<\/form>/g);
-}
-
-function getRecord(url, regex) {
-  $.get(url, function (data) {
-    $modalBody.html('');
-    $modalBody.html(data.match(regex));
-    $('#selected-record').modal('show');
-  });
-}
-
-$('.edit-guest').click(function () {
-  var id = $(this).attr('id');
-  editGuest(id);
-});
-
-function editGuest(id) {
-  getRecord('/guests/' + id + '/edit', /<form(\r|\n|.)+<\/form>/g);
-}
-
-function getRecord(url, regex) {
-  $.get(url, function (data) {
-    $modalBody.html('');
-    $modalBody.html(data.match(regex));
-    $('#selected-record').modal('show');
-  });
-}
-
 (function () {
 
   var app = angular.module('admin', ['ngResource']);
@@ -71,6 +31,7 @@ function getRecord(url, regex) {
     $scope.view = 1;
     $scope.orderByField = 'name';
     $scope.reverseSort = false;
+    $scope.list = 'All';
 
     this.loadList = function() {
       $scope.parties = Parties.query();
@@ -85,16 +46,16 @@ function getRecord(url, regex) {
     };
 
     $scope.editParty = function (currentParty) {
-      $scope.view = 2;
+      $('#partyDetails').modal('show');
       $scope.party = currentParty;
     };
 
     $scope.updateParty = function(currentParty) {
       var self = this;
+      $('#partyDetails').modal('hide');
 
       Party.update(currentParty, function() {
         self.loadList();
-        $scope.view = 1;
       }, function (error) {
         console.log(error);
       });
@@ -102,6 +63,7 @@ function getRecord(url, regex) {
 
     $scope.deleteParty = function (partyId) {
       var self = this;
+      $('#partyDetails').modal('hide');
 
       if (confirm("Are you sure you want to delete this party?")) {
         Party.delete({id: partyId}, function() {
@@ -121,5 +83,24 @@ function getRecord(url, regex) {
       $scope.view = newView;
     };
   }]);
+
+  app.filter('filterList', function() {
+    return function(parties, list) {
+      parties = parties || [];
+      var filtered = [];
+
+      if (list === 'All') {
+        filtered = parties;
+      } else {
+        angular.forEach(parties, function(party) {
+          if(party.a_b_list === list) {
+            filtered.push(party);
+          }
+        });
+      }
+
+      return filtered;
+    };
+  })
 
 })();

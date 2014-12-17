@@ -42,6 +42,7 @@
     $scope.guests = [];
     $scope.orderByField = 'last_name';
     $scope.reverseSort = false;
+    $scope.group = 'All';
 
     $scope.guests = Guests.query();
 
@@ -111,5 +112,27 @@
       $scope.view = newView;
     };
   }]);
+
+  app.filter('filterList', function() {
+    return function(guests, group) {
+      guests = guests || [];
+      var filtered = [];
+
+      if (group === 'All') {
+        filtered = guests;
+      } else {
+        angular.forEach(guests, function(guest) {
+          for(var idx in guest.group) {
+            if (guest.group[idx].name === group) {
+              filtered.push(guest);
+              break;
+            }
+          }
+        });
+      }
+
+      return filtered;
+    };
+  })
 
 })();

@@ -9,8 +9,21 @@
       <h1>Listing guests <span class="label label-info">{{guests.length}}</span></h1>
       <input type="text" ng-model="search" class="search-query form-control input-lg" placeholder="Search">
 
+      <br>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default" ng-class="{active:group === 'Bride\'s Family'}" ng-click="group = 'Bride\'s Family'">Bride's Family</button>
+        <button type="button" class="btn btn-default" ng-class="{active:group === 'Bride\'s Friends'}" ng-click="group = 'Bride\'s Friends'">Bride's Friends</button>
+        <button type="button" class="btn btn-default" ng-class="{active:group === 'Groom\'s Family'}" ng-click="group = 'Groom\'s Family'">Groom's Family</button>
+        <button type="button" class="btn btn-default" ng-class="{active:group === 'Groom\'s Friends'}" ng-click="group = 'Groom\'s Friends'">Groom's Friends</button>
+        <button type="button" class="btn btn-default" ng-class="{active:group === 'Bridal Party'}" ng-click="group = 'Bridal Party'">Bridal Party</button>
+        <button type="button" class="btn btn-default" ng-class="{active:group === 'Rehearsal Dinner'}" ng-click="group = 'Rehearsal Dinner'">Rehearsal Dinner</button>
+        <button type="button" class="btn btn-default" ng-class="{active:group === 'Sunday Brunch'}" ng-click="group = 'Sunday Brunch'">Sunday Brunch</button>
+        <button type="button" class="btn btn-default" ng-class="{active:group === 'All'}" ng-click="group = 'All'">All</button>
+      </div>
+      <br><br>
+
       <table ng-table='tableParams' class="table table-hover">
-        <tr ng-repeat="guest in guests | filter:search | orderBy:'last_name'">
+        <tr ng-repeat="guest in guests | filter:search | orderBy:'last_name' | filterList:group">
           <td data-title="'Last Name'">
             {{guest.last_name}}
             <span ng-show="guest.suffix">, {{guest.suffix}}</span>
