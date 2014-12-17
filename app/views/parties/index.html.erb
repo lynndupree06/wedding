@@ -13,21 +13,21 @@
     <table class="table table-responsive parties">
       <thead>
       <tr>
-        <th>Name</th>
-        <th>Address</th>
-        <th>Inner/Outer Envelop</th>
-        <th>List</th>
-        <th>Size</th>
-        <th>Save The Date Sent?</th>
-        <th>RSVP?</th>
-        <th>RSVP Party Size</th>
-        <th>Tags</th>
+        <th ng-click="orderByField='name'; reverseSort = !reverseSort"><a href>Name</a></th>
+        <th><a href>Address</a></th>
+        <th><a href>Inner/Outer Envelop</a></th>
+        <th ng-click="orderByField='a_b_list'; reverseSort = !reverseSort"><a href>List</a></th>
+        <th ng-click="orderByField='guests.length'; reverseSort = !reverseSort"><a href>Size</a></th>
+        <th ng-click="orderByField='save_the_date_sent'; reverseSort = !reverseSort"><a href>Save The Date Sent?</a></th>
+        <th ng-click="orderByField='rsvp'; reverseSort = !reverseSort"><a href>RSVP?</a></th>
+        <th ng-click="orderByField='size'; reverseSort = !reverseSort"><a href>RSVP Party Size</a></th>
+        <th><a href>Tags</a></th>
         <th></th>
       </tr>
       </thead>
 
       <tbody>
-      <tr ng-repeat="party in parties | filter:search | orderBy:'name'"
+      <tr ng-repeat="party in parties | filter:search | orderBy:orderByField:reverseSort"
           ng-controller="StatusController as status"
           ng-class="{danger:status.isMissingEmail(party) && status.isMissingAddress(party),
               warning:status.isMissingEmail(party) && !status.isMissingAddress(party)}">

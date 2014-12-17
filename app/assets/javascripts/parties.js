@@ -54,6 +54,8 @@ function getRecord(url, regex) {
 
   app.controller('PartyController', ["$scope", "$http", function ($scope, $http) {
     $scope.view = 1;
+    $scope.orderByField = 'name';
+    $scope.reverseSort = false;
 
     $http.get('parties_info')
       .success(function(data, status, headers, config) {
