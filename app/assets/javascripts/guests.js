@@ -37,32 +37,34 @@
   ]);
 
 //  app.controller('GuestController', ["$scope", "$http", '$resource', 'Guests', 'Guest', '$location', function ($scope, $http, $resource, Guests, Guest, $location) {
-  app.controller('GuestController', ["$filter", "$scope", "$http", "ngTableParams", function ($filter, $scope, $http, ngTableParams) {
+  app.controller('GuestController', ["$filter", "$scope", "$http", "ngTableParams", "Guests", "Guest", function ($filter, $scope, $http, ngTableParams, Guests, Guest) {
     $scope.view = 1;
     $scope.guests = [];
     $scope.orderByField = 'last_name';
     $scope.reverseSort = false;
 
-    $http.get('guests_info')
-      .success(function(data, status, headers, config) {
-        $scope.guests = data;
-        $scope.tableParams = new ngTableParams({
-          page: 1,            // show first page
-          total: data.length, // length of data
-          count: 15          // count per page
-        });
+    $scope.guests = Guests.query();
 
-        $scope.$watch('tableParams', function(params) {
-          var orderedData = params.sorting ?
-            $filter('orderBy')(data, params.orderBy()) :
-            data;
-
-            $scope.guests = orderedData.slice((params.page - 1) * params.count, params.page * params.count);
-        }, true);
-      })
-      .error(function(data, status, headers, config) {
-        console.log("error", status);
-      });
+    // $http.get('guests_info')
+    //   .success(function(data, status, headers, config) {
+    //     $scope.guests = data;
+    //     $scope.tableParams = new ngTableParams({
+    //       page: 1,            // show first page
+    //       total: data.length, // length of data
+    //       count: 15          // count per page
+    //     });
+    //
+    //     $scope.$watch('tableParams', function(params) {
+    //       var orderedData = params.sorting ?
+    //         $filter('orderBy')(data, params.orderBy()) :
+    //         data;
+    //
+    //         $scope.guests = orderedData.slice((params.page - 1) * params.count, params.page * params.count);
+    //     }, true);
+    //   })
+    //   .error(function(data, status, headers, config) {
+    //     console.log("error", status);
+    //   });
 
     $scope.editGuest = function(currentGuest) {
       $scope.view = 2;
@@ -70,36 +72,14 @@
     };
 
     $scope.updateGuest = function(guest) {
-      console.log("update");
       guest.updated_at = new Date();
 
-//      $http.post('update_guest/', {})
-//        .success(function(data, status, headers, config) {
-//          console.log('success');
-//        })
-//        .error(function(data, status, headers, config) {
-//          console.log("error", status);
-//        });
-
-      $http({
-        method: 'POST',
-        url: 'guests/' + guest.id,
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        transformRequest: function(obj) {
-          var str = [];
-          for(var p in obj)
-            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-          return str.join("&");
-        },
-        data: guest
-      }).success(function(data, status, headers, config) {
+      Guest.update(guest, function() {
         console.log('success');
-      })
-      .error(function(data, status, headers, config) {
-        console.log("error", status);
+        $scope.view = 1;
+      }, function(error) {
+        console.log("error", error);
       });
-
-      $scope.view = 1;
     };
 
     $scope.deleteGuest = function(guest) {

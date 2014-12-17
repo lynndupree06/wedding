@@ -22,10 +22,6 @@ class PartiesController < AdminController
     end
   end
 
-  def parties_info
-    render :json => Party.all.to_json(:include => :guests)
-  end
-
   # GET /parties/new
   def new
     @party = Party.new

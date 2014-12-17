@@ -5,20 +5,19 @@ class GuestsController < AdminController
   # GET /guests
   # GET /guests.json
   def index
-    # @guests = Guest.all
-    respond_with do |format|
-      format.to_json { Guest.all.to_json(:include => [:party, :group]) }
+    @guests = Guest.all
+    respond_with(@guests) do |format|
+      format.to_json { @guests.to_json(:include => [:party, :group]) }
     end
-    # render :json => Guest.all.to_json(:include => [:party, :group])
   end
 
   # GET /guests/1
   # GET /guests/1.json
   def show
-  end
-
-  def guests_info
-    render :json => Guest.all.to_json(:include => [:party, :group])
+    @guest = Guest.find(params[:id])
+    respond_with(@guest) do |format|
+      format.to_json { @guest.to_json(:include => [:party, :group]) }
+    end
   end
 
   # POST /update_guest
