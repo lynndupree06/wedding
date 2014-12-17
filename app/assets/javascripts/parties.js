@@ -2,6 +2,10 @@
 
   var app = angular.module('admin', ['ngResource']);
 
+  app.config(["$httpProvider", function (provider) {
+    provider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
+  }]);
+
   app.factory('Parties', ['$resource', function ($resource) {
     return $resource('/parties.json', {}, {
       query: { method: 'GET', isArray: true },
@@ -33,7 +37,7 @@
     $scope.reverseSort = false;
     $scope.list = 'All';
 
-    this.loadList = function() {
+    $scope.loadList = function() {
       $scope.parties = Parties.query();
     };
 
@@ -50,11 +54,11 @@
       $scope.party = currentParty;
     };
 
-    $scope.updateParty = function(currentParty) {
+    $scope.updateParty = function(party) {
       var self = this;
       $('#partyDetails').modal('hide');
 
-      Party.update(currentParty, function() {
+      Party.update(party, function() {
         self.loadList();
       }, function (error) {
         console.log(error);
@@ -63,7 +67,6 @@
 
     $scope.deleteParty = function (partyId) {
       var self = this;
-      $('#partyDetails').modal('hide');
 
       if (confirm("Are you sure you want to delete this party?")) {
         Party.delete({id: partyId}, function() {
@@ -73,6 +76,7 @@
           console.log(error);
         });
       }
+      $('#partyDetails').modal('hide');
     };
 
     $scope.isShowing = function (currentView) {

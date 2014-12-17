@@ -1,7 +1,7 @@
 <%= render 'common/guest_summary' %>
 
 <div ng-app="admin">
-<div ng-controller="PartyController as partyCtrl" ng-init="partyCtrl.loadList();">
+<div ng-controller="PartyController as partyCtrl" ng-init="loadList();">
 <div ng-show="isShowing(1)">
   <h1>Listing parties <span class="label label-info">{{parties.length}}</span></h1>
 

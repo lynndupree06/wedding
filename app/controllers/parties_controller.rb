@@ -1,5 +1,5 @@
 class PartiesController < AdminController
-  before_action :set_party, only: [:show, :edit, :update, :destroy, :user_update]
+  before_action :set_party, only: [:show, :edit, :update, :destroy]
   respond_to :json
 
   # GET /parties
@@ -54,23 +54,28 @@ class PartiesController < AdminController
   # PATCH/PUT /parties/1
   # PATCH/PUT /parties/1.json
   def update
-    respond_to do |format|
-      params['party']['rsvp'] = party_params['rsvp'] == 'on'
-      params['party']['save_the_date_sent'] = party_params['save_the_date_sent'] == 'on'
-
-      if @party.update(party_params)
-        flash[:notice] = 'Party was successfully updated.'
-        if user_signed_in?
-          format.html { redirect_to parties_url, notice: 'Party was successfully updated.' }
-          format.json { render :show, status: :ok, location: @party }
-        else
-          redirect_to root_path, notice: 'Party was successfully updated.'
-        end
-      else
-        format.html { render :edit }
-        format.json { render json: @party.errors, status: :unprocessable_entity }
-      end
+    if @party.update_attributes(party_params)
+      render json: @party.as_json, status: :ok
+    else
+      render json: {party: @party.errors, status: :unprocessable_entity}
     end
+    # respond_to do |format|
+    #   params['party']['rsvp'] = party_params['rsvp'] == 'on'
+    #   params['party']['save_the_date_sent'] = party_params['save_the_date_sent'] == 'on'
+    #
+    #   if @party.update(party_params)
+    #     flash[:notice] = 'Party was successfully updated.'
+    #     if user_signed_in?
+    #       format.html { redirect_to parties_url, notice: 'Party was successfully updated.' }
+    #       format.json { render :show, status: :ok, location: @party }
+    #     else
+    #       redirect_to root_path, notice: 'Party was successfully updated.'
+    #     end
+    #   else
+    #     format.html { render :edit }
+    #     format.json { render json: @party.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # DELETE /parties/1

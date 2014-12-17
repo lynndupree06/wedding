@@ -2,6 +2,10 @@
 
   var app = angular.module('guestApp', ['ngRoute', 'ngResource', 'ngTable']);
 
+  app.config(["$httpProvider", function (provider) {
+    provider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
+  }]);
+
   app.factory('Guests', ['$resource',function($resource){
     return $resource('/guests.json', {},{
       query: { method: 'GET', isArray: true },
