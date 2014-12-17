@@ -1,10 +1,12 @@
 <%= render 'common/guest_summary' %>
 
 <div ng-app="admin">
-  <div ng-controller="PartyController as partyCtrl">
+<div ng-controller="PartyController as partyCtrl">
+  <div ng-show="isShowing(1)">
     <h1>Listing parties <span class="label label-info">{{parties.length}}</span></h1>
 
-    <%= link_to 'New Party', new_party_path %><br><br>
+    <%= link_to 'New Party', new_party_path %>
+    <br><br>
 
     <input type="text" ng-model="search" class="search-query form-control input-lg" placeholder="Search">
 
@@ -25,46 +27,180 @@
       </thead>
 
       <tbody>
-        <tr ng-repeat="party in parties | filter:search | orderBy:'name'"
-            ng-controller="StatusController as status"
-            ng-class="{danger:status.isMissingEmail(party) && status.isMissingAddress(party),
+      <tr ng-repeat="party in parties | filter:search | orderBy:'name'"
+          ng-controller="StatusController as status"
+          ng-class="{danger:status.isMissingEmail(party) && status.isMissingAddress(party),
               warning:status.isMissingEmail(party) && !status.isMissingAddress(party)}">
 
-          <td>
-            <i ng-hide="party.email" title="Missing email." class="fa fa-warning"></i>
-            <i ng-hide="party.address" title="Address incomplete." class="fa fa-warning"></i>
+        <td>
+          <i ng-hide="party.email" title="Missing email." class="fa fa-warning"></i>
+          <i ng-hide="party.address" title="Address incomplete." class="fa fa-warning"></i>
 
-            {{party.name}}<br>
+          {{party.name}}<br>
 
             <span style="margin-left:1em" ng-repeat="guest in party.guests">
               <i ng-show="partyCtrl.isFemale(guest)" class="fa fa-female"></i>
               <i ng-show="partyCtrl.isMale(guest)" class="fa fa-male"></i>
               {{guest.first_name}} {{guest.last_name}}<br>
             </span>
-            <br><br>
+          <br><br>
 
-            <i ng-show="party.confirmed" class="fa fa-check-circle fa-lg green"></i>
-          </td>
-          <td style="max-width: 150px;">
-            {{party.address}}<br>
-            {{party.city}}, {{party.state}} {{party.postal_code}}<br>
-            {{party.country}}<br>
-            <a href="mailto:{{party.email}}">{{party.email}}</a>
-          </td>
-          <td>
-            {{party.inner_envelop}}<br>
-            {{party.outer_envelop}}
-          </td>
-          <td>{{party.a_b_list}}</td>
-          <td>{{party.guests.length}}</td>
-          <td><input ng-model="party.save_the_date_sent" type="checkbox"/></td>
-          <td><input ng-model="party.rsvp" type="checkbox"/></td>
-          <td>{{party.size}}</td>
-          <td>{{party.notes}}</td>
-          <td><a id="{{party.id}}" class="edit-party"><i class="fa fa-edit"></i></a></td>
-        </tr>
+          <i ng-show="party.confirmed" class="fa fa-check-circle fa-lg green"></i>
+        </td>
+        <td style="max-width: 150px;">
+          {{party.address}}<br>
+          {{party.city}}, {{party.state}} {{party.postal_code}}<br>
+          {{party.country}}<br>
+          <a href="mailto:{{party.email}}">{{party.email}}</a>
+        </td>
+        <td>
+          {{party.inner_envelop}}<br>
+          {{party.outer_envelop}}
+        </td>
+        <td>{{party.a_b_list}}</td>
+        <td>{{party.guests.length}}</td>
+        <td><input ng-model="party.save_the_date_sent" type="checkbox"/></td>
+        <td><input ng-model="party.rsvp" type="checkbox"/></td>
+        <td>{{party.size}}</td>
+        <td>{{party.notes}}</td>
+        <td><a href ng-click="editParty(party)"><i class="fa fa-edit"></i></a></td>
+      </tr>
       </tbody>
     </table>
   </div>
+
+  <div ng-show="isShowing(2)">
+    <br><br><a ng-click="show(1)" style="cursor: pointer">Back</a><br>
+
+    <h1>Editing {{party.name}}</h1>
+
+    <form class='form-horizontal' role='form'
+          name="editPartyForm"
+          ng-submit="updateParty(party)">
+
+      <div class="form-group">
+        <label class='col-sm-2 control-label'>A/B List</label>
+
+        <div class="col-sm-10">
+          <input type="radio" ng-model="party.a_b_list" value="A"/> A
+          <input type="radio" ng-model="party.a_b_list" value="B"/> B
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="name" class='col-sm-2 control-label'>Name</label>
+
+        <div class="col-sm-10">
+          <input id="name" type="text" ng-model="party.name" class='form-control'/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email" class='col-sm-2 control-label'>Email</label>
+
+        <div class="col-sm-10">
+          <input type="email" id="email" class='form-control' ng-model="party.email"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="address" class='col-sm-2 control-label'>Address</label>
+
+        <div class="col-sm-10">
+          <input type="text" id="address" class='form-control' ng-model="party.address"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="city" class='col-sm-2 control-label'>City</label>
+
+        <div class="col-sm-10">
+          <input id="city" type="text" ng-model="party.city" class='form-control'/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="state" class='col-sm-2 control-label'>State</label>
+
+        <div class="col-sm-10">
+          <input type="text" id="state" class='form-control' ng-model="party.state"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="postal-code" class='col-sm-2 control-label'>Postal Code</label>
+
+        <div class="col-sm-10">
+          <input type="text" id="postal-code" class='form-control' ng-model="party.postal_code"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="country" class='col-sm-2 control-label'>Country</label>
+
+        <div class="col-sm-10">
+          <input id="country" type="text" ng-model="party.country" class='form-control'/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inner-envelop" class='col-sm-2 control-label'>Inner Envelop</label>
+
+        <div class="col-sm-10">
+          <input type="text" id="inner-envelop" class='form-control' ng-model="party.inner_envelop"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="outer-envelop" class='col-sm-2 control-label'>Outer Envelop</label>
+
+        <div class="col-sm-10">
+          <input type="text" id="outer-envelop" class='form-control' ng-model="party.outer_envelop"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="rsvp" class='col-sm-2 control-label'>RSVP</label>
+
+        <div class="col-sm-10">
+          <input id="rsvp" ng-model="party.rsvp" type="checkbox"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="save-the-date" class='col-sm-2 control-label'>Save the Date Sent?</label>
+
+        <div class="col-sm-10">
+          <input id="save-the-date" ng-model="party.save_the_date_sent" type="checkbox"/>
+        </div>
+      </div>
+
+      <strong>Guests:</strong>
+
+      <p ng-repeat="guest in party.guests">
+        {{guest.first_name}} {{guest.last_name}}
+        | <a ng-click="removeGuestFromParty(party, guest)">Remove From Party</a>
+      </p>
+
+      <p>
+        <a href ng-click="addGuest(party)">Add a new Guest</a>
+        | <a href ng-click="addExistingGuest(party)">Add an existing Guest</a>
+      </p>
+
+      <div class="form-group">
+        <label for="notes" class='col-sm-2 control-label'>Notes</label>
+
+        <div class="col-sm-10">
+          <text_area id="notes" class='form-control'></text_area>
+        </div>
+      </div>
+
+      <div class="actions">
+        <input type="submit" class='btn btn-primary' value="Update"/>
+        <input type="button" ng-click="deleteParty(party)" class='btn btn-danger' value="Delete"/>
+      </div>
+    </form>
+  </div>
+</div>
 </div>
 <%= render 'common/modal' %>

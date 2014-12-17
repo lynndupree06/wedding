@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get '/tags' => 'parties#tags'
   get '/parties_info' => 'parties#parties_info'
   get '/guests_info' => 'guests#guests_info'
+  post '/update_guest' => 'guests#update_guest'
+  patch '/update_guest' => 'guests#update_guest'
 
   root 'home#index'
 

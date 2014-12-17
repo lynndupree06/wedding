@@ -53,6 +53,8 @@ function getRecord(url, regex) {
   });
 
   app.controller('PartyController', ["$scope", "$http", function ($scope, $http) {
+    $scope.view = 1;
+
     $http.get('parties_info')
       .success(function(data, status, headers, config) {
         $scope.parties = data;
@@ -67,6 +69,19 @@ function getRecord(url, regex) {
 
     this.isMale = function(guest) {
       return guest.gender === 'Male';
+    };
+
+    $scope.editParty = function (currentParty) {
+      $scope.view = 2;
+      $scope.party = currentParty;
+    };
+
+    $scope.isShowing = function (currentView) {
+      return $scope.view === currentView
+    };
+
+    $scope.show = function (newView) {
+      $scope.view = newView;
     };
   }]);
 
