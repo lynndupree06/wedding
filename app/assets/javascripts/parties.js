@@ -40,7 +40,22 @@ function getRecord(url, regex) {
 
 (function () {
 
-  var app = angular.module('admin', []);
+  var app = angular.module('admin', ['ngResource']);
+
+  app.factory('Parties', ['$resource', function ($resource) {
+    return $resource('/parties.json', {}, {
+      query: { method: 'GET', isArray: true },
+      create: { method: 'POST' }
+    })
+  }]);
+
+  app.factory('Party', ['$resource', function ($resource) {
+    return $resource('/parties/:id.json', {}, {
+      show: { method: 'GET' },
+      update: { method: 'PUT', params: {id: '@id'} },
+      delete: { method: 'DELETE', params: {id: '@id'} }
+    });
+  }]);
 
   app.controller('StatusController', function () {
     this.isMissingEmail = function(party) {
@@ -52,18 +67,14 @@ function getRecord(url, regex) {
     };
   });
 
-  app.controller('PartyController', ["$scope", "$http", function ($scope, $http) {
+  app.controller('PartyController', ["$scope", "$http", "Parties", "Party", function ($scope, $http, Parties, Party) {
     $scope.view = 1;
     $scope.orderByField = 'name';
     $scope.reverseSort = false;
 
-    $http.get('parties_info')
-      .success(function(data, status, headers, config) {
-        $scope.parties = data;
-      })
-      .error(function(data, status, headers, config) {
-        console.log("error", status);
-      });
+    this.loadList = function() {
+      $scope.parties = Parties.query();
+    };
 
     this.isFemale = function(guest) {
       return guest.gender === 'Female';
@@ -76,6 +87,30 @@ function getRecord(url, regex) {
     $scope.editParty = function (currentParty) {
       $scope.view = 2;
       $scope.party = currentParty;
+    };
+
+    $scope.updateParty = function(currentParty) {
+      var self = this;
+
+      Party.update(currentParty, function() {
+        self.loadList();
+        $scope.view = 1;
+      }, function (error) {
+        console.log(error);
+      });
+    };
+
+    $scope.deleteParty = function (partyId) {
+      var self = this;
+
+      if (confirm("Are you sure you want to delete this party?")) {
+        Party.delete({id: partyId}, function() {
+          self.loadList();
+          $scope.view = 1;
+        }, function (error) {
+          console.log(error);
+        });
+      }
     };
 
     $scope.isShowing = function (currentView) {

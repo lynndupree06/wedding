@@ -5,11 +5,21 @@ class PartiesController < AdminController
   # GET /parties
   # GET /parties.json
   def index
+    @parties = Party.all
+    respond_with(@parties) do |format|
+      format.to_json { @parties.to_json(:include => :guests) }
+      format.html
+    end
   end
 
   # GET /parties/1
   # GET /parties/1.json
   def show
+    @party = Party.find(params[:id])
+    respond_with(@party) do |format|
+      format.to_json { @party.to_json(:include => :guests) }
+      format.html
+    end
   end
 
   def parties_info
@@ -71,10 +81,7 @@ class PartiesController < AdminController
   # DELETE /parties/1.json
   def destroy
     @party.destroy
-    respond_to do |format|
-      format.html { redirect_to parties_url, notice: 'Party was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    respond_with(@party)
   end
 
   def save_the_date_a

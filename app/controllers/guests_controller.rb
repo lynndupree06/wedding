@@ -1,9 +1,15 @@
 class GuestsController < AdminController
   before_action :set_guest, only: [:show, :edit, :update, :destroy]
+  respond_to :json, :html
 
   # GET /guests
   # GET /guests.json
   def index
+    # @guests = Guest.all
+    respond_with do |format|
+      format.to_json { Guest.all.to_json(:include => [:party, :group]) }
+    end
+    # render :json => Guest.all.to_json(:include => [:party, :group])
   end
 
   # GET /guests/1
@@ -13,6 +19,11 @@ class GuestsController < AdminController
 
   def guests_info
     render :json => Guest.all.to_json(:include => [:party, :group])
+  end
+
+  # POST /update_guest
+  def update_guest
+    binding.pry
   end
 
   # GET /guests/new

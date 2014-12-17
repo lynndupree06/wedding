@@ -2,47 +2,126 @@
 
 <%= link_to 'New Guest', new_guest_path %>
 
-<div ng-app="admin">
+<div ng-app="guestApp">
   <div ng-controller="GuestController as guestCtrl">
-    <h1>Listing guests <span class="label label-info">{{guests.length}}</span></h1>
 
-    <input type="text" ng-model="search" class="search-query form-control input-lg" placeholder="Search">
+    <div ng-show="isShowing(1)">
+      <h1>Listing guests <span class="label label-info">{{guests.length}}</span></h1>
+      <input type="text" ng-model="search" class="search-query form-control input-lg" placeholder="Search">
 
-    <table class="table table-hover">
-      <thead>
-      <tr>
-        <th>Last name</th>
-        <th>First name</th>
-        <th>Gender</th>
-        <th>Party</th>
-        <th>Group(s)</th>
-        <th></th>
-      </tr>
-      </thead>
+      <table ng-table='tableParams' class="table table-hover">
+        <tr ng-repeat="guest in guests | filter:search | orderBy:'last_name'">
+          <td data-title="'Last Name'">
+            {{guest.last_name}}
+            <span ng-show="guest.suffix">, {{guest.suffix}}</span>
+          </td>
+          <td data-title="'First Name'">{{guest.title}} {{guest.first_name}}</td>
+          <td data-title="'Gender'">{{guest.gender}}</td>
+          <td data-title="'Party'"><span ng-show="guest.party">{{guest.party.name}}</span></td>
+          <td data-title="'Group(s)'">
+            <p ng-repeat="g in guest.group">
+              <span class="label label-danger" ng-show="g.name === 'Bride\'s Family'">{{g.name}}</span>
+              <span class="label label-success" ng-show="g.name === 'Bride\'s Friends'">{{g.name}}</span>
+              <span class="label label-info" ng-show="g.name === 'Groom\'s Family'">{{g.name}}</span>
+              <span class="label label-warning" ng-show="g.name === 'Groom\'s Friends'">{{g.name}}</span>
+              <span class="label label-default" ng-show="g.name === 'Bridal Party' || g.name === 'Rehearsal Dinner'">{{g.name}}</span>
+              <span class="label label-primary" ng-show="g.name === 'Sunday Brunch'">{{g.name}}</span>
+            </p>
+          </td>
+          <td>
+            <a id="{{guest.id}}" ng-click="editGuest(guest)"><i class="fa fa-edit"></i></a>
+            <a id="{{guest.id}}" ng-click="deleteGuest(guest)"><i class="fa fa-trash-o"></i></a>
+          </td>
+        </tr>
+      </table>
+    </div>
 
-      <tbody>
-      <tr ng-repeat="guest in guests | filter:search | orderBy:'last_name'" style="cursor: pointer">
-        <td>
-          {{guest.last_name}}
-          <span ng-show="guest.suffix">, {{guest.suffix}}</span>
-        </td>
-        <td>{{guest.title}} {{guest.first_name}}</td>
-        <td>{{guest.gender}}</td>
-        <td><span ng-show="guest.party">{{guest.party.name}}</span></td>
-        <td>
-          <p ng-repeat="g in guest.group">
-            <span class="label label-danger" ng-show="g.name === 'Bride\'s Family'">{{g.name}}</span>
-            <span class="label label-success" ng-show="g.name === 'Bride\'s Friends'">{{g.name}}</span>
-            <span class="label label-info" ng-show="g.name === 'Groom\'s Family'">{{g.name}}</span>
-            <span class="label label-warning" ng-show="g.name === 'Groom\'s Friends'">{{g.name}}</span>
-            <span class="label label-default" ng-show="g.name === 'Bridal Party' || g.name === 'Rehearsal Dinner'">{{g.name}}</span>
-            <span class="label label-primary" ng-show="g.name === 'Sunday Brunch'">{{g.name}}</span>
-          </p>
-        </td>
-        <td><a id="{{guest.id}}" class="edit-guest"><i class="fa fa-edit"></i></a></td>
-      </tr>
-      </tbody>
-    </table>
+    <div ng-show="isShowing(2)">
+      <br><br><a ng-click="show(1)" style="cursor: pointer">Back</a><br>
+
+      <h1>Editing {{guest.first_name}} {{guest.last_name}}</h1>
+
+      <form class='form-horizontal' role='form'
+            name="editGuestForm"
+            ng-submit="updateGuest(guest)">
+
+        <div class="form-group">
+          <label class='col-sm-2 control-label'>Title</label>
+
+          <div class="col-sm-10">
+            <select ng-model="guest.title">
+              <option ng-repeat="title in <%= title_options %>" value="{{title}}">{{title}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="first-name" class='col-sm-2 control-label'>First Name</label>
+
+          <div class="col-sm-10">
+            <input id="first-name" type="text" ng-model="guest.first_name" class='form-control'/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="last-name" class='col-sm-2 control-label'>Last Name</label>
+
+          <div class="col-sm-10">
+            <input type="text" id="last-name" class='form-control' ng-model="guest.last_name"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="suffix" class='col-sm-2 control-label'>Suffix</label>
+
+          <div class="col-sm-10">
+            <input type="text" id="suffix" class='form-control' ng-model="guest.suffix"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="gender" class='col-sm-2 control-label'>Gender</label>
+
+          <div class="col-sm-10">
+            <input type="radio" ng-model="guest.gender" value="Male"/> Male
+            <input type="radio" ng-model="guest.gender" value="Female"/> Female
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="child" class='col-sm-2 control-label'>Child</label>
+
+          <div class="col-sm-10">
+            <input id="child" ng-model="guest.child" type="checkbox"/> Child?
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="party" class='col-sm-2 control-label'>Party</label>
+
+          <div class="col-sm-10">
+            <select ng-model="guest.party.name">
+              <option ng-repeat="name in <%= party_options %>" value="{{name}}">{{name}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class='col-sm-2 control-label'>Group</label>
+
+          <div class="col-sm-10">
+            <p ng-repeat="groupName in <%= group_options %>">
+              <input value="{{groupName}}" type="checkbox" ng-checked="isInGroup(guest, groupName)"/> {{groupName}}<br>
+            </p>
+          </div>
+        </div>
+
+        <div class="actions">
+          <input type="submit" class='btn btn-primary' value="Update"/>
+          <input type="button" ng-click="deleteGuest(guest)" class='btn btn-danger' value="Delete"/>
+        </div>
+      </form>
+    </div>
 
     <br>
   </div>
@@ -51,5 +130,3 @@
 <%= link_to 'New Guest', new_guest_path %>
 
 <%= render 'common/modal' %>
-
-

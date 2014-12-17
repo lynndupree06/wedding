@@ -1,7 +1,7 @@
 <%= render 'common/guest_summary' %>
 
 <div ng-app="admin">
-<div ng-controller="PartyController as partyCtrl">
+<div ng-controller="PartyController as partyCtrl" ng-init="partyCtrl.loadList();">
   <div ng-show="isShowing(1)">
     <h1>Listing parties <span class="label label-info">{{parties.length}}</span></h1>
 
@@ -197,7 +197,7 @@
 
       <div class="actions">
         <input type="submit" class='btn btn-primary' value="Update"/>
-        <input type="button" ng-click="deleteParty(party)" class='btn btn-danger' value="Delete"/>
+        <input type="button" ng-click="deleteParty(party.id)" class='btn btn-danger' value="Delete"/>
       </div>
     </form>
   </div>

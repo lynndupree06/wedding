@@ -1,13 +1,13 @@
 module GuestsHelper
   def title_options
-    [%w(Mr. Mr.), %w(Mrs. Mrs.), %w(Ms. Ms.), %w(Dr. Dr.), %w(Rev. Rev.)]
+    %w(Mr. Mrs. Ms. Dr. Rev.)
   end
 
   def party_options
-    Party.order(:name).all.map { |p| [p.name, p.id] }
+    Party.order(:name).all.map { |p| p.name }
   end
 
   def group_options
-    Group.order(:name).all.map { |g| [g.name, g.id] }
+    Group.order(:name).all.map { |g| g.name }
   end
 end
