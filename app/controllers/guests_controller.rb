@@ -20,11 +20,6 @@ class GuestsController < AdminController
     end
   end
 
-  # POST /update_guest
-  def update_guest
-    binding.pry
-  end
-
   # GET /guests/new
   def new
     @guest = Guest.new
