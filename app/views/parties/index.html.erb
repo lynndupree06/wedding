@@ -1,9 +1,10 @@
+<div ng-app="admin">
+
 <%= render 'common/guest_summary' %>
 
-<div ng-app="admin">
 <div ng-controller="PartyController as partyCtrl" ng-init="loadList();">
 <div ng-show="isShowing(1)">
-  <h1>Listing parties <span class="label label-info">{{parties.length}}</span></h1>
+  <h1>Listing parties <span class="label label-info">{{filtered.length}}</span></h1>
 
   <%= link_to 'New Party', new_party_path %>
   <br><br>
@@ -11,6 +12,7 @@
   <input type="text" ng-model="search" class="search-query form-control input-lg" placeholder="Search">
 
   <br>
+
   <div class="btn-group" role="group">
     <button type="button" class="btn btn-default" ng-class="{active:list === 'A'}" ng-click="list = 'A'">A List</button>
     <button type="button" class="btn btn-default" ng-class="{active:list === 'B'}" ng-click="list = 'B'">B List</button>
@@ -35,7 +37,7 @@
     </thead>
 
     <tbody>
-    <tr ng-repeat="party in parties | filter:search | orderBy:orderByField:reverseSort | filterList:list"
+    <tr ng-repeat="party in filtered = (parties | filter:search | orderBy:orderByField:reverseSort | filterList:list)"
         ng-controller="StatusController as status"
         ng-class="{danger:status.isMissingEmail(party) && status.isMissingAddress(party),
               warning:status.isMissingEmail(party) && !status.isMissingAddress(party)}">
@@ -224,5 +226,6 @@
 </form>
 
 </div>
+
 </div>
 <%= render 'common/modal' %>

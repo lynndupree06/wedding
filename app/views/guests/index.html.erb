@@ -6,7 +6,7 @@
   <div ng-controller="GuestController as guestCtrl">
 
     <div>
-      <h1>Listing guests <span class="label label-info">{{guests.length}}</span></h1>
+      <h1>Listing guests <span class="label label-info">{{filtered.length}}</span></h1>
       <input type="text" ng-model="search" class="search-query form-control input-lg" placeholder="Search">
 
       <br>
@@ -48,7 +48,7 @@
         </thead>
 
         <tbody>
-        <tr ng-repeat="guest in guests | filter:search | orderBy:'last_name' | filterList:group">
+        <tr ng-repeat="guest in filtered = (guests | filter:search | orderBy:'last_name' | filterList:group)">
           <td>
             {{guest.last_name}}
             <span ng-show="guest.suffix">, {{guest.suffix}}</span>
