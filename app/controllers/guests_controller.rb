@@ -55,13 +55,14 @@ class GuestsController < AdminController
   # PATCH/PUT /guests/1.json
   def update
     respond_to do |format|
-      GroupsGuests.delete_all(guest_id: @guest.id);
+      GroupsGuests.delete_all(guest_id: @guest.id)
 
-      params[:guest][:group].to_a.each do |g|
-        GroupsGuests.where(group_id: g.first, guest_id: @guest.id).first || GroupsGuests.create!(group_id: g.first, guest_id: @guest.id)
+      params[:group].each do |g|
+        if g['selected']
+          groupId = Group.where(name: g['name']).ids
+          GroupsGuests.where(group_id: groupId[0], guest_id: @guest.id).first || GroupsGuests.create!(group_id: groupId[0], guest_id: @guest.id)
+        end
       end
-
-      params['guest']['child'] = guest_params['child'] == '1' ? true : false;
 
       if @guest.update(guest_params)
         format.html { redirect_to guests_url, notice: 'Guest was successfully updated.' }
@@ -96,6 +97,6 @@ class GuestsController < AdminController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def guest_params
-    params.require(:guest).permit(:last_name, :first_name, :title, :suffix, :gender, :party_id, :group, :child)
+    params.require(:guest).permit(:last_name, :first_name, :title, :suffix, :gender, :party, :group, :child, :group)
   end
 end

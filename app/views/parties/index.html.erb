@@ -71,7 +71,10 @@
       <td><input ng-model="party.rsvp" type="checkbox"/></td>
       <td>{{party.size}}</td>
       <td>{{party.notes}}</td>
-      <td><a href ng-click="editParty(party)"><i class="fa fa-edit"></i></a></td>
+      <td>
+        <a href ng-click="editParty(party)"><i class="fa fa-edit"></i></a>
+        <a ng-click="deleteParty(party.id)"><i class="fa fa-trash-o"></i></a>
+      </td>
     </tr>
     </tbody>
   </table>

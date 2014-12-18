@@ -8,6 +8,6 @@ module GuestsHelper
   end
 
   def group_options
-    Group.order(:name).all.map { |g| g.name }
+    Group.order(:name).all.map { |g| [g.id, g.name] }
   end
 end
