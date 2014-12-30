@@ -6,6 +6,21 @@
     provider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
   }]);
 
+  app.factory('Guests', ['$resource', function ($resource) {
+    return $resource('/guests.json', {}, {
+      query: { method: 'GET', isArray: true },
+      create: { method: 'POST' }
+    })
+  }]);
+
+  app.factory('Guest', ['$resource', function ($resource) {
+    return $resource('/guests/:id.json', {}, {
+      show: { method: 'GET' },
+      update: { method: 'PUT', params: {id: '@id'} },
+      delete: { method: 'DELETE', params: {id: '@id'} }
+    });
+  }]);
+
   app.factory('Parties', ['$resource', function ($resource) {
     return $resource('/parties.json', {}, {
       query: { method: 'GET', isArray: true },
@@ -31,11 +46,13 @@
     };
   });
 
-  app.controller('PartyController', ["$scope", "$http", "Parties", "Party", function ($scope, $http, Parties, Party) {
+  app.controller('PartyController', ["$scope", "$http", "Parties", "Party", "Guest", "Guests",
+    function ($scope, $http, Parties, Party, Guest, Guests) {
     $scope.view = 1;
     $scope.orderByField = 'name';
     $scope.reverseSort = false;
     $scope.list = 'All';
+    $scope.addingNew = false;
 
     $scope.loadList = function() {
       $scope.parties = Parties.query();
@@ -63,7 +80,7 @@
       $('#partyDetails').modal('hide');
 
       Party.update(party, function() {
-        self.loadList();
+        // self.loadList();
       }, function (error) {
         console.log(error);
       });
@@ -99,6 +116,53 @@
       } else {
         $scope.party = $scope.parties[$scope.parties.length - 1];
       }
+    };
+
+    $scope.addNewGuestOptions = function () {
+      $scope.addingNew = true;
+      $scope.newGuest = {};
+    };
+
+    $scope.addExistingGuestOptions = function () {
+      $scope.guests = Guests.query();
+      $scope.addingExisting = true;
+    };
+
+    $scope.addNewGuest = function (party) {
+      $scope.newGuest.party = { id: party.id };
+
+      Guests.create($scope.newGuest, function(data) {
+        console.log('success');
+        $scope.newGuest.id = data.id;
+        party.guests[party.guests.length] = $scope.newGuest;
+        $scope.addingNew = false;
+        $scope.newGuest = {};
+      }, function (error) {
+        console.log(error);
+      });
+    };
+
+    $scope.addExistingGuest = function (party) {
+      var existingGuest = JSON.parse($scope.newExistingGuest);
+      existingGuest.party = { id: party.id };
+
+      Guest.update(existingGuest, function() {
+        console.log('success');
+        party.guests[party.guests.length] = existingGuest;
+        $scope.addingExisting = false;
+      }, function (error) {
+        console.log(error);
+      });
+    };
+
+    $scope.removeGuestFromParty = function (party, guest) {
+      Guest.delete({id: guest.id}, function() {
+        console.log('success');
+        var idx = party.guests.indexOf(guest);
+        party.guests.splice(idx, 1);
+      }, function (error) {
+        console.log(error);
+      })
     };
   }]);
 

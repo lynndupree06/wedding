@@ -51,12 +51,14 @@ class GuestsController < AdminController
   # PATCH/PUT /guests/1.json
   def update
     respond_to do |format|
-      GroupsGuests.delete_all(guest_id: @guest.id)
+      if params[:group].present?
+        GroupsGuests.delete_all(guest_id: @guest.id)
 
-      params[:group].each do |g|
-        if g['selected']
-          groupId = Group.where(name: g['name']).ids
-          GroupsGuests.where(group_id: groupId[0], guest_id: @guest.id).first || GroupsGuests.create!(group_id: groupId[0], guest_id: @guest.id)
+        params[:group].each do |g|
+          if g['selected']
+            groupId = Group.where(name: g['name']).ids
+            GroupsGuests.where(group_id: groupId[0], guest_id: @guest.id).first || GroupsGuests.create!(group_id: groupId[0], guest_id: @guest.id)
+          end
         end
       end
 

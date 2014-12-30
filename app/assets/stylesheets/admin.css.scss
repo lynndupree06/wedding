@@ -49,12 +49,13 @@
       position: fixed;
       top: 200px;
       float: left;
-      right: -100px;
+      right: -120px;
       background-color: #aaa;
       padding-left: 30px;
       font-family: "Helvetica Neue", "Arial", sans-serif;
       font-size: 14px;
       padding-bottom: 10px;
+      border-radius: 10px 0 0 10px;
 
       span {
         transform: rotate(90deg);
