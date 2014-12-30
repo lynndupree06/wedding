@@ -80,7 +80,7 @@
       </table>
     </div>
 
-    <form class='form-horizontal' role='form' name="editForm" ng-submit="update(guest)">
+    <form role='form' name="editForm" ng-submit="update(guest)">
       <div id="guestDetails" class="modal fade">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -100,72 +100,49 @@
             </div>
             <div class="modal-body">
 
-              <div class="form-group">
-                <label class='col-sm-2 control-label'>Title</label>
-
-                <div class="col-sm-10">
-                  <select ng-model="guest.title">
-                    <option ng-repeat="title in <%= title_options %>" value="{{title}}">{{title}}</option>
-                  </select>
-                </div>
+              <div class="form-group col-sm-2">
+                <label class='control-label'>Title</label>
+                <select class="form-control" ng-model="guest.title">
+                  <option ng-repeat="title in <%= title_options %>" value="{{title}}">{{title}}</option>
+                </select>
               </div>
 
-              <div class="form-group">
-                <label for="first-name" class='col-sm-2 control-label'>First Name</label>
-
-                <div class="col-sm-10">
-                  <input id="first-name" type="text" ng-model="guest.first_name" class='form-control'/>
-                </div>
+              <div class="form-group col-sm-4">
+                <label for="first-name" class='control-label'>First Name</label>
+                <input id="first-name" type="text" ng-model="guest.first_name" class='form-control'/>
               </div>
 
-              <div class="form-group">
-                <label for="last-name" class='col-sm-2 control-label'>Last Name</label>
-
-                <div class="col-sm-10">
-                  <input type="text" id="last-name" class='form-control' ng-model="guest.last_name"/>
-                </div>
+              <div class="form-group col-sm-4">
+                <label for="last-name" class='control-label'>Last Name</label>
+                <input type="text" id="last-name" class='form-control' ng-model="guest.last_name"/>
               </div>
 
-              <div class="form-group">
-                <label for="suffix" class='col-sm-2 control-label'>Suffix</label>
-
-                <div class="col-sm-10">
-                  <input type="text" id="suffix" class='form-control' ng-model="guest.suffix"/>
-                </div>
+              <div class="form-group col-sm-2">
+                <label for="suffix" class='control-label'>Suffix</label>
+                <input type="text" id="suffix" class='form-control' ng-model="guest.suffix"/>
               </div>
 
-              <div class="form-group">
-                <label for="gender" class='col-sm-2 control-label'>Gender</label>
-
-                <div class="col-sm-10">
-                  <input type="radio" ng-model="guest.gender" value="Male"/> Male
-                  <input type="radio" ng-model="guest.gender" value="Female"/> Female
-                </div>
+              <div class="form-group col-sm-6">
+                <label for="gender" class='control-label'>Gender</label>
+                <input type="radio" ng-model="guest.gender" value="Male"/> Male
+                <input type="radio" ng-model="guest.gender" value="Female"/> Female
               </div>
 
-              <div class="form-group">
-                <label for="child" class='col-sm-2 control-label'>Child</label>
-
-                <div class="col-sm-10">
-                  <input id="child" ng-model="guest.child" type="checkbox"/> Child?
-                </div>
+              <div class="form-group col-sm-6">
+                <input id="child" ng-model="guest.child" type="checkbox"/> Child?
               </div>
 
-              <div class="form-group">
-                <label for="party" class='col-sm-2 control-label'>Party</label>
-
-                <div class="col-sm-10">
-                  <select ng-model="guest.party.id">
-                    <option ng-repeat="party in parties" value="{{party.id}}">{{party.name}}</option>
-                  </select>
-                </div>
+              <div class="form-group col-sm-6">
+                <label for="party" class='control-label'>Party</label>
+                <select class="form-control" ng-model="guest.party.id">
+                  <option ng-repeat="party in parties" value="{{party.id}}">{{party.name}}</option>
+                </select>
               </div>
 
-              <div class="form-group">
-                <label class='col-sm-2 control-label'>Group</label>
-
-                <div class="col-sm-10">
-                  <p ng-repeat="group in groups">
+              <div class="form-group col-sm-12" style="height: 80px; clear:both;">
+                <label class='control-label'>Group</label>
+                <div class="col-sm-12">
+                  <p class="col-sm-6" ng-repeat="group in groups">
                     <input type="checkbox" name="groups[]" value="{{group.name}}" ng-model="group.selected"> {{group.name}}<br>
                   </p>
                 </div>
