@@ -50,8 +50,12 @@
     };
 
     $scope.editParty = function (currentParty) {
+      if(currentParty === undefined) {
+          $scope.party = {};
+      } else {
+        $scope.party = currentParty;
+      }
       $('#partyDetails').modal('show');
-      $scope.party = currentParty;
     };
 
     $scope.updateParty = function(party) {

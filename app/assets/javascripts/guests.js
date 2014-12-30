@@ -69,14 +69,7 @@
 
     $scope.editGuest = function (currentGuest) {
       if(currentGuest === undefined) {
-        $scope.guest = {
-          first_name: '',
-          last_name: '',
-          gender: '',
-          suffix: '',
-          child: '',
-          group: []
-        };
+        $scope.guest = {};
         $scope.status = 'new';
       } else {
         $scope.guest = currentGuest;

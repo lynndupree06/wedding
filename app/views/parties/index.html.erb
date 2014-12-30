@@ -3,11 +3,11 @@
 <%= render 'common/guest_summary' %>
 
 <div ng-controller="PartyController as partyCtrl" ng-init="loadList();">
-<div ng-show="isShowing(1)">
-  <h1>Listing parties <span class="label label-info">{{filtered.length}}</span></h1>
-
-  <%= link_to 'New Party', new_party_path %>
+<div>
   <br><br>
+  <button class="btn btn-info" ng-click="editParty()"><i class="glyphicon glyphicon-plus"></i> New Party</button>
+
+  <h1>Listing parties <span class="label label-info">{{filtered.length}}</span></h1>
 
   <input type="text" ng-model="search" class="search-query form-control input-lg" placeholder="Search">
 
@@ -228,4 +228,7 @@
 </div>
 
 </div>
+
+<button class="btn btn-info" ng-click="editParty()"><i class="glyphicon glyphicon-plus"></i> New Party</button>
+
 <%= render 'common/modal' %>
