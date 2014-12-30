@@ -5,7 +5,7 @@ class PartiesController < AdminController
   # GET /parties
   # GET /parties.json
   def index
-    @parties = Party.all
+    @parties = Party.all.order(:name)
     respond_with(@parties) do |format|
       format.to_json { @parties.to_json(:include => :guests) }
       format.html

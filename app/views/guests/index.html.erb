@@ -39,16 +39,16 @@
 
       <table class="table table-hover">
         <thead>
-            <th>Last Name</th>
-            <th>First Name</th>
-            <th>Gender</th>
-            <th>Party</th>
+            <th ng-click="orderByField='last_name'; reverseSort = !reverseSort"><a href>Last Name</a></th>
+            <th ng-click="orderByField='first_name'; reverseSort = !reverseSort"><a href>First Name</a></th>
+            <th ng-click="orderByField='gender'; reverseSort = !reverseSort"><a href>Gender</a></th>
+            <th ng-click="orderByField='party'; reverseSort = !reverseSort"><a href>Party</a></th>
             <th>Group(s)</th>
             <th></th>
         </thead>
 
         <tbody>
-        <tr ng-repeat="guest in filtered = (guests | filter:search | orderBy:'last_name' | filterList:group)">
+        <tr ng-repeat="guest in filtered = (guests | filter:search | orderBy:orderByField:reverseSort | filterList:group)">
           <td>
             {{guest.last_name}}
             <span ng-show="guest.suffix">, {{guest.suffix}}</span>
