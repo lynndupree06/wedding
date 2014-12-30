@@ -53,6 +53,7 @@
     $scope.guests = [];
     $scope.orderByField = 'last_name';
     $scope.reverseSort = false;
+    $scope.addingNew = false;
     $scope.group = 'All';
     $scope.guests = Guests.query();
     $scope.groups = [
@@ -70,7 +71,7 @@
     $scope.editGuest = function (currentGuest) {
       if(currentGuest === undefined) {
         $scope.guest = {};
-        $scope.status = 'new';
+        $scope.addingNew = true;
       } else {
         $scope.guest = currentGuest;
         for (var j in $scope.guest.group) {
@@ -93,7 +94,7 @@
       guest.updated_at = new Date();
       guest.group = $scope.groups;
 
-      if(guest.id !== undefined) {
+      if(!$scope.addingNew) {
         Guest.update(guest, function () {
           $scope.guests = Guests.query();
         }, function (error) {
@@ -102,6 +103,7 @@
       } else {
         Guests.create(guest, function () {
           $scope.guests = Guests.query();
+          $scope.addingNew = false;
         }, function (error) {
           console.log("error", error);
         });

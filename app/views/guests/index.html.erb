@@ -88,11 +88,11 @@
               <button type="button" class="close" data-dismiss="modal">
                 <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
               </button>
-              <a href style="float: left;" ng-click="previous(guest)">
+              <a href ng-hide="addingNew" style="float: left;" ng-click="previous(guest)">
                 <i class="glyphicon glyphicon-chevron-left"></i>
                 Previous
               </a>
-              <a href style="float: right;" ng-click="next(guest)">
+              <a href ng-hide="addingNew" style="float: right;" ng-click="next(guest)">
                 Next
                 <i class="glyphicon glyphicon-chevron-right"></i>
               </a>
@@ -149,9 +149,9 @@
               </div>
             </div>
             <div class="modal-footer">
-              <input ng-show="status === 'new'" type="submit" class='btn btn-primary' value="Add New Guest"/>
-              <input ng-hide="status === 'new'" type="submit" class='btn btn-primary' value="Update"/>
-              <input ng-hide="status === 'new'" type="button" ng-click="delete(guest)" class='btn btn-danger' value="Delete"/>
+              <input ng-show="addingNew" type="submit" class='btn btn-primary' value="Add New Guest"/>
+              <input ng-hide="addingNew" type="submit" class='btn btn-primary' value="Update"/>
+              <input ng-hide="addingNew" type="button" ng-click="delete(guest)" class='btn btn-danger' value="Delete"/>
             </div>
           </div>
           <!-- /.modal-content -->

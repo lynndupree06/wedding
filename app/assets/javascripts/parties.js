@@ -69,24 +69,35 @@
     $scope.editParty = function (currentParty) {
       if(currentParty === undefined) {
           $scope.party = {};
+          $scope.addingNew = true;
       } else {
         $scope.party = currentParty;
       }
       $('#partyDetails').modal('show');
     };
 
-    $scope.updateParty = function(party) {
+    $scope.update = function(party) {
       var self = this;
-      $('#partyDetails').modal('hide');
 
-      Party.update(party, function() {
-        // self.loadList();
-      }, function (error) {
-        console.log(error);
-      });
+      if($scope.addingNew) {
+        Parties.create(party, function() {
+          $scope.parties = Parties.query();
+          $scope.addingNew = false;
+        }, function (error) {
+          console.log(error);
+        });
+      } else {
+        Party.update(party, function() {
+          // self.loadList();
+        }, function (error) {
+          console.log(error);
+        });
+      }
+
+      $('#partyDetails').modal('hide');
     };
 
-    $scope.deleteParty = function (partyId) {
+    $scope.delete = function (partyId) {
       var self = this;
 
       if (confirm("Are you sure you want to delete this party?")) {
@@ -129,30 +140,49 @@
     };
 
     $scope.addNewGuest = function (party) {
-      $scope.newGuest.party = { id: party.id };
+      if(party.id !== undefined) {
+        $scope.newGuest.party = { id: party.id };
 
-      Guests.create($scope.newGuest, function(data) {
-        console.log('success');
-        $scope.newGuest.id = data.id;
-        party.guests[party.guests.length] = $scope.newGuest;
-        $scope.addingNew = false;
-        $scope.newGuest = {};
-      }, function (error) {
-        console.log(error);
-      });
+        Guests.create($scope.newGuest, function(data) {
+          console.log('success');
+          $scope.newGuest.id = data.id;
+          party.guests[party.guests.length] = $scope.newGuest;
+          $scope.addingNew = false;
+          $scope.newGuest = {};
+        }, function (error) {
+          console.log(error);
+        });
+      } else {
+        if(party.guests === undefined) {
+          party.guests = [];
+          party.guests[0] = $scope.newGuest;
+        } else {
+          party.guests[party.guests.length] = $scope.newGuest;
+        }
+      }
     };
 
     $scope.addExistingGuest = function (party) {
       var existingGuest = JSON.parse($scope.newExistingGuest);
-      existingGuest.party = { id: party.id };
+      
+      if(party.id !== undefined) {
+        existingGuest.party = { id: party.id };
 
-      Guest.update(existingGuest, function() {
-        console.log('success');
-        party.guests[party.guests.length] = existingGuest;
-        $scope.addingExisting = false;
-      }, function (error) {
-        console.log(error);
-      });
+        Guest.update(existingGuest, function() {
+          console.log('success');
+          party.guests[party.guests.length] = existingGuest;
+          $scope.addingExisting = false;
+        }, function (error) {
+          console.log(error);
+        });
+      } else {
+        if(party.guests === undefined) {
+          party.guests = [];
+          party.guests[0] = exisitingGuest;
+        } else {
+          party.guests[party.guests.length] = exisitingGuest;
+        }
+      }
     };
 
     $scope.removeGuestFromParty = function (party, guest) {

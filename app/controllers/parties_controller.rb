@@ -42,10 +42,8 @@ class PartiesController < AdminController
 
     respond_to do |format|
       if @party.save
-        format.html { redirect_to @party, notice: 'Party was successfully created.' }
         format.json { render :show, status: :created, location: @party }
       else
-        format.html { render :new }
         format.json { render json: @party.errors, status: :unprocessable_entity }
       end
     end
@@ -59,23 +57,6 @@ class PartiesController < AdminController
     else
       render json: {party: @party.errors, status: :unprocessable_entity}
     end
-    # respond_to do |format|
-    #   params['party']['rsvp'] = party_params['rsvp'] == 'on'
-    #   params['party']['save_the_date_sent'] = party_params['save_the_date_sent'] == 'on'
-    #
-    #   if @party.update(party_params)
-    #     flash[:notice] = 'Party was successfully updated.'
-    #     if user_signed_in?
-    #       format.html { redirect_to parties_url, notice: 'Party was successfully updated.' }
-    #       format.json { render :show, status: :ok, location: @party }
-    #     else
-    #       redirect_to root_path, notice: 'Party was successfully updated.'
-    #     end
-    #   else
-    #     format.html { render :edit }
-    #     format.json { render json: @party.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # DELETE /parties/1
