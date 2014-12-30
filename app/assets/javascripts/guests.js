@@ -117,6 +117,12 @@
 
       if (group === 'All') {
         filtered = guests;
+      } else if (group === '') {
+        angular.forEach(guests, function (guest) {
+          if (guest.group[0] === undefined) {
+              filtered.push(guest);
+          }
+        });
       } else {
         angular.forEach(guests, function (guest) {
           for (var idx in guest.group) {
