@@ -6,6 +6,13 @@
     provider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
   }]);
 
+  app.factory('Parties', ['$resource', function ($resource) {
+    return $resource('/parties.json', {}, {
+      query: { method: 'GET', isArray: true },
+      create: { method: 'POST' }
+    })
+  }]);
+
   app.factory('Guests', ['$resource', function ($resource) {
     return $resource('/guests.json', {}, {
       query: { method: 'GET', isArray: true },
@@ -40,7 +47,8 @@
   }
   ]);
 
-  app.controller('GuestController', ["$filter", "$scope", "$http", "Guests", "Guest", function ($filter, $scope, $http, Guests, Guest) {
+  app.controller('GuestController', ["$filter", "$scope", "$http", "Guests", "Guest", "Parties",
+    function ($filter, $scope, $http, Guests, Guest, Parties) {
     $scope.view = 1;
     $scope.guests = [];
     $scope.orderByField = 'last_name';
@@ -56,6 +64,8 @@
       {name: "Rehearsal Dinner", selected: false},
       {name: "Sunday Brunch", selected: false}
     ];
+
+    $scope.parties = Parties.query();
 
     $scope.editGuest = function (currentGuest) {
       $scope.guest = currentGuest;

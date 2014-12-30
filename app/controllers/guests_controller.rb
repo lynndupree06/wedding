@@ -60,6 +60,9 @@ class GuestsController < AdminController
       end
 
       if @guest.update(guest_params)
+        @guest.party_id = params[:party][:id]
+        @guest.save!
+        
         format.html { redirect_to guests_url, notice: 'Guest was successfully updated.' }
         format.json { render :show, status: :ok, location: @guest }
       else
@@ -92,6 +95,6 @@ class GuestsController < AdminController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def guest_params
-    params.require(:guest).permit(:last_name, :first_name, :title, :suffix, :gender, :party_id, :group, :child, :group)
+    params.require(:guest).permit(:last_name, :first_name, :title, :suffix, :gender, :party, :group, :child, :group)
   end
 end

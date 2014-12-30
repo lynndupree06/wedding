@@ -141,8 +141,9 @@
                 <label for="party" class='col-sm-2 control-label'>Party</label>
 
                 <div class="col-sm-10">
-                  <select ng-model="guest.party.name">
-                    <option ng-repeat="name in <%= party_options %>" value="{{name}}">{{name}}</option>
+                  <select ng-model="guest.party" ng-options="party.name for party in parties">
+                  <!-- <select ng-options="party as party[1] for party in <%= party_options %>" ng-model="guest.party_id"> -->
+                    <!-- <option ng-repeat="name in <%= party_options %>" value="{{name}}">{{name}}</option> -->
                   </select>
                 </div>
               </div>

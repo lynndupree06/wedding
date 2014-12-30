@@ -4,7 +4,7 @@ module GuestsHelper
   end
 
   def party_options
-    Party.order(:name).all.map { |p| p.name }
+    Party.order(:name).all.map { |p| { id: p.id, name: p.name } }
   end
 
   def group_options
