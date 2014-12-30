@@ -83,12 +83,22 @@
       $('#partyDetails').modal('hide');
     };
 
-    $scope.isShowing = function (currentView) {
-      return $scope.view === currentView
+    $scope.next = function (currentParty) {
+      var idx = $scope.parties.indexOf(currentParty);
+      if(idx < $scope.parties.length - 1) {
+        $scope.party = $scope.parties[idx + 1];
+      } else {
+        $scope.party = $scope.parties[0];
+      }
     };
 
-    $scope.show = function (newView) {
-      $scope.view = newView;
+    $scope.previous = function (currentParty) {
+      var idx = $scope.parties.indexOf(currentParty);
+      if(idx > 0) {
+        $scope.party = $scope.parties[idx - 1];
+      } else {
+        $scope.party = $scope.parties[$scope.parties.length - 1];
+      }
     };
   }]);
 

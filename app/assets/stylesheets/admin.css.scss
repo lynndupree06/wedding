@@ -33,6 +33,17 @@
       font-size: 14px;
     }
 
+    .modal-header {
+      button.close {
+        margin: -12px -5px 0px 10px;
+        font-size: 40px;
+      }
+
+      .modal-title {
+        clear: both;
+      }
+    }
+
     .filters {
       width: 150px;
       position: fixed;

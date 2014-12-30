@@ -86,7 +86,16 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">
-                <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+              </button>
+              <a href style="float: left;" ng-click="previous(guest)">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+                Previous
+              </a>
+              <a href style="float: right;" ng-click="next(guest)">
+                Next
+                <i class="glyphicon glyphicon-chevron-right"></i>
+              </a>
               <h4 class="modal-title">{{guest.first_name}} {{guest.last_name}}</h4>
             </div>
             <div class="modal-body">

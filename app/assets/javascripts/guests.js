@@ -121,6 +121,24 @@
       }
       $('#guestDetails').modal('hide');
     };
+
+    $scope.next = function (currentGuest) {
+      var idx = $scope.guests.indexOf(currentGuest);
+      if(idx < $scope.guests.length - 1) {
+        $scope.guest = $scope.guests[idx + 1];
+      } else {
+        $scope.guest = $scope.guests[0];
+      }
+    };
+
+    $scope.previous = function (currentGuest) {
+      var idx = $scope.guests.indexOf(currentGuest);
+      if(idx > 0) {
+        $scope.guest = $scope.guests[idx - 1];
+      } else {
+        $scope.guest = $scope.guests[$scope.guests.length - 1];
+      }
+    };
   }]);
 
   app.filter('filterList', function () {

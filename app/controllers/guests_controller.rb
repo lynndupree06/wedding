@@ -5,7 +5,7 @@ class GuestsController < AdminController
   # GET /guests
   # GET /guests.json
   def index
-    @guests = Guest.all
+    @guests = Guest.all.order(:last_name)
     respond_with(@guests) do |format|
       format.to_json { @guests.to_json(:include => [:party, :group]) }
     end
