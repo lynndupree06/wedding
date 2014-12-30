@@ -1,6 +1,6 @@
 (function () {
 
-  var app = angular.module('guestApp', ['ngRoute', 'ngResource']);
+  var app = angular.module('guestApp', ['ngRoute', 'ngResource', 'app-directives']);
 
   app.config(["$httpProvider", function (provider) {
     provider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
@@ -70,14 +70,14 @@
 
     $scope.editGuest = function (currentGuest) {
       if(currentGuest === undefined) {
-        $scope.guest = {};
+        $scope.item = {};
         $scope.addingNew = true;
       } else {
-        $scope.guest = currentGuest;
-        for (var j in $scope.guest.group) {
+        $scope.item = currentGuest;
+        for (var j in $scope.item.group) {
           for (var k in $scope.groups) {
             var groupOption = $scope.groups[k];
-            var group = $scope.guest.group[j];
+            var group = $scope.item.group[j];
 
             if (groupOption.name == group.name) {
               groupOption.selected = true;
@@ -87,10 +87,10 @@
           }
         }
       }
-      $('#guestDetails').modal('show');
+      $('#details').modal('show');
     };
 
-    $scope.update = function (guest) {
+    $scope.updateOrCreate = function (guest) {
       guest.updated_at = new Date();
       guest.group = $scope.groups;
 
@@ -109,10 +109,10 @@
         });
       }
 
-      $('#guestDetails').modal('hide');
+      $('#details').modal('hide');
     };
 
-    $scope.delete = function (guest) {
+    $scope.deleteItem = function (guest) {
       var response = confirm("Are you sure you want to delete " + guest.first_name + " " + guest.last_name);
       if (response == true) {
         Guest.delete({id: guest.id}, function () {
@@ -121,24 +121,24 @@
           console.log(error);
         });
       }
-      $('#guestDetails').modal('hide');
+      $('#details').modal('hide');
     };
 
     $scope.next = function (currentGuest) {
       var idx = $scope.guests.indexOf(currentGuest);
       if(idx < $scope.guests.length - 1) {
-        $scope.guest = $scope.guests[idx + 1];
+        $scope.item = $scope.guests[idx + 1];
       } else {
-        $scope.guest = $scope.guests[0];
+        $scope.item = $scope.guests[0];
       }
     };
 
     $scope.previous = function (currentGuest) {
       var idx = $scope.guests.indexOf(currentGuest);
       if(idx > 0) {
-        $scope.guest = $scope.guests[idx - 1];
+        $scope.item = $scope.guests[idx - 1];
       } else {
-        $scope.guest = $scope.guests[$scope.guests.length - 1];
+        $scope.item = $scope.guests[$scope.guests.length - 1];
       }
     };
   }]);

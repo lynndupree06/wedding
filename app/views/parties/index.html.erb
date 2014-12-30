@@ -1,221 +1,203 @@
 <div ng-app="admin">
 
-<%= render 'common/guest_summary' %>
+  <%= render 'common/guest_summary' %>
 
-<div ng-controller="PartyController as partyCtrl" ng-init="loadList();">
-<div>
-  <br><br>
-  <button class="btn btn-info" ng-click="editParty()"><i class="glyphicon glyphicon-plus"></i> New Party</button>
+  <div ng-controller="PartyController as partyCtrl" ng-init="loadList();">
+    <div>
+      <br><br>
+      <button class="btn btn-info" ng-click="editParty()"><i class="glyphicon glyphicon-plus"></i> New Party</button>
 
-  <h1>Listing parties <span class="label label-info">{{filtered.length}}</span></h1>
+      <h1>Listing parties <span class="label label-info">{{filtered.length}}</span></h1>
 
-  <input type="text" ng-model="search" class="search-query form-control input-lg" placeholder="Search">
+      <input type="text" ng-model="search" class="search-query form-control input-lg" placeholder="Search">
 
-  <br>
+      <br>
 
-  <div data-spy="affix" data-offset-top="60" class="filters">
-    <span>Filters</span>
-    <button type="button" class="btn btn-default" ng-class="{active:list === 'A'}" ng-click="list = 'A'">A List</button>
-    <button type="button" class="btn btn-default" ng-class="{active:list === 'B'}" ng-click="list = 'B'">B List</button>
-    <button type="button" class="btn btn-default" ng-class="{active:list === 'All'}" ng-click="list = 'All'">All</button>
-  </div>
-  <br><br>
+      <div data-spy="affix" data-offset-top="60" class="filters">
+        <span>Filters</span>
+        <button type="button" class="btn btn-default" ng-class="{active:list === 'A'}" ng-click="list = 'A'">A List
+        </button>
+        <button type="button" class="btn btn-default" ng-class="{active:list === 'B'}" ng-click="list = 'B'">B List
+        </button>
+        <button type="button" class="btn btn-default" ng-class="{active:list === 'All'}" ng-click="list = 'All'">All</button>
+      </div>
+      <br><br>
 
-  <table class="table table-responsive parties">
-    <thead>
-    <tr>
-      <th ng-click="orderByField='name'; reverseSort = !reverseSort"><a href>Name</a></th>
-      <th><a href>Address</a></th>
-      <th><a href>Inner/Outer Envelop</a></th>
-      <th ng-click="orderByField='a_b_list'; reverseSort = !reverseSort"><a href>List</a></th>
-      <th ng-click="orderByField='guests.length'; reverseSort = !reverseSort"><a href>Size</a></th>
-      <th ng-click="orderByField='save_the_date_sent'; reverseSort = !reverseSort"><a href>Save The Date Sent?</a></th>
-      <th ng-click="orderByField='rsvp'; reverseSort = !reverseSort"><a href>RSVP?</a></th>
-      <th ng-click="orderByField='size'; reverseSort = !reverseSort"><a href>RSVP Party Size</a></th>
-      <th><a href>Tags</a></th>
-      <th></th>
-    </tr>
-    </thead>
+      <table class="table table-responsive parties">
+        <thead>
+        <tr>
+          <th ng-click="orderByField='name'; reverseSort = !reverseSort"><a href>Name</a></th>
+          <th><a href>Address</a></th>
+          <th><a href>Inner/Outer Envelop</a></th>
+          <th ng-click="orderByField='a_b_list'; reverseSort = !reverseSort"><a href>List</a></th>
+          <th ng-click="orderByField='guests.length'; reverseSort = !reverseSort"><a href>Size</a></th>
+          <th ng-click="orderByField='save_the_date_sent'; reverseSort = !reverseSort"><a href>Save The Date Sent?</a>
+          </th>
+          <th ng-click="orderByField='rsvp'; reverseSort = !reverseSort"><a href>RSVP?</a></th>
+          <th ng-click="orderByField='size'; reverseSort = !reverseSort"><a href>RSVP Party Size</a></th>
+          <th><a href>Tags</a></th>
+          <th></th>
+        </tr>
+        </thead>
 
-    <tbody>
-    <tr ng-repeat="party in filtered = (parties | filter:search | orderBy:orderByField:reverseSort | filterList:list)"
-        ng-controller="StatusController as status"
-        ng-class="{danger:status.isMissingEmail(party) && status.isMissingAddress(party),
+        <tbody>
+        <tr ng-repeat="party in filtered = (parties | filter:search | orderBy:orderByField:reverseSort | filterList:list)"
+            ng-controller="StatusController as status"
+            ng-class="{danger:status.isMissingEmail(party) && status.isMissingAddress(party),
               warning:status.isMissingEmail(party) && !status.isMissingAddress(party)}">
 
-      <td>
-        <i ng-hide="party.email" title="Missing email." class="fa fa-warning"></i>
-        <i ng-hide="party.address" title="Address incomplete." class="fa fa-warning"></i>
+          <td>
+            <i ng-hide="party.email" title="Missing email." class="fa fa-warning"></i>
+            <i ng-hide="party.address" title="Address incomplete." class="fa fa-warning"></i>
 
-        {{party.name}}<br>
+            {{party.name}}<br>
 
             <span style="margin-left:1em" ng-repeat="guest in party.guests">
               <i ng-show="partyCtrl.isFemale(guest)" class="fa fa-female"></i>
               <i ng-show="partyCtrl.isMale(guest)" class="fa fa-male"></i>
               {{guest.first_name}} {{guest.last_name}}<br>
             </span>
-        <br><br>
+            <br><br>
 
-        <i ng-show="party.confirmed" class="fa fa-check-circle fa-lg green"></i>
-      </td>
-      <td style="max-width: 150px;">
-        {{party.address}}<br>
-        {{party.city}}, {{party.state}} {{party.postal_code}}<br>
-        {{party.country}}<br>
-        <a href="mailto:{{party.email}}">{{party.email}}</a>
-      </td>
-      <td>
-        {{party.inner_envelop}}<br>
-        {{party.outer_envelop}}
-      </td>
-      <td>{{party.a_b_list}}</td>
-      <td>{{party.guests.length}}</td>
-      <td><input ng-model="party.save_the_date_sent" type="checkbox"/></td>
-      <td><input ng-model="party.rsvp" type="checkbox"/></td>
-      <td>{{party.size}}</td>
-      <td>{{party.notes}}</td>
-      <td>
-        <a href ng-click="editParty(party)"><i class="fa fa-edit"></i></a>
-        <a ng-click="deleteParty(party.id)"><i class="fa fa-trash-o"></i></a>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-</div>
+            <i ng-show="party.confirmed" class="fa fa-check-circle fa-lg green"></i>
+          </td>
+          <td style="max-width: 150px;">
+            {{party.address}}<br>
+            {{party.city}}, {{party.state}} {{party.postal_code}}<br>
+            {{party.country}}<br>
+            <a href="mailto:{{party.email}}">{{party.email}}</a>
+          </td>
+          <td>
+            {{party.inner_envelop}}<br>
+            {{party.outer_envelop}}
+          </td>
+          <td>{{party.a_b_list}}</td>
+          <td>{{party.guests.length}}</td>
+          <td><input ng-model="party.save_the_date_sent" type="checkbox"/></td>
+          <td><input ng-model="party.rsvp" type="checkbox"/></td>
+          <td>{{party.size}}</td>
+          <td>{{party.notes}}</td>
+          <td>
+            <a href ng-click="editParty(party)"><i class="fa fa-edit"></i></a>
+            <a ng-click="deleteItem(party.id)"><i class="fa fa-trash-o"></i></a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
 
 
-<form role='form' name="editPartyForm" ng-submit="update(party)">
-  <div id="partyDetails" class="modal fade">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">
-            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-          </button>
-          <a href ng-hide="addingNew" style="float: left;" ng-click="previous(party)">
-            <i class="glyphicon glyphicon-chevron-left"></i>
-            Previous
-          </a>
-          <a href ng-hide="addingNew" style="float: right;" ng-click="next(party)">
-            Next
-            <i class="glyphicon glyphicon-chevron-right"></i>
-          </a>
-          <h4 class="modal-title">{{party.name}}</h4>
-        </div>
-        <div class="modal-body">
+    <edit-item>
 
-          <div class="form-group col-sm-12">
-            <label class='control-label'>A/B List</label>
-            <input type="radio" ng-model="party.a_b_list" value="A"/> A
-            <input type="radio" ng-model="party.a_b_list" value="B"/> B
-          </div>
+      <div class="form-group col-xs-12">
+        <label class='control-label'>A/B List</label>
+        <input type="radio" ng-model="item.a_b_list" value="A"/> A
+        <input type="radio" ng-model="item.a_b_list" value="B"/> B
+      </div>
 
-          <div class="form-group col-sm-12">
-            <label for="name" class='control-label'>Name</label>
-            <input id="name" type="text" ng-model="party.name" class='form-control'/>
-          </div>
+      <div class="form-group col-xs-12">
+        <label for="name" class='control-label'>Name</label>
+        <input id="name" type="text" ng-model="item.name" class='form-control'/>
+      </div>
 
-          <div class="form-group col-sm-12">
-            <label for="address" class='control-label'>Address</label>
-            <input type="text" id="address" class='form-control' ng-model="party.address"/>
-          </div>
+      <div class="form-group col-xs-12">
+        <label for="address" class='control-label'>Address</label>
+        <input type="text" id="address" class='form-control' ng-model="item.address"/>
+      </div>
 
-          <div class="form-group col-sm-4">
-            <label for="city" class='control-label'>City</label>
-            <input id="city" type="text" ng-model="party.city" class='form-control'/>
-          </div>
+      <div class="form-group col-xs-4">
+        <label for="city" class='control-label'>City</label>
+        <input id="city" type="text" ng-model="item.city" class='form-control'/>
+      </div>
 
-          <div class="form-group col-sm-4">
-            <label for="state" class='control-label'>State</label>
-            <input type="text" id="state" class='form-control' ng-model="party.state"/>
-          </div>
+      <div class="form-group col-xs-4">
+        <label for="state" class='control-label'>State</label>
+        <input type="text" id="state" class='form-control' ng-model="item.state"/>
+      </div>
 
-          <div class="form-group col-sm-4">
-            <label for="postal-code" class='control-label'>Postal Code</label>
-            <input type="text" id="postal-code" class='form-control' ng-model="party.postal_code"/>
-          </div>
+      <div class="form-group col-xs-4">
+        <label for="postal-code" class='control-label'>Postal Code</label>
+        <input type="text" id="postal-code" class='form-control' ng-model="item.postal_code"/>
+      </div>
 
-          <div class="form-group col-sm-6">
-            <label for="country" class='control-label'>Country</label>
-            <input id="country" type="text" ng-model="party.country" class='form-control'/>
-          </div>
+      <div class="form-group col-xs-6">
+        <label for="country" class='control-label'>Country</label>
+        <input id="country" type="text" ng-model="item.country" class='form-control'/>
+      </div>
 
-          <div class="form-group col-sm-6">
-            <label for="email" class='control-label'>Email</label>
-            <input type="text" id="email" class='form-control' ng-model="party.email"/>
-          </div>
+      <div class="form-group col-xs-6">
+        <label for="email" class='control-label'>Email</label>
+        <input type="text" id="email" class='form-control' ng-model="item.email"/>
+      </div>
 
-          <div class="form-group col-sm-6">
-            <label for="inner-envelop" class='control-label'>Inner Envelop</label>
-            <input type="text" id="inner-envelop" class='form-control' ng-model="party.inner_envelop"/>
-          </div>
+      <div class="form-group col-xs-6">
+        <label for="inner-envelop" class='control-label'>Inner Envelop</label>
+        <input type="text" id="inner-envelop" class='form-control' ng-model="item.inner_envelop"/>
+      </div>
 
-          <div class="form-group col-sm-6">
-            <label for="outer-envelop" class='control-label'>Outer Envelop</label>
-            <input type="text" id="outer-envelop" class='form-control' ng-model="party.outer_envelop"/>
-          </div>
+      <div class="form-group col-xs-6">
+        <label for="outer-envelop" class='control-label'>Outer Envelop</label>
+        <input type="text" id="outer-envelop" class='form-control' ng-model="item.outer_envelop"/>
+      </div>
 
-          <div class="form-group col-sm-6">
-            <label for="rsvp" class='control-label'>RSVP</label>
-            <input id="rsvp" ng-model="party.rsvp" type="checkbox"/>
-          </div>
+      <div class="form-group col-xs-6">
+        <label for="rsvp" class='control-label'>RSVP</label>
+        <input id="rsvp" ng-model="item.rsvp" type="checkbox"/>
+      </div>
 
-          <div class="form-group col-sm-6">
-            <label for="save-the-date" class='control-label'>Save the Date Sent?</label>
-            <input id="save-the-date" ng-model="party.save_the_date_sent" type="checkbox"/>
-          </div>
+      <div class="form-group col-xs-6">
+        <label for="save-the-date" class='control-label'>Save the Date Sent?</label>
+        <input id="save-the-date" ng-model="item.save_the_date_sent" type="checkbox"/>
+      </div>
 
-          <strong>Guests:</strong>
+      <div class="col-xs-12">
+        <strong>Guests:</strong>
 
-          <p ng-repeat="guest in party.guests">
-            {{guest.first_name}} {{guest.last_name}}
-            <span class="btn btn-danger btn-xs" ng-click="removeGuestFromParty(party, guest)">
+        <p ng-repeat="guest in item.guests">
+          {{guest.first_name}} {{guest.last_name}}
+            <span class="btn btn-danger btn-xs" ng-click="removeGuestFromParty(item, guest)">
               <i class="glyphicon glyphicon-remove"></i>
             </span>
-          </p>
-
-          <p>
-            <p ng-show="addingNew" ng-model="newGuest">
-              <input ng-model="newGuest.first_name" type="text" placeholder="First Name" />
-              <input ng-model="newGuest.last_name" type="text" placeholder="Last Name" />
-              <input ng-model="newGuest.child" type="checkbox" /> Child?
-              <input ng-model="newGuest.gender" value="Male" type="radio"/> Male
-              <input ng-model="newGuest.gender" value="Female" type="radio"/> Female
-              <span class="btn btn-primary btn-xs" ng-click="addNewGuest(party)">
-                <i class="glyphicon glyphicon-plus"></i>
-              </span><br>
-            </p>
-
-            <p ng-show="addingExisting" ng-model="newGuest">
-              <select ng-model="newExistingGuest" ng-change="addExistingGuest(party)">
-                <option ng-repeat="guest in guests" value="{{guest}}">{{guest.first_name}} {{guest.last_name}}</option>
-              </select>
-              <br>
-            </p>
-
-            <a href ng-click="addNewGuestOptions()">Add a new Guest</a>
-            | <a href ng-click="addExistingGuestOptions()">Add an existing Guest</a>
-          </p>
-
-          <div class="form-group">
-            <label for="notes" class='control-label'>Notes</label>
-            <textarea id="notes" class='form-control' rows="3"></textarea>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <input ng-hide="addingNew" type="submit" class='btn btn-primary' value="Update"/>
-          <input ng-show="addingNew" type="submit" class='btn btn-primary' value="Add New"/>
-          <input ng-hide="addingNew" type="button" ng-click="delete(party.id)" class='btn btn-danger' value="Delete"/>
-        </div>
+        </p>
       </div>
-      <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-  </div>
-  <!-- /.modal -->
-</form>
 
-</div>
+      <div class="col-xs-12">
+        <p ng-show="addingNew" ng-model="newGuest">
+          <input ng-model="newGuest.first_name" type="text" placeholder="First Name"/>
+          <input ng-model="newGuest.last_name" type="text" placeholder="Last Name"/>
+          <input ng-model="newGuest.child" type="checkbox"/> Child?
+          <input ng-model="newGuest.gender" value="Male" type="radio"/> Male
+          <input ng-model="newGuest.gender" value="Female" type="radio"/> Female
+          <span class="btn btn-primary btn-xs" ng-click="addNewGuest(item)">
+            <i class="glyphicon glyphicon-plus"></i>
+          </span>
+        </p>
+        <br>
+      </div>
+
+      <div class="col-xs-12">
+        <p ng-show="addingExisting">
+          <select ng-model="newExistingGuest" ng-change="addExistingGuest(item)">
+            <option ng-repeat="guest in guests" value="{{guest}}">
+              {{guest.first_name}} {{guest.last_name}}
+            </option>
+          </select>
+        </p>
+        <br>
+
+        <p>
+          <a href ng-click="addNewGuestOptions()">Add a new Guest</a>
+          | <a href ng-click="addExistingGuestOptions()">Add an existing Guest</a>
+        </p>
+      </div>
+
+      <div class="form-group col-xs-12">
+        <label for="notes" class='control-label'>Notes</label>
+        <textarea id="notes" class='form-control' rows="3"></textarea>
+      </div>
+    </edit-item>
+
+  </div>
 
 </div>
 

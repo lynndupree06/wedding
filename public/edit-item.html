@@ -1,0 +1,32 @@
+<form role='form' name="editForm" ng-submit="updateOrCreate(item)">
+    <div id="details" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <a href ng-hide="addingNew" style="float: left;" ng-click="previous(item)">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
+                    </a>
+                    <a href ng-hide="addingNew" style="float: right;" ng-click="next(item)">
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </a>
+                    <h4 class="modal-title">{{item.name}}</h4>
+                </div>
+                <div class="modal-body" ng-transclude></div>
+                <div class="modal-footer">
+                    <input ng-hide="addingNew" type="submit" class='btn btn-primary' value="Update"/>
+                    <input ng-show="addingNew" type="submit" class='btn btn-primary' value="Add New"/>
+                    <input ng-hide="addingNew" type="button" ng-click="deleteItem(item.id)" class='btn btn-danger'
+                           value="Delete"/>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</form>

@@ -34,10 +34,11 @@ class GuestsController < AdminController
   # POST /guests.json
   def create
     @guest = Guest.new(guest_params)
-    @guest.party_id = params[:party][:id]
+    @guest.party_id = params[:party][:id] if params[:party].present?
 
     respond_to do |format|
       if @guest.save
+        addGroups
         format.html { redirect_to @guest, notice: 'Guest was successfully created.' }
         format.json { render :show, status: :created, location: @guest }
       else
@@ -51,19 +52,10 @@ class GuestsController < AdminController
   # PATCH/PUT /guests/1.json
   def update
     respond_to do |format|
-      if params[:group].present?
-        GroupsGuests.delete_all(guest_id: @guest.id)
-
-        params[:group].each do |g|
-          if g['selected']
-            groupId = Group.where(name: g['name']).ids
-            GroupsGuests.where(group_id: groupId[0], guest_id: @guest.id).first || GroupsGuests.create!(group_id: groupId[0], guest_id: @guest.id)
-          end
-        end
-      end
+      addGroups
 
       if @guest.update(guest_params)
-        @guest.party_id = params[:party][:id]
+        @guest.party_id = params[:party][:id] if params[:party].present?
         @guest.save!
 
         format.html { redirect_to guests_url, notice: 'Guest was successfully updated.' }
@@ -71,6 +63,19 @@ class GuestsController < AdminController
       else
         format.html { render :edit }
         format.json { render json: @guest.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def addGroups
+    if params[:group].present?
+      GroupsGuests.delete_all(guest_id: @guest.id)
+
+      params[:group].each do |g|
+        if g['selected']
+          groupId = Group.where(name: g['name']).ids
+          GroupsGuests.where(group_id: groupId[0], guest_id: @guest.id).first || GroupsGuests.create!(group_id: groupId[0], guest_id: @guest.id)
+        end
       end
     end
   end
