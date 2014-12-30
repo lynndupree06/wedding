@@ -34,6 +34,7 @@ class GuestsController < AdminController
   # POST /guests.json
   def create
     @guest = Guest.new(guest_params)
+    @guest.party_id = params[:party][:id]
 
     respond_to do |format|
       if @guest.save
@@ -62,7 +63,7 @@ class GuestsController < AdminController
       if @guest.update(guest_params)
         @guest.party_id = params[:party][:id]
         @guest.save!
-        
+
         format.html { redirect_to guests_url, notice: 'Guest was successfully updated.' }
         format.json { render :show, status: :ok, location: @guest }
       else
