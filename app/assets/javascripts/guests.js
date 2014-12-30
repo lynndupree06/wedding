@@ -68,36 +68,56 @@
     $scope.parties = Parties.query();
 
     $scope.editGuest = function (currentGuest) {
-      $scope.guest = currentGuest;
-      for (var j in $scope.guest.group) {
-        for (var k in $scope.groups) {
-          var groupOption = $scope.groups[k];
-          var group = $scope.guest.group[j];
+      if(currentGuest === undefined) {
+        $scope.guest = {
+          first_name: '',
+          last_name: '',
+          gender: '',
+          suffix: '',
+          child: '',
+          group: []
+        };
+        $scope.status = 'new';
+      } else {
+        $scope.guest = currentGuest;
+        for (var j in $scope.guest.group) {
+          for (var k in $scope.groups) {
+            var groupOption = $scope.groups[k];
+            var group = $scope.guest.group[j];
 
-          if (groupOption.name == group.name) {
-            groupOption.selected = true;
-          } else {
-            groupOption.selected = false;
+            if (groupOption.name == group.name) {
+              groupOption.selected = true;
+            } else {
+              groupOption.selected = false;
+            }
           }
         }
       }
       $('#guestDetails').modal('show');
     };
 
-    $scope.updateGuest = function (guest) {
+    $scope.update = function (guest) {
       guest.updated_at = new Date();
       guest.group = $scope.groups;
 
-      Guest.update(guest, function () {
-        $scope.guests = Guests.query();
-      }, function (error) {
-        console.log("error", error);
-      });
+      if(guest.id !== undefined) {
+        Guest.update(guest, function () {
+          $scope.guests = Guests.query();
+        }, function (error) {
+          console.log("error", error);
+        });
+      } else {
+        Guests.create(guest, function () {
+          $scope.guests = Guests.query();
+        }, function (error) {
+          console.log("error", error);
+        });
+      }
 
       $('#guestDetails').modal('hide');
     };
 
-    $scope.deleteGuest = function (guest) {
+    $scope.delete = function (guest) {
       var response = confirm("Are you sure you want to delete " + guest.first_name + " " + guest.last_name);
       if (response == true) {
         Guest.delete({id: guest.id}, function () {
