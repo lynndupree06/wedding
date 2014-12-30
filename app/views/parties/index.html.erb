@@ -13,7 +13,8 @@
 
   <br>
 
-  <div class="btn-group" role="group">
+  <div data-spy="affix" data-offset-top="60" class="filters">
+    <span>Filters</span>
     <button type="button" class="btn btn-default" ng-class="{active:list === 'A'}" ng-click="list = 'A'">A List</button>
     <button type="button" class="btn btn-default" ng-class="{active:list === 'B'}" ng-click="list = 'B'">B List</button>
     <button type="button" class="btn btn-default" ng-class="{active:list === 'All'}" ng-click="list = 'All'">All</button>

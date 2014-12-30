@@ -32,5 +32,42 @@
       font-family: "Helvetica Neue", "Arial", sans-serif;
       font-size: 14px;
     }
+
+    .filters {
+      width: 150px;
+      position: fixed;
+      top: 200px;
+      float: left;
+      right: -100px;
+      background-color: #aaa;
+      padding-left: 30px;
+      font-family: "Helvetica Neue", "Arial", sans-serif;
+      font-size: 14px;
+      padding-bottom: 10px;
+
+      span {
+        transform: rotate(90deg);
+        transform-origin: -65% 180%;
+        font-weight: bold;
+        color: white;
+        text-transform: uppercase;
+        float: left;
+      }
+
+      button {
+        width: 100%;
+        margin: 5px;
+
+        &.active {
+          color: #ffffff;
+          background-color: #D39547;
+          border-color: #B57626;
+        }
+      }
+
+      &:hover {
+        right: 0px;
+      }
+    }
   }
 }
