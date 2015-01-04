@@ -39,9 +39,10 @@ Rails.application.configure do
   config.assets.paths << "#{Rails.root}/app/assets/fonts"
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { address: '127.0.0.1', port: 1025 }
-
+  config.action_mailer.smtp_settings = { address: '127.0.0.1', port: 1025, domain: "everydayrails.com" }
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
 
   config.paperclip_defaults = {
       :storage => :s3,
@@ -56,6 +57,7 @@ Rails.application.configure do
   # Paperclip.options[:command_path] = '/usr/local/bin/'
 end
 
+ActionMailer::Base.perform_deliveries = true
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
     :address => "127.0.0.1",
