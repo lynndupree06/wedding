@@ -31,13 +31,15 @@ class Party < ActiveRecord::Base
               'Child First Name 1', 'Child Last Name 1', 'Child First Name 2', 'Child Last Name 2',
               'Child First Name 3', 'Child Last Name 3', 'Child First Name 4', 'Child Last Name 4']
 
-      Party.all.each do |p|
+      Party.where(:a_b_list => 'A').order(:name).each do |p|
         num_of_guests = p.guests.size
 
         idx = 0
-        first_name = p.guests[idx].first_name
-        last_name = p.guests[idx].last_name
-        last_name << ", #{p.guests[idx].suffix}" if p.guests[idx].suffix.present?
+        if p.guests.present?
+          first_name = p.guests[idx].first_name
+          last_name = p.guests[idx].last_name
+        end
+        # last_name << ", #{p.guests[idx].suffix}" if p.guests[idx].suffix.present?
 
         guest_first_name = ''
         guest_last_name = ''
@@ -49,15 +51,13 @@ class Party < ActiveRecord::Base
 
         idx = idx + 1
         if num_of_guests > idx
-          if p.guests[idx].child
-            idx = idx - 1
-          else
+          if !p.guests[idx].child
             guest_first_name = p.guests[idx].first_name
             guest_last_name = p.guests[idx].last_name
+            idx = idx + 1
           end
         end
 
-        idx = idx + 1
         child_idx = 0
         while num_of_guests > idx
           child[child_idx][:first_name] = p.guests[idx].first_name
