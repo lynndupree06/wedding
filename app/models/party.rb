@@ -50,17 +50,19 @@ class Party < ActiveRecord::Base
         child[3] = {:first_name => '', :last_name => ''}
 
         idx = idx + 1
-        if num_of_guests > idx
+        guest_idx = idx
+        while num_of_guests > guest_idx && guest_first_name.blank?
           if !p.guests[idx].child
-            guest_first_name = p.guests[idx].first_name
+            guest_first_name = p.guests[idx].first_name || "Unknown"
             guest_last_name = p.guests[idx].last_name
             idx = idx + 1
           end
+          guest_idx = guest_idx + 1
         end
 
         child_idx = 0
-        while num_of_guests > idx
-          child[child_idx][:first_name] = p.guests[idx].first_name
+        while num_of_guests > idx && guest_first_name != p.guests[idx].first_name
+          child[child_idx][:first_name] = p.guests[idx].first_name || "Unknown"
           child[child_idx][:last_name] = p.guests[idx].last_name
           child_idx = child_idx + 1
           idx = idx + 1
