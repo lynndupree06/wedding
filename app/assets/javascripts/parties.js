@@ -196,6 +196,18 @@
 
       if (list === 'All') {
         filtered = parties;
+      } else if (list === 'Missing Address') {
+        angular.forEach(parties, function (party) {
+          if(party.address === null || party.address === '') {
+            filtered.push(party);
+          }
+        });
+      } else if (list === 'Missing Email') {
+        angular.forEach(parties, function (party) {
+          if(party.email === null || party.email === '') {
+            filtered.push(party);
+          }
+        });
       } else {
         angular.forEach(parties, function (party) {
           if (party.a_b_list === list) {
