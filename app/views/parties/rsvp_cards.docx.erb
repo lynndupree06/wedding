@@ -1,0 +1,54 @@
+<% @parties.each do |p| %>
+
+<h1><%= p[:party].name %></h1>
+<div class='rsvp-card-wrapper'>
+  <div class='card'>
+    <div class='text'>
+      Please return this card or respond online at:<br>
+      <a href="http://www.jessica-and-fred.com/rsvp" class="link"></a><br>
+
+      We have reserved <strong><%= p[:party].guests.size %></strong> seat(s) for you, and
+      your invitation code is  <strong class="code"><%= p[:party].key %></strong><br>
+
+      The favor of your response is requested by<br>
+      <strong class='date'>the twenty fifth of June</strong><br>
+
+      <br>
+      M<span class='underline'>XXXXXXXXXXXXXXXXXXXXXXX</span><br><br>
+
+      <div class='footer'>
+
+        <div class='response'>
+          <span class='underline'>XXX</span> Will Attend
+          <span class='underline'>XXX</span> Will Not Attend<br><br>
+          Please indicate each guest's entrée selection<br><br>
+          <span class='underline'>XXX</span> Chicken
+          <span class='underline'>XXX</span> Beef
+          <span class='underline'>XXX</span> Child
+        </div>
+
+        <div class='qr'>
+          <table>
+            <% p[:qr].modules.each_index do |x| %>
+            <tr>
+              <% p[:qr].modules.each_index do |y| %>
+              <% if p[:qr].dark?(x,y) %>
+              <td class="black"/>
+              <% else %>
+              <td class="white"/>
+              <% end %>
+              <% end %>
+            </tr>
+            <% end %>
+          </table>
+          <p>Or scan the QR code to respond</p>
+        </div>
+
+        <div style="clear:both;"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<% end %>

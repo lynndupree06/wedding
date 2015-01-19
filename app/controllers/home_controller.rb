@@ -79,6 +79,7 @@ class HomeController < ApplicationController
   end
 
   def rsvp
+    @id_code = params[:code]
     render :layout => 'application'
   end
 

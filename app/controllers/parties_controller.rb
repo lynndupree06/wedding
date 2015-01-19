@@ -1,6 +1,6 @@
 class PartiesController < AdminController
   before_action :set_party, only: [:show, :edit, :update, :destroy]
-  respond_to :json
+  respond_to :json, :docx
 
   # GET /parties
   # GET /parties.json
@@ -39,6 +39,7 @@ class PartiesController < AdminController
   # POST /parties.json
   def create
     @party = Party.new(party_params)
+    @party.key = SecureRandom.hex(3).upcase
 
     respond_to do |format|
       if @party.save
@@ -109,6 +110,18 @@ class PartiesController < AdminController
     respond_to do |format|
       format.html { redirect_to parties_path }
       format.csv { send_data Party.seating_chart_to_csv }
+    end
+  end
+
+  def rsvp_cards
+    @parties = []
+    Party.where(:a_b_list => 'A').order(:name).each do |p|
+      @parties << { :qr => PartyEncoder.get_qr_code(p.key), :party => p }
+    end
+
+    respond_to do |format|
+      format.docx { render docx: 'rsvp_cards' }
+      format.html { render :layout => 'plain' }
     end
   end
 

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/place_cards' => 'parties#create_place_card_labels'
   get '/seating_chart' => 'parties#get_seating_chart_data'
   get '/tags' => 'parties#tags'
+  get '/rsvp_cards' => 'parties#rsvp_cards'
 
   root 'home#index'
 
