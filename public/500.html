@@ -1,66 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
+  <title>The page you were looking for doesn't exist</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link data-turbolinks-track="true" href="http://www.jessica-and-fred.com/assets/common.css" media="all" rel="stylesheet">
+  <link data-turbolinks-track="true" href="http://www.jessica-and-fred.com/assets/lavish-bootstrap.css" media="all" rel="stylesheet">
+  <link data-turbolinks-track="true" href="http://www.jessica-and-fred.com/assets/application.css" media="all" rel="stylesheet">
+
   <style>
-  body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
-
-  div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
-
-  div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-
-  h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
-
-  div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+    .alert {
+      width: 100%;
+      position: initial;
+      font-size: 20px;
+      font-weight: bold;
+      z-index: 2000;
+      font-weight: normal;
+      margin-top: 20px;
+    }
   </style>
 </head>
 
 <body>
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-menu">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand visible-xs" href="/">Jessica &hearts; Fred ~ July 25, 2015</a>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu">
+      <ul class="nav navbar-nav">
+        <li><a href="http://www.jessica-and-fred.com/our_story">Our Story</a></li>
+        <li><a href="http://www.jessica-and-fred.com/wedding">Wedding</a></li>
+        <li><a href="http://www.jessica-and-fred.com/reception">Reception</a></li>
+        <li><a href="http://www.jessica-and-fred.com/wedding_party">Wedding Party</a></li>
+        <li><a class="navbar-brand hidden-xs" style="margin-left: 2px" href="http://www.jessica-and-fred.com/">Jessica &hearts; Fred<br><span>July 25, 2015</span></a></li>
+        <li><a href="http://www.jessica-and-fred.com/guest_info">Guest Information</a></li>
+        <li><a href="http://www.jessica-and-fred.com/registry">Registry</a></li>
+        <li><a href="http://www.jessica-and-fred.com/pictures">Photos</a></li>
+        <li><a href="http://www.jessica-and-fred.com/rsvp">RSVP</a></li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
   </div>
+  <!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+  <div class="col-sm-offset-1 col-sm-10">
+    <!-- This file lives in public/404.html -->
+    <div class="alert alert-danger" role="alert">
+      <div>
+        <h1>We're sorry, but something went wrong.</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
+
+
+
