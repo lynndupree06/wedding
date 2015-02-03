@@ -18,6 +18,7 @@ gem 'autoprefixer-rails'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'rqrcode'
+gem 'actionpack', '~> 4.1'
 gem 'htmltoword'
 
 # Use sqlite3 as the database for Active Record
@@ -33,7 +34,6 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
-  gem 'htmltoword'
 end
 
 # bundle exec rake doc:rails generates the API under doc/api.
