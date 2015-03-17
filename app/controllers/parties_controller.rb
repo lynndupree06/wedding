@@ -92,6 +92,17 @@ class PartiesController < AdminController
     end
   end
 
+  def send_reminder_email
+    Party.all.each do |p|
+      PartyNotifier.send_reminder_email(p).deliver
+    end
+
+    respond_to do |format|
+      format.html { redirect_to parties_url, notice: "Reminder emails were successfully sent." }
+      format.json { head :no_content }
+    end
+  end
+
   def create_outer_labels
     respond_to do |format|
       format.html { redirect_to parties_path }

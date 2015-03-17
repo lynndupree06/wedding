@@ -11,4 +11,14 @@ class PartyNotifier < ActionMailer::Base
       party.save!
     end
   end
+
+  def send_reminder_email(party) 
+    if party.address.blank? && party.save_the_date_sent
+      @party = party
+      @token = PartyEncoder.encode(@party.id)
+      mail(:to => party.email,
+           :subject => 'We need your address!')
+      party.save!
+    end
+  end
 end

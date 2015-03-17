@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/save-the-date-a' => 'parties#save_the_date_a'
   get '/save-the-date-b' => 'parties#save_the_date_b'
   get '/save-the-date-special' => 'parties#save_the_date_special'
+  get '/reminder' => 'parties#send_reminder_email'
   get '/outer_labels' => 'parties#create_outer_labels'
   get '/place_cards' => 'parties#create_place_card_labels'
   get '/seating_chart' => 'parties#get_seating_chart_data'

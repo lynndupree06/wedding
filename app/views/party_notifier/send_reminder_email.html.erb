@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body style="background-color: #eae5dd; font-family: Georgia, serif; padding: 1% 0 5% 0; color: #777777; font-size: 16px">
+
+<div style="width: 60%; margin: 0 auto 5% auto; text-align: center; padding-bottom: 10px;">
+
+  <div style="padding: 20px; background-color: #ffffff;">
+    <div>
+      <img style="width: 100%; height: auto; margin-bottom: 5%" src="http://s3-us-west-2.amazonaws.com/kazembe-photos/photos/11/original/09.jpeg" style="margin: auto; text-align: center;"/>
+    </div>
+
+    <div>
+      <div style="color: #D35A4A; font-weight: bold; font-size: 155%; padding: 1%;">
+        Jessica Brazelton &amp; Frederick Kazembe
+      </div>
+      <br>
+
+      <span style="color: #D35A4A; font-size: 14px;">are getting married on</span><br><br>
+
+      <span style="text-transform: uppercase; font-size: 125%; font-weight: bold; color: #D35A4A;">July 25, 2015</span><br>
+      <span style="text-transform: uppercase; font-size: 125%; font-weight: bold; color: #D35A4A;">Huntsville, Alabama USA</span><br><br>
+      <span style="color: #D35A4A; font-size: 14px;">Formal Invitation to Follow</span>
+    </div>
+
+    <p>
+      We would love to send you an invitation to our wedding, but we still do not have your address.
+      Please go to our website to update your address in our records.
+    </p>
+
+    <a style="display: inline-block; margin-bottom: 0; font-weight: 400; text-align: center;
+            background-image: none; color: #ffffff; background-color: #AA413C;
+            vertical-align: middle; cursor: pointer; border: 1px solid transparent;
+            white-space: nowrap; padding: 6px 12px; font-size: 14px;
+            text-decoration: none; line-height: 1.42857143; border-radius: 4px;"
+       href="http://www.jessica-and-fred.com/address_update?t=<%= @token %>" target="_blank">
+      Update Address</a>
+
+    <% if @party.notes.include? 'sydney' %>
+        <p><strong>
+          If you are considering attending the wedding, please respond to this email. We can arrange a discount for
+          your flight if we can get at least 10 people from Sydney to attend.
+        </strong></p>
+    <% end %>
+
+    <p>
+      In the meantime, feel free to visit
+      <a style="color: #D35A4A;" href="http://www.jessica-and-fred.com" target="_blank">our website</a> to see our 
+      <a style="color: #D35A4A;" href="http://www.jessica-and-fred.com/registry" target="_blank">registry</a>
+      and for more
+      information about accommodations, flights, how we met and the wedding!
+    </p>
+  </div>
+
+  <img width="100%" style="width: 100%;" src="http://www.jessica-and-fred.com/assets/email_footer.png">
+</div>
+
+</body>
+
+</html>
