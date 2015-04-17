@@ -120,7 +120,7 @@ class PartiesController < AdminController
   def get_seating_chart_data
     respond_to do |format|
       format.html { redirect_to parties_path }
-      format.csv { send_data Party.seating_chart_to_csv }
+      format.csv { send_data Party.seating_chart_to_csv(params[:list]) }
     end
   end
 

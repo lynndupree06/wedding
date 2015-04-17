@@ -25,13 +25,13 @@ class Party < ActiveRecord::Base
     end
   end
 
-  def self.seating_chart_to_csv
+  def self.seating_chart_to_csv(list)
     CSV.generate do |csv|
       csv << ['First Name', 'Last Name', 'Guest First Name', 'Guest Last Name',
               'Child First Name 1', 'Child Last Name 1', 'Child First Name 2', 'Child Last Name 2',
               'Child First Name 3', 'Child Last Name 3', 'Child First Name 4', 'Child Last Name 4']
 
-      Party.where(:a_b_list => 'A').order(:name).each do |p|
+      Party.where(:a_b_list => list).order(:name).each do |p|
         num_of_guests = p.guests.size
 
         idx = 0
