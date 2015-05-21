@@ -1,4 +1,8 @@
 .registry {
-	 height: 550px;
-  	overflow: scroll;
+    width: 1050px !important;
+
+    .registry-list {
+		height: 550px;
+	  	overflow: scroll;
+	}
 }
