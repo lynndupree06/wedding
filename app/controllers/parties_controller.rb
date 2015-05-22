@@ -93,7 +93,7 @@ class PartiesController < AdminController
   end
 
   def send_reminder_email
-    Party.all.each do |p|
+    Party.where(a_b_list: 'A').all.each do |p|
       PartyNotifier.send_reminder_email(p).deliver
     end
 

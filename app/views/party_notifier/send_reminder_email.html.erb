@@ -6,7 +6,7 @@
 
 <body style="background-color: #eae5dd; font-family: Georgia, serif; padding: 1% 0 5% 0; color: #777777; font-size: 16px">
 
-<div style="width: 60%; margin: 0 auto 5% auto; text-align: center; padding-bottom: 10px;">
+<div style="width: 70%; margin: 0 auto 5% auto; text-align: center; padding-bottom: 10px;">
 
   <div style="padding: 20px; background-color: #ffffff;">
     <div>
@@ -15,7 +15,7 @@
 
     <div>
       <div style="color: #D35A4A; font-weight: bold; font-size: 155%; padding: 1%;">
-        Jessica Brazelton &amp; Frederick Kazembe
+        Jessica Brazelton<br> &amp;<br> Frederick Kazembe
       </div>
       <br>
 
@@ -27,7 +27,7 @@
     </div>
 
     <p>
-      We would love to send you an invitation to our wedding, but we still do not have your address.
+      We would love to send you an invitation to our wedding, but we <strong>still do not have your address</strong>.
       Please go to our website to update your address in our records.
     </p>
 
@@ -38,13 +38,6 @@
             text-decoration: none; line-height: 1.42857143; border-radius: 4px;"
        href="http://www.jessica-and-fred.com/address_update?t=<%= @token %>" target="_blank">
       Update Address</a>
-
-    <% if @party.notes.include? 'sydney' %>
-        <p><strong>
-          If you are considering attending the wedding, please respond to this email. We can arrange a discount for
-          your flight if we can get at least 10 people from Sydney to attend.
-        </strong></p>
-    <% end %>
 
     <p>
       In the meantime, feel free to visit
