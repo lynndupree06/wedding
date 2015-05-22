@@ -48,9 +48,9 @@ Rails.application.configure do
       :storage => :s3,
       :s3_host_name => 's3-us-west-2.amazonaws.com',
       :s3_credentials => {
-          :bucket => 'kazembe-photos',
-          :access_key_id => 'AKIAJGVJUXBLWZ6AG5NA',
-          :secret_access_key => '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'
+          :bucket => ENV['S3_BUCKET_NAME'],
+          :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+          :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
       }
   }
 
