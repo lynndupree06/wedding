@@ -124,6 +124,13 @@ class PartiesController < AdminController
     end
   end
 
+  def detail_list
+    respond_to do |format|
+      format.html { redirect_to parties_path }
+      format.csv { send_data Party.to_csv_detail }
+    end
+  end
+
   def rsvp_cards
     @parties = []
     Party.where(:a_b_list => 'A').order(:name).each do |p|

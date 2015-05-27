@@ -13,6 +13,24 @@ class Party < ActiveRecord::Base
     end
   end
 
+  def self.to_csv_detail
+    CSV.generate do |csv|
+      csv << %w(PartyName Size Address City State PostalCode Country Guests, Group)
+
+      Party.order(:name).where(:a_b_list => 'A').each do |p|
+        guests = p.guests.map(&:first_name).join(',').split(',')
+        temp = GroupsGuests.where(:guest_id => p.guests.first.id).map(&:group_id).join(',').split(',')
+
+        groups = []
+        temp.each do |t|
+          groups << Group.find(t).name
+        end
+
+        csv << [p.name, p.guests.count, p.address, p.city, p.state, p.postal_code, p.country, guests, groups]
+      end
+    end
+  end
+
   def self.place_cards_to_csv
     CSV.generate do |csv|
       csv << %w(PartyName FirstName LastName Meal Table)
