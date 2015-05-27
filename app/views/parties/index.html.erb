@@ -27,7 +27,12 @@
       </div>
       <br><br>
 
-      <table class="table table-responsive parties">
+        <div class="text-center" ng-show="loading">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+          <p>Loading...</p>
+        </div>
+
+      <table class="table table-responsive parties" ng-hide="loading">
         <thead>
         <tr>
           <th ng-click="orderByField='name'; reverseSort = !reverseSort"><a href>Name</a></th>

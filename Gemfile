@@ -19,7 +19,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'rqrcode'
 gem 'actionpack', '~> 4.1'
-gem 'htmltoword'
+gem 'bower-rails'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do

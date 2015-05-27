@@ -48,6 +48,7 @@
 
   app.controller('PartyController', ["$scope", "$http", "Parties", "Party", "Guest", "Guests",
     function ($scope, $http, Parties, Party, Guest, Guests) {
+      $scope.loading = true;
       $scope.view = 1;
       $scope.orderByField = 'name';
       $scope.reverseSort = false;
@@ -55,7 +56,11 @@
       $scope.addingNew = false;
 
       $scope.loadList = function () {
-        $scope.parties = Parties.query();
+        $scope.loading = true;
+
+        $scope.parties = Parties.query(function () {
+          $scope.loading = false;
+        });
       };
 
       this.isFemale = function (guest) {
@@ -98,6 +103,8 @@
         } else {
           $scope.item = $scope.parties[0];
         }
+
+        $scope.updateOrCreate(currentParty);
       };
 
       $scope.previous = function (currentParty) {
@@ -143,8 +150,6 @@
             console.log(error);
           });
         }
-
-        $('#details').modal('hide');
       };
 
       $scope.addGuest = function (party, guest, isNew) {
