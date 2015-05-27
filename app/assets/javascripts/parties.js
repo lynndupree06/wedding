@@ -71,6 +71,19 @@
         return guest.gender === 'Male';
       };
 
+      $scope.columnFilter = function (name) {
+        $scope.orderByField = name;
+        $scope.reverseSort = !$scope.reverseSort;
+      };
+
+      $scope.updateSortArrow = function (column) {
+        return {
+            'fa fa-sort':$scope.orderByField != column,
+            'fa fa-sort-up':!$scope.reverseSort && $scope.orderByField == column,
+            'fa fa-sort-down':$scope.reverseSort && $scope.orderByField == column
+        };
+      };
+
       $scope.editParty = function (currentParty) {
         if (currentParty === undefined) {
           $scope.item = {};

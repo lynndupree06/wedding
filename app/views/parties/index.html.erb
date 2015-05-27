@@ -32,19 +32,19 @@
           <p>Loading...</p>
         </div>
 
-      <table class="table table-responsive parties" ng-hide="loading">
+      <table class="table table-condensed parties" ng-hide="loading">
         <thead>
         <tr>
-          <th ng-click="orderByField='name'; reverseSort = !reverseSort"><a href>Name</a></th>
-          <th><a href>Address</a></th>
-          <th><a href>Inner/Outer Envelop</a></th>
-          <th ng-click="orderByField='a_b_list'; reverseSort = !reverseSort"><a href>List</a></th>
-          <th ng-click="orderByField='guests.length'; reverseSort = !reverseSort"><a href>Size</a></th>
-          <th ng-click="orderByField='save_the_date_sent'; reverseSort = !reverseSort"><a href>Save The Date Sent?</a>
+          <th ng-click="columnFilter('name')">Name <i ng-class="updateSortArrow('name')"></i></th>
+          <th>Address</th>
+          <th>Inner/Outer Envelop</th>
+          <th ng-click="columnFilter('a_b_list')">List <i ng-class="updateSortArrow('a_b_list')"></i></th>
+          <th ng-click="columnFilter('guests.length')">Size <i ng-class="updateSortArrow('guests.length')"></i></th>
+          <th ng-click="columnFilter('save_the_date_sent')">Save The Date Sent? <i ng-class="updateSortArrow('save_the_date_sent')"></i>
           </th>
-          <th ng-click="orderByField='rsvp'; reverseSort = !reverseSort"><a href>RSVP?</a></th>
-          <th ng-click="orderByField='size'; reverseSort = !reverseSort"><a href>RSVP Party Size</a></th>
-          <th><a href>Tags</a></th>
+          <th ng-click="columnFilter('rsvp')">RSVP? <i ng-class="updateSortArrow('rsvp')"></i></th>
+          <th ng-click="columnFilter('size')">RSVP Party Size <i ng-class="updateSortArrow('size')"></i></th>
+          <th>Tags</th>
           <th></th>
         </tr>
         </thead>
