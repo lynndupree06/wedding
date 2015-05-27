@@ -19,25 +19,24 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
   function guest_meal_preferences() {
     var idCode = $('#id_code').val().toUpperCase();
 
-    $.get('/party_guests/' + idCode, function (data) {
-      guests = data.guests;
+    $.get('/get_parties/' + idCode, function (data) {
+      parties = data.parties;
 
-      if (guests) {
+      if (parties) {
         idCodeFormGroup.attr('class', 'form-group has-success has-feedback');
         idCodeFormGroup.attr('data-valid', 'valid');
         if (idCodeFormGroup.find('span')) {
           idCodeFormGroup.find('span').remove();
         }
-        askAdditionalQuestions(data.rehearsal, data.brunch);
 
-        if (checkValidility()) {
-          createGuestMeals();
-        }
+        $('.rsvp_party').removeClass('hidden');
       } else {
         displayIncorrectCode();
+        $('.rsvp_party').addClass('hidden');
       }
     }).fail(function () {
       displayIncorrectCode();
+      $('.rsvp_party').addClass('hidden');
     });
   }
 
@@ -47,7 +46,7 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
     if (idCodeFormGroup.find('span')) {
       idCodeFormGroup.find('span').remove();
     }
-    detailsPanel.hide();
+    detailsPanel.addClass('hidden');
   }
 
   function checkValidility() {
@@ -58,7 +57,7 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
     if ($(this).attr('id') == 'no') {
       partySizeInput.removeAttr('required');
       $('.meal').removeAttr('required');
-      detailsPanel.hide();
+      detailsPanel.addClass('hidden');
       $('.meal-preference').remove();
     } else {
       partySizeInput.attr('required', 'required');
@@ -101,7 +100,7 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
   });
 
   function createGuestMeals() {
-    detailsPanel.show();
+    detailsPanel.removeClass('hidden');
 
     var num = Number(partySizeInput.val());
     $('.meal-preference').remove();
@@ -137,6 +136,20 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
 
   $('input#id_code').keyup(function () {
     guest_meal_preferences();
+  });
+
+  $('.rsvp_party').change(function () {
+    var party_id = $('.rsvp_party option:selected').val();
+
+    $.get('/party_guests/' + party_id, function (data) {
+
+      guests = data.guests;
+      askAdditionalQuestions(data.rehearsal, data.brunch);
+
+      if (checkValidility()) {
+        createGuestMeals();
+      }
+    });
   });
 }
 

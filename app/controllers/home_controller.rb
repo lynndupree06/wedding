@@ -61,7 +61,7 @@ class HomeController < ApplicationController
   end
 
   def get_guests
-    guests = Party.find_by_key(params[:id]).guests
+    guests = Party.find(params[:id]).guests
     rehearsal = false
     brunch = false
 
@@ -78,6 +78,16 @@ class HomeController < ApplicationController
     render json: {:guests => guests, :rehearsal => rehearsal, :brunch => brunch}
   end
 
+  def get_parties
+    parties = nil
+
+    if params[:id] == 'JFK2015'
+      parties = Party.all.to_json
+    end
+
+    render json: {:parties => parties}
+  end
+
   def rsvp
     @id_code = params[:code]
     render :layout => 'application'
@@ -91,11 +101,12 @@ class HomeController < ApplicationController
     rsvp = params[:rsvp]
     rsvp_rehearsal = params[:rsvp_rehearsal]
     rsvp_brunch = params[:rsvp_brunch]
+    party_id = params[:rsvp_party]
 
-    party = Party.where(key: code).first
+    party = Party.find(party_id)
 
     respond_to do |format|
-      if party.nil?
+      if code != 'JFK2015'
         flash[:error] = 'Invalid Token'
         format.html { redirect_to rsvp_url, error: 'Invalid Token' }
         format.json { head :no_content }
