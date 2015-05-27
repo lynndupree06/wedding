@@ -53,12 +53,9 @@
         <tr ng-repeat="party in filtered = (parties | filter:search | orderBy:orderByField:reverseSort | filterList:list)"
             ng-controller="StatusController as status"
             ng-class="{danger:status.isMissingEmail(party) && status.isMissingAddress(party),
-              warning:status.isMissingEmail(party) && !status.isMissingAddress(party)}">
+              warning:status.isMissingAddress(party)}">
 
           <td>
-            <i ng-hide="party.email" title="Missing email." class="fa fa-warning"></i>
-            <i ng-hide="party.address" title="Address incomplete." class="fa fa-warning"></i>
-
             {{party.name}}<br>
 
             <span style="margin-left:1em" ng-repeat="guest in party.guests">
