@@ -63,7 +63,11 @@
       {name: "Groom's Friends", selected: false},
       {name: "Bridal Party", selected: false},
       {name: "Rehearsal Dinner", selected: false},
-      {name: "Sunday Brunch", selected: false}
+      {name: "Sunday Brunch", selected: false},
+      {name: "Family", selected: false},
+      {name: "Acquaintances", selected: false},
+      {name: "Phillips", selected: false},
+      {name: "Invitation", selected: false}
     ];
 
     $scope.parties = Parties.query();
