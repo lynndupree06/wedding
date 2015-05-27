@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/seating_chart' => 'parties#get_seating_chart_data'
   get '/tags' => 'parties#tags'
   get '/rsvp_cards' => 'parties#rsvp_cards'
+  get '/detail' => 'parties#detail_list'
 
   root 'home#index'
 
@@ -33,6 +34,7 @@ Rails.application.routes.draw do
   get '/address_update' => 'home#user_update'
   get '/update_party' => 'home#update_party'
   get '/party_guests/:id' => 'home#get_guests'
+  get '/get_parties/:id' => 'home#get_parties'
 
   resources :photos
 
