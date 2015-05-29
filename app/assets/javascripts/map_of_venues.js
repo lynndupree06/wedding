@@ -6,13 +6,13 @@ function setupVenueMap(mapOptions) {
       mapOptions);
 
     var ceremony_content = '<div id="content">' +
-      '<h3>Mount Zion Baptist Church</h3>' +
-      '<div>228 Mount Zion Road, Huntsville, AL 35806</div>' +
+      '<h4>Mount Zion Baptist Church</h4>' +
+      '<div>228 Mount Zion Road<br>Huntsville, AL 35806</div>' +
       '</div>';
 
     var reception_content = '<div id="content">' +
-      '<h3>The Ledges</h3>' +
-      '<div>Huntsville, AL</div>' +
+      '<h4>The Ledges</h4>' +
+      '<div>32 Castle Down Drive<br>Huntsville, AL 35802</div>' +
       '</div>';
 
     var ceremony_infoWindow = new google.maps.InfoWindow({
