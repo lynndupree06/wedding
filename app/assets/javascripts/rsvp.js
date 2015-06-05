@@ -36,6 +36,8 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
         $('.rsvp_party_input').addClass('hidden');
         $('.rsvp-party-label').addClass('hidden');
         detailsPanel.addClass('hidden');
+        $('.rehearsal').hide();
+        $('.brunch').hide();
     }
 
     function guest_meal_preferences() {
@@ -56,7 +58,7 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
                         } else {
                             getPartyAndGuests(ui.item.party_id);
                         }
-                        
+
                         return false;
                     },
 
