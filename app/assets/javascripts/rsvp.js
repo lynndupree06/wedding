@@ -52,6 +52,8 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
                     source: parties,
 
                     select: function (event, ui) {
+                        $('.rehearsal').hide();
+                        $('.brunch').hide();
                         if (!ui.item) {
                             this.value = '';
                             removePartyAndGuests();
@@ -63,6 +65,8 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
                     },
 
                     select: function (event, ui) {
+                        $('.rehearsal').hide();
+                        $('.brunch').hide();
                         $(this).val(ui.item ? ui.item : " ");
 
                         if (!ui.item) {
