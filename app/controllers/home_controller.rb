@@ -94,7 +94,7 @@ class HomeController < ApplicationController
   end
 
   def search
-    code = params[:id_code]
+    code = params[:id_code].upcase
     party_size = params[:party]
     party_size_rehearsal = params[:party_rehearsal]
     party_size_brunch = params[:party_brunch]
@@ -157,8 +157,14 @@ class HomeController < ApplicationController
       last_name = nil
 
       if params['guest'] && params['guest'][idx.to_s]
-        first_name = params['guest'][idx.to_s].scan(/.*\s/)[0].strip
-        last_name = params['guest'][idx.to_s].scan(/\s.*/)[0].strip
+        first_name = params['guest'][idx.to_s].scan(/.*\s/)[0]
+
+        if first_name == nil
+          first_name = params['guest'][idx.to_s].strip
+        else
+          first_name.strip!
+          last_name = params['guest'][idx.to_s].scan(/\s.*/)[0].strip
+        end
       end
 
       if guests[idx]
@@ -169,7 +175,7 @@ class HomeController < ApplicationController
       else
         Guest.create!(
             :first_name => first_name ? first_name : 'Guest',
-            :last_name => last_name ? last_name : (idx + 1).to_s,
+            :last_name => last_name || first_name ? last_name : (idx + 1).to_s,
             :party => party,
             :meal_option => m[1]
         )

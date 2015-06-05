@@ -21,6 +21,20 @@
       }
     }
   }
+
+  .meal {
+    label {
+      text-align: left;
+    }
+  }
+
+  label.meal {
+    text-align: left !important;
+  }
+
+  .correct {
+    font-size: medium;
+  }
 }
 
 @media (max-width: 765px) {

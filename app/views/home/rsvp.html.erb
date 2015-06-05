@@ -1,89 +1,89 @@
 <%= javascript_include_tag 'rsvp.js' %>
 
 <div class="info-box rsvp">
-  <header>RSVP</header>
+    <header>RSVP</header>
 
-  <section>
-    Use the identification code given in your invitation to RSVP.
-  </section>
+    <section>
+        Use the identification code given in your invitation to RSVP.
+    </section>
 
-  <%= form_tag(rsvp_search_path, method: 'get', :class => 'form-horizontal', :role => 'form') do %>
-      <div class="form-group">
+    <%= form_tag(rsvp_search_path, method: 'get', :class => 'form-horizontal', :role => 'form') do %>
+    <div class="form-group">
         <%= label_tag :id_code, 'Identification Code', :class => 'control-label col-sm-4' %>
         <div class="col-sm-6">
-          <%= text_field_tag :id_code, '', :class => 'form-control all-caps', :placeholder => 'e.g. A4RTC9', :required => :required, :autocomplete => 'off', :value => @id_code %>
+            <%= text_field_tag :id_code, '', :class => 'form-control all-caps', :placeholder => 'e.g. A4RTC9', :required => :required, :autocomplete => 'off', :value => @id_code %>
         </div>
-      </div>
+    </div>
 
-      <div class="form-group hidden rsvp_party">
+    <div class="form-group hidden rsvp_party">
         <%= label_tag :rsvp_party, 'Who are you RSVPing for?', :class => 'control-label col-sm-4' %>
         <div class="col-sm-6">
-          <%= select_tag :rsvp_party, options_from_collection_for_select(party_options, "id", "name"), :include_blank => true, :class => 'form-control' %>
+            <%= select_tag :rsvp_party, options_from_collection_for_select(party_options, "id", "name"), :include_blank => true, :class => 'form-control' %>
         </div>
-      </div>
+    </div>
 
-      <div id="party-size" class="form-group">
+    <div id="party-size" class="form-group">
         <%= label_tag :party, 'Total in your party?', :class => 'control-label col-sm-4' %>
         <div class="col-sm-3">
-          <%= text_field_tag :party, '', :class => 'form-control', :required => :required, :type => 'number', :min => 1 %>
+            <%= text_field_tag :party, '', :class => 'form-control', :required => :required, :type => 'number', :min => 1 %>
         </div>
-      </div>
+    </div>
 
-      <div class="form-group">
+    <div class="form-group">
         <%= label_tag :attending, 'Are you attending?', :class => 'control-label col-sm-4' %>
         <div class="col-sm-3">
-          <label class="radio-inline">
-            <input type="radio" name="rsvp" id="yes" required="required" value='1'> Yes
-          </label>
-          <label class="radio-inline">
-            <input type="radio" name="rsvp" id="no" value='0'> No
-          </label>
+            <label class="radio-inline">
+                <input type="radio" name="rsvp" id="yes" required="required" value='1'> Yes
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="rsvp" id="no" value='0'> No
+            </label>
         </div>
-      </div>
+    </div>
 
-      <div class="form-group rehearsal">
+    <div class="form-group rehearsal">
         <%= label_tag :rehearsal, 'Will <i>everyone</i> in your party be attending the <strong>Rehearsal dinner</strong> on <strong>Friday, July 24</strong>?'.html_safe, :class => 'control-label col-sm-4' %>
         <div class="col-sm-3">
-          <label class="radio-inline">
-            <input type="radio" name="rsvp_rehearsal" id="yes-rehearsal" value='1'> Yes
-          </label>
-          <label class="radio-inline">
-            <input type="radio" name="rsvp_rehearsal" id="no-rehearsal" value='0'> No
-          </label>
+            <label class="radio-inline">
+                <input type="radio" name="rsvp_rehearsal" id="yes-rehearsal" value='1'> Yes
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="rsvp_rehearsal" id="no-rehearsal" value='0'> No
+            </label>
         </div>
-      </div>
-      <div id="party-size-rehearsal" class="form-group">
+    </div>
+    <div id="party-size-rehearsal" class="form-group">
         <%= label_tag :party_rehearsal, 'How many people will be attending the Rehearsal dinner?', :class => 'control-label col-sm-4' %>
         <div class="col-sm-3">
-          <%= text_field_tag :party_rehearsal, '', :class => 'form-control', :type => 'number', :min => 1 %>
+            <%= text_field_tag :party_rehearsal, '', :class => 'form-control', :type => 'number', :min => 1 %>
         </div>
-      </div>
+    </div>
 
-      <div class="form-group brunch">
+    <div class="form-group brunch">
         <%= label_tag :brunch, 'Will <i>everyone</i> in your party be attending the <strong>Sunday brunch</strong> on <strong>Sunday, July 26</strong>?'.html_safe, :class => 'control-label col-sm-4' %>
         <div class="col-sm-3">
-          <label class="radio-inline">
-            <input type="radio" name="rsvp_brunch" id="yes-brunch" value='1'> Yes
-          </label>
-          <label class="radio-inline">
-            <input type="radio" name="rsvp_brunch" id="no-brunch" value='0'> No
-          </label>
+            <label class="radio-inline">
+                <input type="radio" name="rsvp_brunch" id="yes-brunch" value='1'> Yes
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="rsvp_brunch" id="no-brunch" value='0'> No
+            </label>
         </div>
-      </div>
-      <div id="party-size-brunch" class="form-group">
+    </div>
+    <div id="party-size-brunch" class="form-group">
         <%= label_tag :party_brunch, 'How many people will be attending the Sunday brunch?', :class => 'control-label col-sm-4' %>
         <div class="col-sm-3">
-          <%= text_field_tag :party_brunch, '', :class => 'form-control', :type => 'number', :min => 1 %>
+            <%= text_field_tag :party_brunch, '', :class => 'form-control', :type => 'number', :min => 1 %>
         </div>
-      </div>
+    </div>
 
-      <div id='details' class='hidden'>
-        <h3 id='preferences'>Meal Preferences for Reception</h3>
+    <div id='details' class='hidden'>
+        <h3 id='preferences'>Party Guests</h3>
 
         <div class="form-group meal-preference">
-          <%= label_tag :meal, 'Meal Preference', :class => 'meal control-label col-sm-4' %>
-          <div class="col-sm-6">
-            <%= select_tag :meal, options_for_select(["Chicken", "Beef", "Child"], ''), :include_blank => true, :class => 'form-control' %>
+          <%= label_tag :meal, 'Meal Preference', :class => 'meal control-label col-sm-6' %>
+          <div class="col-sm-6 hidden">
+            <%= select_tag :meal, options_for_select(["Chicken", "Beef", "Child"], 'Chicken'), :include_blank => true, :class => 'form-control' %>
           </div>
         </div>
       </div>
