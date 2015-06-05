@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Jessica &hearts; Fred</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag 'lavish-bootstrap' %>
-  <%= stylesheet_link_tag 'photos' %>
+    <title>Jessica &hearts; Fred</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'lavish-bootstrap' %>
+    <%= stylesheet_link_tag 'jquery-ui.min' %>
+    <%= stylesheet_link_tag 'photos' %>
 
-  <!--[if IE]>
+    <!--[if IE]>
   <%= stylesheet_link_tag 'ie' %>
   <![endif]-->
 
-  <%= javascript_include_tag 'jquery.min' %>
-  <%= javascript_include_tag 'jquery.lazyload.min' %>
-  <%= javascript_include_tag 'bootstrap.min' %>
-  <%= javascript_include_tag params[:controller] %>
-  <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= javascript_include_tag 'jquery.min' %>
+    <%= javascript_include_tag 'jquery-ui.min' %>
+    <%= javascript_include_tag 'jquery.lazyload.min' %>
+    <%= javascript_include_tag 'bootstrap.min' %>
+    <%= javascript_include_tag params[:controller] %>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body class="<%= 'admin' if self.request.fullpath.include? 'users' %>">
 
 <%= render 'layouts/header' %>
 
 <div class="container<%= ' registry' if self.controller.action_name == 'registry' %><%= ' admin-container' if self.request.fullpath.include? 'users' %>">
-  <div class="col-xs-12">
-    <%= render 'layouts/alerts' %>
-    <%= yield %>
-  </div>
+    <div class="col-xs-12">
+        <%= render 'layouts/alerts' %>
+        <%= yield %>
+    </div>
 </div>
 
 <%= javascript_include_tag 'google_analytics' %>
