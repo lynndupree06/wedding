@@ -7,11 +7,15 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
         if (rehearsal) {
             $('.rehearsal').show();
             $('.rehearsal').find('input#yes-rehearsal').attr('required', 'required');
+        } else {
+            $('.rehearsal').hide();
         }
 
         if (brunch) {
             $('.brunch').show();
             $('.brunch').find('input#yes-brunch').attr('required', 'required');
+        } else {
+            $('.brunch').hide();
         }
 
     }
@@ -52,8 +56,6 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
                     source: parties,
 
                     select: function (event, ui) {
-                        $('.rehearsal').hide();
-                        $('.brunch').hide();
                         if (!ui.item) {
                             this.value = '';
                             removePartyAndGuests();
@@ -65,8 +67,6 @@ function setup_rsvp(partySizeInput, detailsPanel, $mealDiv, $partyDiv) {
                     },
 
                     select: function (event, ui) {
-                        $('.rehearsal').hide();
-                        $('.brunch').hide();
                         $(this).val(ui.item ? ui.item : " ");
 
                         if (!ui.item) {
