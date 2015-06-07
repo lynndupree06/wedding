@@ -1,8 +1,10 @@
-.registry {
+@media (min-width: 1195px) {
+  .registry {
     width: 1050px !important;
 
     .registry-list {
-		height: 550px;
-	  	overflow: scroll;
-	}
+      height: 550px;
+      overflow: scroll;
+    }
+  }
 }
