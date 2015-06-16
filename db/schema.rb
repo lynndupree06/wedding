@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20141204015809) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "groups", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -26,8 +29,19 @@ ActiveRecord::Schema.define(version: 20141204015809) do
     t.integer  "guest_id"
   end
 
-# Could not dump table "guests" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "guests", force: true do |t|
+    t.string   "last_name"
+    t.string   "first_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.string   "suffix"
+    t.integer  "party_id"
+    t.string   "gender"
+    t.boolean  "child"
+    t.string   "meal_option"
+    t.integer  "table"
+  end
 
   create_table "parties", force: true do |t|
     t.string   "name"
@@ -88,7 +102,7 @@ ActiveRecord::Schema.define(version: 20141204015809) do
     t.string   "last_sign_in_ip"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

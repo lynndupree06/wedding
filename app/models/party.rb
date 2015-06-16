@@ -80,15 +80,24 @@ class Party < ActiveRecord::Base
 
         child_idx = 0
         while num_of_guests > idx && guest_first_name != p.guests[idx].first_name
+          if child[child_idx].nil?
+            child[child_idx] = {:first_name => '', :last_name => ''}
+          end
+
           child[child_idx][:first_name] = p.guests[idx].first_name || "Unknown"
           child[child_idx][:last_name] = p.guests[idx].last_name
           child_idx = child_idx + 1
           idx = idx + 1
         end
 
-        csv << [first_name, last_name, guest_first_name, guest_last_name,
-                child[0][:first_name], child[0][:last_name], child[1][:first_name], child[1][:last_name],
-                child[2][:first_name], child[2][:last_name], child[3][:first_name], child[3][:last_name]]
+        row = [first_name, last_name, guest_first_name, guest_last_name]
+
+        child.each do |c|
+          row << c[:first_name]
+          row << c[:last_name]
+        end
+
+        csv << row
       end
     end
   end

@@ -20,10 +20,11 @@ gem 'aws-sdk'
 gem 'rqrcode'
 gem 'actionpack', '~> 4.1'
 gem 'bower-rails'
+gem 'pg'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
-  gem 'sqlite3'
+  # gem 'sqlite3'
   gem 'spring', '1.1.2'
   gem 'pry'
   gem 'pry-remote'
@@ -32,7 +33,6 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
 
