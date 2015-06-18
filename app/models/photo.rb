@@ -6,7 +6,7 @@ class Photo < ActiveRecord::Base
                     },
                     :default_url => '/images/:style/missing.png',
                     :storage => :s3,
-                    :bucket => AppConstants.s3_bucket_name,
+                    :bucket => ENV['S3_BUCKET_NAME'],
                     :s3_credentials => Proc.new{|a| a.instance.s3_credentials },
                     :url => '/photos/:id/:style/:basename.:extension',
                     :path => 'photos/:id/:style/:basename.:extension'
@@ -15,9 +15,9 @@ class Photo < ActiveRecord::Base
 
   def s3_credentials
     {
-        :bucket => AppConstants.s3_bucket_name,
-        :access_key_id => AppConstants.aws_access_key_id,
-        :secret_access_key => AppConstants.aws_secret_access_key
+        :bucket => ENV['S3_BUCKET_NAME'],
+        :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+        :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   end
 end
