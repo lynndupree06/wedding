@@ -82,8 +82,8 @@ class HomeController < ApplicationController
     parties = nil
 
     if params[:id] == 'JFK2015'
-      parties = Party.joins(:guests).select(:first_name, :last_name, :id).where('rsvp != ? OR rsvp IS NULL', true)
-        .map{|p| { :label => "#{p.first_name} #{p.last_name}", :party_id => p.id} }
+      parties = Party.joins(:guests).select(:first_name, :last_name, :id, :suffix).where('(rsvp != ? OR rsvp IS NULL) AND a_b_list = ?', true, 'A')
+        .map{|p| { :label => "#{p.first_name} #{p.last_name} #{p.suffix}", :party_id => p.id} }
     end
 
     render json: {:parties => parties}
