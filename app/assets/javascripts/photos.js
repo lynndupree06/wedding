@@ -38,11 +38,14 @@ function setupPhotoDisplay(engagement_size, party_size, shower_size) {
     switch (idNumber) {
       case 0:
         if (type === 'engagement') {
-          idNumber = party_size;
-          type = 'party';
+          idNumber = shower_size;
+          type = 'shower';
         } else if (type === 'party') {
           idNumber = engagement_size;
           type = 'engagement';
+        } else if (type === 'shower') {
+          idNumber = party_size;
+          type = 'party';
         }
         break;
       case (engagement_size + 1):
@@ -53,6 +56,12 @@ function setupPhotoDisplay(engagement_size, party_size, shower_size) {
         break;
       case (party_size + 1):
         if(type === 'party') {
+          idNumber = 1;
+          type = 'shower';
+        }
+        break;
+      case (shower_size + 1):
+        if(type === 'shower') {
           idNumber = 1;
           type = 'engagement';
         }
