@@ -1,4 +1,4 @@
-function setupPhotoDisplay(engagement_size, party_size) {
+function setupPhotoDisplay(engagement_size, party_size, shower_size) {
   $("img.lazy").show().lazyload({
     effect: "fadeIn"
   });
@@ -21,6 +21,8 @@ function setupPhotoDisplay(engagement_size, party_size) {
       $('.modal-title').html('Engagement Photos: ' + id + ' of ' + engagement_size);
     } else if (category === 'party') {
       $('.modal-title').html('Engagement Party Photos: ' + id + ' of ' + party_size);
+    } else if (category === 'shower') {
+      $('.modal-title').html('Wedding Shower Photos: ' + id + ' of ' + shower_size);
     }
   }
 
