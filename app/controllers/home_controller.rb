@@ -31,6 +31,7 @@ class HomeController < ApplicationController
     @photos = {}
     @photos[:engagement] = Photo.all.where(:category => 'Engagement Photos').reorder(:avatar_file_name)
     @photos[:party] = Photo.all.where(:category => 'Engagement Party').reorder(:avatar_file_name)
+    @photos[:shower] = Photo.all.where(:category => 'Wedding Shower').reorder(:avatar_file_name)
     render :layout => 'application'
   end
 
