@@ -228,7 +228,7 @@
         });
       } else if (list === 'RSVP') {
         angular.forEach(parties, function (party) {
-          if(party.rsvp) {
+          if(party.rsvp === true) {
             filtered.push(party);
           }
         });
