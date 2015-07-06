@@ -226,6 +226,12 @@
             filtered.push(party);
           }
         });
+      } else if (list === 'RSVP') {
+        angular.forEach(parties, function (party) {
+          if(party.rsvp) {
+            filtered.push(party);
+          }
+        });
       } else {
         angular.forEach(parties, function (party) {
           if (party.a_b_list === list) {
