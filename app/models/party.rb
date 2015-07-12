@@ -70,9 +70,6 @@ class Party < ActiveRecord::Base
 
           main_guest = p.guests[idx]
 
-          # Add suffix if suffix exists
-          last_name << ", #{p.guests[idx].suffix}" if p.guests[idx].suffix.present?
-
           # if there is more than one guest
           if num_of_guests > 1
             # add all the other guests other than the first guest
@@ -102,7 +99,10 @@ class Party < ActiveRecord::Base
         row = [main_guest.first_name, main_guest.last_name]
         if second_guest
           row << second_guest.first_name
-          row << second_guest.last_name
+          last_name = second_guest.last_name
+          # Add suffix if suffix exists
+          last_name << ", #{p.guests[idx].suffix}" if p.guests[idx].suffix.present?
+          row << last_name
         else
           row << ''
           row << ''
