@@ -52,8 +52,6 @@ class Party < ActiveRecord::Base
       Party.where(:a_b_list => list).order(:name).where(:rsvp => true).each do |p|
         num_of_guests = p.size
 
-        guest_first_name = ''
-        guest_last_name = ''
         child = []
         child[0] = {:first_name => '', :last_name => ''}
         child[1] = {:first_name => '', :last_name => ''}
@@ -70,8 +68,7 @@ class Party < ActiveRecord::Base
             idx = idx + 1
           end
 
-          first_name = p.guests[idx].first_name
-          last_name = p.guests[idx].last_name
+          main_guest = p.guests[idx]
 
           # Add suffix if suffix exists
           last_name << ", #{p.guests[idx].suffix}" if p.guests[idx].suffix.present?
@@ -80,20 +77,19 @@ class Party < ActiveRecord::Base
           if num_of_guests > 1
             # add all the other guests other than the first guest
             idx = 0
-            while p.guests[idx].first_name == first_name && p.guests[idx].last_name == last_name
+            while p.guests[idx] == main_guest
               idx = idx + 1
             end
 
             # add guest
-            guest_first_name = p.guests[idx].first_name || "Unknown"
-            guest_last_name = p.guests[idx].last_name
+            second_guest = p.guests[idx] # = p.guests[idx].first_name || "Unknown"
 
             # add children/other guests
             idx = 0
             child_idx = 0
 
             p.guests.each do |guest| 
-              if guest.first_name != first_name && guest.first_name != guest_first_name && guest.last_name != last_name && guest.last_name != guest_last_name
+              if guest != main_guest && guest != second_guest
                 child[child_idx][:first_name] = guest.first_name
                 child[child_idx][:last_name] = guest.last_name
                 child_idx = child_idx + 1
@@ -103,7 +99,14 @@ class Party < ActiveRecord::Base
 
         end
 
-        row = [first_name, last_name, guest_first_name, guest_last_name]
+        row = [main_guest.first_name, main_guest.last_name]
+        if second_guest
+          row << second_guest.first_name
+          row << second_guest.last_name
+        else
+          row << ''
+          row << ''
+        end
 
         child.each do |c|
           row << c[:first_name]
