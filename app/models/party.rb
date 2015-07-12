@@ -50,14 +50,7 @@ class Party < ActiveRecord::Base
               'Child First Name 3', 'Child Last Name 3', 'Child First Name 4', 'Child Last Name 4']
 
       Party.where(:a_b_list => list).order(:name).where(:rsvp => true).each do |p|
-        num_of_guests = p.guests.size
-
-        idx = 0
-        if p.guests.present?
-          first_name = p.guests[idx].first_name
-          last_name = p.guests[idx].last_name
-        end
-        # last_name << ", #{p.guests[idx].suffix}" if p.guests[idx].suffix.present?
+        num_of_guests = p.size
 
         guest_first_name = ''
         guest_last_name = ''
@@ -66,28 +59,48 @@ class Party < ActiveRecord::Base
         child[1] = {:first_name => '', :last_name => ''}
         child[2] = {:first_name => '', :last_name => ''}
         child[3] = {:first_name => '', :last_name => ''}
+        child[4] = {:first_name => '', :last_name => ''}
+        child[5] = {:first_name => '', :last_name => ''}
+        child[6] = {:first_name => '', :last_name => ''}
 
-        idx = idx + 1
-        guest_idx = idx
-        while num_of_guests > guest_idx && guest_first_name.blank?
-          if !p.guests[idx].child
-            guest_first_name = p.guests[idx].first_name || "Unknown"
-            guest_last_name = p.guests[idx].last_name
+        # get first non-chlid guest
+        idx = 0
+        if p.guests.present?
+          while p.guests[idx].child
             idx = idx + 1
           end
-          guest_idx = guest_idx + 1
-        end
 
-        child_idx = 0
-        while num_of_guests > idx && guest_first_name != p.guests[idx].first_name
-          if child[child_idx].nil?
-            child[child_idx] = {:first_name => '', :last_name => ''}
+          first_name = p.guests[idx].first_name
+          last_name = p.guests[idx].last_name
+
+          # Add suffix if suffix exists
+          last_name << ", #{p.guests[idx].suffix}" if p.guests[idx].suffix.present?
+
+          # if there is more than one guest
+          if num_of_guests > 1
+            # add all the other guests other than the first guest
+            idx = 0
+            while p.guests[idx].first_name == first_name && p.guests[idx].last_name == last_name
+              idx = idx + 1
+            end
+
+            # add guest
+            guest_first_name = p.guests[idx].first_name || "Unknown"
+            guest_last_name = p.guests[idx].last_name
+
+            # add children/other guests
+            idx = 0
+            child_idx = 0
+
+            p.guests.each do |guest| 
+              if guest.first_name != first_name && guest.first_name != guest_first_name
+                child[child_idx][:first_name] = guest.first_name
+                child[child_idx][:last_name] = guest.last_name
+                child_idx = child_idx + 1
+              end
+            end
           end
 
-          child[child_idx][:first_name] = p.guests[idx].first_name || "Unknown"
-          child[child_idx][:last_name] = p.guests[idx].last_name
-          child_idx = child_idx + 1
-          idx = idx + 1
         end
 
         row = [first_name, last_name, guest_first_name, guest_last_name]

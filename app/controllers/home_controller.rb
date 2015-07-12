@@ -186,7 +186,7 @@ class HomeController < ApplicationController
     end
 
     while guests[idx].present?
-      if guests[idx].first_name.include?('Guest')
+      if guests[idx].first_name && guests[idx].first_name.include?('Guest')
         guests[idx].destroy
       end
       idx = idx + 1
