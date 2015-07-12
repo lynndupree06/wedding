@@ -93,8 +93,7 @@ class Party < ActiveRecord::Base
             child_idx = 0
 
             p.guests.each do |guest| 
-              if guest.first_name != first_name && guest.first_name != guest_first_name 
-                && guest.last_name != last_name && guest.last_name != guest_last_name
+              if guest.first_name != first_name && guest.first_name != guest_first_name && guest.last_name != last_name && guest.last_name != guest_last_name
                 child[child_idx][:first_name] = guest.first_name
                 child[child_idx][:last_name] = guest.last_name
                 child_idx = child_idx + 1
