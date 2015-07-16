@@ -3,6 +3,17 @@ class Party < ActiveRecord::Base
 
   has_many :guests
 
+  def self.rsvp_details
+    CSV.generate do |csv|
+      csv << %w(PartyName Guest1_FirstName Guest2_LastName RSVP RSVP_Size Guests)
+
+      Party.order(:name).where(:a_b_list => 'A').each do |p|
+        guests = p.guests.map(&:first_name).join(',').split(',')
+        csv << [p.name, p.guests.first.first_name, p.guests.first.last_name, p.rsvp, p.size, guests]
+      end
+    end
+  end
+
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       csv << %w(PartyName Name Address City State PostalCode Country)
@@ -15,7 +26,7 @@ class Party < ActiveRecord::Base
 
   def self.to_csv_detail
     CSV.generate do |csv|
-      csv << %w(PartyName Size Address City State PostalCode Country Guests, Group)
+      csv << %w(PartyName Size Address City State PostalCode Country Guests Group)
 
       Party.order(:name).where(:a_b_list => 'A').each do |p|
         guests = p.guests.map(&:first_name).join(',').split(',')

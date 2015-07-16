@@ -103,6 +103,13 @@ class PartiesController < AdminController
     end
   end
 
+  def get_party_details
+    respond_to do |format|
+      format.html { redirect_to parties_path }
+      format.csv { send_data Party.rsvp_details }
+    end
+  end
+
   def create_outer_labels
     respond_to do |format|
       format.html { redirect_to parties_path }

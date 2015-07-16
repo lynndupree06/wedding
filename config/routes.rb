@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/outer_labels' => 'parties#create_outer_labels'
   get '/place_cards' => 'parties#create_place_card_labels'
   get '/seating_chart' => 'parties#get_seating_chart_data'
+  get '/rsvp_details' => 'parties#get_party_details'
   get '/tags' => 'parties#tags'
   get '/rsvp_cards' => 'parties#rsvp_cards'
   get '/detail' => 'parties#detail_list'
