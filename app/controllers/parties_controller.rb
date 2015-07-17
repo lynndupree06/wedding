@@ -103,6 +103,17 @@ class PartiesController < AdminController
     end
   end
 
+  def send_rehearsal_email
+    Party.where('size_rehearsal > 0').all.each do |p|
+      PartyNotifier.send_rehearsal_invite(p).deliver
+    end
+
+    respond_to do |format|
+      format.html { redirect_to parties_url, notice: "Rehearsal invitations were successfully sent." }
+      format.json { head :no_content }
+    end
+  end
+
   def get_party_details
     respond_to do |format|
       format.html { redirect_to parties_path }

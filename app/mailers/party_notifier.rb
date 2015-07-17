@@ -21,4 +21,9 @@ class PartyNotifier < ActionMailer::Base
       party.save!
     end
   end
+
+  def send_rehearsal_invite(party)
+    mail(:to => party.email,
+          :subject => 'You are invited to our Rehearsal Dinner!')
+  end
 end
