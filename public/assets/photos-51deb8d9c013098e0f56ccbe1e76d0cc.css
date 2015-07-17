@@ -1,0 +1,50 @@
+/* line 2, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/photos.css.scss */
+section.images {
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-align-content: stretch;
+      -ms-flex-line-pack: stretch;
+          align-content: stretch;
+}
+/* line 13, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/photos.css.scss */
+section.images ul {
+  padding: 0;
+}
+/* line 17, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/photos.css.scss */
+section.images img {
+  height: 250px;
+  width: auto !important;
+  cursor: pointer;
+}
+/* line 22, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/photos.css.scss */
+section.images img.lazy {
+  display: none;
+}
+
+/* line 32, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/photos.css.scss */
+.container .modal .modal-header h3 {
+  font-family: PoiretOne;
+  text-align: center;
+}
+/* line 38, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/photos.css.scss */
+.container .modal .carousel img {
+  width: auto;
+  height: auto;
+}
+
+@media (max-width: 765px) {
+  /* line 50, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/photos.css.scss */
+  section.images ul a {
+    font-size: 10px;
+  }
+}

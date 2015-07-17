@@ -1,0 +1,107 @@
+/* line 7, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/our_story.css.scss */
+.container .info-box section.our-story p {
+  width: 45%;
+}
+/* line 11, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/our_story.css.scss */
+.container .info-box section.our-story .vertical-line {
+  background-color: #ffafa3;
+  width: 1px;
+  height: 89%;
+  position: absolute;
+  left: 50%;
+}
+/* line 20, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/our_story.css.scss */
+.container .info-box section.our-story .our-story-section p {
+  min-height: 250px;
+  vertical-align: middle;
+}
+/* line 26, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/our_story.css.scss */
+.container .info-box section.our-story .heart-divider {
+  position: absolute;
+  background-color: white;
+  padding: 8px;
+  font-size: 20px;
+  color: #ffafa3;
+}
+/* line 33, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/our_story.css.scss */
+.container .info-box section.our-story .heart-divider .title {
+  font-size: 30px;
+  color: #000;
+  font-family: GreatVibes-Regular;
+}
+/* line 39, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/our_story.css.scss */
+.container .info-box section.our-story .heart-divider.left {
+  left: 48%;
+}
+/* line 41, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/our_story.css.scss */
+.container .info-box section.our-story .heart-divider.left .title {
+  margin-left: 5px;
+}
+/* line 46, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/our_story.css.scss */
+.container .info-box section.our-story .heart-divider.right {
+  right: 48%;
+}
+/* line 48, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/our_story.css.scss */
+.container .info-box section.our-story .heart-divider.right .title {
+  margin-right: 5px;
+}
+/* line 54, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/our_story.css.scss */
+.container .info-box section.our-story h1 {
+  font-size: 35px;
+  width: 50%;
+}
+/* line 59, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/our_story.css.scss */
+.container .info-box section.our-story img {
+  height: auto !important;
+  max-width: 45% !important;
+  margin: 60px 15px 15px 15px;
+}
+
+@media (max-width: 765px) {
+  /* line 74, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/our_story.css.scss */
+  .container .info-box section.our-story p {
+    width: 100%;
+  }
+  /* line 78, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/our_story.css.scss */
+  .container .info-box section.our-story img {
+    margin: 10px 0;
+  }
+  /* line 82, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/our_story.css.scss */
+  .container .info-box section.our-story .vertical-line {
+    background: none;
+  }
+  /* line 87, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/our_story.css.scss */
+  .container .info-box section.our-story .our-story-section p {
+    min-height: 50px;
+  }
+  /* line 90, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/our_story.css.scss */
+  .container .info-box section.our-story .our-story-section .right, .container .info-box section.our-story .our-story-section .left {
+    float: none;
+  }
+  /* line 95, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/our_story.css.scss */
+  .container .info-box section.our-story .heart-divider {
+    position: inherit;
+  }
+  /* line 98, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/our_story.css.scss */
+  .container .info-box section.our-story .heart-divider .heart {
+    display: none;
+  }
+  /* line 102, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/our_story.css.scss */
+  .container .info-box section.our-story .heart-divider .title {
+    font-size: 22px;
+  }
+  /* line 106, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/our_story.css.scss */
+  .container .info-box section.our-story .heart-divider.left {
+    left: 0;
+  }
+  /* line 110, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/our_story.css.scss */
+  .container .info-box section.our-story .heart-divider.right {
+    right: 0;
+  }
+}
+@media (max-width: 360px) {
+  /* line 126, /Users/jbrazelt/dev/projects/web/kazembe-brazelton-wedding/app/assets/stylesheets/our_story.css.scss */
+  .container .info-box section.our-story .heart-divider .title {
+    font-size: 12px;
+  }
+}
